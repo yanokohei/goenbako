@@ -42,3 +42,6 @@ Twitterユーザー同士で紹介文を書いて共有することが出来る�
 ## マーケット
 
 ユーザー同士の縁を広げたり、交流を深めたい全てのTwitterユーザー。
+
+## 画面遷移図
+https://www.figma.com/file/xh37pEDJTLxOfRJ3W5JWGW/%E3%81%94%E7%B8%81%E7%AE%B1MVP?node-id=0%3A1
