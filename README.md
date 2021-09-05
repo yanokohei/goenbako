@@ -45,3 +45,6 @@ Twitterユーザー同士でテーマに沿ったレターを書いて共有す�
 
 ## 画面遷移図
 https://www.figma.com/file/xh37pEDJTLxOfRJ3W5JWGW/%E3%81%94%E7%B8%81%E7%AE%B1MVP?node-id=0%3A1
+
+## ER図
+https://drive.google.com/file/d/1Ec41gi2mbKK_FU5KvEi5tq8ACpQicek8/view?usp=sharing
