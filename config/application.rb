@@ -31,5 +31,11 @@ module Goenbako
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.generators do |g|
+      g.assets false
+      g.skip_routes true
+      g.helper false
+      g.test_framework false
+    end
   end
 end
