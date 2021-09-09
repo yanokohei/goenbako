@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <title>Goenbako</title>
+    <%= link_to 'Login with Twitter', auth_at_provider_path(:provider => :twitter) %> |
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
