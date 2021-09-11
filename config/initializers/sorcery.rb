@@ -119,9 +119,9 @@ Rails.application.config.sorcery.configure do |config|
   config.twitter.secret = Rails.application.credentials.twitter[:secret]
   config.twitter.callback_url = 'http://127.0.0.1:3000/oauth/callback?provider=twitter'
   config.twitter.user_info_mapping = {
-    twitter_id: 'id',
-    name: 'screen_name',
-    image: 'profile_image_url',
+    twitter_id: 'screen_name',
+    name: 'name',
+    image: 'profile_image_url_https',
     introduce: 'description',
   }
   #
