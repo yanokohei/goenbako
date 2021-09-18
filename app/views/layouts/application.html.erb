@@ -3,7 +3,6 @@
   <head>
 
     <title>Goenbako</title>
-    <%= link_to 'Login with Twitter', auth_at_provider_path(:provider => :twitter) %> |
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,6 +14,12 @@
   </head>
 
   <body>
+    <% if logged_in? %>
+      <%= render 'shared/header' %>
+    <% else %>
+      <%= render 'shared/not_login_header' %>
+    <% end %>
     <%= yield %>
+    <%= render 'shared/footer' %>
   </body>
 </html>
