@@ -3,16 +3,23 @@
   <head>
 
     <title>Goenbako</title>
-    <%= link_to 'Login with Twitter', auth_at_provider_path(:provider => :twitter) %> |
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <% if logged_in? %>
+      <%= render 'shared/header' %>
+    <% else %>
+      <%= render 'shared/not_login_header' %>
+    <% end %>
     <%= yield %>
+    <%= render 'shared/footer' %>
   </body>
 </html>

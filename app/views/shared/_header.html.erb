@@ -1,0 +1,14 @@
+<div class="font-bold py-2 px-4 rounded bg-yellow-500 text-white">
+
+  <%= link_to 'ご縁箱', root_path %>
+  <div class="font-bold py-2 px-4 rounded bg-yellow-500 text-white hover:bg-yellow-400">
+    <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', method: :delete %>
+  </div>
+</div>
+
+<div class="bg-white shadow p-4 rounded lg:w-64">
+  <div class="mt-6 flex justify-between text-center">
+    <%= link_to 'ご縁箱', root_path %>
+    <%= link_to 'ログアウト', logout_path, method: :delete %>
+  </div>
+</div>

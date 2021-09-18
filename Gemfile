@@ -52,6 +52,7 @@ group :development do
   gem 'bullet'
   gem 'sorcery'
   gem 'dotenv-rails'
+  gem 'tailwindcss-rails'
 end
 
 group :test do

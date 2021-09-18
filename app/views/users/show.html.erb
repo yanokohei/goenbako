@@ -1,6 +1,33 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<%= @user.name %>
-<%= @user.twitter_id %>
-<%= image_tag @user.image %>
-<%= @user.introduce %>
+
+<li class="flex w-80 bg-gray-200 p-2 rounded-md items-center">
+  <%= image_tag @user.image %>
+  <div class="ml-4">
+    <p>
+      <%= @user.name %>
+    </p>
+    <p class="text-xs mt-1 text-gray-600">
+      <%= @user.twitter_id %>
+    </p>
+      <p class="ml-4">
+      <%= @user.introduce %>
+    </p>
+  </div>
+</li>
+
+<figure class="md:flex bg-gray-100 rounded-xl p-8 md:p-0">
+  <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
+    <figcaption class="font-medium">
+      <div class="text-cyan-600">
+        <%= @user.name %>
+      </div>
+      <div class="text-gray-500">
+        <%= @user.twitter_id %>
+      </div>
+    </figcaption>
+    <blockquote>
+      <p class="text-lg font-semibold">
+        <%= @user.introduce %>
+      </p>
+    </blockquote>
+  </div>
+</figure>
