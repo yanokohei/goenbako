@@ -1,0 +1,32 @@
+<template>
+  <div class="m-8 flex drop-shadow-2xl sm:flex-row">
+    <div
+      class="w-80 shadow-2xl bg-blue-100 p-4 text-gray-500 text-center flex flex-col justify-center"
+    >
+      Twitter認証して始める
+      <p class="text-sm mt-2">
+        You can send fan letters to your dearest friends and share the fan
+        letters you receive.
+      </p>
+      <button
+        class="bg-blue-400 mx-auto hover:bg-blue-500 contrast-200 mt-4 rounded-full cursor-pointer animate-bounce text-white text-sm px-4 py-2 w-3/5"
+      >
+        link_to 'Twitter認証', auth_at_provider_path(:provider => :twitter)
+      </button>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "TopIndex",
+  data() {
+    return {
+      title: "ご縁箱",
+    };
+  },
+};
+</script>
+
+<style scoped>
+</style>
