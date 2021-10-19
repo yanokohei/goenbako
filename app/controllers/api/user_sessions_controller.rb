@@ -1,4 +1,4 @@
-class UserSessionsController < ApplicationController
+class Api::UserSessionsController < ApplicationController
   def destroy
     logout
     redirect_to root_path, notice: 'ログアウトしました'

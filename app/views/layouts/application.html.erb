@@ -15,12 +15,7 @@
   </head>
 
   <body>
-    <% if logged_in? %>
-      <%= render 'shared/header' %>
-    <% else %>
-      <%= render 'shared/not_login_header' %>
-    <% end %>
+  <div id='app'></div>
     <%= yield %>
-    <%= render 'shared/footer' %>
   </body>
 </html>
