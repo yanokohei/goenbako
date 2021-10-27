@@ -5,7 +5,7 @@
   >
     <v-btn
       value="home"
-      to="/"
+      to="mypage"
     >
       <span>Home</span>
 
@@ -22,6 +22,16 @@
       <span>Share</span>
 
       <v-icon>mdi-twitter</v-icon>
+    </v-btn>
+
+    <v-btn
+      value="logout"
+      to="/api/logout"
+      data-method="delete"
+    >
+      <span>Logout</span>
+
+      <v-icon>mdi-home</v-icon>
     </v-btn>
   </v-bottom-navigation>
 </template>
