@@ -4,6 +4,11 @@ class Api::UsersController < ApplicationController
     render json: @user
   end
 
+  def me
+    @user = User.find(current_user.id)
+    render json: @user
+  end
+
   def edit; end
 
   def update; end
