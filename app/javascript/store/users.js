@@ -11,7 +11,6 @@ const getters = {
 const mutations = {
   setCurrentUser(state, user) {
     state.currentUser = user
-    console.log(state.currentUser)
   }
 }
 
@@ -26,13 +25,19 @@ const actions = {
 
   async getCurrentUserFromAPI({ commit }) {
     try {
-      const response = await axios.get("/api/users/")
+      const response = await axios.get("/users/me")
       commit("setCurrentUser", response.data.user)
       return response.data.user
     } catch (err) {
       return null
     }
   },
+
+  // getCurrentUserFromAPI({ commit }) {
+  //   axios.get("/users/me").then((res.data) => {
+  //     commit("setCurrentUser", res.data);
+  //   });
+  // }
 }
 
 export default {

@@ -56,7 +56,6 @@
   <!-- タブメニュー -->
     <v-card>
       <v-tabs
-        v-model="tab"
         background-color="amber lighten-5"
         centered
         icons-and-text
@@ -73,40 +72,35 @@
           送ったファンレター
         </v-tab>
       </v-tabs>
-
-      <!-- <v-tabs-items v-model="tab">
-        <v-tab-item
-          v-for="i in 3"
-          :key="i"
-          :value="'tab-' + i"
-        >
-          <v-card flat>
-            <v-card-text>{{ text }}</v-card-text>
-          </v-card>
-        </v-tab-item>
-      </v-tabs-items> -->
     </v-card>
   </v-container>
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex"
+
 export default {
   name: "UserIndex",
   data() {
     return {
-      user: {
-
-      }
+      user: {},
     };
   },
+  computed: {
+    ...mapGetters({ currentUser: "users/currentUser" }),
+  },
+  created() {
+    // 他人のユーザー詳細ページにURLからアクセスした場合もログイン状態を取得したい
+    this.$axios.get("/users/me")
+    .then((res) => {
+      this.login = res.data
+      this.$store.commit('users/setCurrentUser', res.data)
+    })
+  },
   mounted() {
-    console.log(this.$route.params.id);
-    const url =`http://127.0.0.1:3000/api/users/${this.$route.params.id}`
-    this.$axios.get(url)
+    this.$axios.get(`http://127.0.0.1:3000/api/users/${this.$route.params.id}`)
     .then((res) => {
       this.user = res.data
-      console.log(res)
-      this.$store.commit('users/setCurrentUser', res.data)
     })
   }
 };
