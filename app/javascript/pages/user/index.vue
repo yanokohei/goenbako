@@ -93,7 +93,7 @@ export default {
     // 他人のユーザー詳細ページにURLからアクセスした場合もログイン状態を取得したい
     this.$axios.get("/users/me")
     .then((res) => {
-      this.login = res.data
+      this.user = res.data
       this.$store.commit('users/setCurrentUser', res.data)
     })
   },
