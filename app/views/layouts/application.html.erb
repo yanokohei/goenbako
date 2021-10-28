@@ -15,12 +15,7 @@
   </head>
 
   <body>
-    <% if logged_in? %>
-      <%= render 'shared/header' %>
-    <% else %>
-      <%= render 'shared/not_login_header' %>
-    <% end %>
-    <%= yield %>
-    <%= render 'shared/footer' %>
+  <div id='app'></div>
+    <%= javascript_pack_tag 'hello_vue' %>
   </body>
 </html>

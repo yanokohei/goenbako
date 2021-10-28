@@ -1,22 +1,28 @@
 <template>
   <div id="app">
-    <p>{{ message }}</p>
+    <v-app>
+      <TheHeader />
+      <router-view />
+      <TheBottomNavigation />
+      <TheFooter />
+    </v-app>
   </div>
 </template>
 
 <script>
+import TheHeader from "./components/shared/TheHeader";
+import TheFooter from "./components/shared/TheFooter";
+import TheBottomNavigation from "./components/shared/TheBottomNavigation";
+
 export default {
-  data: function () {
+  components: { TheHeader, TheFooter, TheBottomNavigation },
+  data() {
     return {
-      message: "Hello Vue!"
-    }
-  }
+    };
+  },
 }
 </script>
 
-<style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
+<style>
+
 </style>
