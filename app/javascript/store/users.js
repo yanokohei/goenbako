@@ -15,29 +15,17 @@ const mutations = {
 }
 
 const actions = {
-  getCurrentUser({ dispatch, state }) {
-    const { currentUser } = state
-    if (currentUser) {
-      return currentUser
-    }
-    return dispatch("getCurrentUserFromAPI")
+  getCurrentUser({ commit }) {
+    axios.get("/users/me").then((res) => {
+        commit("setCurrentUser", res.data)
+    });
   },
-
-  async getCurrentUserFromAPI({ commit }) {
-    try {
-      const response = await axios.get("/users/me")
-      commit("setCurrentUser", response.data.user)
-      return response.data.user
-    } catch (err) {
-      return null
-    }
-  },
-
-  // getCurrentUserFromAPI({ commit }) {
-  //   axios.get("/users/me").then((res.data) => {
-  //     commit("setCurrentUser", res.data);
-  //   });
-  // }
+  logoutUser({ commit }) {
+    axios.delete("/user_sessions/destroy").then(res => {
+      commit("setCurrentUser", res.data);
+    })
+    localStorage.removeItem('goenbakoApp');
+  }
 }
 
 export default {
@@ -45,5 +33,5 @@ export default {
   state,
   getters,
   mutations,
-  actions
+  actions,
 }

@@ -86,17 +86,6 @@ export default {
       user: {},
     };
   },
-  computed: {
-    ...mapGetters({ currentUser: "users/currentUser" }),
-  },
-  created() {
-    // 他人のユーザー詳細ページにURLからアクセスした場合もログイン状態を取得したい
-    this.$axios.get("/users/me")
-    .then((res) => {
-      this.user = res.data
-      this.$store.commit('users/setCurrentUser', res.data)
-    })
-  },
   mounted() {
     this.$axios.get(`http://127.0.0.1:3000/api/users/${this.$route.params.id}`)
     .then((res) => {

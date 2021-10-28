@@ -1,31 +1,29 @@
 <template>
   <v-bottom-navigation
-    v-model="value"
     absolute
   >
     <v-btn
-      value="home"
-      to="mypage"
+      :to="{ name: 'MypageIndex' }"
     >
       <span>Home</span>
 
       <v-icon>mdi-home</v-icon>
     </v-btn>
 
-    <v-btn value="write">
+    <v-btn>
       <span>Write</span>
 
       <v-icon>mdi-pencil</v-icon>
     </v-btn>
 
-    <v-btn value="share">
+    <v-btn>
       <span>Share</span>
 
       <v-icon>mdi-twitter</v-icon>
     </v-btn>
 
     <v-btn
-      value="logout"
+      @click="logoutUser"
       to="/api/logout"
       data-method="delete"
     >
@@ -38,6 +36,10 @@
 
 <script>
   export default {
-    data: () => ({ value: 'recent' }),
+  methods: {
+    logoutUser() {
+      this.$store.dispatch('users/logoutUser');
+    }
+  }
   }
 </script>
