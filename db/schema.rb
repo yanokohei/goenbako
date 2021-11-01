@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2021_10_31_071638) do
     t.bigint "from_user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["from_user_id", "to_user_id"], name: "index_letters_on_from_user_id_and_to_user_id", unique: true
     t.index ["from_user_id"], name: "index_letters_on_from_user_id"
   end
 

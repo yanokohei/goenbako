@@ -11,5 +11,6 @@ class CreateLetters < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :letters, [:from_user_id, :to_user_id], unique: :true
   end
 end

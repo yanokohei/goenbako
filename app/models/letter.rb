@@ -1,10 +1,12 @@
 class Letter < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, foreign_key: :from_user_id
 
   validates :to_user_id, presence: true, numericality: { only_integer: true }
-  validates :past, length: { maximum: 140 }
-  validates :current, length: { maximum: 140 }
-  validates :future, length: { maximum: 140 }
-  validates :expect, length: { maximum: 140 }
-  validates :message, length: { maximum: 140 }
+  with_options length: { maximum: 140 } do
+    validates :past
+    validates :current
+    validates :future
+    validates :expect
+    validates :message
+  end
 end
