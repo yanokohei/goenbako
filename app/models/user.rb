@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
   has_many :authentications, dependent: :destroy
-  has_many :letters, dependent: :destroy
+  has_many :send_letters, class_name: "Letter", foreign_key: :from_user_id, dependent: :destroy
+  has_many :received_letters, class_name: "Letter", foreign_key: :to_user_id, dependent: :destroy
+
   accepts_nested_attributes_for :authentications
 
 
