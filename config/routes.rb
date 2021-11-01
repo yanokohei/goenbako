@@ -12,6 +12,7 @@ Rails.application.routes.draw do
         get 'me'
       end
     end
+    resources :letters
   end
 
   get '*path', to: 'home#index'
