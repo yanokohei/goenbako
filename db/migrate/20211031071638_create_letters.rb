@@ -1,16 +1,15 @@
 class CreateLetters < ActiveRecord::Migration[6.0]
   def change
     create_table :letters do |t|
-      t.integer :to_user_id, null: false
+      t.references :sender, null: false, foreign_key: { to_table: :users }
+      t.references :receiver, null: false, foreign_key: { to_table: :users }
       t.string :past
       t.string :current
       t.string :future
       t.string :expect
       t.string :message
-      t.references :from_user, null: false, foreign_key: { to_table: :users }
 
       t.timestamps
     end
-    add_index :letters, [:from_user_id, :to_user_id], unique: :true
   end
 end

@@ -25,17 +25,17 @@ ActiveRecord::Schema.define(version: 2021_10_31_071638) do
   end
 
   create_table "letters", force: :cascade do |t|
-    t.integer "to_user_id", null: false
+    t.bigint "sender_id", null: false
+    t.bigint "receiver_id", null: false
     t.string "past"
     t.string "current"
     t.string "future"
     t.string "expect"
     t.string "message"
-    t.bigint "from_user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["from_user_id", "to_user_id"], name: "index_letters_on_from_user_id_and_to_user_id", unique: true
-    t.index ["from_user_id"], name: "index_letters_on_from_user_id"
+    t.index ["receiver_id"], name: "index_letters_on_receiver_id"
+    t.index ["sender_id"], name: "index_letters_on_sender_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,5 +49,6 @@ ActiveRecord::Schema.define(version: 2021_10_31_071638) do
     t.index ["twitter_id"], name: "index_users_on_twitter_id", unique: true
   end
 
-  add_foreign_key "letters", "users", column: "from_user_id"
+  add_foreign_key "letters", "users", column: "receiver_id"
+  add_foreign_key "letters", "users", column: "sender_id"
 end
