@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_08_061212) do
+ActiveRecord::Schema.define(version: 2021_10_31_071638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,20 @@ ActiveRecord::Schema.define(version: 2021_09_08_061212) do
     t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
   end
 
+  create_table "letters", force: :cascade do |t|
+    t.bigint "sender_id", null: false
+    t.bigint "receiver_id", null: false
+    t.string "past"
+    t.string "current"
+    t.string "future"
+    t.string "expect"
+    t.string "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["receiver_id"], name: "index_letters_on_receiver_id"
+    t.index ["sender_id"], name: "index_letters_on_sender_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "twitter_id", null: false
     t.string "name", null: false
@@ -35,4 +49,6 @@ ActiveRecord::Schema.define(version: 2021_09_08_061212) do
     t.index ["twitter_id"], name: "index_users_on_twitter_id", unique: true
   end
 
+  add_foreign_key "letters", "users", column: "receiver_id"
+  add_foreign_key "letters", "users", column: "sender_id"
 end
