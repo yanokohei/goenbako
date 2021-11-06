@@ -11,8 +11,12 @@ Rails.application.routes.draw do
       collection do
         get 'me'
       end
+      resources :letters
+      collection do
+        get :send_letters
+        get :received_letters
+      end
     end
-    resources :letters
   end
 
   get '*path', to: 'home#index'
