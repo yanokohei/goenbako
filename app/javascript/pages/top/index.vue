@@ -25,7 +25,6 @@
           Twitter認証して始める
         </v-btn>
       </v-col>
-      {{ currentUser }}
     </v-row>
   </v-container>
 </template>

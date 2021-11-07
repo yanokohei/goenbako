@@ -18,11 +18,25 @@ export default {
   components: { TheHeader, TheFooter, TheBottomNavigation },
   data() {
     return {
+      style: {
+        'background-color': '#ffffff'
+      }
     };
   },
 }
 </script>
 
-<style>
 
+<style scoped>
+#app {
+  --background-color: #F7F6F2;
+  background-color: var(--background-color);
+}
+
+.v-application{
+  font-family: "Maven Pro" !important;
+}
+/* .default {
+  background-color: #feeedc;
+} */
 </style>

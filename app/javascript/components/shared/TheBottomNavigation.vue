@@ -23,9 +23,9 @@
     </v-btn>
 
     <v-btn
-      @click="logoutUser"
       to="/api/logout"
       data-method="delete"
+      @click="logoutUser"
     >
       <span>Logout</span>
 
