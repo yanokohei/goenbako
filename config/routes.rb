@@ -11,9 +11,10 @@ Rails.application.routes.draw do
       collection do
         get 'me'
       end
-      resources :letters
+    end
+    resources :letters do
       collection do
-        get :send_letters
+        get :sent_letters
         get :received_letters
       end
     end
