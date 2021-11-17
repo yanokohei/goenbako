@@ -1,5 +1,5 @@
 class Api::LettersController < ApplicationController
-  before_action :set_letter, only: [:edit :update, :destroy]
+  before_action :set_letter, only: [:edit, :update, :destroy]
 
   def show
     render json: @letter

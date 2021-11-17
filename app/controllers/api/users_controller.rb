@@ -5,8 +5,7 @@ class Api::UsersController < ApplicationController
   end
 
   def me
-    @user = User.find(current_user.id)
-    render json: @user
+    render json: current_user
   end
 
   def edit; end
