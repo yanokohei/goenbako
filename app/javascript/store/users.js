@@ -20,12 +20,6 @@ const actions = {
         commit("setCurrentUser", res.data)
     });
   },
-  logoutUser({ commit }) {
-    axios.delete("/user_sessions/destroy").then(res => {
-      commit("setCurrentUser", res.data);
-    })
-    localStorage.removeItem('goenbakoApp');
-  }
 }
 
 export default {
