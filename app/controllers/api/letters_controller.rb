@@ -1,4 +1,5 @@
 class Api::LettersController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_letter, only: [:edit, :update, :destroy]
 
   def show
