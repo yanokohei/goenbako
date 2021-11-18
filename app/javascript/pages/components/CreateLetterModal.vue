@@ -15,16 +15,14 @@
         class="pa-10"
       >
 <!-- formタグでフォームデータを一括管理 -->
-        <v-form>
+        <v-form @submit.prevent="handleCreateLetter(letter)">
           <div class="mt-5">
             <label
-              class="letter-item-label"
               for="past"
             >出会いのきっかけ・当時の印象</label>
             <v-textarea
               id="past"
               v-model="letter.past"
-              class="letter-item-input"
               name="create_letter[past]"
               background-color="white"
             />
@@ -32,39 +30,33 @@
 <!-- フォーム内の１要素の区切り目 -->
           <div class="mt-5">
             <label
-              class="letter-item-label"
               for="current"
             >現在の印象・どんな人？</label>
             <v-textarea
               id="current"
               v-model="letter.current"
-              class="letter-item-input"
               name="create_letter[current]"
               background-color="white"
             />
           </div>
           <div class="mt-5">
             <label
-              class="letter-item-label"
               for="future"
             >聞いてみたいこと／これから話してみたいこと</label>
             <v-textarea
               id="future"
               v-model="letter.future"
-              class="letter-item-input"
               name="create_letter[future]"
               background-color="white"
             />
           </div>
           <div class="mt-5">
             <label
-              class="letter-item-label"
               for="expect"
             >`${user.name}さんに期待していること`</label>
             <v-textarea
               id="expect"
               v-model="letter.expect"
-              class="letter-item-input"
               name="create_letter[expect]"
               type="text"
               background-color="white"
@@ -72,7 +64,6 @@
           </div>
           <div class="mt-5">
             <label
-              class="letter-item-label"
               for="message"
             >メッセージ</label>
             <v-textarea
@@ -91,7 +82,6 @@
                 x-large
                 color="blue"
                 class="white--text"
-                @click="handleCreateLetter"
               >
                 登録する
               </v-btn>
@@ -111,7 +101,7 @@
 
 <script>
 import axios from "axios";
-import { mapActions, mapState } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   name: "CreateLetterModal",
@@ -124,6 +114,8 @@ export default {
   data() {
     return {
       letter: {
+        // sender_id: this.currentUser.id,
+        receiver_id: this.$route.params.id,
         past: "",
         current: "",
         future: "",
@@ -132,13 +124,18 @@ export default {
       },
     };
   },
+  computed: {
+    ...mapGetters("users", ["currentUser"]),
+  },
   methods: {
     handleCloseModal() {
       this.$emit("close-modal");
     },
-
-    handleCreateLetter() {
-      this.$emit("create-letter", this.letter);
+    handleCreateLetter(letter) {
+      axios
+        .post("/api/letters", letter)
+        .then((res) => this.$emit("create-letter", res.data));
+        this.handleCloseModal();
     },
   },
 };
