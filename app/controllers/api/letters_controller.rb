@@ -32,16 +32,9 @@ class Api::LettersController < ApplicationController
     render json: @letter
   end
 
-  def sent_letters
-    user = User.find(params[:id])
-    @sent_letters = user.sent_letters
-    render json: @sent_letters
-  end
-
-  def received_letters
-    user = User.find(params[:id])
-    @received_letters = user.received_letters
-    render json: @received_letters
+  def my_sent_letter
+    @sent_letter = current_user.sent_letters
+    render json: @sent_letter
   end
 
   private
