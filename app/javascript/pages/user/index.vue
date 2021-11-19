@@ -32,9 +32,13 @@
         :is-visible-create-letter-modal="isVisibleCreateLetterModal"
         @create-modal="createLetter"
         @close-modal="handleCloseCreateLetterModal"
+        :user="user"
       />
     </transition>
-      <MySendLetter />
+      <MySendLetter
+        :letter-items="letterItems"
+        :user="user"
+      />
       <LetterListTab />
   </v-container>
 </template>
@@ -61,13 +65,21 @@ export default {
   data() {
     return {
       user: {},
-      letterItems: [],
+      letterItems: { // 検証中
+        id: this.$route.params.id,//
+        receiver_id: this.$route.params.id,
+        past: "test",
+        current: "test",
+        future: "",
+        expect: "",
+        message: "test",
+      },
       isVisibleCreateLetterModal: false,
     };
   },
   mounted() {
     this.fetchUser()
-    this.fetchletterItems()
+    // this.fetchletterItems()
   },
   computed: {
     ...mapGetters("users", ["currentUser"]),
@@ -79,13 +91,13 @@ export default {
         this.user = res.data
       })
     },
-    async fetchletterItems() {
-      await axios.get('/api/users/received_letters')
-        .then((res) => {
-          this.letterItems = res.data
-          console.log(res.data);
-        })
-    },
+    // async fetchletterItems() {
+    //   await axios.get('/api/users/received_letters')
+    //     .then((res) => {
+    //       this.letterItems = res.data
+    //       console.log(res.data);
+    //     })
+    // },
     openCreateLetterModal() {
       this.isVisibleCreateLetterModal = true;
     },

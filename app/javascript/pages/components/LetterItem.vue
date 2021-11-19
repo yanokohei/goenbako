@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-list-item v-for="letter in notNullLetterItems" :key="letter.id">
+    <v-list-item v-for="letter in createdLetter" :key="letter.id">
       <v-list-item-content>
         <v-list-item-subtitle>{{ letter.title }}</v-list-item-subtitle>
         <v-list-item-title>{{ letter.text }}</v-list-item-title>
@@ -11,43 +11,43 @@
 
 <script>
 export default {
-  /////////////////////// 作成されたレターデータを受け取る
   props: {
-    createdLetter: {
+    letterItems: {
       type: Object,
-      default: () => {},
       required: true
-    }
+    },
+    user: {
+      type: Object,
+      required: true
+    },
   },
-  //////////////////////// レターの中身詳細
   computed: {
-    notNullLetterItems: {},
     createdLetter() {
       return [
         {
           name: "past",
           title: "出会いのきっかけ、当時の印象",
-          text: this.createdLetter.past
+          text: this.letterItems.past
         },
         {
           name: "current",
           title: "現在の印象、どんな人？",
-          text: this.createdLetter.current
+          text: this.letterItems.current
         },
         {
-          name: "tweetedDayCount",
+          name: "future",
           title: "これから話してみたい／聞いてみたいこと",
-          text: this.createdLetter.future
+          text: this.letterItems.future
         },
         {
-          name: "firstTweetedAt",
-          title: `${user.name}さんに期待していること`,
-          text: this.createdLetter.expect
+          name: "expect",
+          title: `${ this.user.name }さんに期待していること`,
+          text: this.letterItems.expect
         },
         {
-          name: "lastTweetedAt",
+          name: "message",
           title: "メッセージ",
-          text: this.createdLetter.message
+          text: this.letterItems.message
         }
       ]
     }

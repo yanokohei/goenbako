@@ -9,7 +9,7 @@
         <v-card-title class="ps-16">
           <v-list-item-avatar size="50">
             <img :src="currentUser.image">
-           </v-list-item-avatar>
+          </v-list-item-avatar>
             <v-list-item-content>
               <v-list-item-title class="font-bold">{{ currentUser.name }}</v-list-item-title>
               <v-list-item-subtitle>
@@ -21,17 +21,32 @@
             </v-list-item-content>
         </v-card-title>
 
-        <v-card-title>
-          自分のレターはここにレターの内容が反映される
-        </v-card-title>
+        <LetterItem
+          :letter-items="letterItems"
+          :user="user"
+        />
       </v-card>
     </v-row>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex"
+import LetterItem from '../components/LetterItem';
 
 export default {
+  components: {
+    LetterItem,
+  },
+  props: {
+    letterItems: {
+      type: Object,
+      required: true
+    },
+    user: {
+      type: Object,
+      required: true
+    },
+  },
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
     twitterUrl() {
