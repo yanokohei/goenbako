@@ -53,7 +53,7 @@
           <div class="mt-5">
             <label
               for="expect"
-            >`${user.name}さんに期待していること`</label>
+            >{{ user.name }}さんに期待していること</label>
             <v-textarea
               id="expect"
               v-model="letter.expect"
@@ -110,6 +110,10 @@ export default {
       type: Boolean,
       required: true,
     },
+    user: {
+      type: Object,
+      required: true
+    },
   },
   data() {
     return {
@@ -126,6 +130,9 @@ export default {
   },
   computed: {
     ...mapGetters("users", ["currentUser"]),
+    // letterItemTitle: {
+    //   return `${user.name}さんに期待していること`;
+    // },
   },
   methods: {
     handleCloseModal() {
