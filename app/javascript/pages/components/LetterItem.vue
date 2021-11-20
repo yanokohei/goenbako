@@ -1,10 +1,12 @@
 <template>
   <v-container>
     <v-list-item v-for="letter in createdLetter" :key="letter.id">
-      <v-list-item-content>
-        <v-list-item-subtitle>{{ letter.title }}</v-list-item-subtitle>
-        <v-list-item-title>{{ letter.text }}</v-list-item-title>
-      </v-list-item-content>
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title>{{ letter.title }}</v-list-item-title>
+          <v-list-item-subtitle>{{ letter.text }}</v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
     </v-list-item>
   </v-container>
 </template>
@@ -50,7 +52,14 @@ export default {
           text: this.letterItems.message
         }
       ]
+      .filter(existsLetterItem => existsLetterItem.text)
+      .map(existsLetterItem => existsLetterItem)
     }
   },
 }
 </script>
+
+
+<style scoped>
+
+</style>
