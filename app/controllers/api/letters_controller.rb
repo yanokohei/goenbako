@@ -43,6 +43,6 @@ class Api::LettersController < ApplicationController
   end
 
   def letter_params
-    params.require(:letter).permit(:past, :current, :future, :expect, :message, :receiver_id)
+    params.require(:letter).permit(:past, :current, :future, :expect, :message, :sender_id, :receiver_id)
   end
 end
