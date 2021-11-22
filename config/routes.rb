@@ -10,13 +10,10 @@ Rails.application.routes.draw do
     resources :users, only: %i[index edit update show destroy] do
       collection do
         get 'me'
+      end
+      member do
         get 'sent_letters'
         get 'received_letters'
-      end
-    end
-    resources :letters do
-      collection do
-        get 'my_sent_letter'
       end
     end
   end
