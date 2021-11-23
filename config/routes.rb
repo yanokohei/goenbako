@@ -16,6 +16,7 @@ Rails.application.routes.draw do
         get 'received_letters'
       end
     end
+    resources :letters
   end
 
   get '*path', to: 'home#index'
