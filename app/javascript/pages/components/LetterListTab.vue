@@ -1,36 +1,80 @@
 <template>
   <v-container>
-    <v-card>
+    <v-row>
       <v-tabs
         background-color="amber lighten-5"
         centered
         icons-and-text
+        v-model="moveTab"
       >
         <v-tabs-slider />
 
         <v-tab
-          href="#tab-1"
-          class="mr-8"
+          v-for="tabItem in tabItems"
+          :key="tabItem.tabId"
+          class="mr-20"
         >
-          <v-icon>mdi-email-fast-outline</v-icon>
-          受け取ったファンレター
-        </v-tab>
-        <v-tab href="#tab-3">
+          {{ tabItem.tabName }}
           <v-icon>mdi-email-edit-outline</v-icon>
-          送ったファンレター
         </v-tab>
       </v-tabs>
-    </v-card>
-    <LetterListReceived />
+    <v-tabs-items v-model="moveTab">
+      <v-tab-item
+        v-for="tabItem in tabItems"
+        :key="tabItem.tabId"
+      >
+      <div v-for="letter in letterItems" :key="letter.id">
+        <v-card flat class="mt-3">
+          <keep-alive>
+            <component
+              :is="tabItem.content"
+              :user="user"
+              :letter-items="letter"
+            ></component>
+          </keep-alive>
+        </v-card>
+      </div>
+      </v-tab-item>
+    </v-tabs-items>
+    </v-row>
   </v-container>
 </template>
 
 <script>
 import LetterListReceived from './LetterListReceived';
+import LetterListSent from './LetterListSent';
 
 export default {
   components: {
     LetterListReceived,
+    LetterListSent
+  },
+  data() {
+    return {
+      moveTab: "",
+      tabItems: [
+        { tabId: 0, tabName: '受け取ったレター', content: 'LetterListReceived' },
+        { tabId: 1, tabName: '送ったレター', content: 'LetterListSent' }
+      ]
+    }
+  },
+  props: {
+    user: {
+      type: Object,
+      required: true
+    },
+    letterItems: { // 検証中
+      type: Array,
+      required: true
+    },
+  },
+  methods: {
+    async fetchSentLetters() {
+      await axios.get(`/api/users/${this.$route.params.id}/sent_letters`)
+        .then((res) => {
+          this.sentLetters = res.data
+        })
+    },
   }
 }
 </script>
