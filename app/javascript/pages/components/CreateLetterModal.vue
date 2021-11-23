@@ -20,8 +20,15 @@
             <label
               for="past"
             >出会いのきっかけ・当時の印象</label>
+            <ShowTextareaButton
+              v-show="isShowThisButton"
+              @show-textarea="handleShowTextarea"
+              :is-show-textarea="isShowTextarea"
+              :is-show-this-button="isShowThisButton"
+            />
             <v-textarea
               id="past"
+              v-show="isShowTextarea"
               v-model="letter.past"
               name="create_letter[past]"
               background-color="white"
@@ -102,9 +109,13 @@
 <script>
 import axios from "axios";
 import { mapGetters } from "vuex";
+import ShowTextareaButton from "./ShowTextareaButton";
 
 export default {
   name: "CreateLetterModal",
+  components: {
+    ShowTextareaButton,
+  },
   props: {
     isVisibleCreateLetterModal: {
       type: Boolean,
@@ -118,32 +129,45 @@ export default {
   data() {
     return {
       letter: {
-        // sender_id: this.currentUser.id,
-        receiver_id: this.$route.params.id,
+        sender_id: "",
+        receiver_id: "",
         past: "",
         current: "",
         future: "",
         expect: "",
         message: "",
       },
-    };
+      isShowTextarea: false,
+      isShowThisButton: true,
+      // isShowTextarea: {
+      //   textarea1: false,
+      //   textarea2: false,
+      //   textarea3: false,
+      //   textarea4: false,
+      //   textarea5: false
+      // }
+    }
+
   },
   computed: {
     ...mapGetters("users", ["currentUser"]),
-    // letterItemTitle: {
-    //   return `${user.name}さんに期待していること`;
-    // },
   },
   methods: {
     handleCloseModal() {
       this.$emit("close-modal");
     },
-    handleCreateLetter(letter) {
+    handleCreateLetter() {
+      this.letter.sender_id = this.currentUser.id
+      this.letter.receiver_id = this.$route.params.id
       axios
-        .post("/api/letters", letter)
+        .post("/api/letters", { letter: this.letter })
         .then((res) => this.$emit("create-letter", res.data));
         this.handleCloseModal();
     },
+    handleShowTextarea() {
+      this.isShowTextarea = true
+      this.isShowThisButton = false;
+    }
   },
 };
 </script>
