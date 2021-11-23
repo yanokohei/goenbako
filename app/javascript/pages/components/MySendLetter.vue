@@ -7,9 +7,11 @@
         rounded="xl"
       >
         <v-card-title class="ps-16">
-          <v-list-item-avatar size="50">
-            <img :src="currentUser.image">
-          </v-list-item-avatar>
+          <router-link :to="{ name: 'UserIndex', params: { id: currentUser.id }}">
+            <v-list-item-avatar size="50">
+              <img :src="currentUser.image">
+            </v-list-item-avatar>
+          </router-link>
             <v-list-item-content>
               <v-list-item-title class="font-bold">{{ currentUser.name }}</v-list-item-title>
               <v-list-item-subtitle>
@@ -25,17 +27,42 @@
           :letter-items="letterItems"
           :user="user"
         />
+      <v-col class="text-center">
+        <v-btn
+          color="blue"
+          class="white--text"
+          small
+          @click="openShareLetterModal"
+        >
+        <v-icon>mdi-twitter</v-icon>
+          レターを共有する
+        </v-btn>
+      </v-col>
+
+    <transition name="fade">
+        <ShareLetterModal
+          :is-visible-share-letter-modal="isVisibleShareLetterModal"
+          @close-modal="handleCloseShareLetterModal"
+      />
+    </transition>
       </v-card>
     </v-row>
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex"
+import { mapGetters, mapActions } from "vuex";
 import LetterItem from '../components/LetterItem';
+import ShareLetterModal from "../components/ShareLetterModal";
 
 export default {
   components: {
     LetterItem,
+    ShareLetterModal,
+  },
+  data() {
+    return {
+      isVisibleShareLetterModal: false,
+    };
   },
   props: {
     letterItems: {
@@ -53,12 +80,16 @@ export default {
       return `https://twitter.com/${this.currentUser.twitter_id}`
     }
   },
+  methods: {
+    openShareLetterModal() {
+      this.isVisibleShareLetterModal = true;
+    },
+    handleCloseShareLetterModal() {
+      this.isVisibleShareLetterModal = false;
+    },
+  },
 }
 </script>
 
 <style scoped>
-p.from-dear {
-  background:rgb(249、 179、 191);
-  vertical-align: top;
-  }
 </style>
