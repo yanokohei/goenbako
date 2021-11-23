@@ -2,6 +2,7 @@
   <v-container>
     <v-row class="ma-8" justify="center">
       <UserProfileCard
+        v-if="isShow"
         :user="user"
       />
     </v-row>
@@ -29,17 +30,23 @@
     </v-row>
     <transition name="fade">
       <CreateLetterModal
+        v-if="isShow"
         :is-visible-create-letter-modal="isVisibleCreateLetterModal"
-        @create-modal="createLetter"
+        @create-letter="createLetter"
         @close-modal="handleCloseCreateLetterModal"
         :user="user"
       />
     </transition>
-      <MySendLetter
+      <!-- <MySendLetter
+        v-if="isShow"
         :letter-items="letterItems"
         :user="user"
+      /> -->
+      <LetterListTab
+        v-if="isShow"
+        :user="user"
+        :letter-items="receivedLetters"
       />
-      <LetterListTab />
   </v-container>
 </template>
 
@@ -64,22 +71,15 @@ export default {
 
   data() {
     return {
+      isShow: false,
       user: {},
-      letterItems: { // 検証中
-        id: this.$route.params.id,//
-        receiver_id: this.$route.params.id,
-        past: "test",
-        current: "test",
-        future: "",
-        expect: "",
-        message: "test",
-      },
+      receivedLetters: [],
       isVisibleCreateLetterModal: false,
     };
   },
   mounted() {
     this.fetchUser()
-    // this.fetchletterItems()
+    this.fetchReceivedLetters()
   },
   computed: {
     ...mapGetters("users", ["currentUser"]),
@@ -89,15 +89,22 @@ export default {
       await axios.get(`/api/users/${this.$route.params.id}`)
       .then((res) => {
         this.user = res.data
+        this.isShow = true
       })
     },
-    // async fetchletterItems() {
-    //   await axios.get('/api/users/received_letters')
-    //     .then((res) => {
-    //       this.letterItems = res.data
-    //       console.log(res.data);
-    //     })
-    // },
+    async fetchReceivedLetters() {
+      await axios.get(`/api/users/${this.$route.params.id}/received_letters`)
+        .then((res) => {
+          this.receivedLetters = res.data
+          console.log(this.receivedLetters); // リスト表示したレターの投稿主（user）の名前などの情報も渡したい。
+        })
+    },
+    async fetchSentLetters() {
+      await axios.get(`/api/users/${this.$route.params.id}/sent_letters`)
+        .then((res) => {
+          this.sentLetters = res.data
+        })
+    },
     openCreateLetterModal() {
       this.isVisibleCreateLetterModal = true;
     },
@@ -105,7 +112,7 @@ export default {
       this.isVisibleCreateLetterModal = false;
     },
     createLetter(letter) {
-        this.letterItems.push(letter);
+      this.receivedLetters.push(letter);
     },
   }
 };
