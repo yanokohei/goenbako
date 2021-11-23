@@ -1,12 +1,24 @@
 class Api::UsersController < ApplicationController
+
+  def sent_letters
+    user = User.find(params[:id])
+    @sent_letters = user.letters
+    render json: @sent_letters
+  end
+
+  def received_letters
+    user = User.find(params[:id])
+    @received_letters = user.receivers
+    render json: @received_letters
+  end
+
   def show
     @user = User.find_by(id: params[:id])
     render json: @user
   end
 
   def me
-    @user = User.find(current_user.id)
-    render json: @user
+    render json: current_user
   end
 
   def edit; end

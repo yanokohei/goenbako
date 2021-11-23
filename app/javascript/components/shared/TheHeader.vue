@@ -7,7 +7,7 @@
   >
     <v-toolbar dense>
       <v-btn to="/">
-      <v-toolbar-title>ご縁箱</v-toolbar-title>
+        <v-toolbar-title>ご縁箱</v-toolbar-title>
       </v-btn>
       <v-spacer />
       <v-btn icon>

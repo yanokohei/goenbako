@@ -1,108 +1,86 @@
 <template>
   <v-container>
-    <v-flex xs8 md8 ma-auto>
-    <v-row class="ma-8 mt-12">
-      <v-card
-        color="amber lighten-5"
-        width="500px"
-      >
-        <v-card-title>
-          <v-list-item-avatar>
-            <img :src="user.image">
-          </v-list-item-avatar>
-          <span class="text-h6 font-weight-light">{{ user.name }}</span>
-          <v-icon
-            right
-          >
-            mdi-twitter
-          </v-icon>
-        </v-card-title>
-
-        <v-card-text class="font-weight-bold">
-          {{ user.introduce }}テストテストテストテストテストテストテストテストtetetete
-        </v-card-text>
-
-        <v-card-actions>
-          <v-list-item class="grow">
-            <v-list-item-content>
-              <v-list-item-title>書いたレター</v-list-item-title>
-            </v-list-item-content>
-            <v-row
-              align="center"
-              justify="end"
-            >
-              <v-icon class="mr-1">
-                mdi-pencil
-              </v-icon>
-              <span class="subheading mr-2">256</span>
-            </v-row>
-          </v-list-item>
-        </v-card-actions>
-      </v-card>
+    <v-row class="ma-8" justify="center">
+      <ProfileCard />
   <!-- シェアボタン -->
     </v-row>
-        </v-flex>
       <v-col class="text-center mb-12">
         <v-btn
           color="blue"
           class="white--text"
           rounded
           x-large
-          href="#"
+          @click="openShareLinkModal"
         >
           Myご縁箱をシェアする
         </v-btn>
       </v-col>
-  <!-- タブメニュー -->
-    <v-card>
-      <v-tabs
-
-        background-color="amber lighten-5"
-        centered
-        icons-and-text
-      >
-        <v-tabs-slider></v-tabs-slider>
-
-        <v-tab href="#tab-1" class="mr-8">
-          <v-icon>mdi-email-fast-outline</v-icon>
-          受け取ったファンレター
-        </v-tab>
-
-        <v-tab href="#tab-3">
-          <v-icon>mdi-email-edit-outline</v-icon>
-          送ったファンレター
-        </v-tab>
-      </v-tabs>
-      <!-- <v-tabs-items v-model="tab">
-        <v-tab-item
-          v-for="i in 3"
-          :key="i"
-          :value="'tab-' + i"
+      <v-col class="text-center mb-12">
+        <v-btn
+          color="grey"
+          class="white--text"
+          rounded
+          x-large
+          href="http://127.0.0.1:3000/users/2"
         >
-          <v-card flat>
-            <v-card-text>{{ text }}</v-card-text>
-          </v-card>
-        </v-tab-item>
-      </v-tabs-items> -->
-    </v-card>
+          ユーザーページリンク
+        </v-btn>
+      </v-col>
+      <transition name="fade">
+        <ShareLinkModal
+          :is-visible-share-link-modal="isVisibleShareLinkModal"
+          @close-modal="handleCloseShareLinkModal"
+      />
+      </transition>
+    <LetterListTab
+      :user="user"
+    />
   </v-container>
 </template>
 
 <script>
-import { mapGetters } from "vuex"
+import axios from "axios";
+import { mapGetters } from "vuex";
+import ProfileCard from "../components/ProfileCard";
+import ShareLinkModal from "../components/ShareLinkModal";
+import LetterListTab from "../components/LetterListTab";
 
 export default {
   name: "MypageIndex",
+  components: {
+    ProfileCard,
+    ShareLinkModal,
+    LetterListTab
+  },
   data() {
     return {
-      user: {}
+      user: {},
+      receivedLetters: [],
+      isVisibleShareLinkModal: false,
     };
   },
+
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
   },
+  methods: {
+    openShareLinkModal() {
+      this.isVisibleShareLinkModal = true;
+    },
+    handleCloseShareLinkModal() {
+      this.isVisibleShareLinkModal = false;
+    },
+    async fetchReceivedLetters() {
+      await axios.get(`users/${this.currentUser.id}/received_letters`)
+        .then((res) => {
+          this.receivedLetters = res.data
+        })
+    },
+  },
   mounted() {
-    this.$axios.get("/users/me")
+    this.fetchReceivedLetters(),
+// マイページ。ログイン後にアクセス
+    this.$axios.get("users/me")
     .then((res) => {
       this.user = res.data
       this.$store.commit('users/setCurrentUser', res.data)

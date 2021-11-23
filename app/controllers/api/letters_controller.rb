@@ -1,5 +1,6 @@
 class Api::LettersController < ApplicationController
-  before_action :set_letter, only: [:edit :update, :destroy]
+  skip_before_action :verify_authenticity_token
+  before_action :set_letter, only: [:edit, :update, :destroy]
 
   def show
     render json: @letter
@@ -31,16 +32,9 @@ class Api::LettersController < ApplicationController
     render json: @letter
   end
 
-  def send_letters
-    user = User.find(params[:id])
-    @send_letters = user.send_letters
-    render json: @send_letters
-  end
-
-  def received_letters
-    user = User.find(params[:id])
-    @received_letters = user.received_letters
-    render json: @received_letters
+  def my_sent_letter
+    @sent_letter = current_user.sent_letters
+    render json: @sent_letter
   end
 
   private
@@ -49,6 +43,6 @@ class Api::LettersController < ApplicationController
   end
 
   def letter_params
-    params.require(:letter).permit(:past, :current, :future, :expect, :message).merge(sender_id: current_user.id, receiver_id: user.id)
+    params.require(:letter).permit(:past, :current, :future, :expect, :message, :sender_id, :receiver_id)
   end
 end

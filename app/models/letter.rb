@@ -13,4 +13,11 @@ class Letter < ApplicationRecord
     validates :expect
     validates :message
   end
+
+  validates :letter_items, presence: true
+
+  private
+    def letter_items
+      past.presence or current.presence or future.presence or expect.presence or message.presence
+    end
 end

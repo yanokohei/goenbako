@@ -23,9 +23,9 @@
     </v-btn>
 
     <v-btn
-      @click="logoutUser"
       to="/api/logout"
       data-method="delete"
+      @click="logoutUser"
     >
       <span>Logout</span>
 
@@ -35,11 +35,14 @@
 </template>
 
 <script>
+import Cookies from 'js-cookie';
+
   export default {
   methods: {
     logoutUser() {
-      this.$store.dispatch('users/logoutUser');
+      this.$store.commit('setCurrentUser', { user:null })
+      Cookies.remove('vuex');
     }
   }
-  }
+}
 </script>

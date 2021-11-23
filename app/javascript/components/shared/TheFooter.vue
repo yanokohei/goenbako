@@ -4,7 +4,7 @@
     absolute
   >
     <v-col
-      class="font-weight-medium text-center"
+      class="text-center"
       cols="12"
     >
       {{ new Date().getFullYear() }} — <strong>Title</strong>
