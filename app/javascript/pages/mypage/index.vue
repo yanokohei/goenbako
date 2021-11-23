@@ -23,7 +23,7 @@
           x-large
           href="http://127.0.0.1:3000/users/2"
         >
-          開発テスト用ユーザーページリンク
+          ユーザーページリンク
         </v-btn>
       </v-col>
       <transition name="fade">
@@ -32,12 +32,15 @@
           @close-modal="handleCloseShareLinkModal"
       />
       </transition>
-    <LetterListTab />
+    <LetterListTab
+      :user="user"
+    />
   </v-container>
 </template>
 
 <script>
-import { mapGetters } from "vuex"
+import axios from "axios";
+import { mapGetters } from "vuex";
 import ProfileCard from "../components/ProfileCard";
 import ShareLinkModal from "../components/ShareLinkModal";
 import LetterListTab from "../components/LetterListTab";
@@ -52,9 +55,11 @@ export default {
   data() {
     return {
       user: {},
+      receivedLetters: [],
       isVisibleShareLinkModal: false,
     };
   },
+
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
   },
@@ -65,8 +70,15 @@ export default {
     handleCloseShareLinkModal() {
       this.isVisibleShareLinkModal = false;
     },
+    async fetchReceivedLetters() {
+      await axios.get(`users/${this.currentUser.id}/received_letters`)
+        .then((res) => {
+          this.receivedLetters = res.data
+        })
+    },
   },
   mounted() {
+    this.fetchReceivedLetters(),
 // マイページ。ログイン後にアクセス
     this.$axios.get("users/me")
     .then((res) => {
