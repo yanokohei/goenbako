@@ -139,13 +139,6 @@ export default {
       },
       isShowTextarea: false,
       isShowThisButton: true,
-      // isShowTextarea: {
-      //   textarea1: false,
-      //   textarea2: false,
-      //   textarea3: false,
-      //   textarea4: false,
-      //   textarea5: false
-      // }
     }
 
   },
