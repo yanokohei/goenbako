@@ -63,7 +63,7 @@ export default {
       type: Object,
       required: true
     },
-    letterItems: { // 検証中
+    letterItems: {
       type: Array,
       required: true
     },
