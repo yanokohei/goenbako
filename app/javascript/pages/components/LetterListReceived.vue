@@ -1,6 +1,9 @@
 <template>
-<v-container>
-    <v-row class="ma-8" justify="center">
+  <v-container>
+    <v-row
+      class="ma-8"
+      justify="center"
+    >
       <v-card
         flat
         color="amber lighten-5"
@@ -13,32 +16,38 @@
               <img :src="user.image">
             </v-list-item-avatar>
           </router-link>
-            <v-list-item-content>
-              <v-list-item-title class="font-bold">{{ user.name }}</v-list-item-title>
-              <v-list-item-subtitle>
-                @{{ user.twitter_id }}
-                <v-btn icon color="blue" :href="twitterUrl">
-                  <v-icon>mdi-twitter</v-icon>
-                </v-btn>
-              </v-list-item-subtitle>
-            </v-list-item-content>
+          <v-list-item-content>
+            <v-list-item-title class="font-bold">
+              {{ user.name }}
+            </v-list-item-title>
+            <v-list-item-subtitle>
+              @{{ user.twitter_id }}
+              <v-btn
+                icon
+                color="blue"
+                :href="twitterUrl"
+              >
+                <v-icon>mdi-twitter</v-icon>
+              </v-btn>
+            </v-list-item-subtitle>
+          </v-list-item-content>
         </v-card-title>
 
         <LetterItem
           :letter-items="letterItems"
           :user="user"
         />
-              <v-col class="text-center">
-        <v-btn
-          color="blue"
-          class="white--text"
-          small
-          @click="openShareLetterModal"
-        >
-        <v-icon>mdi-twitter</v-icon>
-          シェア
-        </v-btn>
-      </v-col>
+        <v-col class="text-center">
+          <v-btn
+            color="blue"
+            class="white--text"
+            small
+            @click="openShareLetterModal"
+          >
+            <v-icon>mdi-twitter</v-icon>
+            シェア
+          </v-btn>
+        </v-col>
       </v-card>
     </v-row>
     <transition name="fade">
@@ -60,11 +69,6 @@ export default {
     ShareLetterModal,
     LetterItem
   },
-  data() {
-    return {
-      isVisibleShareLetterModal: false,
-    };
-  },
   props: {
     user: {
       type: Object,
@@ -74,6 +78,11 @@ export default {
       type: Object,
       required: true
     },
+  },
+  data() {
+    return {
+      isVisibleShareLetterModal: false,
+    };
   },
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),

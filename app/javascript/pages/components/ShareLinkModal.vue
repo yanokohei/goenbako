@@ -1,14 +1,14 @@
 <template>
   <v-dialog
-    max-width="600"
     v-model="isVisibleShareLinkModal"
+    max-width="600"
     @click:outside="handleCloseModal"
   >
     <v-card color="amber lighten-5">
       <v-card-title>
         <span class="text-h5 my-5">Myご縁箱をシェアする</span>
       </v-card-title>
-      <v-divider></v-divider>
+      <v-divider />
       <v-col class="text-center mt-8">
         <v-btn
           color="blue"
@@ -16,7 +16,7 @@
           x-large
           :href="twitterShare()"
         >
-        <v-icon>mdi-twitter</v-icon>
+          <v-icon>mdi-twitter</v-icon>
           ツイートで共有する
         </v-btn>
       </v-col>
@@ -39,7 +39,7 @@
           rounded="xl"
         >
           コピーしました。
-          <template v-slot:action="{ attrs }">
+          <template #action="{ attrs }">
             <v-btn
               v-bind="attrs"
               @click="snackbar = false"
@@ -49,16 +49,19 @@
           </template>
         </v-snackbar>
       </v-col>
-        <v-row justify="center" class="ma-8">
-          <v-card-actions>
-            <v-btn
-              large
-              @click="handleCloseModal"
-            >
-              閉じる
-            </v-btn>
-          </v-card-actions>
-        </v-row>
+      <v-row
+        justify="center"
+        class="ma-8"
+      >
+        <v-card-actions>
+          <v-btn
+            large
+            @click="handleCloseModal"
+          >
+            閉じる
+          </v-btn>
+        </v-card-actions>
+      </v-row>
     </v-card>
   </v-dialog>
 </template>
@@ -69,16 +72,16 @@ import { mapGetters } from "vuex"
 
 export default {
   name: "ShareLinkModal",
-  data() {
-    return {
-      snackbar: false,
-    };
-  },
   props: {
     isVisibleShareLinkModal: {
       type: Boolean,
       required: true,
     },
+  },
+  data() {
+    return {
+      snackbar: false,
+    };
   },
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),

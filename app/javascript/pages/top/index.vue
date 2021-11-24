@@ -27,21 +27,30 @@
       </v-col>
     </v-row>
 
-    <v-row class="ma-8" justify="center">
+    <v-row
+      class="ma-8"
+      justify="center"
+    >
       <v-card
         flat
         color="amber lighten-5"
         width="800px"
         rounded="xl"
       >
-      <v-img class="img" src="/img/画像サンプル２.jpg"></v-img>
+        <v-img
+          class="img"
+          src="/img/画像サンプル２.jpg"
+        />
         <v-divider />
         <v-card-title class="ps-16">
           <v-list-item-content>
             <v-list-item-title>１STEP</v-list-item-title>
             <v-list-item-subtitle>
               USER_ID
-              <v-btn icon color="blue">
+              <v-btn
+                icon
+                color="blue"
+              >
                 <v-icon>mdi-twitter</v-icon>
               </v-btn>
             </v-list-item-subtitle>
@@ -49,16 +58,22 @@
         </v-card-title>
       </v-card>
     </v-row>
-  <!-- ここまで -->
-    <v-row class="ma-8" justify="center">
+    <!-- ここまで -->
+    <v-row
+      class="ma-8"
+      justify="center"
+    >
       <v-card
         flat
         color="amber lighten-5"
         width="800px"
         rounded="xl"
       >
-      <v-col>fafafaa</v-col>
-        <v-img class="img" src="/img/画像サンプル.jpg"></v-img>
+        <v-col>fafafaa</v-col>
+        <v-img
+          class="img"
+          src="/img/画像サンプル.jpg"
+        />
         <v-divider />
         <v-card-title><h5>あなたが応援したい人へ</h5></v-card-title>
         <v-card-text align="left">

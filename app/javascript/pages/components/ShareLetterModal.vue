@@ -1,7 +1,7 @@
 <template>
   <v-dialog
-    max-width="600"
     v-model="isVisibleShareLetterModal"
+    max-width="600"
     @click:outside="handleCloseModal"
   >
     <v-card color="amber lighten-5">
@@ -9,8 +9,8 @@
         <span class="text-h5 my-5 mr-2">レターをシェアする</span>
         <v-icon>mdi-email-edit-outline</v-icon>
       </v-card-title>
-      <v-divider></v-divider>
-<!-- シェア項目1 -->
+      <v-divider />
+      <!-- シェア項目1 -->
       <v-col class="text-center mt-8">
         <label
           class="letter-item-label"
@@ -23,12 +23,12 @@
             small
             href="http://127.0.0.1:3000/users/2"
           >
-          <v-icon>mdi-twitter</v-icon>
+            <v-icon>mdi-twitter</v-icon>
             シェアする
           </v-btn>
         </v-card-actions>
       </v-col>
-<!-- シェア項目2 -->
+      <!-- シェア項目2 -->
       <v-col class="text-center mt-8">
         <label
           class="letter-item-label"
@@ -41,12 +41,12 @@
             small
             href="http://127.0.0.1:3000/users/2"
           >
-          <v-icon>mdi-twitter</v-icon>
+            <v-icon>mdi-twitter</v-icon>
             シェアする
           </v-btn>
         </v-card-actions>
       </v-col>
-<!-- シェア項目3 -->
+      <!-- シェア項目3 -->
       <v-col class="text-center mt-8">
         <label
           class="letter-item-label"
@@ -59,12 +59,12 @@
             small
             href="http://127.0.0.1:3000/users/2"
           >
-          <v-icon>mdi-twitter</v-icon>
+            <v-icon>mdi-twitter</v-icon>
             シェアする
           </v-btn>
         </v-card-actions>
       </v-col>
-<!-- シェア項目4 -->
+      <!-- シェア項目4 -->
       <v-col class="text-center mt-8">
         <label
           class="letter-item-label"
@@ -77,12 +77,12 @@
             small
             href="http://127.0.0.1:3000/users/2"
           >
-          <v-icon>mdi-twitter</v-icon>
+            <v-icon>mdi-twitter</v-icon>
             シェアする
           </v-btn>
         </v-card-actions>
       </v-col>
-<!-- シェア項目5 -->
+      <!-- シェア項目5 -->
       <v-col class="text-center mt-8">
         <label
           class="letter-item-label"
@@ -95,13 +95,16 @@
             small
             href="http://127.0.0.1:3000/users/2"
           >
-          <v-icon>mdi-twitter</v-icon>
+            <v-icon>mdi-twitter</v-icon>
             シェアする
           </v-btn>
         </v-card-actions>
       </v-col>
-<!-- 閉じる -->
-      <v-row justify="center" class="ma-8">
+      <!-- 閉じる -->
+      <v-row
+        justify="center"
+        class="ma-8"
+      >
         <v-card-actions>
           <v-btn
             large

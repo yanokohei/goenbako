@@ -1,10 +1,10 @@
 <template>
   <v-card-actions class="justify-center">
     <v-btn
-      @click="handleShowTextarea"
       color="deep-purple lighten-5"
+      @click="handleShowTextarea"
     >
-    <v-icon>mdi-pencil</v-icon>
+      <v-icon>mdi-pencil</v-icon>
       書いてみる
     </v-btn>
   </v-card-actions>

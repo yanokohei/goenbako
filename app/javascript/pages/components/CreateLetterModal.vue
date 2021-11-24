@@ -1,20 +1,20 @@
 <template>
   <v-dialog
-    max-width="600"
     v-model="isVisibleCreateLetterModal"
+    max-width="600"
     persistent
   >
     <v-card color="amber lighten-5">
       <v-card-title>
         <span class="text-h5 my-5">ファンレター作成</span>
       </v-card-title>
-      <v-divider></v-divider>
-<!-- // フォーム全体をHTML要素で統括 -->
+      <v-divider />
+      <!-- // フォーム全体をHTML要素で統括 -->
       <div
         id="create-letter-form"
         class="pa-10"
       >
-<!-- formタグでフォームデータを一括管理 -->
+        <!-- formタグでフォームデータを一括管理 -->
         <v-form @submit.prevent="handleCreateLetter(letter)">
           <div class="mt-5">
             <label
@@ -22,19 +22,19 @@
             >出会いのきっかけ・当時の印象</label>
             <ShowTextareaButton
               v-show="isShowThisButton"
-              @show-textarea="handleShowTextarea"
               :is-show-textarea="isShowTextarea"
               :is-show-this-button="isShowThisButton"
+              @show-textarea="handleShowTextarea"
             />
             <v-textarea
-              id="past"
               v-show="isShowTextarea"
+              id="past"
               v-model="letter.past"
               name="create_letter[past]"
               background-color="white"
             />
           </div>
-<!-- フォーム内の１要素の区切り目 -->
+          <!-- フォーム内の１要素の区切り目 -->
           <div class="mt-5">
             <label
               for="current"
@@ -80,8 +80,11 @@
               background-color="white"
             />
           </div>
-<!-- 登録ボタン -->
-          <v-row justify="center" class="ma-8">
+          <!-- 登録ボタン -->
+          <v-row
+            justify="center"
+            class="ma-8"
+          >
             <v-card-actions>
               <v-btn
                 type="submit"

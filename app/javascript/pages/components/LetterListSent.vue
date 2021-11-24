@@ -1,6 +1,9 @@
 <template>
   <v-container>
-    <v-row class="ma-8" justify="center">
+    <v-row
+      class="ma-8"
+      justify="center"
+    >
       <v-card
         flat
         color="amber lighten-5"
@@ -13,15 +16,21 @@
               <img :src="currentUser.image">
             </v-list-item-avatar>
           </router-link>
-            <v-list-item-content>
-              <v-list-item-title class="font-bold">{{ currentUser.name }}</v-list-item-title>
-              <v-list-item-subtitle>
-                @{{ currentUser.twitter_id }}
-                <v-btn icon color="blue" :href="twitterUrl">
-                  <v-icon>mdi-twitter</v-icon>
-                </v-btn>
-              </v-list-item-subtitle>
-            </v-list-item-content>
+          <v-list-item-content>
+            <v-list-item-title class="font-bold">
+              {{ currentUser.name }}
+            </v-list-item-title>
+            <v-list-item-subtitle>
+              @{{ currentUser.twitter_id }}
+              <v-btn
+                icon
+                color="blue"
+                :href="twitterUrl"
+              >
+                <v-icon>mdi-twitter</v-icon>
+              </v-btn>
+            </v-list-item-subtitle>
+          </v-list-item-content>
         </v-card-title>
 
         <LetterItem
@@ -41,11 +50,6 @@ export default {
   components: {
     LetterItem,
   },
-  data() {
-    return {
-
-    };
-  },
   props: {
     user: {
       type: Object,
@@ -55,7 +59,7 @@ export default {
       type: Object,
       required: true
     },
-  },
+},
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
     twitterUrl() {

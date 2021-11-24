@@ -11,15 +11,19 @@
         <v-list-item-title>{{ currentUser.name }}</v-list-item-title>
         <v-list-item-subtitle>
           @{{ currentUser.twitter_id }}
-          <v-btn icon color="blue" :href="twitterUrl">
+          <v-btn
+            icon
+            color="blue"
+            :href="twitterUrl"
+          >
             <v-icon>mdi-twitter</v-icon>
           </v-btn>
         </v-list-item-subtitle>
       </v-list-item-content>
     </v-card-title>
-      <v-card-text>
-        {{ currentUser.introduce }}
-      </v-card-text>
+    <v-card-text>
+      {{ currentUser.introduce }}
+    </v-card-text>
 
     <v-card-actions>
       <v-list-item class="grow">
@@ -27,9 +31,9 @@
           <v-list-item-title>書いたレター</v-list-item-title>
         </v-list-item-content>
         <v-row
-            align="center"
-            justify="end"
-          >
+          align="center"
+          justify="end"
+        >
           <v-icon class="mr-1">
             mdi-pencil
           </v-icon>

@@ -12,7 +12,11 @@
         <v-list-item-title>{{ user.name }}</v-list-item-title>
         <v-list-item-subtitle>
           @{{ user.twitter_id }}
-          <v-btn icon color="blue" :href="twitterUrl">
+          <v-btn
+            icon
+            color="blue"
+            :href="twitterUrl"
+          >
             <v-icon>mdi-twitter</v-icon>
           </v-btn>
         </v-list-item-subtitle>
