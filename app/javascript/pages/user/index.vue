@@ -1,6 +1,9 @@
 <template>
   <v-container>
-    <v-row class="ma-8" justify="center">
+    <v-row
+      class="ma-8"
+      justify="center"
+    >
       <UserProfileCard
         v-if="isShow"
         :user="user"
@@ -10,8 +13,8 @@
       あなたが送ったファンレター
       <v-icon>mdi-email-edit-outline</v-icon>
     </div>
-    <v-divider></v-divider>
-      <NotSendLetter />
+    <v-divider />
+    <NotSendLetter />
     <v-row class="justify-center mb-4">
       <v-col align="center">
         <v-btn
@@ -21,9 +24,9 @@
           x-large
           @click="openCreateLetterModal"
         >
-        <v-icon left>
-          mdi-plus
-        </v-icon>
+          <v-icon left>
+            mdi-plus
+          </v-icon>
           書いてみる
         </v-btn>
       </v-col>
@@ -32,21 +35,21 @@
       <CreateLetterModal
         v-if="isShow"
         :is-visible-create-letter-modal="isVisibleCreateLetterModal"
+        :user="user"
         @create-letter="createLetter"
         @close-modal="handleCloseCreateLetterModal"
-        :user="user"
       />
     </transition>
-      <!-- <MySendLetter
+    <!-- <MySendLetter
         v-if="isShow"
         :letter-items="letterItems"
         :user="user"
       /> -->
-      <LetterListTab
-        v-if="isShow"
-        :user="user"
-        :letter-items="receivedLetters"
-      />
+    <LetterListTab
+      v-if="isShow"
+      :user="user"
+      :letter-items="receivedLetters"
+    />
   </v-container>
 </template>
 

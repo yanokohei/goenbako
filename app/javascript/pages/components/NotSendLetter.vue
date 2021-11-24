@@ -1,9 +1,15 @@
 <template>
-  <v-container >
+  <v-container>
     <div class="ma-8">
       まだ書いていません。
     </div>
-    <v-col cols-12 sm-8 align="center">DATA</v-col>
+    <v-col
+      cols-12
+      sm-8
+      align="center"
+    >
+      DATA
+    </v-col>
   </v-container>
 </template>
 

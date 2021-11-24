@@ -1,6 +1,9 @@
 <template>
   <v-container>
-    <v-list-item v-for="letter in createdLetter" :key="letter.id">
+    <v-list-item
+      v-for="letter in createdLetter"
+      :key="letter.id"
+    >
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title>{{ letter.title }}</v-list-item-title>
@@ -61,5 +64,4 @@ export default {
 
 
 <style scoped>
-
 </style>
