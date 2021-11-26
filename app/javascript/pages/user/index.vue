@@ -36,7 +36,7 @@
         v-if="isShow"
         :is-visible-create-letter-modal="isVisibleCreateLetterModal"
         :user="user"
-        @create-letter="createLetter"
+        @create-letter="fetchReceivedLetters"
         @close-modal="handleCloseCreateLetterModal"
       />
     </transition>
@@ -49,6 +49,7 @@
       v-if="isShow"
       :user="user"
       :letter-items="receivedLetters"
+      :sent-letters="sentLetters"
     />
   </v-container>
 </template>
@@ -77,12 +78,14 @@ export default {
       isShow: false,
       user: {},
       receivedLetters: [],
+      sentLetters: [],
       isVisibleCreateLetterModal: false,
     };
   },
   mounted() {
     this.fetchUser()
     this.fetchReceivedLetters()
+    this.fetchSentLetters()
   },
   computed: {
     ...mapGetters("users", ["currentUser"]),
@@ -99,7 +102,6 @@ export default {
       await axios.get(`/api/users/${this.$route.params.id}/received_letters`)
         .then((res) => {
           this.receivedLetters = res.data
-          console.log(this.receivedLetters); // リスト表示したレターの投稿主（user）の名前などの情報も渡したい。
         })
     },
     async fetchSentLetters() {
@@ -113,11 +115,8 @@ export default {
     },
     handleCloseCreateLetterModal() {
       this.isVisibleCreateLetterModal = false;
-    },
-    createLetter(letter) {
-      this.receivedLetters.push(letter);
-    },
-  }
+    }
+  },
 };
 </script>
 
