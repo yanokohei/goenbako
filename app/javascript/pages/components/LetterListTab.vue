@@ -12,7 +12,7 @@
         <v-tab
           v-for="tabItem in tabItems"
           :key="tabItem.tabId"
-          class="mr-20"
+          class="mr-24"
         >
           {{ tabItem.tabName }}
           <v-icon>mdi-email-edit-outline</v-icon>
@@ -23,23 +23,12 @@
           v-for="tabItem in tabItems"
           :key="tabItem.tabId"
         >
-          <div
-            v-for="letter in letterItems"
-            :key="letter.id"
-          >
-            <v-card
-              flat
-              class="mt-3"
-            >
-              <keep-alive>
-                <component
-                  :is="tabItem.content"
-                  :user="user"
-                  :letter-items="letter"
-                />
-              </keep-alive>
-            </v-card>
-          </div>
+          <component
+            :is="tabItem.content"
+            :user="user"
+            :letter-items="letterItems"
+            :sent-letters="sentLetters"
+          />
         </v-tab-item>
       </v-tabs-items>
     </v-row>
@@ -64,6 +53,10 @@ export default {
       type: Array,
       required: true
     },
+    sentLetters: {
+      type: Array,
+      required: true
+    }
   },
   data() {
     return {
@@ -74,14 +67,6 @@ export default {
       ]
     }
   },
-  methods: {
-    async fetchSentLetters() {
-      await axios.get(`/api/users/${this.$route.params.id}/sent_letters`)
-        .then((res) => {
-          this.sentLetters = res.data
-        })
-    },
-  }
 }
 </script>
 

@@ -7,7 +7,13 @@
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title>{{ letter.title }}</v-list-item-title>
-          <v-list-item-subtitle>{{ letter.text }}</v-list-item-subtitle>
+            <v-card
+              class="mt-2 pa-4 rounded-lg u-pre-wrap"
+              outlined
+              rounded="xl"
+              max-width="650"
+            > {{ letter.text }}
+            </v-card>
         </v-list-item-content>
       </v-list-item>
     </v-list-item>
@@ -25,6 +31,10 @@ export default {
       type: Object,
       required: true
     },
+    sentLetters: {
+      type: Object,
+      required: true
+    }
   },
   computed: {
     createdLetter() {
@@ -32,22 +42,22 @@ export default {
         {
           name: "past",
           title: "出会いのきっかけ、当時の印象",
-          text: this.letterItems.past
+          text: this.letterItems.letter.past
         },
         {
           name: "current",
           title: "現在の印象、どんな人？",
-          text: this.letterItems.current
+          text: this.letterItems.letter.current
         },
         {
           name: "future",
           title: "これから話してみたい／聞いてみたいこと",
-          text: this.letterItems.future
+          text: this.letterItems.letter.future
         },
         {
           name: "expect",
           title: `${ this.user.name }さんに期待していること`,
-          text: this.letterItems.expect
+          text: this.letterItems.letter.expect
         },
         {
           name: "message",
@@ -64,4 +74,7 @@ export default {
 
 
 <style scoped>
+.u-pre-wrap {
+  white-space: pre-wrap;
+}
 </style>

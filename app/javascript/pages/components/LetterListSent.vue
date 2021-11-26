@@ -1,44 +1,61 @@
 <template>
-  <v-container>
-    <v-row
-      class="ma-8"
-      justify="center"
+  <v-container class="pa-0">
+    <div
+      v-for="letter in sentLetters"
+      :key="letter.id"
     >
       <v-card
+        color="grey lighten-4"
         flat
-        color="amber lighten-5"
-        width="800px"
-        rounded="xl"
       >
-        <v-card-title class="ps-16">
-          <router-link :to="{ name: 'UserIndex', params: { id: currentUser.id }}">
-            <v-list-item-avatar size="50">
-              <img :src="currentUser.image">
-            </v-list-item-avatar>
-          </router-link>
-          <v-list-item-content>
-            <v-list-item-title class="font-bold">
-              {{ currentUser.name }}
-            </v-list-item-title>
-            <v-list-item-subtitle>
-              @{{ currentUser.twitter_id }}
-              <v-btn
-                icon
-                color="blue"
-                :href="twitterUrl"
+        <keep-alive>
+          <v-row
+            class="ma-8"
+            justify="center"
+          >
+            <v-card
+              flat
+              color="blue-grey lighten-5"
+              width="800px"
+              rounded="xl"
+            >
+              <v-card-title class="ps-16">
+                <router-link :to="{ name: 'UserIndex', params: { id: letter.receiver.id }}">
+                  <v-list-item-avatar size="50">
+                    <img :src="letter.receiver.image">
+                  </v-list-item-avatar>
+                </router-link>
+                <v-list-item-content>
+                  <v-list-item-title class="font-bold">
+                    {{ letter.receiver.name }}
+                  </v-list-item-title>
+                  <v-list-item-subtitle>
+                    @{{ letter.receiver.twitter_id }}
+                    <v-btn
+                      icon
+                      color="blue"
+                      :href="twitterUrl"
+                    >
+                      <v-icon>mdi-twitter</v-icon>
+                    </v-btn>
+                  </v-list-item-subtitle>
+                </v-list-item-content>
+              </v-card-title>
+              <LetterItem
+                :letter-items="letter"
+                :sent-letters="letter"
+                :user="user"
+              />
+              <v-row
+                justify="end"
+                class="ma-4"
               >
-                <v-icon>mdi-twitter</v-icon>
-              </v-btn>
-            </v-list-item-subtitle>
-          </v-list-item-content>
-        </v-card-title>
-
-        <LetterItem
-          :letter-items="letterItems"
-          :user="user"
-        />
+              </v-row>
+            </v-card>
+          </v-row>
+        </keep-alive>
       </v-card>
-    </v-row>
+    </div>
   </v-container>
 </template>
 
@@ -55,16 +72,17 @@ export default {
       type: Object,
       required: true
     },
-    letterItems: {
-      type: Object,
+
+    sentLetters: {
+      type: Array,
       required: true
-    },
+    }
 },
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
     twitterUrl() {
       return `https://twitter.com/${this.currentUser.twitter_id}`
-    }
+    },
   },
   methods: {
 
