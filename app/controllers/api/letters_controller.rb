@@ -39,7 +39,7 @@ class Api::LettersController < ApplicationController
 
   private
   def set_letter
-    @letter = current_user.letters.find(params[:id])
+    @letter = current_user.receivers.find(params[:id])
   end
 
   def letter_params
