@@ -34,7 +34,7 @@
                     <v-btn
                       icon
                       color="blue"
-                      :href="twitterUrl"
+                      :href="`https://twitter.com/${letterItem.sender.twitter_id}`"
                     >
                       <v-icon>mdi-twitter</v-icon>
                     </v-btn>
@@ -112,9 +112,6 @@ export default {
   },
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
-    twitterUrl() {
-      return `https://twitter.com/${this.currentUser.twitter_id}`
-    },
     isCurrentMypage() {
       return this.$route.path === '/mypage'
     }
