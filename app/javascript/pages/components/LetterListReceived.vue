@@ -59,6 +59,16 @@
                   <v-icon>mdi-twitter</v-icon>
                   シェア
                 </v-btn>
+                <v-btn
+                  v-if="isCurrentMypage"
+                  tile
+                  small
+                  color="brown darken-1"
+                  dark
+                  @click="hundleDeleteLetter(letterItem)"
+                >
+                  <v-icon> mdi-delete </v-icon>
+                </v-btn>
               </v-row>
             </v-card>
           </v-row>
@@ -105,6 +115,9 @@ export default {
     twitterUrl() {
       return `https://twitter.com/${this.currentUser.twitter_id}`
     },
+    isCurrentMypage() {
+      return this.$route.path === '/mypage'
+    }
   },
   methods: {
     openShareLetterModal() {
@@ -113,6 +126,20 @@ export default {
     handleCloseShareLetterModal() {
       this.isVisibleShareLetterModal = false;
     },
+    hundleDeleteLetter(letterItem) {
+      if (!confirm("削除してよろしいですか?")) return;
+      this.deleteLetter(letterItem);
+      this.$store.dispatch("flash/setFlash", {
+        type: "success",
+        message: "レターを削除しました。",
+      });
+    },
+    deleteLetter(letterItem) {
+      axios
+        .delete(`/api/letters/${letterItem.letter.id}`)
+        .then(() => this.$emit("delete-letter"));
+    },
+
   },
 };
 </script>
