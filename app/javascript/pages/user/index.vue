@@ -38,7 +38,7 @@
         @close-modal="handleCloseCreateLetterModal"
       />
     </transition>
-    <MySendLetter
+    <DoneSendLetter
         :user="user"
     />
     <LetterListTab
@@ -55,7 +55,7 @@ import { mapGetters } from "vuex";
 import UserProfileCard from "../components/UserProfileCard";
 import NotSendLetter from "../components/NotSendLetter";
 import CreateLetterModal from "../components/CreateLetterModal";
-import MySendLetter from "../components/MySendLetter";
+import DoneSendLetter from "../components/DoneSendLetter";
 import LetterListTab from '../components/LetterListTab';
 
 export default {
@@ -64,7 +64,7 @@ export default {
     UserProfileCard,
     CreateLetterModal,
     NotSendLetter,
-    MySendLetter,
+    DoneSendLetter,
     LetterListTab,
   },
 
