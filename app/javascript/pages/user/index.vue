@@ -89,6 +89,9 @@ export default {
   },
   computed: {
     ...mapGetters("users", ["currentUser"]),
+    currentPath() {
+      return this.$route.path
+    }
   },
   methods: {
     async fetchUser() {
@@ -115,6 +118,13 @@ export default {
     },
     handleCloseCreateLetterModal() {
       this.isVisibleCreateLetterModal = false;
+    }
+  },
+  watch: {
+    currentPath: function() {
+      this.fetchUser()
+      this.fetchReceivedLetters()
+      this.fetchSentLetters()
     }
   },
 };
