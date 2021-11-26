@@ -34,7 +34,7 @@
                     <v-btn
                       icon
                       color="blue"
-                      :href="`https://twitter.com/${letterItem.receiver.twitter_id}`"
+                      :href="`https://twitter.com/${letter.receiver.twitter_id}`"
                     >
                       <v-icon>mdi-twitter</v-icon>
                     </v-btn>
