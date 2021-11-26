@@ -28,6 +28,7 @@
             :user="user"
             :letter-items="letterItems"
             :sent-letters="sentLetters"
+            @delete-letter="deleteLetter"
           />
         </v-tab-item>
       </v-tabs-items>
@@ -67,6 +68,11 @@ export default {
       ]
     }
   },
+  methods: {
+    deleteLetter() {
+      this.$emit("delete-letter");
+    },
+  }
 }
 </script>
 

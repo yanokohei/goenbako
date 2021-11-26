@@ -28,6 +28,7 @@
       :user="user"
       :letter-items="receivedLetters"
       :sent-letters="sentLetters"
+      @delete-letter="fetchReceivedLetters"
     />
   </v-container>
 </template>
