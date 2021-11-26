@@ -51,6 +51,7 @@
                 class="ma-4"
               >
                 <v-btn
+                  v-if="isCurrentMypage"
                   color="blue"
                   class="white--text"
                   small
