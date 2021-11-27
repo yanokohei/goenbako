@@ -5,21 +5,15 @@
   >
     <v-card
       flat
-      color="brown lighten-5"
+      color="grey lighten-4"
       width="800px"
       rounded="xl"
     >
       <v-card-title class="ps-16">
         <v-list-item-content>
           <v-list-item-title class="font-bold">
-            {{ currentUser.name }}
+            あなたが送ったレター
           </v-list-item-title>
-            <v-btn
-              icon
-              color="blue"
-            >
-              <v-icon>mdi-twitter</v-icon>
-            </v-btn>
         </v-list-item-content>
       </v-card-title>
 
@@ -30,8 +24,14 @@
           small
           @click="openUpdateLetterModal"
         >
-          <v-icon>mdi-twitter</v-icon>
+          <v-icon>mdi-pencil</v-icon>
           レターを修正する
+        </v-btn>
+        <v-btn
+          color="indigo"
+          class="white--text"
+          small
+        >削除
         </v-btn>
       </v-col>
 
