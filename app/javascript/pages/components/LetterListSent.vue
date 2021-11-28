@@ -5,7 +5,7 @@
       :key="letter.id"
     >
       <v-card
-        color="grey lighten-4"
+        color="#FFFEF6"
         flat
       >
         <keep-alive>
@@ -15,7 +15,7 @@
           >
             <v-card
               flat
-              color="blue-grey lighten-5"
+              color="#f5f3f2"
               width="800px"
               rounded="xl"
             >

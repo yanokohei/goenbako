@@ -7,7 +7,6 @@
       >
         <v-img
           class="mb-16 img"
-          alt="goenbako"
           src="/img/logo.png"
         />
         <p class="text-h4 text-center indigo--text mb-16">
