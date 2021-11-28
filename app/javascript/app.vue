@@ -2,8 +2,10 @@
   <div id="app">
     <v-app>
       <TheHeader />
-      <router-view />
-      <TheBottomNavigation />
+        <v-main>
+          <router-view />
+          <TheBottomNavigation />
+        </v-main>
       <TheFooter />
     </v-app>
   </div>
@@ -18,9 +20,7 @@ export default {
   components: { TheHeader, TheFooter, TheBottomNavigation },
   data() {
     return {
-      style: {
-        'background-color': '#ffffff'
-      }
+
     };
   },
 }
@@ -29,14 +29,10 @@ export default {
 
 <style scoped>
 #app {
-  --background-color: #F7F6F2;
+  --background-color: #FFFEF6;
   background-color: var(--background-color);
 }
-
 .v-application{
   font-family: "Maven Pro" !important;
 }
-/* .default {
-  background-color: #feeedc;
-} */
 </style>

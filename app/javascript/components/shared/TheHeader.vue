@@ -1,20 +1,18 @@
 <template>
-  <v-card
-    color="grey lighten-4"
-    flat
-    tile
-    light
-  >
-    <v-toolbar dense>
-      <v-btn to="/">
-        <v-toolbar-title>ご縁箱</v-toolbar-title>
-      </v-btn>
-      <v-spacer />
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
-    </v-toolbar>
-  </v-card>
+  <header>
+    <v-app-bar
+      app
+      outlined
+      color="#DFDEDE"
+      height="100px"
+      flat>
+      <v-toolbar-title>
+        <router-link to="/">
+          <v-toolbar-title>ご縁箱</v-toolbar-title>
+        </router-link>
+      </v-toolbar-title>
+    </v-app-bar>
+  </header>
 </template>
 
 <script>
