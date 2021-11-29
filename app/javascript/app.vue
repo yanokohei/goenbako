@@ -28,11 +28,14 @@ export default {
 
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Yomogi&display=swap');
 #app {
-  --background-color: #FFFEF6;
+  --background-color: #FFFFF8;
   background-color: var(--background-color);
-}
-.v-application{
-  font-family: "Maven Pro" !important;
+  font-family: 'Comforter Brush', cursive;
+  font-family: 'Yomogi', cursive;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #2e1f1f;
 }
 </style>
