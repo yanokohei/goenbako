@@ -5,7 +5,6 @@
       justify="center"
     >
       <UserProfileCard
-        v-if="isShow"
         :user="user"
       />
     </v-row>
@@ -33,20 +32,16 @@
     </v-row>
     <transition name="fade">
       <CreateLetterModal
-        v-if="isShow"
         :is-visible-create-letter-modal="isVisibleCreateLetterModal"
         :user="user"
         @create-letter="fetchReceivedLetters"
         @close-modal="handleCloseCreateLetterModal"
       />
     </transition>
-    <!-- <MySendLetter
-        v-if="isShow"
-        :letter-items="letterItems"
+    <DoneSendLetter
         :user="user"
-      /> -->
+    />
     <LetterListTab
-      v-if="isShow"
       :user="user"
       :letter-items="receivedLetters"
       :sent-letters="sentLetters"
@@ -60,7 +55,7 @@ import { mapGetters } from "vuex";
 import UserProfileCard from "../components/UserProfileCard";
 import NotSendLetter from "../components/NotSendLetter";
 import CreateLetterModal from "../components/CreateLetterModal";
-import MySendLetter from "../components/MySendLetter";
+import DoneSendLetter from "../components/DoneSendLetter";
 import LetterListTab from '../components/LetterListTab';
 
 export default {
@@ -69,13 +64,12 @@ export default {
     UserProfileCard,
     CreateLetterModal,
     NotSendLetter,
-    MySendLetter,
+    DoneSendLetter,
     LetterListTab,
   },
 
   data() {
     return {
-      isShow: false,
       user: {},
       receivedLetters: [],
       sentLetters: [],
@@ -98,7 +92,6 @@ export default {
       await axios.get(`/api/users/${this.$route.params.id}`)
       .then((res) => {
         this.user = res.data
-        this.isShow = true
       })
     },
     async fetchReceivedLetters() {

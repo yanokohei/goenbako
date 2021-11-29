@@ -2,8 +2,12 @@
   <div id="app">
     <v-app>
       <TheHeader />
-      <router-view />
-      <TheBottomNavigation />
+        <v-main>
+          <router-view />
+        </v-main>
+      <TheBottomNavigation
+        v-if="currentUser"
+      />
       <TheFooter />
     </v-app>
   </div>
@@ -13,30 +17,33 @@
 import TheHeader from "./components/shared/TheHeader";
 import TheFooter from "./components/shared/TheFooter";
 import TheBottomNavigation from "./components/shared/TheBottomNavigation";
+import { mapGetters } from "vuex"
 
 export default {
-  components: { TheHeader, TheFooter, TheBottomNavigation },
-  data() {
-    return {
-      style: {
-        'background-color': '#ffffff'
-      }
-    };
+  components: {
+    TheHeader,
+    TheFooter,
+    TheBottomNavigation
+  },
+  computed: {
+    ...mapGetters({ currentUser: "users/currentUser" }),
+    // isCurrentUser() {
+    // return this.currentUser === true
+    // }
   },
 }
 </script>
 
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Yomogi&display=swap');
 #app {
-  --background-color: #F7F6F2;
+  --background-color: #FFFFF8;
   background-color: var(--background-color);
+  font-family: 'Comforter Brush', cursive;
+  font-family: 'Yomogi', cursive;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #2e1f1f;
 }
-
-.v-application{
-  font-family: "Maven Pro" !important;
-}
-/* .default {
-  background-color: #feeedc;
-} */
 </style>

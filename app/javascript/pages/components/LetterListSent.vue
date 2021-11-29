@@ -5,7 +5,7 @@
       :key="letter.id"
     >
       <v-card
-        color="grey lighten-4"
+        color="#FFFFF8"
         flat
       >
         <keep-alive>
@@ -15,7 +15,7 @@
           >
             <v-card
               flat
-              color="blue-grey lighten-5"
+              color="#f1f1f1"
               width="800px"
               rounded="xl"
             >
@@ -34,7 +34,7 @@
                     <v-btn
                       icon
                       color="blue"
-                      :href="twitterUrl"
+                      :href="`https://twitter.com/${letter.receiver.twitter_id}`"
                     >
                       <v-icon>mdi-twitter</v-icon>
                     </v-btn>
@@ -80,9 +80,6 @@ export default {
 },
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
-    twitterUrl() {
-      return `https://twitter.com/${this.currentUser.twitter_id}`
-    },
   },
   methods: {
 

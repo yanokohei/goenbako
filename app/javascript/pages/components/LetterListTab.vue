@@ -3,7 +3,7 @@
     <v-row>
       <v-tabs
         v-model="moveTab"
-        background-color="amber lighten-5"
+        background-color="#fff6e4"
         centered
         icons-and-text
       >

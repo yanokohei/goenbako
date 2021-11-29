@@ -5,7 +5,7 @@
       :key="letterItem.id"
     >
       <v-card
-        color="grey lighten-4"
+        color="#FFFFF8"
         flat
       >
         <keep-alive>
@@ -15,7 +15,7 @@
           >
             <v-card
               flat
-              color="blue-grey lighten-5"
+              color="#f1f1f1"
               width="800px"
               rounded="xl"
             >
@@ -34,7 +34,7 @@
                     <v-btn
                       icon
                       color="blue"
-                      :href="twitterUrl"
+                      :href="`https://twitter.com/${letterItem.sender.twitter_id}`"
                     >
                       <v-icon>mdi-twitter</v-icon>
                     </v-btn>
@@ -51,6 +51,7 @@
                 class="ma-4"
               >
                 <v-btn
+                  v-if="isCurrentMypage"
                   color="blue"
                   class="white--text"
                   small
@@ -112,9 +113,6 @@ export default {
   },
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
-    twitterUrl() {
-      return `https://twitter.com/${this.currentUser.twitter_id}`
-    },
     isCurrentMypage() {
       return this.$route.path === '/mypage'
     }
