@@ -5,7 +5,9 @@
         <v-main>
           <router-view />
         </v-main>
-      <TheBottomNavigation />
+      <TheBottomNavigation
+        v-if="currentUser"
+      />
       <TheFooter />
     </v-app>
   </div>
@@ -15,12 +17,19 @@
 import TheHeader from "./components/shared/TheHeader";
 import TheFooter from "./components/shared/TheFooter";
 import TheBottomNavigation from "./components/shared/TheBottomNavigation";
+import { mapGetters } from "vuex"
 
 export default {
   components: {
     TheHeader,
     TheFooter,
     TheBottomNavigation
+  },
+  computed: {
+    ...mapGetters({ currentUser: "users/currentUser" }),
+    // isCurrentUser() {
+    // return this.currentUser === true
+    // }
   },
 }
 </script>
