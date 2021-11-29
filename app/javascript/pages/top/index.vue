@@ -72,13 +72,8 @@
 
 <script>
 import { mapGetters } from "vuex"
-
 export default {
   name: "TopIndex",
-  data() {
-    return {
-    };
-  },
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
     },

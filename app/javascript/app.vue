@@ -4,8 +4,8 @@
       <TheHeader />
         <v-main>
           <router-view />
-          <TheBottomNavigation />
         </v-main>
+      <TheBottomNavigation />
       <TheFooter />
     </v-app>
   </div>
@@ -17,11 +17,10 @@ import TheFooter from "./components/shared/TheFooter";
 import TheBottomNavigation from "./components/shared/TheBottomNavigation";
 
 export default {
-  components: { TheHeader, TheFooter, TheBottomNavigation },
-  data() {
-    return {
-
-    };
+  components: {
+    TheHeader,
+    TheFooter,
+    TheBottomNavigation
   },
 }
 </script>
