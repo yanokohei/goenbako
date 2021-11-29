@@ -17,6 +17,7 @@
     <v-row class="justify-center mb-4">
       <v-col align="center">
         <v-btn
+          v-if="this.currentUser"
           color="blue"
           class="white--text"
           rounded
