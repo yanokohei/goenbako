@@ -10,6 +10,7 @@
             <v-card
               class="mt-2 pa-4 rounded-lg u-pre-wrap"
               outlined
+              color="#FCFCFC"
               rounded="xl"
               max-width="650"
             > {{ letter.text }}

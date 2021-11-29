@@ -1,6 +1,6 @@
 <template>
   <v-card
-    color="amber lighten-5"
+    color="#fff6e4"
     width="500px"
   >
     <v-card-title>

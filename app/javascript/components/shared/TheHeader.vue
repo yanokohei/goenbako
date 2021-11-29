@@ -3,7 +3,7 @@
     <v-app-bar
       app
       outlined
-      color="#DFDEDE"
+      color="#e3dfdc"
       height="100px"
       flat>
       <v-toolbar-title>
