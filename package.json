@@ -24,6 +24,9 @@
     "eslint-plugin-vue": "^7.19.1",
     "webpack-dev-server": "^3.11.2"
   },
+  "engines": {
+    "node": "14.17.6"
+  },
   "scripts": {
     "lint": "eslint --ext .js,.vue app/javascript",
     "lint-fix": "eslint --fix --ext .js,.vue app/javascript"
