@@ -40,3 +40,5 @@ yarn-debug.log*
 # Ignore vendor
 /vendor
 /config/database.yml
+
+/config/credentials/production.key
