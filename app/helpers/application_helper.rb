@@ -10,7 +10,7 @@ module ApplicationHelper
         description: "Twitterシェアに特化したファンレター公開サービスです。ご縁箱をかんたん開設したらあなたのファンにTwitterでシェアしてみましょう！",
         type: "website",
         url: request.original_url,
-        image: 'https://goenbako.com/images/logo.png',
+        image: 'https://goenbako.com/img/logo.png',
         locale: "ja_JP"
       },
       twitter: {
