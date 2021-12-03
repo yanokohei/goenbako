@@ -3,12 +3,14 @@
     <v-app-bar
       app
       outlined
-      color="#e3dfdc"
-      height="100px"
+      height="80px"
       flat>
       <v-toolbar-title>
         <router-link to="/">
-          <v-toolbar-title>ご縁箱</v-toolbar-title>
+          <v-img
+            src="/img/logo.svg"
+            width="130px"
+          />
         </router-link>
       </v-toolbar-title>
     </v-app-bar>
