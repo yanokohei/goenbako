@@ -12,7 +12,7 @@
         <p class="indigo--text mb-8">
           ＼ ファンレター公開サービス ／
         </p>
-        <v-img max-width="250" src="/img/logo2.png" />
+        <v-img max-width="250" src="/img/logo.svg" />
       </v-col>
       <v-col class="mt-8" align="center">
         <p class="indigo--text mb-8">
