@@ -91,14 +91,14 @@ export default {
       this.$emit("close-modal");
     },
     copyLink() {
-      const url = `${location.origin}/${this.currentUser.id}`
+      const url = `${location.origin}/users/${this.currentUser.id}`
       navigator.clipboard.writeText(url)
         .then((res) => {
         return;
       })
     },
     twitterShare() {
-      const url = `${location.origin}/${this.currentUser.id}`
+      const url = `${location.origin}/users/${this.currentUser.id}`
       return `https://twitter.com/share?text=${this.currentUser.name}さんのご縁箱です！%0aファンレターを書いてみよう！&url=${url}&hashtags=ご縁箱`;
     },
   }

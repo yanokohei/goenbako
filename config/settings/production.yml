@@ -1,2 +1,2 @@
 sorcery:
-  callback_url: 'https://goenbako.herokuapp.com/api/oauth/callback?provider=twitter'
+  callback_url: 'https://goenbako.com/api/oauth/callback?provider=twitter'
