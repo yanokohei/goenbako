@@ -15,4 +15,8 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
   validates :introduce, length: { maximum: 300 }
   validates :role, presence: true
+
+  def modify_avater_url
+    avatar_url&.sub!('_normal.jpg', '.jpg')
+  end
 end
