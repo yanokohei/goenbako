@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  before_save :modify_avatar_url
   authenticates_with_sorcery!
 
   has_many :authentications, dependent: :destroy
@@ -16,7 +17,9 @@ class User < ApplicationRecord
   validates :introduce, length: { maximum: 300 }
   validates :role, presence: true
 
-  def modify_avater_url
-    avatar_url&.sub!('_normal.jpg', '.jpg')
+  private
+
+  def modify_avatar_url
+    avatar_url&.sub!(/_normal(.jpg|.jpeg|.gif|.png)/i) { Regexp.last_match[1] }
   end
 end
