@@ -1,24 +1,20 @@
 <template>
   <v-dialog
     v-model="isVisibleCreateLetterModal"
-    max-width="600"
+    max-width="850"
     persistent
   >
     <v-card color="amber lighten-5">
       <v-card-title>
-        <v-icon>mdi-email-edit-outline</v-icon>
-        <span>ファンレター作成</span>
+        <span class="pa-8 l-font">ファンレター作成</span>
       </v-card-title>
       <v-divider />
       <!-- フォーム全体をHTML要素で統括 -->
-      <div
-        id="create-letter-form"
-        class="pa-10"
-      >
+      <div class="pa-10">
         <!-- formタグでフォームデータを一括管理 -->
         <v-form @submit.prevent="handleCreateLetter(letter)">
           <div v-for="(letterTitle, index) in letterTitles()" :key="index">
-            <div class="mt-5">
+            <div class="mt-8 m-font">
               <label
                 for="past"
               >{{ letterTitle.message }}</label>
@@ -27,18 +23,22 @@
                   v-if="!ShowTextarea.includes(index)"
                   @click="addShowTextarea(index)"
                   color="deep-purple lighten-5"
+                  class="mt-4"
                 >
                   <v-icon>mdi-pencil</v-icon>
                   書いてみる
                 </v-btn>
               </v-card-actions>
-              <v-textarea
-                v-show="ShowTextarea.includes(index)"
-                :id="`${letterTitle.model_name}`"
-                v-model="letter[letterTitle.model_name]"
-                :name="`create_letter[${letterTitle.model_name}]`"
-                background-color="white"
-              />
+              <v-col align="center">
+                <v-textarea
+                  v-show="ShowTextarea.includes(index)"
+                  :id="`${letterTitle.model_name}`"
+                  v-model="letter[letterTitle.model_name]"
+                  :name="`create_letter[${letterTitle.model_name}]`"
+                  background-color="white"
+                  class="textarea-style"
+                />
+              </v-col>
             </div>
           </div>
           <!-- 登録ボタン -->
@@ -143,9 +143,25 @@ export default {
 .modal {
   display: block;
 }
-.title {
-  font-size: 1.6rem;
+.l-font{
+  font-size: 1.8em;
   font-weight: bold;
-  color: #2e1f1f;
+  color: #2c281e;
+}
+.m-font{
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #2c281e;
+}
+.s-font{
+  font-size: 1.1em;
+  font-weight: bold;
+  line-height: 1;
+  color: #2c281e;
+}
+.textarea-style{
+  line-height: 1.7;
+  font-size:1.2em;
+  width: 90%;
 }
 </style>
