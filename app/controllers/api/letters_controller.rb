@@ -1,10 +1,6 @@
 class Api::LettersController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_letter, only: [:edit, :update, :destroy]
-
-  def show
-    render json: @letter
-  end
+  before_action :set_letter, only: [:update, :destroy]
 
   def create
     @letter = current_user.letters.build(letter_params)
@@ -13,10 +9,6 @@ class Api::LettersController < ApplicationController
     else
       render json: @letter.errors, status: :bad_request
     end
-  end
-
-  def edit
-    @letter = current_user.find(params[:id])
   end
 
   def update
@@ -32,14 +24,9 @@ class Api::LettersController < ApplicationController
     render json: @letter
   end
 
-  def my_sent_letter
-    @sent_letter = current_user.sent_letters
-    render json: @sent_letter
-  end
-
   private
   def set_letter
-    @letter = current_user.letters.find(params[:id])
+    @letter = current_user.letters.find_by(id: params[:id]) || current_user.receivers.find_by(id: params[:id])
   end
 
   def letter_params
