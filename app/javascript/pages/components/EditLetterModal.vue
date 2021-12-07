@@ -2,7 +2,6 @@
   <v-dialog
     v-model="isVisibleEditLetterModal"
     max-width="850"
-    scrollable
     persistent
   >
     <v-card color="amber lighten-5">
@@ -26,7 +25,6 @@
                   :name="`update_letter[${letterTitle.model_name}]`"
                   background-color="white"
                   class="textarea-style"
-                  auto-grow
                   rows="4"
                 />
               </v-col>
@@ -86,7 +84,6 @@ export default {
     return {
       letter: this.updateLetter,
     }
-
   },
   computed: {
     ...mapGetters("users", ["currentUser"]),
@@ -140,6 +137,7 @@ export default {
 }
 .textarea-style{
   line-height: 1.7;
+  letter-spacing: 20px;
   font-size:1.2em;
   width: 90%;
 }
