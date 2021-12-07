@@ -26,7 +26,7 @@
           <component
             :is="tabItem.content"
             :user="user"
-            :letter-items="letterItems"
+            :received-letters="receivedLetters"
             :sent-letters="sentLetters"
             @delete-letter="deleteLetter"
           />
@@ -50,14 +50,14 @@ export default {
       type: Object,
       required: true
     },
-    letterItems: {
+    receivedLetters: {
       type: Array,
       required: true
     },
     sentLetters: {
       type: Array,
       required: true
-    }
+    },
   },
   data() {
     return {

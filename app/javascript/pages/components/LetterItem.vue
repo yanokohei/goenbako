@@ -32,10 +32,6 @@ export default {
       type: Object,
       required: true
     },
-    sentLetters: {
-      type: Object,
-      required: true
-    }
   },
   computed: {
     createdLetter() {

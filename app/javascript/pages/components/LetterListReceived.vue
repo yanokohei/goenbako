@@ -1,8 +1,8 @@
 <template>
   <v-container class="pa-0">
     <div
-      v-for="letterItem in letterItems"
-      :key="letterItem.id"
+      v-for="receivedLetter in receivedLetters"
+      :key="receivedLetter.id"
     >
       <v-card
         color="#FFFFF8"
@@ -20,21 +20,21 @@
               rounded="xl"
             >
               <v-card-title class="ps-16">
-                <router-link :to="{ name: 'UserIndex', params: { id: letterItem.sender.id }}">
+                <router-link :to="{ name: 'UserIndex', params: { id: receivedLetter.sender.id }}">
                   <v-list-item-avatar size="50">
-                    <img :src="letterItem.sender.image">
+                    <img :src="receivedLetter.sender.image">
                   </v-list-item-avatar>
                 </router-link>
                 <v-list-item-content>
                   <v-list-item-title class="font-bold">
-                    {{ letterItem.sender.name }}
+                    {{ receivedLetter.sender.name }}
                   </v-list-item-title>
                   <v-list-item-subtitle>
-                    @{{ letterItem.sender.twitter_id }}
+                    @{{ receivedLetter.sender.twitter_id }}
                     <v-btn
                       icon
                       color="blue"
-                      :href="`https://twitter.com/${letterItem.sender.twitter_id}`"
+                      :href="`https://twitter.com/${receivedLetter.sender.twitter_id}`"
                     >
                       <v-icon>mdi-twitter</v-icon>
                     </v-btn>
@@ -42,8 +42,7 @@
                 </v-list-item-content>
               </v-card-title>
               <LetterItem
-                :letter-items="letterItem"
-                :sent-letters="letterItem"
+                :letter-items="receivedLetter"
                 :user="user"
               />
               <v-row
@@ -66,7 +65,7 @@
                   small
                   color="brown darken-1"
                   dark
-                  @click="hundleDeleteLetter(letterItem)"
+                  @click="hundleDeleteLetter(receivedLetter)"
                 >
                   <v-icon> mdi-delete </v-icon>
                 </v-btn>
@@ -101,7 +100,7 @@ export default {
       type: Object,
       required: true
     },
-    letterItems: {
+    receivedLetters: {
       type: Array,
       required: true
     },
@@ -124,17 +123,17 @@ export default {
     handleCloseShareLetterModal() {
       this.isVisibleShareLetterModal = false;
     },
-    hundleDeleteLetter(letterItem) {
+    hundleDeleteLetter(receivedLetter) {
       if (!confirm("削除してよろしいですか?")) return;
-      this.deleteLetter(letterItem);
+      this.deleteLetter(receivedLetter);
       this.$store.dispatch("flash/setFlash", {
         type: "success",
         message: "レターを削除しました。",
       });
     },
-    deleteLetter(letterItem) {
+    deleteLetter(receivedLetter) {
       axios
-        .delete(`/api/letters/${letterItem.letter.id}`)
+        .delete(`/api/letters/${receivedLetter.letter.id}`)
         .then(() => this.$emit("delete-letter"));
     },
 

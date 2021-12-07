@@ -39,12 +39,9 @@
         @close-modal="handleCloseCreateLetterModal"
       />
     </transition>
-    <DoneSendLetter
-        :user="user"
-    />
     <LetterListTab
       :user="user"
-      :letter-items="receivedLetters"
+      :received-letters="receivedLetters"
       :sent-letters="sentLetters"
     />
   </v-container>

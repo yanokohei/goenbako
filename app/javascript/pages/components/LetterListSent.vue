@@ -50,8 +50,6 @@ export default {
         type: "success",
         message: "レターを削除しました。",
       });
-      // Error in v-on handler: "TypeError: Cannot read properties of undefined (reading 'id')"
-      // フラッシュメッセージの表示
     },
     deleteLetter(letterItem) {
       axios
