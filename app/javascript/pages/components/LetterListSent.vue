@@ -36,25 +36,14 @@ export default {
     ...mapGetters({ currentUser: "users/currentUser" }),
   },
   methods: {
-
     openUpdateLetterModal() {
       this.isVisibleUpdateLetterModal = true;
     },
     handleCloseUpdateLetterModal() {
       this.isVisibleUpdateLetterModal = false;
     },
-    hundleDeleteLetter(sentLetters) {
-      if (!confirm("削除してよろしいですか?")) return;
-      this.deleteLetter(sentLetters);
-      this.$store.dispatch("flash/setFlash", {
-        type: "success",
-        message: "レターを削除しました。",
-      });
-    },
-    deleteLetter(letterItem) {
-      axios
-        .delete(`/api/letters/${letterItem.letter.id}`)
-        .then(() => this.$emit("delete-letter"));
+    deleteLetter() {
+      this.$emit("delete-letter");
     },
   },
 };

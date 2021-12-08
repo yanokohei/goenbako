@@ -9,10 +9,8 @@
         <span class="pa-8 l-font">レターの更新</span>
       </v-card-title>
       <v-divider />
-      <!-- フォーム全体をHTML要素で統括 -->
       <div class="pa-10">
-        <!-- formタグでフォームデータを一括管理 -->
-        <v-form @submit.prevent="handleUpdateLetter(updateLetter)">
+        <v-form @submit.prevent="handleUpdateLetter(letter)">
           <div v-for="(letterTitle, index) in letterTitles()" :key="index">
             <div class="mt-8 m-font">
               <label
@@ -21,8 +19,8 @@
               <v-col align="center">
                 <v-textarea
                   :id="`${letterTitle.model_name}`"
-                  v-model="updateLetter[letterTitle.model_name]"
-                  :name="`update_letter[${letterTitle.model_name}]`"
+                  v-model="letter[letterTitle.model_name]"
+                  :name="`letter[${letterTitle.model_name}]`"
                   background-color="white"
                   class="textarea-style"
                   rows="4"
@@ -77,12 +75,26 @@ export default {
     },
     updateLetter: {
       type: Object,
-      required: true
+      required: true,
+    }
+  },
+  computed: {
+    updateLetterItem() {
+      return this.updateLetter
     }
   },
   data() {
-    return {
-      letter: this.updateLetter,
+    return { // propsのオブジェクトをそのまま渡すと参照渡しとなり、propsと連動してしまい、モーダルの外の値が変わってしまう。
+      letter: {
+        id: this.updateLetter.id,
+        sender_id: this.updateLetter.sender_id,
+        receiver_id: this.updateLetter.receiver_id,
+        past: this.updateLetter.past,
+        current: this.updateLetter.current,
+        future: this.updateLetter.future,
+        expect: this.updateLetter.expect,
+        message: this.updateLetter.message
+      }
     }
   },
   computed: {

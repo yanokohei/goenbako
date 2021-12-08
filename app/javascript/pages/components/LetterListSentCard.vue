@@ -73,7 +73,6 @@
           :user="user"
           :updateLetter="sentLetter.letter"
           @close-modal="handleCloseEditLetterModal"
-
         />
       </transition>
     </v-card>
