@@ -59,7 +59,7 @@ export default {
         {
           name: "message",
           title: "メッセージ",
-          text: this.letterItems.message
+          text: this.letterItems.letter.message
         }
       ]
       .filter(existsLetterItem => existsLetterItem.text)
