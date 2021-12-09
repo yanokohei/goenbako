@@ -26,9 +26,10 @@
     </transition>
     <LetterListTab
       :user="user"
-      :letter-items="receivedLetters"
+      :received-letters="receivedLetters"
       :sent-letters="sentLetters"
       @delete-letter="fetchReceivedLetters"
+      @update-letter="fetchSentLetters"
     />
   </v-container>
 </template>

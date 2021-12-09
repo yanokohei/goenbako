@@ -26,9 +26,10 @@
           <component
             :is="tabItem.content"
             :user="user"
-            :letter-items="letterItems"
+            :received-letters="receivedLetters"
             :sent-letters="sentLetters"
             @delete-letter="deleteLetter"
+            @update-letter="handleUpdateLetter"
           />
         </v-tab-item>
       </v-tabs-items>
@@ -50,14 +51,14 @@ export default {
       type: Object,
       required: true
     },
-    letterItems: {
+    receivedLetters: {
       type: Array,
       required: true
     },
     sentLetters: {
       type: Array,
       required: true
-    }
+    },
   },
   data() {
     return {
@@ -72,6 +73,9 @@ export default {
     deleteLetter() {
       this.$emit("delete-letter");
     },
+    handleUpdateLetter() {
+      this.$emit("update-letter");
+    }
   }
 }
 </script>

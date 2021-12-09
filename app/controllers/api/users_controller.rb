@@ -2,7 +2,7 @@ class Api::UsersController < ApplicationController
 
   def sent_letters
     user = User.find(params[:id])
-    @sent_letters = user.letters
+    @sent_letters = user.letters.order(created_at: :desc)
     sent_letters = @sent_letters.map do |letter|
       {
         letter: letter,
@@ -15,7 +15,7 @@ class Api::UsersController < ApplicationController
 
   def received_letters
     user = User.find(params[:id])
-    @received_letters = user.receivers
+    @received_letters = user.receivers.order(created_at: :desc)
     received_letters = @received_letters.map do |letter|
       {
         letter: letter,
