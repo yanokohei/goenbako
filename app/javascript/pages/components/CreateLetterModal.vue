@@ -125,7 +125,7 @@ export default {
     },
     handleCreateLetter() {
       this.letter.sender_id = this.currentUser.id
-      this.letter.receiver_id = this.$route.params.id
+      this.letter.receiver_id = this.user.id
       axios
         .post("/api/letters", { letter: this.letter })
         .then((res) => this.$emit("create-letter", res.data));
