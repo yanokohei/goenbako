@@ -40,15 +40,15 @@
             :letter-items="sentLetter"
             :user="user"
           />
-          <v-col class="text-center">
+          <v-col v-if="isCurrentMypage" class="text-center">
             <v-btn
-              color="blue"
+              color="orange"
               class="white--text"
               small
               @click="openEditLetterModal"
             >
               <v-icon>mdi-pencil</v-icon>
-              レターを修正する
+              編集
             </v-btn>
             <v-btn
               color="indigo"
@@ -101,6 +101,9 @@ export default {
   },
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
+    isCurrentMypage() {
+      return this.$route.path === '/mypage'
+    }
   },
   methods: {
     openEditLetterModal() {
