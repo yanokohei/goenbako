@@ -29,6 +29,7 @@
             :received-letters="receivedLetters"
             :sent-letters="sentLetters"
             @delete-letter="deleteLetter"
+            @update-letter="handleUpdateLetter"
           />
         </v-tab-item>
       </v-tabs-items>
@@ -72,6 +73,9 @@ export default {
     deleteLetter() {
       this.$emit("delete-letter");
     },
+    handleUpdateLetter() {
+      this.$emit("update-letter");
+    }
   }
 }
 </script>

@@ -15,7 +15,7 @@
             <div class="mt-8 m-font">
               <label
                 for="past"
-              >{{ letterTitle.message }}</label>
+              >{{ letterTitle.item }}</label>
               <v-col align="center">
                 <v-textarea
                   :id="`${letterTitle.model_name}`"
@@ -103,11 +103,11 @@ export default {
   methods: {
     letterTitles() {
       return [
-        { message: '出会いのきっかけ・当時の印象', model_name: 'past' },
-        { message: '現在の印象・どんな人？', model_name: 'current' },
-        { message: '聞いてみたいこと／これから話してみたいこと', model_name: 'future' },
-        { message: `${this.user.name}さんに期待していること`, model_name: 'expect' },
-        { message: 'メッセージ', model_name: 'message' }
+        { item: '出会いのきっかけ・当時の印象', model_name: 'past' },
+        { item: '現在の印象・どんな人？', model_name: 'current' },
+        { item: '聞いてみたいこと／これから話してみたいこと', model_name: 'future' },
+        { item: `${this.user.name}さんに期待していること`, model_name: 'expect' },
+        { item: 'メッセージ', model_name: 'message' }
       ]
     },
     handleCloseModal() {

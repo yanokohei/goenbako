@@ -8,6 +8,7 @@
       <LetterListSentCard
         :user="user"
         :sentLetter="sentLetter"
+        @update-letter="handleUpdateLetter"
       />
     </div>
   </v-container>
@@ -45,6 +46,9 @@ export default {
     deleteLetter() {
       this.$emit("delete-letter");
     },
+    handleUpdateLetter() {
+      this.$emit("update-letter");
+    }
   },
 };
 </script>
