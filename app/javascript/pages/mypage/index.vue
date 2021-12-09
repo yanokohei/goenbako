@@ -77,13 +77,13 @@ export default {
       this.isVisibleShareLinkModal = false;
     },
     async fetchReceivedLetters() {
-      await axios.get(`/api/users/${this.currentUser.id}/received_letters`)
+      await axios.get(`/api/users/${this.currentUser.twitter_id}/received_letters`)
         .then((res) => {
           this.receivedLetters = res.data
         })
     },
     async fetchSentLetters() {
-      await axios.get(`/api/users/${this.currentUser.id}/sent_letters`)
+      await axios.get(`/api/users/${this.currentUser.twitter_id}/sent_letters`)
         .then((res) => {
           this.sentLetters = res.data
         })

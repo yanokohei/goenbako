@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
 
   def sent_letters
-    user = User.find(params[:id])
+    user = User.find_by!(twitter_id: params[:twitter_id])
     @sent_letters = user.letters.order(created_at: :desc)
     sent_letters = @sent_letters.map do |letter|
       {
@@ -14,7 +14,7 @@ class Api::UsersController < ApplicationController
   end
 
   def received_letters
-    user = User.find(params[:id])
+    user = User.find_by!(twitter_id: params[:twitter_id])
     @received_letters = user.receivers.order(created_at: :desc)
     received_letters = @received_letters.map do |letter|
       {
@@ -27,7 +27,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by(twitter_id: params[:twitter_id])
     render json: @user
   end
 
@@ -40,7 +40,7 @@ class Api::UsersController < ApplicationController
   def update; end
 
   def destroy
-    @user = User.find(params[:id])
+    @user = User.find(params[:twitter_id])
     render json: @user
   end
 end

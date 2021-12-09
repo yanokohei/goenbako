@@ -87,19 +87,19 @@ export default {
   },
   methods: {
     async fetchUser() {
-      await axios.get(`/api/users/${this.$route.params.id}`)
+      await axios.get(`/api/users/${this.$route.params.twitter_id}`)
       .then((res) => {
         this.user = res.data
       })
     },
     async fetchReceivedLetters() {
-      await axios.get(`/api/users/${this.$route.params.id}/received_letters`)
+      await axios.get(`/api/users/${this.$route.params.twitter_id}/received_letters`)
         .then((res) => {
           this.receivedLetters = res.data
         })
     },
     async fetchSentLetters() {
-      await axios.get(`/api/users/${this.$route.params.id}/sent_letters`)
+      await axios.get(`/api/users/${this.$route.params.twitter_id}/sent_letters`)
         .then((res) => {
           this.sentLetters = res.data
         })
