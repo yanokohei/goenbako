@@ -42,7 +42,7 @@ export default {
   background-color: var(--background-color);
   font-family: 'Comforter Brush', cursive;
   font-family: 'Yomogi', cursive;
-  font-size: 1.5rem;
+  font-size: 1.0rem;
   font-weight: bold;
   color: #2e1f1f;
 }
