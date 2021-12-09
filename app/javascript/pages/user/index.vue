@@ -8,7 +8,7 @@
         :user="user"
       />
     </v-row>
-    <div class="corner-title top-sub-title">
+    <div>
       あなたが送ったファンレター
       <v-icon>mdi-email-edit-outline</v-icon>
     </div>

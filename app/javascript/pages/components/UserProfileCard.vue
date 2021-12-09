@@ -1,12 +1,10 @@
 <template>
-  <v-row justify="center" class="mt-12">
+  <v-row justify="center" class="mt-8">
     <v-card
       color="transparent"
-      width="800px"
-      class="ma-12"
     >
-      <v-card-title class="pa-8 mt-16">
-        <v-list-item-avatar  size="150" class="avatar-position">
+      <v-card-title>
+        <v-list-item-avatar  size="" class="avatar-position">
           <img :src="user.image">
         </v-list-item-avatar>
         <v-list-item-content>
@@ -48,7 +46,7 @@ export default {
 }
 </script>
 <style scoped>
-.l-font{
+/* .l-font{
   font-size: 2.0em;
   font-weight: bold;
   line-height: 1.5;
@@ -70,5 +68,5 @@ export default {
   position: absolute;
   top: -60px;
   left: 30px;
-}
+} */
 </style>
