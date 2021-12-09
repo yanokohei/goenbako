@@ -20,7 +20,7 @@ const router = new Router({
       name: "MypageIndex",
     },
     {
-      path: "/users/:id",
+      path: "/:twitter_id",
       component: UserIndex,
       name: "UserIndex",
     },
