@@ -3,12 +3,12 @@
     <v-card
       color="transparent"
     >
-      <v-card-title>
-        <v-list-item-avatar>
+      <v-card-title class="mt-4">
+        <v-list-item-avatar size="60" class="avatar-position">
           <img :src="currentUser.image">
         </v-list-item-avatar>
-        <v-list-item-content>
-          <p>{{ currentUser.name }}</p>
+        <v-list-item-content class="s-font">
+          {{ currentUser.name }}
           <v-list-item-subtitle>
             @{{ currentUser.twitter_id }}
             <v-btn
@@ -21,7 +21,7 @@
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-card-title>
-      <v-card-text>
+      <v-card-text class="s-font px-4 mb-8">
         {{ currentUser.introduce }}
       </v-card-text>
     </v-card>
@@ -54,16 +54,16 @@ export default {
   font-weight: bold;
   line-height: 1.3;
   color: #2c281e;
-}
+} */
 .s-font{
-  font-size: 1.1em;
+  font-size: 1.0em;
   font-weight: bold;
   line-height: 1;
   color: #2c281e;
-} */
+}
 .avatar-position {
   position: absolute;
-  top: -60px;
-  left: 30px;
+  top: -40px;
+  left: 20px;
 }
 </style>
