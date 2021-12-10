@@ -1,5 +1,5 @@
 <template>
-  <v-container class="pa-0">
+  <v-container>
     <div
       v-for="sentLetter in sentLetters"
       :key="sentLetter.id"

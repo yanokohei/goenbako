@@ -7,16 +7,15 @@
       <v-card
         color="#FFFFF8"
         flat
+        class="my-12"
       >
         <keep-alive>
-          <v-row
-            class="mt-8"
-            justify="center"
-          >
+          <v-row>
             <v-card
               flat
               color="#f1f1f1"
               rounded="xl"
+              max-width="600px"
             >
               <v-card-title class="ps-16">
                 <router-link :to="{ name: 'UserIndex', params: { twitter_id: receivedLetter.sender.twitter_id }}">

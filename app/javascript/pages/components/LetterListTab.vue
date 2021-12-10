@@ -18,21 +18,23 @@
           <v-icon>mdi-email-edit-outline</v-icon>
         </v-tab>
       </v-tabs>
-      <v-tabs-items v-model="moveTab">
-        <v-tab-item
-          v-for="tabItem in tabItems"
-          :key="tabItem.tabId"
-        >
-          <component
-            :is="tabItem.content"
-            :user="user"
-            :received-letters="receivedLetters"
-            :sent-letters="sentLetters"
-            @delete-letter="deleteLetter"
-            @update-letter="handleUpdateLetter"
-          />
-        </v-tab-item>
-      </v-tabs-items>
+      <v-row justify="center" class="my-4" >
+        <v-tabs-items v-model="moveTab">
+          <v-tab-item
+            v-for="tabItem in tabItems"
+            :key="tabItem.tabId"
+          >
+            <component
+              :is="tabItem.content"
+              :user="user"
+              :received-letters="receivedLetters"
+              :sent-letters="sentLetters"
+              @delete-letter="deleteLetter"
+              @update-letter="handleUpdateLetter"
+            />
+          </v-tab-item>
+        </v-tabs-items>
+      </v-row>
     </v-row>
   </v-container>
 </template>

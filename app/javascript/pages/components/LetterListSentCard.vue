@@ -4,13 +4,12 @@
     flat
   >
     <keep-alive>
-      <v-row
-        justify="center"
-      >
+      <v-row>
         <v-card
           flat
           color="#f1f1f1"
           rounded="xl"
+          class="my-8"
         >
           <v-card-title class="ps-16">
             <router-link :to="{ name: 'UserIndex', params: { twitter_id: sentLetter.receiver.twitter_id }}">
@@ -40,6 +39,7 @@
           />
           <v-row
             justify="end"
+            class="ma-4"
           >
             <v-btn
               color="orange"
