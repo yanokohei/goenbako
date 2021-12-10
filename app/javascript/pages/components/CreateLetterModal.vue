@@ -143,7 +143,7 @@ export default {
 .modal {
   display: block;
 }
-.l-font{
+/* .l-font{
   font-size: 1.8em;
   font-weight: bold;
   color: #2c281e;
@@ -158,10 +158,10 @@ export default {
   font-weight: bold;
   line-height: 1;
   color: #2c281e;
-}
-.textarea-style{
+} */
+/* .textarea-style{
   line-height: 1.7;
   font-size:1.2em;
   width: 90%;
-}
+} */
 </style>

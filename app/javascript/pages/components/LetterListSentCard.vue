@@ -5,23 +5,21 @@
   >
     <keep-alive>
       <v-row
-        class="ma-8"
         justify="center"
       >
         <v-card
           flat
           color="#f1f1f1"
-          width="800px"
           rounded="xl"
         >
           <v-card-title class="ps-16">
-            <router-link :to="{ name: 'UserIndex', params: { id: sentLetter.receiver.id }}">
-              <v-list-item-avatar size="50">
+            <router-link :to="{ name: 'UserIndex', params: { twitter_id: sentLetter.receiver.twitter_id }}">
+              <v-list-item-avatar size="">
                 <img :src="sentLetter.receiver.image">
               </v-list-item-avatar>
             </router-link>
             <v-list-item-content>
-              <v-list-item-title class="font-bold">
+              <v-list-item-title>
                 {{ sentLetter.receiver.name }}
               </v-list-item-title>
               <v-list-item-subtitle>
@@ -40,7 +38,9 @@
             :letter-items="sentLetter"
             :user="user"
           />
-          <v-col v-if="isCurrentMypage" class="text-center">
+          <v-row
+            justify="end"
+          >
             <v-btn
               color="orange"
               class="white--text"
@@ -57,7 +57,7 @@
               @click="hundleDeleteLetter(sentLetter)"
             >削除
             </v-btn>
-          </v-col>
+          </v-row>
         </v-card>
       </v-row>
     </keep-alive>

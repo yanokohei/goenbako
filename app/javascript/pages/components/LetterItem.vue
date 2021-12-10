@@ -12,7 +12,6 @@
               outlined
               color="#FCFCFC"
               rounded="xl"
-              max-width="650"
             > {{ letter.text }}
             </v-card>
         </v-list-item-content>

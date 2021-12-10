@@ -1,5 +1,5 @@
 <template>
-  <v-container class="pa-0">
+  <v-container>
     <div
       v-for="receivedLetter in receivedLetters"
       :key="receivedLetter.id"
@@ -10,18 +10,17 @@
       >
         <keep-alive>
           <v-row
-            class="ma-8"
+            class="mt-8"
             justify="center"
           >
             <v-card
               flat
               color="#f1f1f1"
-              width="800px"
               rounded="xl"
             >
               <v-card-title class="ps-16">
-                <router-link :to="{ name: 'UserIndex', params: { id: receivedLetter.sender.id }}">
-                  <v-list-item-avatar size="50">
+                <router-link :to="{ name: 'UserIndex', params: { twitter_id: receivedLetter.sender.twitter_id }}">
+                  <v-list-item-avatar size="">
                     <img :src="receivedLetter.sender.image">
                   </v-list-item-avatar>
                 </router-link>
