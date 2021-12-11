@@ -1,37 +1,34 @@
 <template>
   <v-dialog
     v-model="isVisibleEditLetterModal"
-    max-width="850"
     persistent
   >
     <v-card color="amber lighten-5">
       <v-card-title>
-        <span class="pa-8 l-font">レターの更新</span>
+        <v-icon>mdi-email-edit-outline</v-icon>
+        <span class="m-font">レターの更新</span>
       </v-card-title>
       <v-divider />
-      <div class="pa-10">
+      <div class="mx-4 pt-8">
         <v-form @submit.prevent="handleUpdateLetter(letter)">
           <div v-for="(letterTitle, index) in letterTitles()" :key="index">
-            <div class="mt-8 m-font">
+            <div class="s-font pa-0">
               <label
                 for="past"
               >{{ letterTitle.item }}</label>
-              <v-col align="center">
                 <v-textarea
                   :id="`${letterTitle.model_name}`"
                   v-model="letter[letterTitle.model_name]"
                   :name="`letter[${letterTitle.model_name}]`"
                   background-color="white"
-                  class="textarea-style"
-                  rows="4"
+                  rows="2"
                 />
-              </v-col>
             </div>
           </div>
           <!-- 登録ボタン -->
           <v-row
             justify="center"
-            class="ma-8"
+            class="my-4 pb-4"
           >
             <v-card-actions>
               <v-btn
@@ -131,26 +128,16 @@ export default {
 .modal {
   display: block;
 }
-.l-font{
-  font-size: 1.8em;
-  font-weight: bold;
-  color: #2c281e;
-}
 .m-font{
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #2c281e;
-}
-.s-font{
   font-size: 1.1em;
   font-weight: bold;
   line-height: 1;
   color: #2c281e;
 }
-.textarea-style{
-  line-height: 1.7;
-  letter-spacing: 20px;
-  font-size:1.2em;
-  width: 90%;
+.s-font{
+  font-size: 0.8em;
+  font-weight: bold;
+  line-height: 1;
+  color: #2c281e;
 }
 </style>

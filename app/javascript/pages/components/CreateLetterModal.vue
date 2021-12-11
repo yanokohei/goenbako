@@ -2,8 +2,6 @@
   <v-dialog
     v-model="isVisibleCreateLetterModal"
     persistent
-    scrollable
-    class="modal"
   >
     <v-card color="amber lighten-5">
       <v-card-title>
