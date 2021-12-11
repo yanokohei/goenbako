@@ -9,7 +9,7 @@
           flat
           color="#f1f1f1"
           rounded="xl"
-          class="mt-4 mx-3"
+          class="mb-8 mt-4 mx-3"
         >
           <v-card-title class="pb-0">
             <router-link :to="{ name: 'UserIndex', params: { twitter_id: receivedLetter.sender.twitter_id }}">
