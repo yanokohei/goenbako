@@ -2,6 +2,7 @@
   <v-row justify="center" class="mt-8">
     <v-card
       color="transparent"
+      min-width="320"
     >
       <v-card-title class="mt-4">
         <v-list-item-avatar size="60" class="avatar-position">
