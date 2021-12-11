@@ -8,17 +8,15 @@
         icons-and-text
       >
         <v-tabs-slider />
-
         <v-tab
           v-for="tabItem in tabItems"
           :key="tabItem.tabId"
-          class="mr-24"
         >
           {{ tabItem.tabName }}
           <v-icon>mdi-email-edit-outline</v-icon>
         </v-tab>
       </v-tabs>
-      <v-row justify="center" class="my-4" >
+      <v-row justify="center" class="py-4">
         <v-tabs-items v-model="moveTab">
           <v-tab-item
             v-for="tabItem in tabItems"

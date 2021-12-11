@@ -1,22 +1,21 @@
 <template>
   <v-container>
-    <v-list-item
+    <v-card
       v-for="letter in createdLetter"
       :key="letter.id"
+      color="transparent"
+      flat
+      class="my-4"
     >
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title>{{ letter.title }}</v-list-item-title>
-            <v-card
-              class="mt-2 pa-4 rounded-lg u-pre-wrap"
-              outlined
-              color="#FCFCFC"
-              rounded="xl"
-            > {{ letter.text }}
-            </v-card>
-        </v-list-item-content>
-      </v-list-item>
-    </v-list-item>
+      <v-card-title class="pa-2 s-font">{{ letter.title }}</v-card-title>
+        <v-card
+          class="mx-1 px-1 rounded-lg u-pre-wrap"
+          outlined
+          color="#FCFCFC"
+          rounded="xl"
+        >{{ letter.text }}
+        </v-card>
+    </v-card>
   </v-container>
 </template>
 
@@ -68,8 +67,19 @@ export default {
 }
 </script>
 
-
 <style scoped>
+.m-font{
+  font-size: 1.0em;
+  font-weight: bold;
+  line-height: 1;
+  color: #2c281e;
+}
+.s-font{
+  font-size: 0.9em;
+  font-weight: bold;
+  line-height: 1;
+  color: #2c281e;
+}
 .u-pre-wrap {
   white-space: pre-wrap;
 }
