@@ -2,6 +2,7 @@
   <v-dialog
     v-model="isVisibleCreateLetterModal"
     persistent
+    max-width="500"
   >
     <v-card color="amber lighten-5">
       <v-card-title>
@@ -130,6 +131,10 @@ export default {
         .post("/api/letters", { letter: this.letter })
         .then((res) => this.$emit("create-letter", res.data));
         this.handleCloseModal();
+        this.$store.dispatch("flash/setFlash", {
+          type: "success",
+          message: "レターを作成しました。"
+        });
     },
     handleShowTextarea() {
       this.isShowTextarea = true

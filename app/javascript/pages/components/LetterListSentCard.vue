@@ -34,6 +34,7 @@
           :user="user"
         />
         <v-row
+          v-if="isCurrentMypage"
           justify="end"
           class="ma-4"
         >

@@ -3,13 +3,16 @@
     <v-app>
       <TheHeader />
       <v-main>
+        <TheFlashMessage v-if="isFlash" />
         <router-view />
-        <v-row class="ma-8" />
+        <v-row class="ma-4" />
       </v-main>
-      <v-bottom-navigation app color="primary">
-        <TheBottomNavigation
-          v-if="currentUser"
-        />
+      <v-bottom-navigation
+        app
+        v-if="currentUser"
+        color="primary"
+      >
+        <TheBottomNavigation/>
       </v-bottom-navigation>
       <TheFooter />
     </v-app>
@@ -19,6 +22,7 @@
 <script>
 import TheHeader from "./components/shared/TheHeader";
 import TheFooter from "./components/shared/TheFooter";
+import TheFlashMessage from "./components/shared/TheFlashMessage";
 import TheBottomNavigation from "./components/shared/TheBottomNavigation";
 import { mapGetters } from "vuex"
 
@@ -26,10 +30,13 @@ export default {
   components: {
     TheHeader,
     TheFooter,
+    TheFlashMessage,
     TheBottomNavigation
   },
   computed: {
-    ...mapGetters({ currentUser: "users/currentUser" }),
+    ...mapGetters({
+      isFlash: "flash/isFlash",
+      currentUser: "users/currentUser" }),
     // isCurrentUser() {
     // return this.currentUser === true
     // }
@@ -48,8 +55,5 @@ export default {
   font-size: 1.0rem;
   font-weight: bold;
   color: #2e1f1f;
-}
-.bottom-navi {
-  position: fixed;
 }
 </style>

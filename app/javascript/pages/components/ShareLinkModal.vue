@@ -1,7 +1,7 @@
 <template>
   <v-dialog
     v-model="isVisibleShareLinkModal"
-    max-width="600"
+    max-width="500"
     @click:outside="handleCloseModal"
   >
     <v-card color="amber lighten-5">
