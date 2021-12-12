@@ -5,12 +5,14 @@
       <v-main>
         <TheFlashMessage v-if="isFlash" />
         <router-view />
-        <v-row class="ma-8" />
+        <v-row class="ma-4" />
       </v-main>
-      <v-bottom-navigation app color="primary">
-        <TheBottomNavigation
-          v-if="currentUser"
-        />
+      <v-bottom-navigation
+        app
+        v-if="currentUser"
+        color="primary"
+      >
+        <TheBottomNavigation/>
       </v-bottom-navigation>
       <TheFooter />
     </v-app>
