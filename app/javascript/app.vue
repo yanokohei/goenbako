@@ -5,9 +5,11 @@
         <v-main>
           <router-view />
         </v-main>
-      <TheBottomNavigation
-        v-if="currentUser"
-      />
+        <v-bottom-navigation app>
+          <TheBottomNavigation
+            v-if="currentUser"
+          />
+        </v-bottom-navigation>
       <TheFooter />
     </v-app>
   </div>
@@ -45,5 +47,8 @@ export default {
   font-size: 1.0rem;
   font-weight: bold;
   color: #2e1f1f;
+}
+.bottom-navi {
+  position: fixed;
 }
 </style>

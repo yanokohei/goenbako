@@ -1,7 +1,5 @@
 <template>
-  <v-bottom-navigation
-    absolute
-  >
+  <div class="bottom-navi">
     <v-btn
       :to="{ name: 'MypageIndex' }"
     >
@@ -19,7 +17,7 @@
 
       <v-icon>mdi-logout</v-icon>
     </v-btn>
-  </v-bottom-navigation>
+  </div>
 </template>
 
 <script>
@@ -35,3 +33,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.bottom-navi{
+  padding: 10px;
+}
+</style>
