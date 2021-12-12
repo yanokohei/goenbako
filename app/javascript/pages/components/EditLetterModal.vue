@@ -2,6 +2,7 @@
   <v-dialog
     v-model="isVisibleEditLetterModal"
     persistent
+    max-width="500"
   >
     <v-card color="amber lighten-5">
       <v-card-title>
