@@ -8,28 +8,19 @@
         :user="user"
       />
     </v-row>
-    <div class="corner-title top-sub-title">
-      あなたが送ったファンレター
-      <v-icon>mdi-email-edit-outline</v-icon>
-    </div>
-    <v-divider />
-    <NotSendLetter />
-    <v-row class="justify-center mb-4">
-      <v-col align="center">
-        <v-btn
-          v-if="this.currentUser"
-          color="blue"
-          class="white--text"
-          rounded
-          x-large
-          @click="openCreateLetterModal"
-        >
-          <v-icon left>
-            mdi-plus
-          </v-icon>
-          書いてみる
-        </v-btn>
-      </v-col>
+    <v-row class="justify-center mb-8 pa-4">
+      <v-btn
+        v-if="this.currentUser"
+        color="deep-purple lighten-5"
+        rounded
+        large
+        @click="openCreateLetterModal"
+      >
+        <v-icon left>
+          mdi-plus
+        </v-icon>
+        ファンレターを書く
+      </v-btn>
     </v-row>
     <transition name="fade">
       <CreateLetterModal

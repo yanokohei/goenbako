@@ -1,17 +1,16 @@
 <template>
-  <v-row justify="center" class="mt-12">
+  <v-row justify="center" class="mt-8">
     <v-card
       color="transparent"
-      width="800px"
-      class="ma-12"
+      min-width="320"
     >
-      <v-card-title class="pa-8 mt-16">
-        <v-list-item-avatar size="150" class="avatar-position">
+      <v-card-title class="mt-4">
+        <v-list-item-avatar size="60" class="avatar-position">
           <img :src="currentUser.image">
         </v-list-item-avatar>
-        <v-list-item-content>
-          <p class="l-font">{{ currentUser.name }}</p>
-          <v-list-item-subtitle class="s-font mt-3">
+        <v-list-item-content class="s-font">
+          {{ currentUser.name }}
+          <v-list-item-subtitle>
             @{{ currentUser.twitter_id }}
             <v-btn
               icon
@@ -23,7 +22,7 @@
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-card-title>
-      <v-card-text class="m-font px-8 mb-8">
+      <v-card-text class="s-font px-4 mb-8">
         {{ currentUser.introduce }}
       </v-card-text>
     </v-card>
@@ -45,7 +44,7 @@ export default {
 </script>
 
 <style scoped>
-.l-font{
+/* .l-font{
   font-size: 2.0em;
   font-weight: bold;
   line-height: 1.5;
@@ -56,16 +55,16 @@ export default {
   font-weight: bold;
   line-height: 1.3;
   color: #2c281e;
-}
+} */
 .s-font{
-  font-size: 1.1em;
+  font-size: 1.0em;
   font-weight: bold;
   line-height: 1;
   color: #2c281e;
 }
 .avatar-position {
   position: absolute;
-  top: -60px;
-  left: 30px;
+  top: -40px;
+  left: 20px;
 }
 </style>

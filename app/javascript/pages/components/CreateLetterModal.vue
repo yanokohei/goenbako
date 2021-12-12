@@ -1,20 +1,20 @@
 <template>
   <v-dialog
     v-model="isVisibleCreateLetterModal"
-    max-width="850"
     persistent
   >
     <v-card color="amber lighten-5">
       <v-card-title>
-        <span class="pa-8 l-font">ファンレター作成</span>
+        <v-icon>mdi-email-edit-outline</v-icon>
+        <span class="m-font">ファンレター作成</span>
       </v-card-title>
       <v-divider />
       <!-- フォーム全体をHTML要素で統括 -->
-      <div class="pa-10">
+      <div class="mx-4 pt-4">
         <!-- formタグでフォームデータを一括管理 -->
         <v-form @submit.prevent="handleCreateLetter(letter)">
           <div v-for="(letterTitle, index) in letterTitles()" :key="index">
-            <div class="mt-8 m-font">
+            <div class="mt-1 s-font">
               <label
                 for="past"
               >{{ letterTitle.message }}</label>
@@ -23,7 +23,7 @@
                   v-if="!ShowTextarea.includes(index)"
                   @click="addShowTextarea(index)"
                   color="deep-purple lighten-5"
-                  class="mt-4"
+                  x-small
                 >
                   <v-icon>mdi-pencil</v-icon>
                   書いてみる
@@ -36,7 +36,7 @@
                   v-model="letter[letterTitle.model_name]"
                   :name="`create_letter[${letterTitle.model_name}]`"
                   background-color="white"
-                  class="textarea-style"
+                  rows="2"
                 />
               </v-col>
             </div>
@@ -44,20 +44,20 @@
           <!-- 登録ボタン -->
           <v-row
             justify="center"
-            class="ma-8"
+            class="my-4 pb-4"
           >
             <v-card-actions>
               <v-btn
                 type="submit"
                 elevation="4"
-                x-large
+                large
                 color="blue"
                 class="white--text"
               >
                 登録する
               </v-btn>
               <v-btn
-                large
+                small
                 @click="handleCloseModal"
               >
                 閉じる
@@ -125,7 +125,7 @@ export default {
     },
     handleCreateLetter() {
       this.letter.sender_id = this.currentUser.id
-      this.letter.receiver_id = this.$route.params.id
+      this.letter.receiver_id = this.user.id
       axios
         .post("/api/letters", { letter: this.letter })
         .then((res) => this.$emit("create-letter", res.data));
@@ -143,25 +143,38 @@ export default {
 .modal {
   display: block;
 }
-.l-font{
-  font-size: 1.8em;
+/* .l-font{
+  font-size: 1.em;
   font-weight: bold;
   color: #2c281e;
 }
+*/
 .m-font{
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #2c281e;
-}
-.s-font{
   font-size: 1.1em;
   font-weight: bold;
   line-height: 1;
   color: #2c281e;
 }
-.textarea-style{
-  line-height: 1.7;
+.s-font{
+  font-size: 0.8em;
+  font-weight: bold;
+  line-height: 1;
+  color: #2c281e;
+}
+/* .textarea-style{
+  line-height: 1.2;
   font-size:1.2em;
   width: 90%;
-}
+  background-color:white;
+  letter-spacing: 3px;
+} */
+/* area {
+    float: left; margin: -14px 0 40px 0;
+    background: url(https://goenbako.com/dot.png);
+    font-size: 24px; color: #18326d; letter-spacing: 3px;
+    resize: none;
+    overflow-y: hidden;
+    letter-spacing: 3px;
+    height: 100vh;
+} */
 </style>

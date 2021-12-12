@@ -5,19 +5,18 @@
       justify="center"
     >
       <ProfileCard />
-      <!-- シェアボタン -->
     </v-row>
-    <v-col class="text-center mb-12">
+    <v-row class="justify-center mb-8 pa-4">
       <v-btn
         color="blue"
         class="white--text"
         rounded
-        x-large
+        large
         @click="openShareLinkModal"
       >
         Myご縁箱をシェアする
       </v-btn>
-    </v-col>
+    </v-row>
     <transition name="fade">
       <ShareLinkModal
         :is-visible-share-link-modal="isVisibleShareLinkModal"

@@ -1,5 +1,10 @@
 <template>
   <v-container>
+    <div>
+      あなたが送ったファンレター
+      <v-icon>mdi-email-edit-outline</v-icon>
+    </div>
+    <v-divider />
     <div class="ma-8">
       まだ書いていません。
     </div>

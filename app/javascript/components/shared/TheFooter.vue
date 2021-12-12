@@ -7,7 +7,7 @@
       class="text-center"
       cols="12"
     >
-      {{ new Date().getFullYear() }} — <strong>Title</strong>
+      {{ new Date().getFullYear() }} — <strong>ご縁箱</strong>
     </v-col>
   </v-footer>
 </template>

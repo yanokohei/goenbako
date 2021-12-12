@@ -1,79 +1,70 @@
 <template>
-  <v-container class="pa-0">
+  <v-container>
     <div
       v-for="receivedLetter in receivedLetters"
       :key="receivedLetter.id"
     >
-      <v-card
-        color="#FFFFF8"
-        flat
-      >
-        <keep-alive>
-          <v-row
-            class="ma-8"
-            justify="center"
-          >
-            <v-card
-              flat
-              color="#f1f1f1"
-              width="800px"
-              rounded="xl"
-            >
-              <v-card-title class="ps-16">
-                <router-link :to="{ name: 'UserIndex', params: { id: receivedLetter.sender.id }}">
-                  <v-list-item-avatar size="50">
-                    <img :src="receivedLetter.sender.image">
-                  </v-list-item-avatar>
-                </router-link>
-                <v-list-item-content>
-                  <v-list-item-title class="font-bold">
-                    {{ receivedLetter.sender.name }}
-                  </v-list-item-title>
-                  <v-list-item-subtitle>
-                    @{{ receivedLetter.sender.twitter_id }}
-                    <v-btn
-                      icon
-                      color="blue"
-                      :href="`https://twitter.com/${receivedLetter.sender.twitter_id}`"
-                    >
-                      <v-icon>mdi-twitter</v-icon>
-                    </v-btn>
-                  </v-list-item-subtitle>
-                </v-list-item-content>
+      <keep-alive>
+        <v-card
+          flat
+          color="#f1f1f1"
+          rounded="xl"
+          class="mb-8 mt-4 mx-3"
+        >
+          <v-card-title class="pb-0">
+            <router-link :to="{ name: 'UserIndex', params: { twitter_id: receivedLetter.sender.twitter_id }}">
+              <v-list-item-avatar size="65">
+                <img :src="receivedLetter.sender.image">
+              </v-list-item-avatar>
+            </router-link>
+            <v-list-item-content class="pa-0">
+              <v-card-title class="s-font">
+                {{ receivedLetter.sender.name }}
               </v-card-title>
-              <LetterItem
-                :letter-items="receivedLetter"
-                :user="user"
-              />
-              <v-row
-                justify="end"
-                class="ma-4"
-              >
+              <v-card-subtitle>
+                @{{ receivedLetter.sender.twitter_id }}
                 <v-btn
-                  v-if="isCurrentMypage"
+                  icon
                   color="blue"
-                  class="white--text"
-                  small
-                  @click="openShareLetterModal"
+                  :href="`https://twitter.com/${receivedLetter.sender.twitter_id}`"
                 >
                   <v-icon>mdi-twitter</v-icon>
-                  シェア
                 </v-btn>
-                <v-btn
-                  v-if="isCurrentMypage"
-                  tile
-                  small
-                  color="brown darken-1"
-                  dark
-                  @click="hundleDeleteLetter(receivedLetter)"
-                >
-                  <v-icon> mdi-delete </v-icon>
-                </v-btn>
-              </v-row>
-            </v-card>
+              </v-card-subtitle>
+            </v-list-item-content>
+          </v-card-title>
+          <LetterItem
+            class="pt-0"
+            :letter-items="receivedLetter"
+            :user="user"
+          />
+          <v-row
+            justify="end"
+            class="ma-4"
+          >
+            <v-btn
+              v-if="isCurrentMypage"
+              color="blue"
+              class="white--text"
+              small
+              @click="openShareLetterModal"
+            >
+              <v-icon>mdi-twitter</v-icon>
+              シェア
+            </v-btn>
+            <v-btn
+              v-if="isCurrentMypage"
+              tile
+              small
+              color="brown darken-1"
+              dark
+              @click="hundleDeleteLetter(receivedLetter)"
+            >
+              <v-icon> mdi-delete </v-icon>
+            </v-btn>
           </v-row>
-        </keep-alive>
-      </v-card>
+        </v-card>
+      </keep-alive>
     </div>
     <transition name="fade">
       <ShareLetterModal
@@ -142,4 +133,10 @@ export default {
 </script>
 
 <style scoped>
+.s-font{
+  font-size: 1.0em;
+  font-weight: bold;
+  line-height: 1;
+  color: #2c281e;
+}
 </style>

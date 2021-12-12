@@ -3,13 +3,14 @@
     <v-app-bar
       app
       outlined
-      height="100px"
-      flat>
+      height="60px"
+      flat
+    >
       <v-toolbar-title>
         <router-link to="/">
           <v-img
             src="/img/logo.svg"
-            width="180px"
+            width="100px"
           />
         </router-link>
       </v-toolbar-title>

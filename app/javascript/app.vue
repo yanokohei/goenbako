@@ -2,12 +2,15 @@
   <div id="app">
     <v-app>
       <TheHeader />
-        <v-main>
-          <router-view />
-        </v-main>
-      <TheBottomNavigation
-        v-if="currentUser"
-      />
+      <v-main>
+        <router-view />
+        <v-row class="ma-8" />
+      </v-main>
+      <v-bottom-navigation app color="primary">
+        <TheBottomNavigation
+          v-if="currentUser"
+        />
+      </v-bottom-navigation>
       <TheFooter />
     </v-app>
   </div>
@@ -42,8 +45,11 @@ export default {
   background-color: var(--background-color);
   font-family: 'Comforter Brush', cursive;
   font-family: 'Yomogi', cursive;
-  font-size: 1.5rem;
+  font-size: 1.0rem;
   font-weight: bold;
   color: #2e1f1f;
+}
+.bottom-navi {
+  position: fixed;
 }
 </style>

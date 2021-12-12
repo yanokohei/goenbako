@@ -6,7 +6,7 @@
   >
     <v-card color="amber lighten-5">
       <v-card-title>
-        <span class="text-h5 my-5">Myご縁箱をシェアする</span>
+        <span class="my-5">Myご縁箱をシェアする</span>
       </v-card-title>
       <v-divider />
       <v-col class="text-center mt-8">
@@ -91,14 +91,14 @@ export default {
       this.$emit("close-modal");
     },
     copyLink() {
-      const url = `${location.origin}/users/${this.currentUser.id}`
+      const url = `${location.origin}/${this.currentUser.twitter_id}`
       navigator.clipboard.writeText(url)
         .then((res) => {
         return;
       })
     },
     twitterShare() {
-      const url = `${location.origin}/users/${this.currentUser.id}`
+      const url = `${location.origin}/${this.currentUser.twitter_id}`
       return `https://twitter.com/share?text=${this.currentUser.name}さんのご縁箱です！%0aファンレターを書いてみよう！&url=${url}&hashtags=ご縁箱`;
     },
   }
