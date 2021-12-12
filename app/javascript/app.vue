@@ -2,14 +2,15 @@
   <div id="app">
     <v-app>
       <TheHeader />
-        <v-main>
-          <router-view />
-        </v-main>
-        <v-bottom-navigation app hide-on-scroll color="primary">
-          <TheBottomNavigation
-            v-if="currentUser"
-          />
-        </v-bottom-navigation>
+      <v-main>
+        <router-view />
+        <v-row class="ma-8" />
+      </v-main>
+      <v-bottom-navigation app color="primary">
+        <TheBottomNavigation
+          v-if="currentUser"
+        />
+      </v-bottom-navigation>
       <TheFooter />
     </v-app>
   </div>
