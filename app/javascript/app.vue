@@ -5,7 +5,7 @@
         <v-main>
           <router-view />
         </v-main>
-        <v-bottom-navigation app>
+        <v-bottom-navigation app hide-on-scroll color="primary">
           <TheBottomNavigation
             v-if="currentUser"
           />
