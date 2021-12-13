@@ -129,6 +129,10 @@ export default {
       type: Boolean,
       required: true,
     },
+    receivedLetter: {
+      type: Object,
+      required: true
+    },
   },
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
@@ -139,7 +143,7 @@ export default {
     },
     twitterShare() {
       const url = `${location.origin}/${this.currentUser.twitter_id}`
-      return `https://twitter.com/share?text=${this.currentUser.name}さんのご縁箱です！%0aファンレターを書いてみよう！&url=${url}&hashtags=ご縁箱`;
+      return `https://twitter.com/share?text=${this.receivedLetter.sender.name}さんからファンレターが届いたよ！%0a&url=${url}&hashtags=ご縁箱`;
     },
   },
 };

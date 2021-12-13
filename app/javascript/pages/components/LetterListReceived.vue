@@ -65,13 +65,14 @@
           </v-row>
         </v-card>
       </keep-alive>
+      <transition name="fade">
+        <ShareLetterModal
+          :is-visible-share-letter-modal="isVisibleShareLetterModal"
+          @close-modal="handleCloseShareLetterModal"
+          :received-letter="receivedLetter"
+        />
+      </transition>
     </div>
-    <transition name="fade">
-      <ShareLetterModal
-        :is-visible-share-letter-modal="isVisibleShareLetterModal"
-        @close-modal="handleCloseShareLetterModal"
-      />
-    </transition>
   </v-container>
 </template>
 
