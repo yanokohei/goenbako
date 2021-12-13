@@ -116,7 +116,7 @@ export default {
       this.isVisibleShareLetterModal = false;
     },
     hundleDeleteLetter(receivedLetter) {
-      if (!confirm("削除してよろしいですか?")) return;
+      if (!confirm("削除してもよろしいですか?")) return;
       this.deleteLetter(receivedLetter);
       this.$store.dispatch("flash/setFlash", {
         type: "success",
