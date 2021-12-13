@@ -21,7 +21,7 @@
             color="blue"
             class="white--text"
             x-small
-            href="http://127.0.0.1:3000/users/2"
+            :href="twitterShare()"
           >
             <v-icon>mdi-twitter</v-icon>
             シェアする
@@ -120,6 +120,7 @@
 
 <script>
 import axios from "axios";
+import { mapGetters } from "vuex"
 
 export default {
   name: "ShareLetterModal",
@@ -128,11 +129,21 @@ export default {
       type: Boolean,
       required: true,
     },
+    receivedLetter: {
+      type: Object,
+      required: true
+    },
   },
-
+  computed: {
+    ...mapGetters({ currentUser: "users/currentUser" }),
+  },
   methods: {
     handleCloseModal() {
       this.$emit("close-modal");
+    },
+    twitterShare() {
+      const url = `${location.origin}/${this.currentUser.twitter_id}`
+      return `https://twitter.com/share?text=${this.receivedLetter.sender.name}さんからファンレターが届いたよ！%0a&url=${url}&hashtags=ご縁箱`;
     },
   },
 };

@@ -65,13 +65,14 @@
           </v-row>
         </v-card>
       </keep-alive>
+      <transition name="fade">
+        <ShareLetterModal
+          :is-visible-share-letter-modal="isVisibleShareLetterModal"
+          @close-modal="handleCloseShareLetterModal"
+          :received-letter="receivedLetter"
+        />
+      </transition>
     </div>
-    <transition name="fade">
-      <ShareLetterModal
-        :is-visible-share-letter-modal="isVisibleShareLetterModal"
-        @close-modal="handleCloseShareLetterModal"
-      />
-    </transition>
   </v-container>
 </template>
 
@@ -115,7 +116,7 @@ export default {
       this.isVisibleShareLetterModal = false;
     },
     hundleDeleteLetter(receivedLetter) {
-      if (!confirm("削除してよろしいですか?")) return;
+      if (!confirm("削除してもよろしいですか?")) return;
       this.deleteLetter(receivedLetter);
       this.$store.dispatch("flash/setFlash", {
         type: "success",
