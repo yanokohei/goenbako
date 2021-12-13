@@ -4,7 +4,11 @@
       <TheHeader />
       <v-main>
         <TheFlashMessage v-if="isFlash" />
-        <router-view />
+        <transition name="slide" mode="out-in">
+          <router-view
+            :key="$route.fullPath"
+          />
+        </transition>
         <v-row class="ma-4" />
       </v-main>
       <v-bottom-navigation
@@ -55,5 +59,12 @@ export default {
   font-size: 1.0rem;
   font-weight: bold;
   color: #2e1f1f;
+}
+.slide-enter-active {
+  transition: all .5s, opacity .5s;
+}
+.slide-enter {
+  transform: translateY(-20px);
+  opacity: 0;
 }
 </style>
