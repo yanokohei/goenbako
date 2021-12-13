@@ -6,13 +6,13 @@
       <div class="text-center mt-12 pb-4">
         あなたには 『素敵なご縁』がある<br>これまでも、これからも
       </div>
-      <v-img max-width="" src="/img/illust.png" />
+      <!-- <v-img max-width="" src="/img/illust.png" /> -->
     </v-row>
-      <v-col align="center">
+      <v-col class="mt-8" align="center">
         <p class="indigo--text">
           ＼ ファンレター公開サービス ／
         </p>
-        <v-img max-width="" src="/img/logo.svg" />
+        <v-img max-width="400" src="/img/logo.png" />
       </v-col>
       <v-col align="center">
         <p class="indigo--text">
@@ -36,11 +36,12 @@
         />
     <!-- ここまで -->
     <v-row
-      justify="center"
+      justify="center" class="mb-8"
     >
       <v-card
         rounded="xl"
         color="#feebbe"
+        class="mx-4 px-4"
       >
         <v-col align="center">
           <v-card
@@ -50,13 +51,13 @@
             どんな人が私にファンレターを？
           </v-card>
         </v-col>
-        <v-col align="center">
+        <v-col class="p-font" align="center">
           <p>あなたとご縁がある人、</p>
           <p>これから縁がありそうな人。</p>
           <p>あなたを応援したいと思っている人。</p>
           <p>あるいは、あなたと仲良くなってみたい。</p>
           <p>そうと思っているのに</p>
-          <p>一歩踏み出せていない人。</p>
+          <p>一歩踏み出せていない。</p>
           <p>そんな人もいるかもしれません。</p>
           <p>皆、あなたのファンなのです。</p>
         </v-col>
@@ -88,12 +89,19 @@ export default {
 <style scoped>
 .img{
   mix-blend-mode: multiply;
-}
-/* .sub-title{
-  font-size: 1.8em;
+  z-index: 100;
 }
 .p-font{
-  font-size: 1.3em;
+  font-size: 0.9em;
   color: #2c281e;
+}
+/* .logo {
+  mix-blend-mode: multiply;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+} */
+/* .sub-title{
+  font-size: 1.8em;
 } */
 </style>
