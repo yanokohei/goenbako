@@ -142,8 +142,8 @@ export default {
       this.$emit("close-modal");
     },
     twitterShare() {
-      const url = `${location.origin}/${this.currentUser.twitter_id}`
-      return `https://twitter.com/share?text=${this.receivedLetter.sender.name}さんからファンレターが届いたよ！%0a&url=${url}&hashtags=ご縁箱`;
+      const url = `https://goenbako.com/${this.currentUser.twitter_id}`
+      return `https://twitter.com/share?text=${this.receivedLetter.sender.name}さん からファンレターが届いたよ！%0a&url=${url}&hashtags=ご縁箱`;
     },
   },
 };

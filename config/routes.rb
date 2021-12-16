@@ -19,8 +19,7 @@ Rails.application.routes.draw do
     resources :letters
   end
 
-  get 'mypage', to: 'crawlers#show',
-  constraints: { user_agent: /Twitterbot\/1.0/ }
+  get '/:twitter_id', to: 'crawlers#show', constraints: { user_agent: /Twitterbot/ }
 
   get '*path', to: 'home#index'
 end
