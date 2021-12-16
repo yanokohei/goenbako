@@ -3,6 +3,7 @@
     v-model="isVisibleShareLetterModal"
     @click:outside="handleCloseModal"
     max-width="500"
+    :retain-focus="false"
   >
     <v-card color="amber lighten-5">
       <v-card-title>
