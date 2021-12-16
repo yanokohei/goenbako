@@ -77,7 +77,6 @@ import { mapGetters } from "vuex";
 
 export default {
   name: "CreateLetterModal",
-
   props: {
     isVisibleCreateLetterModal: {
       type: Boolean,

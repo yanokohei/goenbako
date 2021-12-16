@@ -33,9 +33,9 @@
 import { mapGetters } from "vuex"
 
 export default {
+  name: "ProfileCard",
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
-
     twitterUrl() {
       return `https://twitter.com/${this.currentUser.twitter_id}`
     }

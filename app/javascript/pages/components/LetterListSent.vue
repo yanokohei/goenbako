@@ -20,6 +20,7 @@ import { mapGetters } from "vuex";
 import LetterListSentCard from './LetterListSentCard';
 
 export default {
+  name: "LetterListSent",
   components: {
     LetterListSentCard
   },

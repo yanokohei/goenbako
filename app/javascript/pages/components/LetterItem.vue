@@ -21,6 +21,7 @@
 
 <script>
 export default {
+  name: "LetterItem",
   props: {
     letterItems: {
       type: Object,

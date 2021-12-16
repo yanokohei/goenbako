@@ -33,6 +33,7 @@
 import { mapGetters } from "vuex"
 
 export default {
+  name: "UserProfileCard",
   props: {
     user: {
       type: Object,

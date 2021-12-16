@@ -42,6 +42,7 @@ import LetterListReceived from './LetterListReceived';
 import LetterListSent from './LetterListSent';
 
 export default {
+  name: "LetterListTab",
   components: {
     LetterListReceived,
     LetterListSent

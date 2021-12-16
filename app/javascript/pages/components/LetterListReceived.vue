@@ -83,6 +83,7 @@ import LetterItem from '../components/LetterItem';
 import ShareLetterModal from "./ShareLetterModal";
 
 export default {
+  name: "LetterListReceived",
   components: {
     ShareLetterModal,
     LetterItem
