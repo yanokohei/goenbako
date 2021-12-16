@@ -16,7 +16,6 @@ module ApplicationHelper
       twitter: {
         site: '@goenbako',
         card: 'summary_large_image',
-        image: 'https://goenbako.com/img/logo.png'
       },
     }
   end
