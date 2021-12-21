@@ -27,10 +27,6 @@ export default {
       type: Object,
       required: true
     },
-    user: {
-      type: Object,
-      required: true
-    },
   },
   computed: {
     createdLetter() {
@@ -52,7 +48,7 @@ export default {
         },
         {
           name: "expect",
-          title: `${ this.user.name }さんに期待していること`,
+          title: `${ this.letterItems.receiver.name }さんに期待していること`,
           text: this.letterItems.letter.expect
         },
         {

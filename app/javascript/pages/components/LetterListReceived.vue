@@ -36,7 +36,6 @@
           <LetterItem
             class="pt-0"
             :letter-items="receivedLetter"
-            :user="user"
           />
           <v-row
             justify="end"

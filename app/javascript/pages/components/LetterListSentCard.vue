@@ -31,7 +31,6 @@
         <LetterItem
           class="pt-0"
           :letter-items="sentLetter"
-          :user="user"
         />
         <v-row
           v-if="isCurrentMypage"
