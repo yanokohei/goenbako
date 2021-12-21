@@ -5,19 +5,18 @@
         flat
         color="#f1f1f1"
         rounded="xl"
-        class="mb-8 mt-4 mx-3"
       >
-        <v-card-title class="pb-0">
+        <v-card-title class="pt-6">
           <router-link :to="{ name: 'UserIndex', params: { twitter_id: receivedLetter.sender.twitter_id }}">
-            <v-list-item-avatar size="65">
+            <v-list-item-avatar class="pa-0" size="65">
               <img :src="receivedLetter.sender.image">
             </v-list-item-avatar>
           </router-link>
           <v-list-item-content class="pa-0">
-            <v-card-title class="s-font">
+            <v-list-item-title class="s-font">
               {{ receivedLetter.sender.name }}
-            </v-card-title>
-            <v-card-subtitle>
+            </v-list-item-title>
+            <v-list-item-subtitle>
               @{{ receivedLetter.sender.twitter_id }}
               <v-btn
                 icon
@@ -26,7 +25,7 @@
               >
                 <v-icon>mdi-twitter</v-icon>
               </v-btn>
-            </v-card-subtitle>
+            </v-list-item-subtitle>
           </v-list-item-content>
         </v-card-title>
         <LetterItem
@@ -60,7 +59,6 @@
         </v-row>
       </v-card>
     </keep-alive>
-    モーダルに渡したいデータの一部＝＝{{receivedLetter.letter.past}}
     <transition name="fade">
       <ShareLetterModal
         :is-visible-share-letter-modal="isVisibleShareLetterModal"
