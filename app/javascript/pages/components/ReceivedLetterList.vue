@@ -32,14 +32,6 @@ export default {
       required: true
     },
   },
-  data() {
-    return {
-      isVisibleShareLetterModal: false,
-    };
-  },
-  computed: {
-    ...mapGetters({ currentUser: "users/currentUser" }),
-  },
   methods: {
     deleteLetter() {
       this.$emit("delete-letter");
