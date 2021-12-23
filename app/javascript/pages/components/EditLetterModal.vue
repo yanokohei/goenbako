@@ -22,6 +22,8 @@
                   v-model="letter[letterTitle.model_name]"
                   :name="`letter[${letterTitle.model_name}]`"
                   background-color="white"
+                  counter
+                  :rules="rules"
                   rows="2"
                 />
             </div>
@@ -92,7 +94,8 @@ export default {
         future: this.updateLetter.future,
         expect: this.updateLetter.expect,
         message: this.updateLetter.message
-      }
+      },
+      rules: [v => v.length <= 100 || '100文字以内で入力してください。'],
     }
   },
   computed: {

@@ -6,7 +6,7 @@ class Letter < ApplicationRecord
   validates :sender_id, presence: true
   validates :receiver_id, presence: true
 
-  with_options length: { maximum: 140 } do
+  with_options length: { maximum: 100 } do
     validates :past
     validates :current
     validates :future
