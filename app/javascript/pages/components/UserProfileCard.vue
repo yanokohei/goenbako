@@ -8,8 +8,10 @@
         <v-list-item-avatar size="60" class="avatar-position">
           <img :src="user.image">
         </v-list-item-avatar>
-        <v-list-item-content class="s-font">
+        <v-list-item-content>
+          <v-list-item-title class="s-font">
           {{ user.name }}
+          </v-list-item-title>
           <v-list-item-subtitle>
             @{{ user.twitter_id }}
             <v-btn
@@ -33,6 +35,7 @@
 import { mapGetters } from "vuex"
 
 export default {
+  name: "UserProfileCard",
   props: {
     user: {
       type: Object,

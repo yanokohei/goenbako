@@ -8,8 +8,10 @@
         <v-list-item-avatar size="60" class="avatar-position">
           <img :src="currentUser.image">
         </v-list-item-avatar>
-        <v-list-item-content class="s-font">
+        <v-list-item-content>
+          <v-list-item-title class="s-font">
           {{ currentUser.name }}
+          </v-list-item-title>
           <v-list-item-subtitle>
             @{{ currentUser.twitter_id }}
             <v-btn
@@ -33,9 +35,9 @@
 import { mapGetters } from "vuex"
 
 export default {
+  name: "ProfileCard",
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
-
     twitterUrl() {
       return `https://twitter.com/${this.currentUser.twitter_id}`
     }

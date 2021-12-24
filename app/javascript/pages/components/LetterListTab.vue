@@ -38,13 +38,14 @@
 </template>
 
 <script>
-import LetterListReceived from './LetterListReceived';
-import LetterListSent from './LetterListSent';
+import ReceivedLetterList from './ReceivedLetterList';
+import SentLetterList from './SentLetterList';
 
 export default {
+  name: "LetterListTab",
   components: {
-    LetterListReceived,
-    LetterListSent
+    ReceivedLetterList,
+    SentLetterList
   },
   props: {
     user: {
@@ -64,8 +65,8 @@ export default {
     return {
       moveTab: "",
       tabItems: [
-        { tabId: 0, tabName: '受け取ったレター', content: 'LetterListReceived' },
-        { tabId: 1, tabName: '送ったレター', content: 'LetterListSent' }
+        { tabId: 0, tabName: '受け取ったレター', content: 'ReceivedLetterList' },
+        { tabId: 1, tabName: '送ったレター', content: 'SentLetterList' }
       ]
     }
   },

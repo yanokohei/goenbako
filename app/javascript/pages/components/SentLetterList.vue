@@ -5,7 +5,7 @@
       :key="sentLetter.id"
     >
 <!-- 送ったレターの数だけ更新モーダルの表示が発生して無限に処理が繰り返されるためコンポーネントで処理を分断 -->
-      <LetterListSentCard
+      <SentLetterCard
         :user="user"
         :sentLetter="sentLetter"
         @update-letter="handleUpdateLetter"
@@ -17,11 +17,12 @@
 <script>
 import axios from "axios";
 import { mapGetters } from "vuex";
-import LetterListSentCard from './LetterListSentCard';
+import SentLetterCard from './SentLetterCard';
 
 export default {
+  name: "SentLetterList",
   components: {
-    LetterListSentCard
+    SentLetterCard
   },
   props: {
     user: {
@@ -32,7 +33,7 @@ export default {
       type: Array,
       required: true
     },
-},
+  },
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
   },

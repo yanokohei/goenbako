@@ -21,12 +21,9 @@
 
 <script>
 export default {
+  name: "LetterItem",
   props: {
     letterItems: {
-      type: Object,
-      required: true
-    },
-    user: {
       type: Object,
       required: true
     },
@@ -51,7 +48,7 @@ export default {
         },
         {
           name: "expect",
-          title: `${ this.user.name }さんに期待していること`,
+          title: `${ this.letterItems.receiver.name }さんに期待していること`,
           text: this.letterItems.letter.expect
         },
         {

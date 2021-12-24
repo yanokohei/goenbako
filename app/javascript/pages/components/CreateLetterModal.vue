@@ -37,6 +37,8 @@
                   v-model="letter[letterTitle.model_name]"
                   :name="`create_letter[${letterTitle.model_name}]`"
                   background-color="white"
+                  counter
+                  :rules="rules"
                   rows="2"
                 />
               </v-col>
@@ -77,7 +79,6 @@ import { mapGetters } from "vuex";
 
 export default {
   name: "CreateLetterModal",
-
   props: {
     isVisibleCreateLetterModal: {
       type: Boolean,
@@ -101,7 +102,8 @@ export default {
       },
       isShowTextarea: false,
       isShowThisButton: true,
-      ShowTextarea: []
+      ShowTextarea: [],
+      rules: [v => v.length <= 100 || '100文字以内で入力してください。'],
     }
 
   },

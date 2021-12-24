@@ -7,21 +7,21 @@
         rounded="xl"
       >
         <v-card-title class="pt-6">
-          <router-link :to="{ name: 'UserIndex', params: { twitter_id: sentLetter.receiver.twitter_id }}">
+          <router-link :to="{ name: 'UserIndex', params: { twitter_id: receivedLetter.sender.twitter_id }}">
             <v-list-item-avatar class="pa-0" size="65">
-              <img :src="sentLetter.receiver.image">
+              <img :src="receivedLetter.sender.image">
             </v-list-item-avatar>
           </router-link>
           <v-list-item-content class="pa-0">
             <v-list-item-title class="s-font">
-              {{ sentLetter.receiver.name }}
+              {{ receivedLetter.sender.name }}
             </v-list-item-title>
             <v-list-item-subtitle>
-              @{{ sentLetter.receiver.twitter_id }}
+              @{{ receivedLetter.sender.twitter_id }}
               <v-btn
                 icon
                 color="blue"
-                :href="`https://twitter.com/${sentLetter.receiver.twitter_id}`"
+                :href="`https://twitter.com/${receivedLetter.sender.twitter_id}`"
               >
                 <v-icon>mdi-twitter</v-icon>
               </v-btn>
@@ -30,40 +30,40 @@
         </v-card-title>
         <LetterItem
           class="pt-0"
-          :letter-items="sentLetter"
-          :user="user"
+          :letter-items="receivedLetter"
         />
         <v-row
-          v-if="isCurrentMypage"
           justify="end"
           class="ma-4"
         >
           <v-btn
-            color="orange"
+            v-if="isCurrentMypage"
+            color="blue"
             class="white--text"
             small
-            @click="openEditLetterModal"
+            @click="openShareLetterModal"
           >
-            <v-icon>mdi-pencil</v-icon>
-            編集
+            <v-icon>mdi-twitter</v-icon>
+            シェア
           </v-btn>
           <v-btn
-            color="indigo"
-            class="white--text"
+            v-if="isCurrentMypage"
+            tile
             small
-            @click="hundleDeleteLetter(sentLetter)"
-          >削除
+            color="brown darken-1"
+            dark
+            @click="hundleDeleteLetter(receivedLetter)"
+          >
+            <v-icon> mdi-delete </v-icon>
           </v-btn>
         </v-row>
       </v-card>
     </keep-alive>
     <transition name="fade">
-      <EditLetterModal
-        :is-visible-edit-letter-modal="isVisibleEditLetterModal"
-        :user="user"
-        :updateLetter="sentLetter.letter"
-        @close-modal="handleCloseEditLetterModal"
-        @update-letter="handleUpdateLetter"
+      <ShareLetterModal
+        :is-visible-share-letter-modal="isVisibleShareLetterModal"
+        @close-modal="handleCloseShareLetterModal"
+        :received-letter="receivedLetter"
       />
     </transition>
   </v-container>
@@ -71,29 +71,30 @@
 
 <script>
 import axios from "axios";
-import { mapGetters } from "vuex";
+import { mapGetters } from "vuex"
 import LetterItem from '../components/LetterItem';
-import EditLetterModal from "../components/EditLetterModal";
+import ShareLetterModal from "./ShareLetterModal";
 
 export default {
+  name: "LetterListReceived",
   components: {
-    LetterItem,
-    EditLetterModal
-  },
-  data() {
-    return {
-      isVisibleEditLetterModal: false,
-    }
+    ShareLetterModal,
+    LetterItem
   },
   props: {
     user: {
       type: Object,
       required: true
     },
-    sentLetter: {
+    receivedLetter: {
       type: Object,
       required: true
-    }
+    },
+  },
+  data() {
+    return {
+      isVisibleShareLetterModal: false,
+    };
   },
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
@@ -102,28 +103,26 @@ export default {
     }
   },
   methods: {
-    openEditLetterModal() {
-      this.isVisibleEditLetterModal = true;
+    openShareLetterModal() {
+      this.isVisibleShareLetterModal = true;
     },
-    handleCloseEditLetterModal() {
-      this.isVisibleEditLetterModal = false;
+    handleCloseShareLetterModal() {
+      this.isVisibleShareLetterModal = false;
     },
-    hundleDeleteLetter(sentLetter) {
+    hundleDeleteLetter(receivedLetter) {
       if (!confirm("削除してもよろしいですか?")) return;
-      this.deleteLetter(sentLetter);
+      this.deleteLetter(receivedLetter);
       this.$store.dispatch("flash/setFlash", {
         type: "success",
-        message: "レターを削除しました。"
+        message: "レターを削除しました。",
       });
     },
-    deleteLetter(letterItem) {
+    deleteLetter(receivedLetter) {
       axios
-        .delete(`/api/letters/${letterItem.letter.id}`)
+        .delete(`/api/letters/${receivedLetter.letter.id}`)
         .then(() => this.$emit("delete-letter"));
     },
-    handleUpdateLetter() {
-      this.$emit("update-letter");
-    }
+
   },
 };
 </script>
