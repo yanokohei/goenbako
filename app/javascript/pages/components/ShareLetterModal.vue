@@ -66,6 +66,7 @@
             font-size="14px"
             >>{{ title }}
           </text>
+<!-- foreignObjectタグ,textタグにclassでcssをあててもcanvasの描画には反映されない -->
         <foreignObject
           x="16%" y="20%" width="410" height="170"
         >
@@ -73,7 +74,7 @@
             class="inner"
             x="50%"
             y="50%"
-            style="line-height: 1.7; font-family:Hannotate SC, 'Courier New'; font-size: 20px"
+            style="line-height: 1.7; font-family: Hannotate SC, Courier New; font-size: 20px"
             text-anchor="middle">{{ content }}
           </text>
         </foreignObject>
