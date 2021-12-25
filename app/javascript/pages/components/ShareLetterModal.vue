@@ -73,7 +73,7 @@
             class="inner"
             x="50%"
             y="50%"
-            style="line-height: 1.7; font-family:Hannotate SC; font-size: 20px"
+            style="line-height: 1.7; font-family:Hannotate SC, 'Courier New'; font-size: 20px"
             text-anchor="middle">{{ content }}
           </text>
         </foreignObject>
@@ -203,6 +203,8 @@ export default {
   src: url('https://cdn.glitch.me/afbd793d-0eec-495f-95c4-cd3c5b188240%2FFZSJ-LXQWTJW.TTF?v=1638340978154');
 }
 .inner{
+    font-weight:lighter;
+    font-family: 'Hannotate SC','Courier New', sans-serif;
     width: 400px;
     height: 50px;
     top: 0;
