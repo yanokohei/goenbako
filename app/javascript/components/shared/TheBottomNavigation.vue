@@ -1,7 +1,7 @@
 <template>
   <div class="bottom-navi">
     <v-btn
-      :to="{ name: 'MypageIndex' }"
+      :to="{ name: 'Mypage' }"
     >
       <span>Home</span>
 
