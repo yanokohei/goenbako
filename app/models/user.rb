@@ -20,6 +20,6 @@ class User < ApplicationRecord
   private
 
   def modify_avatar_url
-    avatar_url&.sub!(/_normal(.jpg|.jpeg|.gif|.png)/i) { Regexp.last_match[1] }
+    image&.sub!(/_normal(.jpg|.jpeg|.gif|.png)/i) { Regexp.last_match[1] }
   end
 end
