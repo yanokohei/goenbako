@@ -1,8 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
-import TopIndex from "../pages/top/index";
-import UserIndex from "../pages/user/index";
-import MypageIndex from "../pages/mypage/index";
+import Top from "../pages/Top";
+import User from "../pages/User";
+import Mypage from "../pages/Mypage";
 
 Vue.use(Router)
 
@@ -11,18 +11,18 @@ const router = new Router({
   routes: [
     {
       path: "/",
-      component: TopIndex,
-      name: "TopIndex",
+      component: Top,
+      name: "Top",
     },
     {
       path: "/mypage",
-      component: MypageIndex,
-      name: "MypageIndex",
+      component: Mypage,
+      name: "Mypage",
     },
     {
       path: "/:twitter_id",
-      component: UserIndex,
-      name: "UserIndex",
+      component: User,
+      name: "User",
     },
   ],
   scrollBehavior(to, from, savedPosition) {
