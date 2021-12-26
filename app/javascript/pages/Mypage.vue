@@ -41,7 +41,7 @@ import ShareLinkModal from "../components/ShareLinkModal";
 import LetterListTab from "../components/LetterListTab";
 
 export default {
-  name: "MypageIndex",
+  name: "Mypage",
   components: {
     ProfileCard,
     ShareLinkModal,

@@ -69,7 +69,7 @@
 <script>
 import { mapGetters } from "vuex"
 export default {
-  name: "TopIndex",
+  name: "Top",
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
     },
@@ -77,7 +77,7 @@ export default {
   methods: {
     pushLogin() {
       if (this.currentUser) {
-        this.$router.push({ name: "UserIndex" })
+        this.$router.push({ name: "User" })
       } else {
         console.log('success');
       }

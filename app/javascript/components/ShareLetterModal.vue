@@ -66,15 +66,15 @@
             font-size="14px"
             >>{{ title }}
           </text>
+<!-- foreignObjectタグ,textタグにclassでcssをあててもcanvasの描画には反映されない -->
         <foreignObject
           x="16%" y="20%" width="410" height="170"
         >
           <text
-            font-weight='100'
             class="inner"
             x="50%"
             y="50%"
-            style="line-height: 1.7; font-weight: 100; font-family:Hannotate SC; font-size: 20px"
+            style="line-height: 1.7; font-family: Hannotate SC, Courier New; font-size: 20px"
             text-anchor="middle">{{ content }}
           </text>
         </foreignObject>
@@ -191,14 +191,21 @@ export default {
   line-height: 1;
   color: #2c281e;
 }
-/* .svg{
+.svg{
   font-size:21px;
-  font-family:Hannotate SC;
+  font-family:Yomogi;
   font-weight:lighter;
   @import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Yomogi&display=swap');
   color: #f1cf77;
-} */
+}
+@import url('https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@font-face {
+  font-family: 'FZSJ-LXQWTJW';
+  src: url('https://cdn.glitch.me/afbd793d-0eec-495f-95c4-cd3c5b188240%2FFZSJ-LXQWTJW.TTF?v=1638340978154');
+}
 .inner{
+    font-weight:lighter;
+    font-family: 'Hannotate SC','Courier New', sans-serif;
     width: 400px;
     height: 50px;
     top: 0;

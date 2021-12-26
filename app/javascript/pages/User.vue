@@ -48,7 +48,7 @@ import DoneSendLetter from "../components/DoneSendLetter";
 import LetterListTab from '../components/LetterListTab';
 
 export default {
-  name: "UserIndex",
+  name: "User",
   components: {
     UserProfileCard,
     CreateLetterModal,
