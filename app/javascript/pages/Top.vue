@@ -63,17 +63,54 @@
         </v-col>
       </v-card>
     </v-row>
+    <v-card color="transparent" outlined>
+      <v-card-actions class="justify-center">
+        <v-btn dense text @click="openTermsModal">
+          利用規約
+        </v-btn>
+        <v-btn dense text @click="openPrivacyPolicyModal">
+          プライバシーポリシー
+        </v-btn>
+        <v-btn
+          icon
+          color="blue"
+          href="https://twitter.com/goenbako"
+        >
+          <v-icon>mdi-twitter</v-icon>
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+    <TheTerms
+      :is-visible-terms-modal="isVisibleTermsModal"
+      @close-terms-modal="closeTermsModal"
+    />
+    <ThePrivacyPolicy
+      :is-visible-privacy-policy-modal="isVisiblePrivacyPolicyModal"
+      @close-privacy-policy-modal="closePrivacyPolicyModal"
+    />
   </v-container>
 </template>
 
 <script>
 import { mapGetters } from "vuex"
+import TheTerms from "../components/static/TheTerms";
+import ThePrivacyPolicy from "../components/static/ThePrivacyPolicy";
+
 export default {
   name: "Top",
+  components: {
+    TheTerms,
+    ThePrivacyPolicy,
+  },
+  data() {
+    return {
+      isVisibleTermsModal: false,
+      isVisiblePrivacyPolicyModal: false
+    }
+  },
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
-    },
-
+  },
   methods: {
     pushLogin() {
       if (this.currentUser) {
@@ -81,7 +118,19 @@ export default {
       } else {
         console.log('success');
       }
-    }
+    },
+    openTermsModal() {
+      this.isVisibleTermsModal = true;
+    },
+    openPrivacyPolicyModal() {
+      this.isVisiblePrivacyPolicyModal = true;
+    },
+    closeTermsModal() {
+      this.isVisibleTermsModal = false;
+    },
+    closePrivacyPolicyModal() {
+      this.isVisiblePrivacyPolicyModal = false;
+    },
   }
 }
 </script>
