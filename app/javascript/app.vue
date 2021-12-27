@@ -9,7 +9,7 @@
             :key="$route.fullPath"
           />
         </transition>
-        <v-row class="ma-2" />
+        <v-row class="ma-4" />
       </v-main>
       <v-bottom-navigation
         app
