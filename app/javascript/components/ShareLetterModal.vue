@@ -142,7 +142,7 @@ const svg2imageData = (svgElement, successCallback, errorCallback) => {
   const svgData = new XMLSerializer().serializeToString(svgElement);
   image.src = "data:image/svg+xml;charset=utf-8;base64," + btoa(unescape(encodeURIComponent(svgData)));
 };
-console.log(this);
+
 export default {
   name: "ShareLetterModal",
   props: {
@@ -157,12 +157,7 @@ export default {
   },
   data() {
     return {
-    shareImage: {
-      user_id: "",
-      letter_id: "",
-      topic: "",
       image_url: '',
-    },
       title: '',
       content: ''
     }
@@ -178,22 +173,12 @@ export default {
       const url = `https://goenbako.com/${this.currentUser.twitter_id}`
       return `https://twitter.com/share?text=${this.receivedLetter.sender.name}さん からファンレターが届いたよ！%0a&url=${url}&hashtags=ご縁箱`;
     },
-    postImage(letterTitle) { // URL
-      this.shareImage.user_id = this.currentUser.id // this
-      this.shareImage.letter_id = this.receivedLetter.letter.id
-      this.shareImage.topic = letterTitle.topic
-      axios.post("/api/share_images", { share_image: this.shareImage }) // オブジェクト、キー
-    },
-// シェアするボタンを押すことでPOSTする関数、ツイッターに遷移する関数、PNGに変換する関数を実行する
-// POSTした内容が保存される前にcrawlerアクションが画像を参照するのを阻止する
     async svgToPng(letterTitle) {
       await this.addLetterContent(letterTitle);
       svg2imageData(this.$refs.svgArea, data => {
         console.log(data);
         document.getElementById('converted-image').src = data;
         this.shareImage.image_url = data;
-// POST
-        // this.postImage(letterTitle);
       }, function (error) {
         console.log(error);
         alert('failed to image');
