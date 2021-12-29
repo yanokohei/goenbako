@@ -101,6 +101,7 @@
 import axios from "axios";
 import { mapGetters } from "vuex"
 import SvgStyle from '../components/SvgStyle';
+
 const svg2imageData = (svgElement, successCallback, errorCallback) => {
   const canvas = document.createElement("canvas");
   canvas.width = 614;
@@ -197,26 +198,4 @@ export default {
   line-height: 1;
   color: #2c281e;
 }
-.svg{
-  font-size:21px;
-  font-family:Yomogi;
-  font-weight:lighter;
-  @import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Yomogi&display=swap');
-}
-
-.inner{
-    font-weight:lighter;
-    font-family: 'Hannotate SC','Courier New', sans-serif;
-    width: 400px;
-    height: 50px;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: absolute;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-}
-
 </style>
