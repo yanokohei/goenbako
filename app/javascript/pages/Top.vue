@@ -63,7 +63,7 @@
         </v-col>
       </v-card>
     </v-row>
-    <v-card color="transparent" outlined>
+    <v-card color="transparent" outlined ma-2>
       <v-card-actions class="justify-center">
         <v-btn dense text @click="openTermsModal">
           利用規約
