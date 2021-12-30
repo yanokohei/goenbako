@@ -130,13 +130,21 @@ export default {
       this.letter.sender_id = this.currentUser.id
       this.letter.receiver_id = this.user.id
       axios
-        .post("/api/letters", { letter: this.letter })
-        .then((res) => this.$emit("create-letter", res.data));
-        this.handleCloseModal();
+      .post("/api/letters", { letter: this.letter })
+      .then((res) => {
+          this.$emit("create-letter", res.data);
+          this.handleCloseModal();
+          this.$store.dispatch("flash/setFlash", {
+            type: "success",
+            message: "レターを作成しました。"
+          })
+      })
+      .catch((error) => {
         this.$store.dispatch("flash/setFlash", {
-          type: "success",
-          message: "レターを作成しました。"
-        });
+          type: 'error',
+          message: 'レターを作成できませんでした',
+        })
+      })
     },
     handleShowTextarea() {
       this.isShowTextarea = true
