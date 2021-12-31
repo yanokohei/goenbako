@@ -10,7 +10,8 @@
         <span class="m-font">レターの更新</span>
       </v-card-title>
       <v-divider />
-      <div class="mx-4 pt-8">
+      <p class="xs-font mx-4">※それぞれ100文字以内で自由にご記入ください。</p>
+      <div class="mx-4 pt-4">
         <v-form @submit.prevent="handleUpdateLetter(letter)">
           <div v-for="(letterTitle, index) in letterTitles()" :key="index">
             <div class="s-font pa-0">
@@ -141,6 +142,12 @@ export default {
 .s-font{
   font-size: 0.8em;
   font-weight: bold;
+  line-height: 1;
+  color: #2c281e;
+}
+.xs-font{
+  font-size: 0.5em;
+  font-weight: lighter;
   line-height: 1;
   color: #2c281e;
 }

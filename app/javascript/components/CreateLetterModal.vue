@@ -10,6 +10,7 @@
         <span class="m-font">ファンレター作成</span>
       </v-card-title>
       <v-divider />
+      <p class="xs-font mx-4">※それぞれ100文字以内で自由にご記入ください。</p>
       <!-- フォーム全体をHTML要素で統括 -->
       <div class="mx-4 pt-4">
         <!-- formタグでフォームデータを一括管理 -->
@@ -173,6 +174,12 @@ export default {
 .s-font{
   font-size: 0.8em;
   font-weight: bold;
+  line-height: 1;
+  color: #2c281e;
+}
+.xs-font{
+  font-size: 0.5em;
+  font-weight: lighter;
   line-height: 1;
   color: #2c281e;
 }
