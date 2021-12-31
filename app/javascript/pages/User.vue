@@ -10,7 +10,7 @@
     </v-row>
     <v-row class="justify-center mb-8 pa-4">
       <v-btn
-        v-if="this.currentUser"
+        v-if="this.isOtherCurrentUser"
         color="deep-purple lighten-5"
         rounded
         large
@@ -66,6 +66,7 @@ export default {
     };
   },
   mounted() {
+    console.log(this.$route.path);
     this.fetchUser()
     this.fetchReceivedLetters()
     this.fetchSentLetters()
@@ -74,6 +75,9 @@ export default {
     ...mapGetters("users", ["currentUser"]),
     currentPath() {
       return this.$route.path
+    },
+    isOtherCurrentUser() {
+      return this.currentUser && this.$route.path !== `/${this.currentUser.twitter_id}`
     }
   },
   methods: {
