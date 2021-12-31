@@ -77,7 +77,7 @@ export default {
       return this.$route.path
     },
     isOtherCurrentUser() {
-      return this.currentUser && this.$route.path !== `/${this.currentUser.twitter_id}`
+      return this.currentUser && this.$route.path !== `/${this.currentUser.twitter_id}` && this.$route.path !== `/${this.currentUser.twitter_id}/`
     }
   },
   methods: {
