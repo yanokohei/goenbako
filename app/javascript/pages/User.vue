@@ -66,7 +66,6 @@ export default {
     };
   },
   mounted() {
-    console.log(this.$route.path);
     this.fetchUser()
     this.fetchReceivedLetters()
     this.fetchSentLetters()
