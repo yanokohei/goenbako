@@ -10,6 +10,7 @@
         <span class="m-font">ファンレター作成</span>
       </v-card-title>
       <v-divider />
+      <p class="xs-font mx-4">※それぞれ100文字以内で自由にご記入ください。</p>
       <!-- フォーム全体をHTML要素で統括 -->
       <div class="mx-4 pt-4">
         <!-- formタグでフォームデータを一括管理 -->
@@ -130,13 +131,21 @@ export default {
       this.letter.sender_id = this.currentUser.id
       this.letter.receiver_id = this.user.id
       axios
-        .post("/api/letters", { letter: this.letter })
-        .then((res) => this.$emit("create-letter", res.data));
-        this.handleCloseModal();
+      .post("/api/letters", { letter: this.letter })
+      .then((res) => {
+          this.$emit("create-letter", res.data);
+          this.handleCloseModal();
+          this.$store.dispatch("flash/setFlash", {
+            type: "success",
+            message: "レターを作成しました。"
+          })
+      })
+      .catch((error) => {
         this.$store.dispatch("flash/setFlash", {
-          type: "success",
-          message: "レターを作成しました。"
-        });
+          type: 'error',
+          message: 'レターを作成できませんでした',
+        })
+      })
     },
     handleShowTextarea() {
       this.isShowTextarea = true
@@ -165,6 +174,12 @@ export default {
 .s-font{
   font-size: 0.8em;
   font-weight: bold;
+  line-height: 1;
+  color: #2c281e;
+}
+.xs-font{
+  font-size: 0.5em;
+  font-weight: lighter;
   line-height: 1;
   color: #2c281e;
 }

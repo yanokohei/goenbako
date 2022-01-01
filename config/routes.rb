@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       end
     end
     resources :letters
+    resources :share_images, only: %i[create]
   end
 
   get '/:twitter_id', to: 'crawlers#show', constraints: { user_agent: /Twitterbot/ }

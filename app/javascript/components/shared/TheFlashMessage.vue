@@ -31,10 +31,10 @@ export default {
 <style scoped>
 .flash {
   position: fixed;
-  top: 100px;
+  top: 80px;
   left: 20px;
   max-width: 500px;
-  z-index: 100;
+  z-index: 10000;
 }
 .v-alert--outlined {
   background: rgb(255, 255, 255) !important;

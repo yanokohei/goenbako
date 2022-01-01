@@ -5,10 +5,12 @@
         flat
         color="#f1f1f1"
         rounded="xl"
+        min-width="300"
+        max-width="690"
       >
-        <v-card-title class="pt-6">
+        <v-card-title class="pt-4 pb-0">
           <router-link :to="{ name: 'User', params: { twitter_id: receivedLetter.sender.twitter_id }}">
-            <v-list-item-avatar class="pa-0" size="65">
+            <v-list-item-avatar class="pa-0" size="55">
               <img :src="receivedLetter.sender.image">
             </v-list-item-avatar>
           </router-link>
@@ -33,13 +35,14 @@
           :letter-items="receivedLetter"
         />
         <v-row
+          v-if="isCurrentMypage"
           justify="end"
           class="ma-4"
         >
           <v-btn
-            v-if="isCurrentMypage"
             color="blue"
-            class="white--text"
+            class="white--text ma-1"
+
             small
             @click="openShareLetterModal"
           >
@@ -47,11 +50,10 @@
             シェア
           </v-btn>
           <v-btn
-            v-if="isCurrentMypage"
-            tile
-            small
             color="brown darken-1"
+            class="white--text ma-1"
             dark
+            small
             @click="hundleDeleteLetter(receivedLetter)"
           >
             <v-icon> mdi-delete </v-icon>
@@ -129,7 +131,7 @@ export default {
 
 <style scoped>
 .s-font{
-  font-size: 1.0em;
+  font-size: 0.8em;
   font-weight: bold;
   line-height: 1;
   color: #2c281e;

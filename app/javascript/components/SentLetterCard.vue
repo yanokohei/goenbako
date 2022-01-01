@@ -5,10 +5,12 @@
         flat
         color="#f1f1f1"
         rounded="xl"
+        min-width="300"
+        max-width="690"
       >
-        <v-card-title class="pt-6">
+        <v-card-title class="pt-4 pb-0">
           <router-link :to="{ name: 'User', params: { twitter_id: sentLetter.receiver.twitter_id }}">
-            <v-list-item-avatar class="pa-0" size="65">
+            <v-list-item-avatar class="pa-0" size="55">
               <img :src="sentLetter.receiver.image">
             </v-list-item-avatar>
           </router-link>
@@ -38,8 +40,8 @@
           class="ma-4"
         >
           <v-btn
-            color="orange"
-            class="white--text"
+            color="orange lighten-1"
+            class="white--text ma-1"
             small
             @click="openEditLetterModal"
           >
@@ -47,11 +49,12 @@
             編集
           </v-btn>
           <v-btn
-            color="indigo"
-            class="white--text"
+            color="brown darken-1 ma-1"
+            dark
             small
             @click="hundleDeleteLetter(sentLetter)"
-          >削除
+          >
+            <v-icon> mdi-delete </v-icon>
           </v-btn>
         </v-row>
       </v-card>
@@ -129,7 +132,7 @@ export default {
 
 <style scoped>
 .s-font{
-  font-size: 1.0em;
+  font-size: 0.8em;
   font-weight: bold;
   line-height: 1;
   color: #2c281e;

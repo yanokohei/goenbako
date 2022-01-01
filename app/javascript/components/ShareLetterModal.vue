@@ -16,7 +16,6 @@
         <div
           class="s-font"
         >{{ letterTitle.message }}</div>
-<!-- ボタンを押したら項目に応じたデータを指定しSVGタグ側のデータに反映させる -->
         <v-card-actions class="justify-center">
           <v-btn
             color="blue"
@@ -74,7 +73,7 @@
           <text
             x="50%"
             y="50%"
-            style="line-height: 1.7; font-weight: 100; font-size: 20px"
+            style="line-height: 1.7; font-size: 20px"
             text-anchor="middle">{{ content }}
           </text>
         </foreignObject>
@@ -136,7 +135,12 @@ export default {
   },
   data() {
     return {
+    shareImage: {
+      user_id: "",
+      letter_id: "",
+      topic: "",
       image_url: '',
+    },
       title: '',
       content: ''
     }
@@ -148,6 +152,12 @@ export default {
     handleCloseModal() {
       this.$emit("close-modal");
     },
+    postImage(letterTitle) {
+      this.shareImage.user_id = this.currentUser.id
+      this.shareImage.letter_id = this.receivedLetter.letter.id
+      this.shareImage.topic = letterTitle.topic
+      axios.post("/api/share_images", { share_image: this.shareImage })
+    },
     twitterShare() {
       const url = `https://goenbako.com/${this.currentUser.twitter_id}`
       return `https://twitter.com/share?text=${this.receivedLetter.sender.name}さん からファンレターが届いたよ！%0a&url=${url}&hashtags=ご縁箱`;
@@ -158,6 +168,7 @@ export default {
         console.log(data);
         document.getElementById('converted-image').src = data;
         this.shareImage.image_url = data;
+        this.postImage(letterTitle);
       }, function (error) {
         console.log(error);
         alert('failed to image');
