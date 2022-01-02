@@ -1,16 +1,19 @@
 <template>
   <v-container>
-    <div
-      v-for="sentLetter in sentLetters"
-      :key="sentLetter.id"
-    >
-      <SentLetterCard
-        :user="user"
-        :sentLetter="sentLetter"
-        @update-letter="handleUpdateLetter"
-        @delete-letter="deleteLetter"
-      />
+    <div v-if="isNotYetSentLetter">
+      <div
+        v-for="sentLetter in sentLetters"
+        :key="sentLetter.id"
+      >
+        <SentLetterCard
+          :user="user"
+          :sentLetter="sentLetter"
+          @update-letter="handleUpdateLetter"
+          @delete-letter="deleteLetter"
+        />
+      </div>
     </div>
+    <IsNotYetLetter v-else />
   </v-container>
 </template>
 
@@ -18,11 +21,13 @@
 import axios from "axios";
 import { mapGetters } from "vuex";
 import SentLetterCard from './SentLetterCard';
+import IsNotYetLetter from './IsNotYetLetter';
 
 export default {
   name: "SentLetterList",
   components: {
-    SentLetterCard
+    SentLetterCard,
+    IsNotYetLetter
   },
   props: {
     user: {
@@ -36,6 +41,9 @@ export default {
   },
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
+    isNotYetSentLetter() {
+      return this.sentLetters.length !== 0 ? true : false;
+    }
   },
   methods: {
     openUpdateLetterModal() {
