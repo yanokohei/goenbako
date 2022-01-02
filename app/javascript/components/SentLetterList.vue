@@ -4,11 +4,11 @@
       v-for="sentLetter in sentLetters"
       :key="sentLetter.id"
     >
-<!-- 送ったレターの数だけ更新モーダルの表示が発生して無限に処理が繰り返されるためコンポーネントで処理を分断 -->
       <SentLetterCard
         :user="user"
         :sentLetter="sentLetter"
         @update-letter="handleUpdateLetter"
+        @delete-letter="deleteLetter"
       />
     </div>
   </v-container>
@@ -44,8 +44,11 @@ export default {
     handleCloseUpdateLetterModal() {
       this.isVisibleUpdateLetterModal = false;
     },
-    deleteLetter() {
-      this.$emit("delete-letter");
+    deleteLetter(letter) {
+      const letterIndex = this.sentLetters.findIndex((sentLetter) => {
+        return sentLetter.letter.id === letter.id
+      });
+      this.sentLetters.splice(letterIndex, 1);
     },
     handleUpdateLetter() {
       this.$emit("update-letter");

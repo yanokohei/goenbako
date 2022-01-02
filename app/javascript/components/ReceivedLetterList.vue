@@ -7,6 +7,7 @@
       <ReceivedLetterCard
         :user="user"
         :received-letter="receivedLetter"
+        @delete-letter="deleteLetter"
       />
     </div>
   </v-container>
@@ -33,8 +34,11 @@ export default {
     },
   },
   methods: {
-    deleteLetter() {
-      this.$emit("delete-letter");
+    deleteLetter(letter) {
+      const letterIndex = this.receivedLetters.findIndex((receivedLetter) => {
+        return receivedLetter.letter.id === letter.id
+      });
+      this.receivedLetters.splice(letterIndex, 1);
     },
   },
 };

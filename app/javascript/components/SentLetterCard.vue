@@ -121,7 +121,7 @@ export default {
     deleteLetter(letterItem) {
       axios
         .delete(`/api/letters/${letterItem.letter.id}`)
-        .then(() => this.$emit("delete-letter"));
+        .then((res) => this.$emit("delete-letter", res.data));
     },
     handleUpdateLetter() {
       this.$emit("update-letter");
