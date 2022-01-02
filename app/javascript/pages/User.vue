@@ -42,7 +42,6 @@
 import axios from "axios";
 import { mapGetters } from "vuex";
 import UserProfileCard from "../components/UserProfileCard";
-import NotSendLetter from "../components/NotSendLetter";
 import CreateLetterModal from "../components/CreateLetterModal";
 import DoneSendLetter from "../components/DoneSendLetter";
 import LetterListTab from '../components/LetterListTab';
@@ -52,7 +51,6 @@ export default {
   components: {
     UserProfileCard,
     CreateLetterModal,
-    NotSendLetter,
     DoneSendLetter,
     LetterListTab,
   },
