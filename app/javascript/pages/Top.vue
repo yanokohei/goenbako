@@ -40,7 +40,7 @@
     >
       <v-card
         rounded="xl"
-        color="#feebbe"
+        color="#fff6e4"
         class="mx-4 px-4"
       >
         <v-col align="center">
