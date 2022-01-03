@@ -10,7 +10,7 @@
     </v-row>
     <v-row class="justify-center mb-8 pa-4">
       <v-btn
-        v-if="this.isOtherCurrentUser"
+        v-if="isOtherCurrentUser"
         color="deep-purple lighten-5"
         rounded
         large
@@ -42,7 +42,6 @@
 import axios from "axios";
 import { mapGetters } from "vuex";
 import UserProfileCard from "../components/UserProfileCard";
-import NotSendLetter from "../components/NotSendLetter";
 import CreateLetterModal from "../components/CreateLetterModal";
 import DoneSendLetter from "../components/DoneSendLetter";
 import LetterListTab from '../components/LetterListTab';
@@ -52,7 +51,6 @@ export default {
   components: {
     UserProfileCard,
     CreateLetterModal,
-    NotSendLetter,
     DoneSendLetter,
     LetterListTab,
   },
@@ -77,7 +75,14 @@ export default {
     },
     isOtherCurrentUser() {
       return this.currentUser && this.$route.path !== `/${this.currentUser.twitter_id}` && this.$route.path !== `/${this.currentUser.twitter_id}/`
-    }
+    },
+    // 書いてみるボタンを１回きりに制限したい場合。
+    // isNotYetSentCase() {
+    //   const isIncludedSentLetter = this.receivedLetters.some((receivedLetter) => {
+    //     return receivedLetter.sender.id === this.currentUser.id;
+    //   });
+    //   return !isIncludedSentLetter;
+    // }
   },
   methods: {
     async fetchUser() {

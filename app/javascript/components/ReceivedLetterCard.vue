@@ -122,7 +122,7 @@ export default {
     deleteLetter(receivedLetter) {
       axios
         .delete(`/api/letters/${receivedLetter.letter.id}`)
-        .then(() => this.$emit("delete-letter"));
+        .then((res) => this.$emit("delete-letter", res.data));
     },
 
   },

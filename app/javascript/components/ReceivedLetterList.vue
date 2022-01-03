@@ -1,14 +1,18 @@
 <template>
   <v-container>
-    <div
-      v-for="receivedLetter in receivedLetters"
-      :key="receivedLetter.id"
-    >
-      <ReceivedLetterCard
-        :user="user"
-        :received-letter="receivedLetter"
-      />
+    <div v-if="isNotYetReceivedLetter">
+      <div
+        v-for="receivedLetter in receivedLetters"
+        :key="receivedLetter.id"
+      >
+        <ReceivedLetterCard
+          :user="user"
+          :received-letter="receivedLetter"
+          @delete-letter="deleteLetter"
+        />
+      </div>
     </div>
+    <IsNotYetLetter v-else />
   </v-container>
 </template>
 
@@ -16,11 +20,13 @@
 import axios from "axios";
 import { mapGetters } from "vuex"
 import ReceivedLetterCard from './ReceivedLetterCard';
+import IsNotYetLetter from './IsNotYetLetter';
 
 export default {
   name: "LetterListReceived",
   components: {
-    ReceivedLetterCard
+    ReceivedLetterCard,
+    IsNotYetLetter
   },
   props: {
     user: {
@@ -32,9 +38,17 @@ export default {
       required: true
     },
   },
+  computed: {
+    isNotYetReceivedLetter() {
+      return this.receivedLetters.length !== 0 ? true : false;
+    }
+  },
   methods: {
-    deleteLetter() {
-      this.$emit("delete-letter");
+    deleteLetter(letter) {
+      const letterIndex = this.receivedLetters.findIndex((receivedLetter) => {
+        return receivedLetter.letter.id === letter.id
+      });
+      this.receivedLetters.splice(letterIndex, 1);
     },
   },
 };
