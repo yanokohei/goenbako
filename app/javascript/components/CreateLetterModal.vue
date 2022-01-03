@@ -11,18 +11,17 @@
       </v-card-title>
       <v-divider />
       <p class="xs-font mx-4">※それぞれ100文字以内で自由にご記入ください。</p>
-      <!-- フォーム全体をHTML要素で統括 -->
       <div class="mx-4 pt-4">
-        <!-- formタグでフォームデータを一括管理 -->
         <v-form @submit.prevent="handleCreateLetter(letter)">
           <div v-for="(letterTitle, index) in letterTitles()" :key="index">
             <div class="mt-1 s-font">
               <label
                 for="past"
               >{{ letterTitle.message }}</label>
-              <v-card-actions class="justify-center">
+              <v-card-actions class="justify-center"
+                v-if="!ShowTextarea.includes(index)"
+              >
                 <v-btn
-                  v-if="!ShowTextarea.includes(index)"
                   @click="addShowTextarea(index)"
                   color="deep-purple lighten-5"
                   x-small
@@ -41,6 +40,7 @@
                   counter
                   :rules="rules"
                   rows="2"
+                  class="textarea mt-0 pt-0"
                 />
               </v-col>
             </div>
@@ -135,6 +135,7 @@ export default {
       .then((res) => {
           this.$emit("create-letter", res.data);
           this.handleCloseModal();
+          this.clearTextArea();
           this.$store.dispatch("flash/setFlash", {
             type: "success",
             message: "レターを作成しました。"
@@ -150,7 +151,14 @@ export default {
     handleShowTextarea() {
       this.isShowTextarea = true
       this.isShowThisButton = false;
-    }
+    },
+    clearTextArea() {
+      this.letter.past = "",
+      this.letter.current = "",
+      this.letter.future = "",
+      this.letter.expect = "",
+      this.letter.message = ""
+    },
   },
 };
 </script>
@@ -180,6 +188,11 @@ export default {
 .xs-font{
   font-size: 0.5em;
   font-weight: lighter;
+  line-height: 1;
+  color: #2c281e;
+}
+.textarea{
+  font-size: 1.05em;
   line-height: 1;
   color: #2c281e;
 }
