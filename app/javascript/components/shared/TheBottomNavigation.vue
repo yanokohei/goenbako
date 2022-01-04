@@ -17,7 +17,7 @@
     </v-btn>
 
     <v-btn
-      :to="{ name: 'Mypage' }"
+      @click="openUserSearchModal"
     >
       <span>Search</span>
 
@@ -33,18 +33,29 @@
 
       <v-icon>mdi-logout</v-icon>
     </v-btn>
+    <transition name="fade">
+      <TheUserSearchModal
+        :is-visible-user-search-modal="isVisibleUserSearchModal"
+        @close-modal="handleCloseUserSearchModal"
+      />
+    </transition>
   </div>
 </template>
 
 <script>
 import Cookies from 'js-cookie';
 import axios from "axios";
+import TheUserSearchModal from "./TheUserSearchModal";
 
 export default {
   name: "TheBottomNavigation",
+  components:{
+    TheUserSearchModal
+  },
   data() {
     return{
-      random_id: ''
+      random_id: '',
+      isVisibleUserSearchModal: false,
     }
   },
   mounted() {
@@ -66,7 +77,13 @@ export default {
           this.random_id = res.data
         })
       } while (this.$route.path === `/${this.random_id}`);
-    }
+    },
+    openUserSearchModal() {
+      this.isVisibleUserSearchModal = true;
+    },
+    handleCloseUserSearchModal() {
+      this.isVisibleUserSearchModal = false;
+    },
   },
   watch: {
     currentPath: function() {
