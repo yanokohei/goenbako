@@ -8,9 +8,19 @@
         min-width="300"
         max-width="690"
       >
+        <v-img
+          src="/img/Dear.svg"
+          max-width="45px"
+          class="dear-position"
+        />
+        <v-img
+          src="/img/Dear.svg"
+          max-width="45px"
+          class="dear-position"
+        />
         <v-card-title class="pt-4 pb-0">
           <router-link :to="{ name: 'User', params: { twitter_id: sentLetter.receiver.twitter_id }}">
-            <v-list-item-avatar class="pa-0" size="55">
+            <v-list-item-avatar class="pa-0 mr-2 ml-2" size="60">
               <img :src="sentLetter.receiver.image">
             </v-list-item-avatar>
           </router-link>
@@ -136,5 +146,10 @@ export default {
   font-weight: bold;
   line-height: 1;
   color: #2c281e;
+}
+.dear-position {
+  position: absolute;
+  top: -3px;
+  left: -2px;
 }
 </style>
