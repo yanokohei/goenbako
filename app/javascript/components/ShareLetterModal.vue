@@ -126,6 +126,7 @@ export default {
       topic: "",
       image_url: '',
     },
+      savedImage: [],
       title: '',
       content: ''
     }
@@ -142,6 +143,12 @@ export default {
       this.shareImage.letter_id = this.receivedLetter.letter.id
       this.shareImage.topic = letterTitle.topic
       axios.post("/api/share_images", { share_image: this.shareImage })
+      .then((res) => {
+          this.savedImage = res.data
+      })
+      .catch((error) => {
+        console.log(error);
+      })
     },
     twitterShare() {
       const url = `https://goenbako.com/${this.currentUser.twitter_id}/letters/${this.receivedLetter.letter.id}`
