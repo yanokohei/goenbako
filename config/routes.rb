@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get 'oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
     delete 'logout', to: 'user_sessions#destroy'
     get 'random', to: 'visits#random'
+    get 'search', to: 'searches#user_search'
     resources :users, param: :twitter_id, only: %i[index edit update show destroy] do
       collection do
         get 'me'
