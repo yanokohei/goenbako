@@ -6,8 +6,8 @@
         max-width="40px"
       />
     </v-row>
-    <div class="s-font mt-4 mb-4">
-      \ ご縁箱の開設をお願いしてみませんか? /
+    <div class="xs-font mt-4 mb-4">
+      \ ご縁箱の開設をリクエストしてみませんか? /
     </div>
     <v-btn
       color="#FCF6FF"
@@ -15,7 +15,7 @@
       :href="inviteTweetReply()"
     >
       <v-icon color="blue">mdi-twitter</v-icon>
-      ご縁箱をおすすめしてみる
+      リクエストしてみる
     </v-btn>
   </v-col>
 </template>
@@ -50,6 +50,7 @@ export default {
 <style scoped>
 .xs-font{
   font-size: 0.7em;
+  font-weight: bold;
   line-height: 1;
   color: #2c281e;
 }
