@@ -63,18 +63,38 @@ export default {
   data() {
     return {
       searchID: "",
-      resultData: "",
+      result: "",
     };
   },
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
   },
   methods: {
-    searchUser() {
-      await axios.get(`/api/letters/${this.$route.params.letter_id}`)
-      .then((res) => {
-        this.resultData = res.data
-      })
+    async searchUser() {
+      if (this.searchID != null && this.searchID.length >= 1) {
+        await axios.get('/api/search', {
+          params: {
+            id: this.searchID
+          }
+        })
+        .then((res) => {
+          this.result = res.data
+          if (this.result === true) {
+            this.$router.push({ name: 'User', params: { twitter_id: this.searchID }});
+            this.handleCloseModal();
+            this.$store.dispatch("flash/setFlash", {
+              type: "success",
+              message: "検索に成功しました。"
+            })
+          }
+          else {
+            this.$store.dispatch("flash/setFlash", {
+              type: "error",
+              message: "検索に失敗しました。"
+            })
+          }
+        })
+      }
     },
     handleCloseModal() {
       this.$emit("close-modal");
