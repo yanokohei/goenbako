@@ -36,8 +36,8 @@
         </transition>
         <transition name="fade">
           <TheInviteUser
-            v-if="currentUser && theInviteUser"
-            :search-id="searchID"
+            v-if="theInviteUser"
+            :search-i-d="searchID"
           />
         </transition>
       </v-card-text>
@@ -53,7 +53,6 @@
       </v-row>
       <v-row
         justify="center"
-        class="ma-8"
       >
         <v-card-actions>
           <v-btn

@@ -17,6 +17,7 @@
       <v-icon color="blue">mdi-twitter</v-icon>
       リクエストしてみる
     </v-btn>
+    <p v-if="!currentUser" class="xs-font mt-2 mb-0">※ログインが必要です</p>
   </v-col>
 </template>
 
@@ -40,8 +41,10 @@ export default {
   },
   methods: {
     inviteTweetReply() {
-      const url = "https://goenbako.com"
-      return `https://twitter.com/share?text=@${this.searchID}%0a${this.currentUser.name}さんがあなたにご縁箱をおすすめしています。%0aご縁箱を開設してファンレターを受け取ってみましょう！&url=${url}&hashtags=ご縁箱&hashtags=Goenbako-Letters`;
+      if (this.currentUser) {
+        const url = "https://goenbako.com"
+        return `https://twitter.com/share?text=@${this.searchID}%0a${this.currentUser.name}さんがあなたにご縁箱をおすすめしています。%0aご縁箱を開設してファンレターを受け取ってみましょう！&url=${url}&hashtags=ご縁箱&hashtags=Goenbako-Letters`;
+      }
     },
   }
 };
