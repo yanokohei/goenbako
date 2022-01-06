@@ -41,16 +41,18 @@
           />
         </transition>
       </v-card-text>
-      <v-row v-if="this.beforeUserSearch" justify="center">
+      <div v-if="this.beforeUserSearch">
         <div class="mt-8 text-center">
           あなたがファンレターを書きたい<br>
           \ ユーザーを検索してみましょう！ /
         </div>
+        <v-col align="center">
         <v-img
           src="/img/goenbako_smile.png"
           max-width="220px"
         />
-      </v-row>
+        </v-col>
+      </div>
       <v-row
         justify="center"
       >
