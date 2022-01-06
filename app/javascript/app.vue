@@ -13,7 +13,6 @@
       </v-main>
       <v-bottom-navigation
         app
-        v-if="currentUser"
         color="primary"
       >
         <TheBottomNavigation/>
@@ -41,9 +40,6 @@ export default {
     ...mapGetters({
       isFlash: "flash/isFlash",
       currentUser: "users/currentUser" }),
-    // isCurrentUser() {
-    // return this.currentUser === true
-    // }
   },
 }
 </script>
