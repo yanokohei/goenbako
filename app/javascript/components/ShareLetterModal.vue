@@ -120,13 +120,13 @@ export default {
   },
   data() {
     return {
-    shareImage: {
-      user_id: "",
-      letter_id: "",
-      topic: "",
-      image_url: '',
-    },
-      savedImage: [],
+      shareImage: {
+        user_id: "",
+        letter_id: "",
+        topic: "",
+        image_url: '',
+      },
+      savedImageID: "",
       title: '',
       content: ''
     }
@@ -144,15 +144,17 @@ export default {
       this.shareImage.topic = letterTitle.topic
       axios.post("/api/share_images", { share_image: this.shareImage })
       .then((res) => {
-          this.savedImage = res.data
+          const savedImage = res.data
+          this.savedImageID = savedImage.id
+          console.log(this.savedImageID);
       })
       .catch((error) => {
         console.log(error);
       })
     },
     twitterShare() {
-      const url = `https://goenbako.com/${this.currentUser.twitter_id}/letters/${this.receivedLetter.letter.id}`
-      return `https://twitter.com/share?text=${this.receivedLetter.sender.name}さん から素敵なファンレターが届いたよ！%0a全文はリンクから見られるよ！%0a&url=${url}&hashtags=ご縁箱&hashtags=Goenbako-Letters`;
+      const url = `https://goenbako.com/${this.currentUser.twitter_id}/letters/${this.receivedLetter.letter.id}/?id=${this.savedImageID}`
+      return `https://twitter.com/share?text=${this.receivedLetter.sender.name}さん から素敵なファンレターが届いたよ！%0a&hashtags=ご縁箱&hashtags=goenbako_letters%0a&url=${url}`;
     },
     async svgToPng(letterTitle) {
       await this.addLetterTopicToPng(letterTitle);
