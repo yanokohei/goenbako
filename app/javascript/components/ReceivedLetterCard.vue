@@ -5,7 +5,8 @@
         flat
         color="#f1f1f1"
         rounded="xl"
-        width="330"
+        max-width="320"
+        min-width="300"
       >
         <v-img
           src="/img/From.svg"
