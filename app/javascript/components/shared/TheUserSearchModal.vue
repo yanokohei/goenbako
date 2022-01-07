@@ -42,7 +42,7 @@
         </transition>
       </v-card-text>
       <div v-if="this.beforeUserSearch">
-        <div class="mt-8 text-center">
+        <div class="mt-8 xs-font text-center">
           あなたがファンレターを書きたい<br>
           \ ユーザーを検索してみましょう！ /
         </div>
@@ -142,7 +142,7 @@ export default {
 .xs-font{
   font-size: 0.8em;
   font-weight: bold;
-  line-height: 1;
+  line-height: 1.5;
   color: #2c281e;
 }
 .modal {
