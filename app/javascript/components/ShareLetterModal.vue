@@ -67,16 +67,16 @@
             font-size="14px"
             ><tspan>>{{ title }}</tspan>
           </text>
-        <foreignObject
-          x="16%" y="20%" width="410" height="170"
-        >
-          <text
-            x="50%"
-            y="50%"
-            style="line-height: 1.7; font-size: 20px"
-            text-anchor="middle">{{ content }}
-          </text>
-        </foreignObject>
+          <foreignObject
+            x="16%" y="20%" width="410" height="170"
+          >
+            <text
+              x="50%"
+              y="50%"
+              style="line-height: 1.7; font-size: 20px"
+              text-anchor="middle">{{ content }}
+            </text>
+          </foreignObject>
           <text
             x="95%"
             y="90%"
