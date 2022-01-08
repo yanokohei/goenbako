@@ -32,6 +32,7 @@ gem 'config'
 gem 'meta-tags'
 gem 'tailwindcss-rails'
 gem 'rails-i18n'
+gem 'carrierwave'
 
 group :development, :test do
   gem 'pry-rails'
