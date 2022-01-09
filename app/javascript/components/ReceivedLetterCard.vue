@@ -6,7 +6,6 @@
         color="#f1f1f1"
         rounded="xl"
         max-width="320"
-        min-width="300"
       >
         <v-img
           src="/img/From.svg"
