@@ -11,6 +11,14 @@ class Api::LettersController < ApplicationController
     end
   end
 
+  def update
+    if @letter.update(letter_params)
+      render json: @letter
+    else
+      render json: @letter.errors, status: :bad_request
+    end
+  end
+
   def show
     letter = Letter.find_by(id: params[:id])
     show_letter = {
