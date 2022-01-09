@@ -1,15 +1,15 @@
 <template>
   <v-dialog
     v-model="isVisibleUserSearchModal"
-    max-width="500"
+    max-width="315"
     @click:outside="handleCloseModal"
   >
-    <v-card color="amber lighten-5" height="450">
-      <h3 class="ma-4">
-        <span class="my-5">ユーザー検索</span>
-        <v-divider />
+    <v-card color="amber lighten-5" height="470" max-width="300" >
+      <h3 class="ml-4">
+        ユーザー検索
       </h3>
-      <v-card-text class="mt-5 mb-1">
+      <v-divider />
+      <v-card-text class="mt-8 mb-1">
         <v-text-field
           background-color="#FFFFF0"
           v-model="searchID"
