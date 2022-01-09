@@ -17,7 +17,7 @@
       >
         <TheBottomNavigation/>
       </v-bottom-navigation>
-      <TheFooter />
+      <!-- <TheFooter /> -->
     </v-app>
   </div>
 </template>
