@@ -72,6 +72,7 @@
       <EditLetterModal
         :is-visible-edit-letter-modal="isVisibleEditLetterModal"
         :user="user"
+        :receiver="sentLetter.receiver"
         :updateLetter="sentLetter.letter"
         @close-modal="handleCloseEditLetterModal"
         @update-letter="handleUpdateLetter"

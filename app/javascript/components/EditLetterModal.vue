@@ -77,6 +77,10 @@ export default {
     updateLetter: {
       type: Object,
       required: true,
+    },
+    receiver: {
+      type: Object,
+      required: true,
     }
   },
   computed: {
@@ -108,7 +112,7 @@ export default {
         { item: '出会いのきっかけ・当時の印象', model_name: 'past' },
         { item: '現在の印象・どんな人？', model_name: 'current' },
         { item: '聞いてみたいこと／これから話してみたいこと', model_name: 'future' },
-        { item: `${this.user.name}さんに期待していること`, model_name: 'expect' },
+        { item: `${this.receiver.name}さんに期待していること`, model_name: 'expect' },
         { item: 'メッセージ', model_name: 'message' }
       ]
     },
