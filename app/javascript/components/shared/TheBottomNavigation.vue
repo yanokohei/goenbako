@@ -36,16 +36,6 @@
       <v-icon>mdi-account-search-outline</v-icon>
     </v-btn>
 
-    <v-btn
-      to="/api/logout"
-      data-method="delete"
-      @click="logoutUser"
-      v-if="currentUser"
-    >
-      <span>Logout</span>
-
-      <v-icon>mdi-logout</v-icon>
-    </v-btn>
     <transition name="fade">
       <TheUserSearchModal
         :is-visible-user-search-modal="isVisibleUserSearchModal"
