@@ -8,14 +8,16 @@
         icons-and-text
       >
         <v-tabs-slider />
-        <v-tab
-          v-for="tabItem in tabItems"
-          :key="tabItem.tabId"
-        >
-          {{ tabItem.tabName }}
-          <v-icon>mdi-email-edit-outline</v-icon>
-        </v-tab>
-      </v-tabs>
+          <v-tab
+            v-for="tabItem in tabItems"
+            :key="tabItem.tabId"
+          >
+            <div class="xs-font mt-3" background-color="#fff6e4">
+              {{ tabItem.tabName }}
+            </div>
+            <v-icon>mdi-email-edit-outline</v-icon>
+          </v-tab>
+        </v-tabs>
       <v-row justify="center" class="py-4">
         <v-tabs-items v-model="moveTab">
           <v-tab-item
@@ -78,5 +80,10 @@ export default {
 </script>
 
 <style>
-
+.xs-font{
+  font-size: 0.9em;
+  font-weight: bold;
+  line-height: 1;
+  color: #2c281e;
+}
 </style>
