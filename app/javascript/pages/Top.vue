@@ -3,7 +3,7 @@
     <v-row
       justify="center"
     >
-      <div class="text-center mt-12 pb-4">
+      <div class="text-center s-font mt-12 pb-4">
         あなたには 『素敵なご縁』がある<br>これまでも、これからも
       </div>
       <!-- <v-img max-width="" src="/img/illust.png" /> -->
@@ -142,6 +142,12 @@ export default {
 }
 .p-font{
   font-size: 0.9em;
+  color: #2c281e;
+}
+.s-font{
+  font-size: 0.9em;
+  font-weight: bold;
+  line-height: 1;
   color: #2c281e;
 }
 /* .logo {
