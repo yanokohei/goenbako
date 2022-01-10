@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container v-if="currentUser">
     <v-row
       class="ma-8"
       justify="center"
