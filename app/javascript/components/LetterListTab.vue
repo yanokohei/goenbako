@@ -12,7 +12,7 @@
             v-for="tabItem in tabItems"
             :key="tabItem.tabId"
           >
-            <span class="s-font">
+            <span class="s-font" style="color: #3270B9;">
               <v-icon>{{ tabItem.icon }}</v-icon>
               ({{ tabItem.countLetter }})
             </span>
