@@ -1,5 +1,8 @@
 <template>
-  <div class="bottom-navi">
+  <v-row
+    align="center"
+    justify="center"
+  >
     <v-btn
       v-if="!currentUser"
       :to="{ name: 'Top' }"
@@ -35,14 +38,45 @@
 
       <v-icon>mdi-account-search-outline</v-icon>
     </v-btn>
+    <v-menu
+      transition="slide-y-transition"
+      bottom
+      v-if="currentUser"
+      top offset-y
+    >
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          text
+          color="blue"
+          v-bind="attrs"
+          v-on="on"
+          x-small
+        >
+          <span>Menu</span>
 
+          <v-icon>mdi-menu</v-icon>
+        </v-btn>
+      </template>
+      <v-list class="s-font">
+        <v-list-item
+          to="/api/logout"
+          data-method="delete"
+          @click="logoutUser"
+          small
+          text
+        >
+          <v-icon>mdi-logout</v-icon>
+            ログアウト
+        </v-list-item>
+      </v-list>
+    </v-menu>
     <transition name="fade">
       <TheUserSearchModal
         :is-visible-user-search-modal="isVisibleUserSearchModal"
         @close-modal="handleCloseUserSearchModal"
       />
     </transition>
-  </div>
+  </v-row>
 </template>
 
 <script>
@@ -98,7 +132,9 @@ export default {
 }
 </script>
 <style scoped>
-.bottom-navi{
-  padding: 10px;
+.s-font{
+  font-size: 0.8em;
+  font-weight: bold;
+  line-height: 1;
 }
 </style>
