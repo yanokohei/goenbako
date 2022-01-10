@@ -121,7 +121,6 @@ export default {
   data() {
     return {
       shareImage: {
-        user_id: "",
         letter_id: "",
         topic: "",
         image_url: '',
@@ -139,7 +138,6 @@ export default {
       this.$emit("close-modal");
     },
     postImage(letterTitle) {
-      this.shareImage.user_id = this.currentUser.id
       this.shareImage.letter_id = this.receivedLetter.letter.id
       this.shareImage.topic = letterTitle.topic
       axios.post("/api/share_images", { share_image: this.shareImage })
