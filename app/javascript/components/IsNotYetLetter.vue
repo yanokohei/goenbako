@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row justify="center">
-      <div class="font-bold opacity-50">
+      <div class="font-bold xs-font opacity-50">
         まだレターがありません。
       </div>
     </v-row>
@@ -15,5 +15,10 @@ export default {
 </script>
 
 <style scoped>
-
+.xs-font{
+  font-size: 0.9em;
+  font-weight: bold;
+  line-height: 1;
+  color: #2c281e;
+}
 </style>

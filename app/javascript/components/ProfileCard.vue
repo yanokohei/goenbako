@@ -22,7 +22,7 @@
             <v-icon>mdi-twitter</v-icon>
           </v-btn>
         </v-card-subtitle>
-        <v-card-text class="s-font px-4 mb-4">
+        <v-card-text class="xs-font px-4 mb-2">
           {{ currentUser.introduce }}
         </v-card-text>
       </v-list-item-content>
@@ -59,6 +59,12 @@ export default {
 }
 .s-font{
   font-size: 1.0em;
+  font-weight: bold;
+  line-height: 1;
+  color: #2c281e;
+}
+.xs-font{
+  font-size: 0.9em;
   font-weight: bold;
   line-height: 1;
   color: #2c281e;

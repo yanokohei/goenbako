@@ -1,15 +1,15 @@
 <template>
   <v-dialog
     v-model="isVisibleUserSearchModal"
-    max-width="500"
+    max-width="315"
     @click:outside="handleCloseModal"
   >
-    <v-card color="amber lighten-5" height="450">
-      <h3 class="ma-4">
-        <span class="my-5">ユーザー検索</span>
-        <v-divider />
+    <v-card color="amber lighten-5" height="470" max-width="300" >
+      <h3 class="ml-4">
+        ユーザー検索
       </h3>
-      <v-card-text class="mt-5 mb-1">
+      <v-divider />
+      <v-card-text class="mt-8 mb-1">
         <v-text-field
           background-color="#FFFFF0"
           v-model="searchID"
@@ -36,24 +36,25 @@
         </transition>
         <transition name="fade">
           <TheInviteUser
-            v-if="currentUser && theInviteUser"
-            :search-id="searchID"
+            v-if="theInviteUser"
+            :search-i-d="searchID"
           />
         </transition>
       </v-card-text>
-      <v-row v-if="this.beforeUserSearch" justify="center">
-        <div class="mt-8 text-center">
+      <div v-if="this.beforeUserSearch">
+        <div class="mt-8 xs-font text-center">
           あなたがファンレターを書きたい<br>
           \ ユーザーを検索してみましょう！ /
         </div>
+        <v-col align="center">
         <v-img
           src="/img/goenbako_smile.png"
           max-width="220px"
         />
-      </v-row>
+        </v-col>
+      </div>
       <v-row
         justify="center"
-        class="ma-8"
       >
         <v-card-actions>
           <v-btn
@@ -141,7 +142,7 @@ export default {
 .xs-font{
   font-size: 0.8em;
   font-weight: bold;
-  line-height: 1;
+  line-height: 1.5;
   color: #2c281e;
 }
 .modal {

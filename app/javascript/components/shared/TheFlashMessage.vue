@@ -23,7 +23,7 @@ export default {
         type: "",
         message: ""
       })
-    }, 3000)
+    }, 2000)
   }
 }
 </script>
@@ -31,7 +31,7 @@ export default {
 <style scoped>
 .flash {
   position: fixed;
-  top: 80px;
+  top: 60px;
   left: 20px;
   max-width: 500px;
   z-index: 10000;

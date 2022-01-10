@@ -67,16 +67,16 @@
             font-size="14px"
             ><tspan>>{{ title }}</tspan>
           </text>
-        <foreignObject
-          x="16%" y="20%" width="410" height="170"
-        >
-          <text
-            x="50%"
-            y="50%"
-            style="line-height: 1.7; font-size: 20px"
-            text-anchor="middle">{{ content }}
-          </text>
-        </foreignObject>
+          <foreignObject
+            x="16%" y="20%" width="410" height="170"
+          >
+            <text
+              x="50%"
+              y="50%"
+              style="line-height: 1.7; font-size: 20px"
+              text-anchor="middle">{{ content }}
+            </text>
+          </foreignObject>
           <text
             x="95%"
             y="90%"
@@ -101,22 +101,7 @@ import axios from "axios";
 import { mapGetters } from "vuex"
 import SvgStyle from '../components/SvgStyle';
 
-const svg2imageData = (svgElement, successCallback, errorCallback) => {
-  const canvas = document.createElement("canvas");
-  canvas.width = 614;
-  canvas.height = 300;
-  const ctx = canvas.getContext("2d");
-  const image = new Image();
-  image.onload = () => {
-    ctx.drawImage(image, 0, 0, 614, 300);
-    successCallback(canvas.toDataURL());
-  };
-  image.onerror = e => {
-    errorCallback(e);
-  };
-  const svgData = new XMLSerializer().serializeToString(svgElement);
-  image.src = "data:image/svg+xml;charset=utf-8;base64," + btoa(unescape(encodeURIComponent(svgData)));
-};
+
 
 export default {
   name: "ShareLetterModal",
@@ -135,12 +120,12 @@ export default {
   },
   data() {
     return {
-    shareImage: {
-      user_id: "",
-      letter_id: "",
-      topic: "",
-      image_url: '',
-    },
+      shareImage: {
+        letter_id: "",
+        topic: "",
+        image_url: '',
+      },
+      savedImageID: "",
       title: '',
       content: ''
     }
@@ -153,25 +138,42 @@ export default {
       this.$emit("close-modal");
     },
     postImage(letterTitle) {
-      this.shareImage.user_id = this.currentUser.id
       this.shareImage.letter_id = this.receivedLetter.letter.id
       this.shareImage.topic = letterTitle.topic
       axios.post("/api/share_images", { share_image: this.shareImage })
+      .then((res) => {
+          const savedImage = res.data
+          this.savedImageID = savedImage.id
+          console.log(this.savedImageID);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
     },
     twitterShare() {
-      const url = `https://goenbako.com/${this.currentUser.twitter_id}`
-      return `https://twitter.com/share?text=${this.receivedLetter.sender.name}さん からファンレターが届いたよ！%0a&url=${url}&hashtags=ご縁箱`;
+      const url = `https://goenbako.com/${this.currentUser.twitter_id}/letters/${this.receivedLetter.letter.id}/?id=${this.savedImageID}`
+      return `https://twitter.com/share?text=${this.receivedLetter.sender.name}さん から素敵なファンレターが届いたよ！%0a&hashtags=ご縁箱&hashtags=goenbako_letters%0a&url=${url}`;
     },
     async svgToPng(letterTitle) {
-      await this.addLetterContent(letterTitle);
-      svg2imageData(this.$refs.svgArea, data => {
-        console.log(data);
-        document.getElementById('converted-image').src = data;
+      await this.addLetterTopicToPng(letterTitle);
+      const createCanvasFromSvgAndConversionPngUrl = (svgElement, urlCallback) => {
+        const canvas = document.createElement("canvas");
+        canvas.width = 614;
+        canvas.height = 300;
+        const ctx = canvas.getContext("2d");
+        const image = new Image();
+        image.onload = () => {
+          ctx.drawImage(image, 0, 0, 614, 300);
+          urlCallback(canvas.toDataURL());
+        };
+        const svgData = new XMLSerializer().serializeToString(svgElement);
+        image.src = "data:image/svg+xml;charset=utf-8;base64," + btoa(unescape(encodeURIComponent(svgData)));
+      };
+      createCanvasFromSvgAndConversionPngUrl(this.$refs.svgArea, data => {
+        document.getElementById('converted-image').src = data; // dev
         this.shareImage.image_url = data;
+        console.log(this.shareImage.image_url); // dev
         this.postImage(letterTitle);
-      }, function (error) {
-        console.log(error);
-        alert('failed to image');
       });
     },
     letterTitles() {
@@ -185,7 +187,7 @@ export default {
       .filter(existsLetterItem => existsLetterItem.content)
       .map(existsLetterItem => existsLetterItem)
     },
-    addLetterContent(letterTitle) {
+    addLetterTopicToPng(letterTitle) {
       this.title = letterTitle.message
       this.content = letterTitle.content
     }

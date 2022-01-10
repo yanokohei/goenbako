@@ -1,6 +1,18 @@
 <template>
   <div class="bottom-navi">
     <v-btn
+      v-if="!currentUser"
+      :to="{ name: 'Top' }"
+    >
+      <span>Top</span>
+        <v-img
+          src="/img/favicon.ico"
+          max-width="27px"
+        />
+    </v-btn>
+
+    <v-btn
+      v-if="currentUser"
       :to="{ name: 'Mypage' }"
     >
       <span>Home</span>
@@ -24,15 +36,6 @@
       <v-icon>mdi-account-search-outline</v-icon>
     </v-btn>
 
-    <v-btn
-      to="/api/logout"
-      data-method="delete"
-      @click="logoutUser"
-    >
-      <span>Logout</span>
-
-      <v-icon>mdi-logout</v-icon>
-    </v-btn>
     <transition name="fade">
       <TheUserSearchModal
         :is-visible-user-search-modal="isVisibleUserSearchModal"
@@ -46,6 +49,7 @@
 import Cookies from 'js-cookie';
 import axios from "axios";
 import TheUserSearchModal from "./TheUserSearchModal";
+import { mapGetters } from "vuex"
 
 export default {
   name: "TheBottomNavigation",
@@ -65,6 +69,7 @@ export default {
     currentPath() {
       return this.$route.path
     },
+    ...mapGetters({ currentUser: "users/currentUser" }),
   },
   methods: {
     logoutUser() {
