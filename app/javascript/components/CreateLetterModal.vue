@@ -56,9 +56,9 @@
                 elevation="4"
                 large
                 color="blue"
-                class="white--text"
+                class="white--text s-font"
               >
-                登録する
+                レターを送る
               </v-btn>
               <v-btn
                 small
