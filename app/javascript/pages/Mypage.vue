@@ -9,12 +9,13 @@
     <v-row class="justify-center mb-8 pa-4">
       <v-btn
         color="blue"
-        class="white--text"
+        class="white--text m-font"
         rounded
         large
         @click="openShareLinkModal"
       >
-        Myご縁箱をシェアする
+      <v-icon>mdi-twitter</v-icon>
+        <span class="m-font white--text ml-2">Myご縁箱をシェアする</span>
       </v-btn>
     </v-row>
     <transition name="fade">
@@ -91,4 +92,10 @@ export default {
 </script>
 
 <style scoped>
+.m-font{
+  font-size: 1.0em;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #2c281e;
+}
 </style>
