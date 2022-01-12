@@ -178,7 +178,7 @@ export default {
     },
     letterTitles() {
       return [
-        { message: '出会いのきっかけ・当時の印象', content: `${this.receivedLetter.letter.past}`, topic: "past" },
+        { message: '出会った当時の印象／エピソード', content: `${this.receivedLetter.letter.past}`, topic: "past" },
         { message: '現在の印象・どんな人？', content: `${this.receivedLetter.letter.current}`, topic: "current" },
         { message: '聞いてみたいこと／これから話してみたいこと',  content: `${this.receivedLetter.letter.future}`, topic: "future" },
         { message: `${this.receivedLetter.receiver.name}さんに期待していること`, content: `${this.receivedLetter.letter.expect}`, topic: "expect" },

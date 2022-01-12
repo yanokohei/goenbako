@@ -77,7 +77,6 @@
 </template>
 
 <script>
-// import { mapGetters } from "vuex"
 
 export default {
   name: "TheHelpboxModal",
@@ -91,9 +90,6 @@ export default {
     return {
       stepCount: 1
     };
-  },
-  computed: {
-    // ...mapGetters({ currentUser: "users/currentUser" }),
   },
   methods: {
     nextStepCount() {
@@ -122,15 +118,6 @@ export default {
 .modal {
   display: block;
 }
-/* .fade-enter, .fade-leave-to {
-  opacity: 0;
-}
-.fade-enter-to, .fade-leave {
-  opacity: 0.6s;
-}
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.5s;
-} */
 .fade-enter-active {
   transition: all .3s ease;
 }

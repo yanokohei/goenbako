@@ -33,12 +33,12 @@ export default {
       return [
         {
           name: "past",
-          title: "出会いのきっかけ、当時の印象",
+          title: '出会った当時の印象／エピソード',
           text: this.letterItems.letter.past
         },
         {
           name: "current",
-          title: "現在の印象、どんな人？",
+          title: '現在の印象・どんな人？',
           text: this.letterItems.letter.current
         },
         {
