@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container v-if="currentUser">
     <v-row
       class="ma-8"
       justify="center"
@@ -9,12 +9,13 @@
     <v-row class="justify-center mb-8 pa-4">
       <v-btn
         color="blue"
-        class="white--text"
+        class="white--text m-font"
         rounded
         large
         @click="openShareLinkModal"
       >
-        Myご縁箱をシェアする
+      <v-icon>mdi-twitter</v-icon>
+        <span class="m-font white--text ml-2">Myご縁箱をシェアする</span>
       </v-btn>
     </v-row>
     <transition name="fade">
@@ -29,6 +30,12 @@
       :sent-letters="sentLetters"
       @update-letter="fetchSentLetters"
     />
+    <transition name="fade">
+      <TheHelpboxModal
+        :is-visible-helpbox-modal="isVisibleHelpboxModal"
+        @close-modal="handleCloseHelpboxModal"
+      />
+    </transition>
   </v-container>
 </template>
 
@@ -38,13 +45,15 @@ import { mapGetters } from "vuex";
 import ProfileCard from "../components/ProfileCard";
 import ShareLinkModal from "../components/ShareLinkModal";
 import LetterListTab from "../components/LetterListTab";
+import TheHelpboxModal from "../components/shared/TheHelpboxModal";
 
 export default {
   name: "Mypage",
   components: {
     ProfileCard,
     ShareLinkModal,
-    LetterListTab
+    LetterListTab,
+    TheHelpboxModal
   },
   data() {
     return {
@@ -52,6 +61,7 @@ export default {
       receivedLetters: [],
       sentLetters: [],
       isVisibleShareLinkModal: false,
+      isVisibleHelpboxModal: false,
     };
   },
 
@@ -79,6 +89,7 @@ export default {
         .then((res) => {
           this.receivedLetters = res.data
         })
+        setTimeout(this.isYetReceivedLetterOpenHelpbox, 1000);
     },
     async fetchSentLetters() {
       await axios.get(`/api/users/${this.currentUser.twitter_id}/sent_letters`)
@@ -86,9 +97,26 @@ export default {
           this.sentLetters = res.data
         })
     },
+    isYetReceivedLetterOpenHelpbox() {
+      if  (this.receivedLetters.length === 0 ) {
+        this.openHelpboxModal();
+      }
+    },
+    openHelpboxModal() {
+      this.isVisibleHelpboxModal = true;
+    },
+    handleCloseHelpboxModal() {
+      this.isVisibleHelpboxModal = false;
+    },
   }
 };
 </script>
 
 <style scoped>
+.m-font{
+  font-size: 1.0em;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #2c281e;
+}
 </style>

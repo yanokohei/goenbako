@@ -5,16 +5,16 @@
       :key="letter.id"
       color="transparent"
       flat
-      class="my-4"
+      class="my-3"
     >
-      <v-card-title class="pa-2 s-font">{{ letter.title }}</v-card-title>
-        <v-card
-          class="mx-1 px-1 rounded-lg u-pre-wrap"
-          outlined
-          color="#FCFCFC"
-          rounded="xl"
-        >{{ letter.text }}
-        </v-card>
+      <v-card-title class="pl-2 pa-1 mb-0 s-font"><p class="ma-0 pa-0 box15">{{ letter.title }}</p></v-card-title>
+      <v-card
+        class="mx-2 mt-0 rounded-lg u-pre-wrap xs-font"
+        outlined
+        color="#FCFCFC"
+        rounded="xl"
+      >{{ letter.text }}
+      </v-card>
     </v-card>
   </v-container>
 </template>
@@ -33,12 +33,12 @@ export default {
       return [
         {
           name: "past",
-          title: "出会いのきっかけ、当時の印象",
+          title: '出会った当時の印象／エピソード',
           text: this.letterItems.letter.past
         },
         {
           name: "current",
-          title: "現在の印象、どんな人？",
+          title: '現在の印象・どんな人？',
           text: this.letterItems.letter.current
         },
         {
@@ -65,19 +65,27 @@ export default {
 </script>
 
 <style scoped>
-.m-font{
-  font-size: 1.0em;
+.s-font{
+  font-size: 0.85em;
   font-weight: bold;
   line-height: 1;
   color: #2c281e;
 }
-.s-font{
-  font-size: 0.9em;
+.xs-font{
+  font-size: 0.8em;
   font-weight: bold;
-  line-height: 1;
+  line-height: 1.5;
   color: #2c281e;
+  padding: 8px 2px 0px 3px;
 }
 .u-pre-wrap {
   white-space: pre-wrap;
+}
+.box15 {
+    margin: 1em 0;
+    color: #63406d;
+    background: #FCF6FF;
+    box-shadow: 0px 0px 0px 3px #FCF6FF;
+    text-shadow: 0 0 0.5em #dadab1
 }
 </style>

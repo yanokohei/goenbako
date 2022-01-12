@@ -109,7 +109,7 @@ export default {
   methods: {
     letterTitles() {
       return [
-        { item: '出会いのきっかけ・当時の印象', model_name: 'past' },
+        { item: '出会った当時の印象／エピソード', model_name: 'past' },
         { item: '現在の印象・どんな人？', model_name: 'current' },
         { item: '聞いてみたいこと／これから話してみたいこと', model_name: 'future' },
         { item: `${this.receiver.name}さんに期待していること`, model_name: 'expect' },

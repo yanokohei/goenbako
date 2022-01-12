@@ -56,9 +56,9 @@
                 elevation="4"
                 large
                 color="blue"
-                class="white--text"
+                class="white--text s-font"
               >
-                登録する
+                レターを送る
               </v-btn>
               <v-btn
                 small
@@ -114,7 +114,7 @@ export default {
   methods: {
     letterTitles() {
       return [
-        { message: '出会いのきっかけ・当時の印象', model_name: 'past' },
+        { message: '出会った当時の印象／エピソード', model_name: 'past' },
         { message: '現在の印象・どんな人？', model_name: 'current' },
         { message: '聞いてみたいこと／これから話してみたいこと', model_name: 'future' },
         { message: `${this.user.name}さんに期待していること`, model_name: 'expect' },

@@ -41,7 +41,7 @@
         <v-row
           v-if="isCurrentMypage"
           justify="end"
-          class="ma-4"
+          class="ma-4 mt-0"
         >
           <v-btn
             color="blue"
@@ -67,6 +67,7 @@
     </keep-alive>
     <transition name="fade">
       <ShareLetterModal
+        v-if="currentUser"
         :is-visible-share-letter-modal="isVisibleShareLetterModal"
         @close-modal="handleCloseShareLetterModal"
         :received-letter="receivedLetter"

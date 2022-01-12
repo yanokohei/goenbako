@@ -1,12 +1,12 @@
 <template>
   <v-dialog
     v-model="isVisibleShareLinkModal"
-    max-width="500"
+    max-width="320"
     @click:outside="handleCloseModal"
   >
     <v-card color="amber lighten-5">
       <v-card-title>
-        <span class="my-5">Myご縁箱をシェアする</span>
+        <span class="my-2 m-font">Myご縁箱をシェアする</span>
       </v-card-title>
       <v-divider />
       <v-col class="text-center mt-8">
@@ -109,7 +109,10 @@ export default {
 .modal {
   display: block;
 }
-.letter-item-input {
-  color: rgb(27, 21, 21)
+.m-font{
+  font-size: 1.0em;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #2c281e;
 }
 </style>

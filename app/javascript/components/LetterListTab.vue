@@ -12,10 +12,13 @@
             v-for="tabItem in tabItems"
             :key="tabItem.tabId"
           >
+            <span class="s-font" style="color: #3270B9;">
+              <v-icon>{{ tabItem.icon }}</v-icon>
+              ({{ tabItem.countLetter }})
+            </span>
             <div class="xs-font mt-3" background-color="#fff6e4">
               {{ tabItem.tabName }}
             </div>
-            <v-icon>mdi-email-edit-outline</v-icon>
           </v-tab>
         </v-tabs>
       <v-row justify="center" class="py-4">
@@ -65,9 +68,20 @@ export default {
   data() {
     return {
       moveTab: "",
-      tabItems: [
-        { tabId: 0, tabName: '受け取ったレター', content: 'ReceivedLetterList' },
-        { tabId: 1, tabName: '送ったレター', content: 'SentLetterList' }
+    }
+  },
+  computed: {
+    countReceivedLetter() {
+      return this.receivedLetters.length;
+    },
+    countSentLetter() {
+      return this.sentLetters.length;
+    },
+
+    tabItems() {
+      return [
+        { tabId: 0, tabName: '受け取ったレター', content: 'ReceivedLetterList', countLetter: this.countReceivedLetter, icon: 'mdi-email-open-multiple-outline' },
+        { tabId: 1, tabName: '送ったレター', content: 'SentLetterList', countLetter: this.countSentLetter, icon: 'mdi-email-edit-outline' }
       ]
     }
   },
@@ -84,6 +98,10 @@ export default {
   font-size: 0.9em;
   font-weight: bold;
   line-height: 1;
-  color: #2c281e;
+}
+.s-font{
+  font-size: 1.2em;
+  font-weight: bold;
+  line-height: 2;
 }
 </style>

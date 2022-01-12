@@ -15,35 +15,57 @@
         </router-link>
       </v-toolbar-title>
       <v-spacer />
-    <v-btn
-      to="/api/logout"
-      data-method="delete"
-      @click="logoutUser"
-      v-if="currentUser"
-      x-small
-    >
-      <span>ログアウト</span>
-    </v-btn>
+      <v-btn
+        text
+        color="blue"
+        x-small
+        @click="openHelpboxModal"
+      >
+        <v-icon>mdi-help-box</v-icon>
+      </v-btn>
+    <transition name="fade">
+      <TheHelpboxModal
+        :is-visible-helpbox-modal="isVisibleHelpboxModal"
+        @close-modal="handleCloseHelpboxModal"
+      />
+    </transition>
     </v-app-bar>
   </header>
 </template>
 
 <script>
-import axios from "axios";
 import { mapGetters } from "vuex"
+import TheHelpboxModal from "./TheHelpboxModal";
+
 export default {
+  name: "TheHeader",
+  components:{
+    TheHelpboxModal
+  },
+  data() {
+    return{
+      isVisibleHelpboxModal: false,
+    }
+  },
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
   },
   methods: {
-    logoutUser() {
-      this.$store.commit('setCurrentUser', { user: null })
-      Cookies.remove('vuex');
+    openHelpboxModal() {
+      this.isVisibleHelpboxModal = true;
+    },
+    handleCloseHelpboxModal() {
+      this.isVisibleHelpboxModal = false;
     },
   }
 }
 </script>
 
 <style>
-
+.s-font{
+  font-size: 1.2em;
+  font-weight: bold;
+  line-height: 1;
+  color: #2c281e;
+}
 </style>

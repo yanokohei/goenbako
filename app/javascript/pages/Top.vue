@@ -29,14 +29,8 @@
           Twitter認証して始める
         </v-btn>
       </v-col>
-        <v-img
-          class="img"
-          max-width="60"
-          src="/img/letter.png"
-        />
-    <!-- ここまで -->
     <v-row
-      justify="center" class="mb-8"
+      justify="center" class="mb-8 mt-8"
     >
       <v-card
         rounded="xl"
@@ -64,7 +58,7 @@
       </v-card>
     </v-row>
     <v-card color="transparent" outlined ma-2>
-      <v-card-actions class="justify-center">
+      <v-card-actions class="justify-center mb-4">
         <v-btn dense text @click="openTermsModal">
           利用規約
         </v-btn>
