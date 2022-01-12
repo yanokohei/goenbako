@@ -30,6 +30,12 @@
       :sent-letters="sentLetters"
       @update-letter="fetchSentLetters"
     />
+    <transition name="fade">
+      <TheHelpboxModal
+        :is-visible-helpbox-modal="isVisibleHelpboxModal"
+        @close-modal="handleCloseHelpboxModal"
+      />
+    </transition>
   </v-container>
 </template>
 
@@ -39,13 +45,15 @@ import { mapGetters } from "vuex";
 import ProfileCard from "../components/ProfileCard";
 import ShareLinkModal from "../components/ShareLinkModal";
 import LetterListTab from "../components/LetterListTab";
+import TheHelpboxModal from "../components/shared/TheHelpboxModal";
 
 export default {
   name: "Mypage",
   components: {
     ProfileCard,
     ShareLinkModal,
-    LetterListTab
+    LetterListTab,
+    TheHelpboxModal
   },
   data() {
     return {
@@ -53,6 +61,7 @@ export default {
       receivedLetters: [],
       sentLetters: [],
       isVisibleShareLinkModal: false,
+      isVisibleHelpboxModal: false,
     };
   },
 
@@ -80,12 +89,24 @@ export default {
         .then((res) => {
           this.receivedLetters = res.data
         })
+        setTimeout(this.isYetReceivedLetterOpenHelpbox, 1000);
     },
     async fetchSentLetters() {
       await axios.get(`/api/users/${this.currentUser.twitter_id}/sent_letters`)
         .then((res) => {
           this.sentLetters = res.data
         })
+    },
+    isYetReceivedLetterOpenHelpbox() {
+      if  (this.receivedLetters.length === 0 ) {
+        this.openHelpboxModal();
+      }
+    },
+    openHelpboxModal() {
+      this.isVisibleHelpboxModal = true;
+    },
+    handleCloseHelpboxModal() {
+      this.isVisibleHelpboxModal = false;
     },
   }
 };
