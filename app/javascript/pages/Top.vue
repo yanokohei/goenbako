@@ -4,7 +4,7 @@
       justify="center"
     >
       <div class="text-center s-font mt-8 pb-4">
-        あなたには 『素敵なご縁』がある<br>これまでも、これからも...
+        あなたには 『素敵なご縁』がある<br>これまでも、これからも。
       </div>
     </v-row>
     <v-col class="mt-4" align="center">
