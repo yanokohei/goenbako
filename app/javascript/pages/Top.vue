@@ -26,7 +26,7 @@
         <v-icon>mdi-twitter</v-icon>
         <span class="s-font white--text ml-2">Twitter認証して始める</span>
       </v-btn>
-      <p class="xs-font mt-2">※下にある利用規約・プライバシーポリシーをご確認ください。</p>
+      <p class="xs-font mt-2">※下の利用規約・プライバシーポリシーをご確認ください。</p>
     </v-col>
     <v-col class="mt-2" align="center">
       <v-img max-width="300" src="/img/dot.svg" />
