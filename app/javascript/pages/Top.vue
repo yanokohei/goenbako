@@ -3,32 +3,57 @@
     <v-row
       justify="center"
     >
-      <div class="text-center s-font mt-12 pb-4">
-        あなたには 『素敵なご縁』がある<br>これまでも、これからも
+      <div class="text-center s-font mt-8 pb-4">
+        あなたには 『素敵なご縁』がある<br>これまでも、これからも...
       </div>
-      <!-- <v-img max-width="" src="/img/illust.png" /> -->
     </v-row>
-      <v-col class="mt-8" align="center">
-        <p class="indigo--text">
-          ＼ ファンレター公開サービス ／
-        </p>
-        <v-img max-width="400" src="/img/logo.png" />
-      </v-col>
-      <v-col align="center">
-        <p class="indigo--text">
-            <span>
-              ご縁箱を開設して<br>ファンレターを交換してみよう
-            </span>
-          <v-icon>mdi-email-edit-outline</v-icon>
-        </p>
-        <v-btn
-          color="primary"
-          large
-          href="/api/oauth/twitter"
+    <v-col class="mt-4" align="center">
+      <v-img max-width="400" height="130" src="/img/top_logo.png" />
+    </v-col>
+    <v-col align="center">
+      <p class="indigo--text">
+        <span>
+          ご縁箱を開設して<br>＼ファンレターを交換してみよう／
+        </span>
+      </p>
+      <v-btn
+        color="blue"
+        class="white--text s-font"
+        rounded
+        large
+        href="/api/oauth/twitter"
+      >
+        <v-icon>mdi-twitter</v-icon>
+        <span class="s-font white--text ml-2">Twitter認証して始める</span>
+      </v-btn>
+      <p class="xs-font mt-2">※下にある利用規約・プライバシーポリシーをご確認ください。</p>
+    </v-col>
+    <v-col class="mt-2" align="center">
+      <v-img max-width="300" src="/img/dot.svg" />
+    </v-col>
+    <v-col align="center">
+      <v-card max-width="320" color="transparent" outlined>
+      <v-card-title class="pl-2 pa-1 pb-3">
+        <v-icon color="blue">mdi-help-box</v-icon>
+        <span class="s-font">ご縁箱の使い方
+        </span>
+      </v-card-title>
+        <v-card>
+        <v-carousel
+          max-width="300"
+          height="100%"
+          hide-delimiters
+          :continuous="false"
         >
-          Twitter認証して始める
-        </v-btn>
-      </v-col>
+          <v-carousel-item
+            v-for="(rule_image,i) in rule_images"
+            :key="i"
+            :src="rule_image.src"
+          ></v-carousel-item>
+        </v-carousel>
+        </v-card>
+      </v-card>
+    </v-col>
     <v-row
       justify="center" class="mb-8 mt-8"
     >
@@ -99,7 +124,30 @@ export default {
   data() {
     return {
       isVisibleTermsModal: false,
-      isVisiblePrivacyPolicyModal: false
+      isVisiblePrivacyPolicyModal: false,
+      rule_images: [
+        {
+          src: "/img/rules/rule_0.jpg"
+        },
+        {
+          src: "/img/rules/rule_1.jpg"
+        },
+        {
+          src: "/img/rules/rule_2.jpg"
+        },
+        {
+          src: "/img/rules/rule_3.jpg"
+        },
+        {
+          src: "/img/rules/rule_4.jpg"
+        },
+        {
+          src: "/img/rules/rule_5.jpg"
+        },
+        {
+          src: "/img/rules/rule_6.jpg"
+        },
+      ]
     }
   },
   computed: {
@@ -144,13 +192,10 @@ export default {
   line-height: 1;
   color: #2c281e;
 }
-/* .logo {
-  mix-blend-mode: multiply;
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-} */
-/* .sub-title{
-  font-size: 1.8em;
-} */
+.xs-font{
+  font-size: 0.6em;
+  font-weight: lighter;
+  line-height: 1.5;
+  color: #2c281e;
+}
 </style>

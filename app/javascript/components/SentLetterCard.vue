@@ -95,6 +95,7 @@ export default {
   data() {
     return {
       isVisibleEditLetterModal: false,
+      letter_case: "sent_case"
     }
   },
   props: {
@@ -130,7 +131,7 @@ export default {
     },
     deleteLetter(letterItem) {
       axios
-        .delete(`/api/letters/${letterItem.letter.id}`)
+        .delete(`/api/letters/${letterItem.letter.id}`, { params: { sent_case: this.letter_case } })
         .then((res) => this.$emit("delete-letter", res.data));
     },
     handleUpdateLetter() {
