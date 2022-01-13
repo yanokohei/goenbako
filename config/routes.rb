@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     delete 'logout', to: 'user_sessions#destroy'
     get 'random', to: 'visits#random'
     get 'search', to: 'searches#user_search'
-    resources :users, param: :twitter_id, only: %i[index edit update show destroy] do
+    resources :users, param: :twitter_id, only: [:index, :edit, :update, :show, :destroy] do
       collection do
         get 'me'
       end
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       end
     end
     resources :letters
-    resources :share_images, only: %i[create]
+    resources :share_images, only: [:create]
   end
 
   get '/:twitter_id', to: 'crawlers#show', constraints: { user_agent: /Twitterbot/ }

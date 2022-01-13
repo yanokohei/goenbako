@@ -1,5 +1,4 @@
 class Api::UsersController < ApplicationController
-
   def sent_letters
     user = User.find_by!(twitter_id: params[:twitter_id])
     @sent_letters = user.letters.order(created_at: :desc)

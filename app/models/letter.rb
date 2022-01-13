@@ -1,6 +1,6 @@
 class Letter < ApplicationRecord
-  belongs_to :sender, class_name: "User"
-  belongs_to :receiver, class_name: "User"
+  belongs_to :sender, class_name: 'User'
+  belongs_to :receiver, class_name: 'User'
   has_many :share_images
 
   validates :sender_id, presence: true
@@ -17,6 +17,7 @@ class Letter < ApplicationRecord
   validates :letter_items, presence: true
 
   private
+
     def letter_items
       past.presence or current.presence or future.presence or expect.presence or message.presence
     end

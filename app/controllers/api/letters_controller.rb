@@ -22,9 +22,9 @@ class Api::LettersController < ApplicationController
   def show
     letter = Letter.find_by(id: params[:id])
     show_letter = {
-        letter: letter,
-        sender: letter.sender,
-        receiver: letter.receiver
+      letter: letter,
+      sender: letter.sender,
+      receiver: letter.receiver
     }
     render json: show_letter
   end
@@ -41,11 +41,12 @@ class Api::LettersController < ApplicationController
   end
 
   private
-  def set_letter
-    @letter = current_user.letters.find_by(id: params[:id]) || current_user.receivers.find_by(id: params[:id])
-  end
 
-  def letter_params
-    params.require(:letter).permit(:past, :current, :future, :expect, :message, :sender_id, :receiver_id)
-  end
+    def set_letter
+      @letter = current_user.letters.find_by(id: params[:id]) || current_user.receivers.find_by(id: params[:id])
+    end
+
+    def letter_params
+      params.require(:letter).permit(:past, :current, :future, :expect, :message, :sender_id, :receiver_id)
+    end
 end
