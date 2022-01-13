@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import store from "../store";
+import VueGtag from "vue-gtag";
 import Top from "../pages/Top";
 import User from "../pages/User";
 import Mypage from "../pages/Mypage";
@@ -39,5 +40,15 @@ const router = new Router({
     return { x: 0, y: 0 }
   },
 });
+
+Vue.use(
+  VueGtag,
+  {
+    config: { id: 'UA-217060054-1' },
+    appName: 'goenbako',
+    pageTrackerScreenviewEnabled: true,
+  },
+  router
+);
 
 export default router
