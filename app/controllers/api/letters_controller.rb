@@ -30,8 +30,13 @@ class Api::LettersController < ApplicationController
   end
 
   def destroy
-    letter = current_user.letters.find(params[:id])
-    letter.destroy!
+    if params[:sent_case]
+      letter = current_user.letters.find(params[:id])
+      letter.destroy!
+    else
+      letter = current_user.receivers.find(params[:id])
+      letter.destroy!
+    end
     render json: letter
   end
 
