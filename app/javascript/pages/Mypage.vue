@@ -6,7 +6,7 @@
     >
       <ProfileCard />
     </v-row>
-    <v-row class="justify-center mb-8 pa-4">
+    <v-row class="justify-center mb-5 pa-4">
       <v-btn
         color="blue"
         class="white--text m-font"

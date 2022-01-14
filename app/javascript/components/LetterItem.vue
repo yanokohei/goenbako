@@ -85,6 +85,7 @@ export default {
     margin: 1em 0;
     color: #63406d;
     background: #FCF6FF;
+    border-radius: 10%;
     box-shadow: 0px 0px 0px 3px #FCF6FF;
     text-shadow: 0 0 0.5em #dadab1
 }

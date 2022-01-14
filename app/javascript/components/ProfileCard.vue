@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center" class="mt-8">
+  <v-row justify="center" class="mt-6">
     <v-card
       color="transparent"
       min-width="300"
@@ -9,10 +9,10 @@
         <img :src="currentUser.image">
       </v-list-item-avatar>
       <v-list-item-content>
-        <v-card-title class="m-font mt-4">
+        <v-card-title class="m-font mt-2">
         {{ currentUser.name }}
         </v-card-title>
-        <v-card-subtitle>
+        <v-card-subtitle class="pb-1">
           @{{ currentUser.twitter_id }}
           <v-btn
             icon
@@ -22,7 +22,7 @@
             <v-icon>mdi-twitter</v-icon>
           </v-btn>
         </v-card-subtitle>
-        <v-card-text class="xs-font px-4 mb-2">
+        <v-card-text class="xs-font px-4 pb-3">
           {{ currentUser.introduce }}
         </v-card-text>
       </v-list-item-content>
@@ -66,7 +66,7 @@ export default {
 .xs-font{
   font-size: 0.9em;
   font-weight: bold;
-  line-height: 1;
+  line-height: 2;
   color: #2c281e;
 }
 .avatar-position {

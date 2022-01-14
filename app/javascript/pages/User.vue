@@ -8,7 +8,7 @@
         :user="user"
       />
     </v-row>
-    <v-row class="justify-center mb-8 pa-4">
+    <v-row class="justify-center mb-5 pa-4">
       <v-btn
         v-if="isOtherCurrentUser"
         color="deep-purple lighten-5"
