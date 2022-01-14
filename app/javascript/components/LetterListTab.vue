@@ -12,11 +12,11 @@
             v-for="tabItem in tabItems"
             :key="tabItem.tabId"
           >
-            <span class="s-font" style="color: #3270B9;">
-              <v-icon size="20">{{ tabItem.icon }}</v-icon>
+            <span class="s-font nowrap" style="color: #3270B9;">
+              <v-icon size="25">{{ tabItem.icon }}</v-icon>
               ({{ tabItem.countLetter }})
             </span>
-            <div class="xs-font mt-1" background-color="#fff6e4">
+            <div class="xs-font mt-1 nowrap" background-color="#fff6e4">
               {{ tabItem.tabName }}
             </div>
           </v-tab>
@@ -95,7 +95,7 @@ export default {
 
 <style>
 .xs-font{
-  font-size: 0.77em;
+  font-size: 0.9em;
   font-weight: bold;
   line-height: 1;
 }
@@ -103,5 +103,8 @@ export default {
   font-size: 1.2em;
   font-weight: bold;
   line-height: 2;
+}
+.nowrap{
+  white-space: nowrap
 }
 </style>

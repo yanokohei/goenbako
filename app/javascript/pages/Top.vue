@@ -3,7 +3,7 @@
     <v-row
       justify="center"
     >
-      <div class="text-center s-font mt-8 pb-4">
+      <div class="text-center s-font mt-8 pb-4 nowrap">
         あなたには『素敵なご縁』がある。<br>これまでも、これからも。
       </div>
     </v-row>
@@ -53,6 +53,7 @@
               :src="rule_image.src"
               width="100%"
               height="100%"
+              eager
             />
           </v-carousel-item>
         </v-carousel>
@@ -202,5 +203,8 @@ export default {
   font-weight: lighter;
   line-height: 1.5;
   color: #2c281e;
+}
+.nowrap{
+  white-space: nowrap
 }
 </style>

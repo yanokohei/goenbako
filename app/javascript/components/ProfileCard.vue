@@ -9,7 +9,7 @@
         <img :src="currentUser.image">
       </v-list-item-avatar>
       <v-list-item-content>
-        <v-card-title class="m-font mt-2">
+        <v-card-title class="m-font mt-2 nowrap">
         {{ currentUser.name }}
         </v-card-title>
         <v-card-subtitle class="pb-1">
@@ -73,5 +73,8 @@ export default {
   position: absolute;
   top: -40px;
   left: 20px;
+}
+.nowrap{
+  white-space: nowrap
 }
 </style>

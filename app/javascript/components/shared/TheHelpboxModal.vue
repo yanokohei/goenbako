@@ -5,7 +5,7 @@
     @click:outside="handleCloseModal"
   >
     <v-card color="amber lighten-5" height="490" max-width="300" >
-      <v-card-title class="pl-4 pa-1">
+      <v-card-title class="pl-4 pa-1 nowrap">
         <v-icon color="blue">mdi-help-box</v-icon>
         <span class="m-font"> ご縁箱の使い方
           ({{stepCount}}/6)
@@ -119,13 +119,13 @@ export default {
   font-size: 0.85em;
   font-weight: bold;
   color: #2c281e;
-  letter-spacing: 2px;
+
 }
 .modal {
   display: block;
 }
 .fade-enter-active {
-  transition: all .9s ease;
+  transition: all .5s ease;
 }
 .fade-leave-active {
   transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
@@ -139,5 +139,8 @@ export default {
 /* .slide-fade-leave-active below version 2.1.8 */ {
   transform: translateX(-10px);
   opacity: 0;
+}
+.nowrap{
+  white-space: nowrap
 }
 </style>
