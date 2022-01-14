@@ -38,7 +38,7 @@ export default {
         },
         {
           name: "current",
-          title: '現在の印象・どんな人？',
+          title: '現在の印象／どんな人？',
           text: this.letterItems.letter.current
         },
         {
