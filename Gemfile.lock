@@ -140,7 +140,6 @@ GEM
       dry-schema (~> 1.8, >= 1.8.0)
     erubi (1.10.0)
     erubis (2.7.0)
-    excon (0.89.0)
     factory_bot (6.2.0)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.2.0)
@@ -166,23 +165,6 @@ GEM
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
     ffi (1.15.4)
-    fog-aws (3.12.0)
-      fog-core (~> 2.1)
-      fog-json (~> 1.1)
-      fog-xml (~> 0.1)
-      ipaddress (~> 0.8)
-    fog-core (2.2.4)
-      builder
-      excon (~> 0.71)
-      formatador (~> 0.2)
-      mime-types
-    fog-json (1.2.0)
-      fog-core
-      multi_json (~> 1.10)
-    fog-xml (0.1.4)
-      fog-core
-      nokogiri (>= 1.5.11, < 2.0.0)
-    formatador (0.3.0)
     globalid (0.5.2)
       activesupport (>= 5.0)
     i18n (1.8.10)
@@ -190,7 +172,6 @@ GEM
     image_processing (1.12.1)
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
-    ipaddress (0.8.3)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
     json (2.5.1)
@@ -207,9 +188,6 @@ GEM
     meta-tags (2.16.0)
       actionpack (>= 3.2.0, < 7.1)
     method_source (1.0.0)
-    mime-types (3.4.1)
-      mime-types-data (~> 3.2015)
-    mime-types-data (3.2022.0105)
     mini_magick (4.11.0)
     mini_mime (1.1.1)
     minitest (5.14.4)
@@ -408,7 +386,6 @@ DEPENDENCIES
   config
   dotenv-rails
   factory_bot_rails
-  fog-aws
   jbuilder (~> 2.7)
   listen (~> 3.2)
   meta-tags
