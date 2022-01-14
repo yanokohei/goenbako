@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row justify="center">
-      <div class="font-bold xs-font mt-8 opacity-50">
+      <div class="font-bold xs-font mt-8 opacity-50 nowrap">
         まだレターがありません。
       </div>
     </v-row>
@@ -20,5 +20,8 @@ export default {
   font-weight: bold;
   line-height: 1;
   color: #2c281e;
+}
+.nowrap{
+  white-space: nowrap
 }
 </style>
