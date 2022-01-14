@@ -122,7 +122,7 @@ Rails.application.config.sorcery.configure do |config|
     twitter_id: 'screen_name',
     name: 'name',
     image: 'profile_image_url_https',
-    introduce: 'description',
+    introduce: 'description'
   }
   #
   # config.facebook.key = ""
@@ -230,7 +230,6 @@ Rails.application.config.sorcery.configure do |config|
   # config.line.scope = "profile"
   # config.line.bot_prompt = "normal"
   # config.line.user_info_mapping = {name: 'displayName'}
-
 
   # For information about Discord API
   # https://discordapp.com/developers/docs/topics/oauth2

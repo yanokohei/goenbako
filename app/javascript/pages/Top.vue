@@ -3,8 +3,8 @@
     <v-row
       justify="center"
     >
-      <div class="text-center s-font mt-8 pb-4">
-        あなたには 『素敵なご縁』がある<br>これまでも、これからも...
+      <div class="text-center s-font mt-8 pb-4 nowrap">
+        あなたには『素敵なご縁』がある。<br>これまでも、これからも。
       </div>
     </v-row>
     <v-col class="mt-4" align="center">
@@ -26,20 +26,21 @@
         <v-icon>mdi-twitter</v-icon>
         <span class="s-font white--text ml-2">Twitter認証して始める</span>
       </v-btn>
-      <p class="xs-font mt-2">※下にある利用規約・プライバシーポリシーをご確認ください。</p>
+      <p class="xs-font mt-2">※下の利用規約・プライバシーポリシーをご確認ください。</p>
     </v-col>
     <v-col class="mt-2" align="center">
       <v-img max-width="300" src="/img/dot.svg" />
     </v-col>
     <v-col align="center">
       <v-card max-width="320" color="transparent" outlined>
-      <v-card-title class="pl-2 pa-1 pb-3">
+      <v-card-title class="pl-2 pa-1 pb-3 nowrap">
         <v-icon color="blue">mdi-help-box</v-icon>
         <span class="s-font">ご縁箱の使い方
         </span>
       </v-card-title>
         <v-card>
         <v-carousel
+          cycle
           max-width="300"
           height="100%"
           hide-delimiters
@@ -48,8 +49,14 @@
           <v-carousel-item
             v-for="(rule_image,i) in rule_images"
             :key="i"
-            :src="rule_image.src"
-          ></v-carousel-item>
+          >
+            <img
+              :src="rule_image.src"
+              width="100%"
+              height="100%"
+              eager
+            />
+          </v-carousel-item>
         </v-carousel>
         </v-card>
       </v-card>
@@ -59,7 +66,8 @@
     >
       <v-card
         rounded="xl"
-        color="#fff6e4"
+        color="transparent"
+        outlined
         class="mx-4 px-4"
       >
         <v-col align="center">
@@ -187,7 +195,7 @@ export default {
   color: #2c281e;
 }
 .s-font{
-  font-size: 0.9em;
+  font-size: 0.75em;
   font-weight: bold;
   line-height: 1;
   color: #2c281e;
@@ -197,5 +205,8 @@ export default {
   font-weight: lighter;
   line-height: 1.5;
   color: #2c281e;
+}
+.nowrap{
+  white-space: nowrap
 }
 </style>
