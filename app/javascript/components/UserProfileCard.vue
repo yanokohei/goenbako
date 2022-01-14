@@ -9,7 +9,7 @@
         <img :src="user.image">
       </v-list-item-avatar>
       <v-list-item-content>
-        <v-card-title class="m-font mt-2 nowrap">
+        <v-card-title class="m-font mt-2">
           {{ user.name }}
         </v-card-title>
         <v-card-subtitle class="pb-1">

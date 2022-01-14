@@ -33,13 +33,14 @@
     </v-col>
     <v-col align="center">
       <v-card max-width="320" color="transparent" outlined>
-      <v-card-title class="pl-2 pa-1 pb-3">
+      <v-card-title class="pl-2 pa-1 pb-3 nowrap">
         <v-icon color="blue">mdi-help-box</v-icon>
         <span class="s-font">ご縁箱の使い方
         </span>
       </v-card-title>
         <v-card>
         <v-carousel
+          cycle
           max-width="300"
           height="100%"
           hide-delimiters

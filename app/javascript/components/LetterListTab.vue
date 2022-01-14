@@ -95,7 +95,7 @@ export default {
 
 <style>
 .xs-font{
-  font-size: 0.9em;
+  font-size: 0.8em;
   font-weight: bold;
   line-height: 1;
 }
