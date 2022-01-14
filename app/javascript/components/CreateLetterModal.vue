@@ -10,7 +10,7 @@
         <span class="m-font">ファンレター作成</span>
       </v-card-title>
       <v-divider />
-      <p class="xs-font mx-4">※それぞれ100文字以内で自由にご記入ください。</p>
+      <p class="xs-font mt-2 mx-4">※それぞれ100文字以内で自由にご記入ください。</p>
       <div class="mx-4 pt-4">
         <v-form @submit.prevent="handleCreateLetter(letter)">
           <div v-for="(letterTitle, index) in letterTitles()" :key="index">
@@ -53,16 +53,16 @@
             <v-card-actions>
               <v-btn
                 type="submit"
-                elevation="4"
                 large
                 color="blue"
-                class="white--text s-font"
+                class="white--text s-font text-center"
               >
                 レターを送る
               </v-btn>
               <v-btn
                 small
                 @click="handleCloseModal"
+                class="s-font text-center"
               >
                 閉じる
               </v-btn>
@@ -115,7 +115,7 @@ export default {
     letterTitles() {
       return [
         { message: '出会った当時の印象／エピソード', model_name: 'past' },
-        { message: '現在の印象・どんな人？', model_name: 'current' },
+        { message: '現在の印象／どんな人？', model_name: 'current' },
         { message: '聞いてみたいこと／これから話してみたいこと', model_name: 'future' },
         { message: `${this.user.name}さんに期待していること`, model_name: 'expect' },
         { message: 'メッセージ', model_name: 'message' }

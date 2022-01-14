@@ -28,7 +28,7 @@
       </v-btn>
       <p class="xs-font mt-2">※下の利用規約・プライバシーポリシーをご確認ください。</p>
     </v-col>
-    <v-col class="mt-2" align="center">
+    <v-col align="center">
       <v-img max-width="300" src="/img/dot.svg" />
     </v-col>
     <v-col align="center">
