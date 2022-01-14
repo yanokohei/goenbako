@@ -4,7 +4,7 @@
       justify="center"
     >
       <div class="text-center s-font mt-8 pb-4">
-        あなたには 『素敵なご縁』がある<br>これまでも、これからも。
+        あなたには『素敵なご縁』がある。<br>これまでも、これからも。
       </div>
     </v-row>
     <v-col class="mt-4" align="center">
@@ -48,8 +48,13 @@
           <v-carousel-item
             v-for="(rule_image,i) in rule_images"
             :key="i"
-            :src="rule_image.src"
-          ></v-carousel-item>
+          >
+            <img
+              :src="rule_image.src"
+              width="100%"
+              height="100%"
+            />
+          </v-carousel-item>
         </v-carousel>
         </v-card>
       </v-card>
@@ -187,7 +192,7 @@ export default {
   color: #2c281e;
 }
 .s-font{
-  font-size: 0.9em;
+  font-size: 0.75em;
   font-weight: bold;
   line-height: 1;
   color: #2c281e;
