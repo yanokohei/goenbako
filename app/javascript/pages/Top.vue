@@ -66,7 +66,8 @@
     >
       <v-card
         rounded="xl"
-        color="#fff6e4"
+        color="transparent"
+        outlined
         class="mx-4 px-4"
       >
         <v-col align="center">
