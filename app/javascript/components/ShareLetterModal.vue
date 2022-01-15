@@ -206,7 +206,7 @@ export default {
   color: #2c281e;
 }
 .s-font{
-  font-size: 0.8em;
+  font-size: 0.65em;
   font-weight: bold;
   line-height: 1;
   color: #2c281e;
