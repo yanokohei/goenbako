@@ -70,16 +70,13 @@
         outlined
         class="mx-4 px-4"
       >
-        <v-col align="center">
-          <v-card
-            color="#F3E5F3"
-            rounded="xl"
-          >
-            どんな人が私にファンレターを？
-          </v-card>
+        <v-img max-width="250" src="/img/en_line_top.svg" />
+        <v-col align="center" class="m-font">
+          どんな人が私にファンレターを？
         </v-col>
+        <v-img max-width="45" class="position" src="/img/triple_letter.svg" />
         <v-col class="p-font" align="center">
-          <p>あなたと今、ご縁がある人、</p>
+          <p>あなたと今、ご縁がある人。</p>
           <p>これからご縁がありそうな人。</p>
           <p>あなたを応援したいと思っている人。</p>
           <p>あるいは、あなたと仲良くなってみたい。</p>
@@ -87,6 +84,7 @@
           <p>そんな人もいるかもしれません。</p>
           <p>皆、あなたのファンなのです。</p>
         </v-col>
+        <v-img max-width="250" src="/img/en_line_under.svg" />
       </v-card>
     </v-row>
     <v-card color="transparent" outlined ma-2>
@@ -190,7 +188,13 @@ export default {
   z-index: 100;
 }
 .p-font{
-  font-size: 0.9em;
+  font-size: 0.7em;
+  color: #2c281e;
+}
+.m-font{
+  font-size: 0.85em;
+  font-weight: bold;
+  line-height: 1;
   color: #2c281e;
 }
 .s-font{
@@ -207,5 +211,10 @@ export default {
 }
 .nowrap{
   white-space: nowrap
+}
+.position {
+  position: absolute;
+  top: 45px;
+  left: 15px;
 }
 </style>
