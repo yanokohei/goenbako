@@ -50,5 +50,14 @@ Vue.use(
   },
   router
 );
+router.beforeEach((to, from, next) => {
+  if (window.gtag) {
+    window.gtag('config', 'UA-217060054-1', {
+      'page_title': to.name,
+      'page_path': to.fullPath
+    })
+  }
 
+  next()
+})
 export default router

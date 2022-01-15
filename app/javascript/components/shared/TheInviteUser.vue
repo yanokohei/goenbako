@@ -58,7 +58,7 @@ export default {
   color: #2c281e;
 }
 .s-font{
-  font-size: 0.9em;
+  font-size: 0.7em;
   font-weight: bold;
   line-height: 1;
   color: #2c281e;
