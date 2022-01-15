@@ -10,7 +10,7 @@
       </v-list-item-avatar>
       <v-list-item-content>
         <v-card-title class="m-font mt-2">
-        {{ currentUser.name }}
+        <p class="ma-0 pa-0">{{ currentUser.name }}</p>
         </v-card-title>
         <v-card-subtitle class="pb-1">
           @{{ currentUser.twitter_id }}
@@ -54,7 +54,6 @@ export default {
 .m-font{
   font-size: 1.2em;
   font-weight: bold;
-  line-height: 1.3;
   color: #2c281e;
 }
 .s-font{
