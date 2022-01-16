@@ -192,7 +192,6 @@ export default {
   color: #2c281e;
 }
 .textarea{
-  font-size: 1.05em;
   line-height: 1;
   color: #2c281e;
 }
