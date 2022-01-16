@@ -10,23 +10,40 @@
     <v-col class="mt-4" align="center">
       <v-img max-width="400" height="130" src="/img/top_logo.png" />
     </v-col>
-    <v-col align="center">
+    <v-col v-if="!currentUser" align="center">
       <p class="indigo--text">
-        <span>
-          ご縁箱を開設して<br>＼ファンレターを交換してみよう／
-        </span>
+        ご縁箱を開設して<br>＼ファンレターを交換してみよう／
       </p>
       <v-btn
         color="blue"
-        class="white--text s-font"
+        class="white--text"
         rounded
         large
+        style="text-transform: none"
         href="/api/oauth/twitter"
       >
         <v-icon>mdi-twitter</v-icon>
-        <span class="s-font white--text ml-2">Twitter認証して始める</span>
+        <span class="m-font white--text ml-2">Twitter認証して始める</span>
       </v-btn>
       <p class="xs-font mt-2">※下の利用規約・プライバシーポリシーをご確認ください。</p>
+    </v-col>
+    <v-col v-if="currentUser" align="center">
+      <p class="indigo--text l-font">
+        WELCOME,
+        <v-list-item-avatar size="30">
+          <img :src="currentUser.image">
+        </v-list-item-avatar>
+      </p>
+      <v-btn
+        color="deep-purple lighten-5"
+        rounded
+        large
+        style="text-transform: none"
+        :to="{ name: 'Mypage' }"
+      >
+        <v-icon>mdi-home</v-icon>
+        <span class="m-font ml-2">マイページに戻る</span>
+      </v-btn>
     </v-col>
     <v-col align="center">
       <v-img max-width="300" src="/img/dot.svg" />
@@ -190,6 +207,13 @@ export default {
 .p-font{
   font-size: 0.7em;
   color: #2c281e;
+}
+.l-font{
+  font-size: 1.2em;
+  font-weight: bold;
+  line-height: 1;
+  color: #2c281e;
+  letter-spacing: 3px;
 }
 .m-font{
   font-size: 0.85em;
