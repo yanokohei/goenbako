@@ -57,7 +57,7 @@
           <v-icon>mdi-menu</v-icon>
         </v-btn>
       </template>
-      <v-list class="s-font">
+      <v-list class="s-font nowrap">
         <v-list-item
           to="/api/logout"
           data-method="delete"
@@ -136,5 +136,8 @@ export default {
   font-size: 0.8em;
   font-weight: bold;
   line-height: 1;
+}
+.nowrap{
+  white-space: nowrap
 }
 </style>
