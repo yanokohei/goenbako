@@ -147,22 +147,27 @@ export default {
 h1 {
   margin-top: 20px;
   margin-bottom: 10px;
+  font-size: 1.5em;
 }
 h2,
 h3 {
   margin-top: 15px;
+  font-size: 1em;
 }
 .v-application p {
   line-height: 1.7rem;
   margin-top: 0.3rem;
   margin-left: 10px;
   margin-bottom: 0.3rem;
+  font-size: 1em;
 }
 ul {
   margin-left: 15px;
+  font-size: 1em;
 }
 ul li {
   line-height: 1.7rem;
+  font-size: 1em;
 }
 .terms {
   margin-bottom: 20px;
