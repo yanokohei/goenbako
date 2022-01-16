@@ -59,6 +59,8 @@
               >
                 レターを送る
               </v-btn>
+            </v-card-actions>
+            <v-card-actions>
               <v-btn
                 small
                 @click="handleCloseModal"

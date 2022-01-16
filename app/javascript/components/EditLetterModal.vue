@@ -18,15 +18,18 @@
               <label
                 for="past"
               >{{ letterTitle.item }}</label>
-                <v-textarea
-                  :id="`${letterTitle.model_name}`"
-                  v-model="letter[letterTitle.model_name]"
-                  :name="`letter[${letterTitle.model_name}]`"
-                  background-color="white"
-                  counter
-                  :rules="rules"
-                  rows="2"
-                />
+                <v-col align="center">
+                  <v-textarea
+                    :id="`${letterTitle.model_name}`"
+                    v-model="letter[letterTitle.model_name]"
+                    :name="`letter[${letterTitle.model_name}]`"
+                    background-color="white"
+                    counter
+                    :rules="rules"
+                    rows="2"
+                    class="textarea mt-0 pt-0"
+                  />
+                  </v-col>
             </div>
           </div>
           <!-- 登録ボタン -->
@@ -44,6 +47,8 @@
               >
                 更新する
               </v-btn>
+            </v-card-actions>
+            <v-card-actions>
               <v-btn
                 large
                 @click="handleCloseModal"
@@ -152,6 +157,10 @@ export default {
 .xs-font{
   font-size: 0.5em;
   font-weight: lighter;
+  line-height: 1;
+  color: #2c281e;
+}
+.textarea{
   line-height: 1;
   color: #2c281e;
 }
