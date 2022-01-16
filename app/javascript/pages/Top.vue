@@ -30,7 +30,7 @@
     <v-col v-if="currentUser" align="center">
       <p class="indigo--text l-font">
         WELCOME,
-        <v-list-item-avatar size="30">
+        <v-list-item-avatar size="40">
           <img :src="currentUser.image">
         </v-list-item-avatar>
       </p>
