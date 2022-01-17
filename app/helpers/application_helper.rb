@@ -1,7 +1,7 @@
 module ApplicationHelper
   def default_meta_tags
     {
-      title: 'ご縁箱 - Twitterユーザー同士で楽しめる! 心温まるファンレター公開サービス',
+      title: 'ご縁箱 - Twitterユーザー同士で楽しめる!ファンレター公開サービス',
       description: 'Twitterシェアに特化したファンレター公開サービスです。ご縁箱を2秒で開設したらMyご縁箱を共有してあなたのフォロワーからファンレターを受け取ってみましょう♪',
       keywords: 'ご縁箱,goenbako,ファンレター,twitter',
       charset: 'UTF-8',
