@@ -61,6 +61,7 @@ export default {
       receivedLetters: [],
       sentLetters: [],
       isVisibleCreateLetterModal: false,
+      isVisibleLoginGuidanceModal: false
     };
   },
   mounted() {
@@ -70,19 +71,13 @@ export default {
   },
   computed: {
     ...mapGetters("users", ["currentUser"]),
+    ...mapGetters("users", ["isAuthenticatedUser"]),
     currentPath() {
       return this.$route.path
     },
     isOtherCurrentUser() {
-      return this.currentUser && this.$route.path !== `/${this.currentUser.twitter_id}` && this.$route.path !== `/${this.currentUser.twitter_id}/`
+      return this.$route.path !== `/${this.currentUser.twitter_id}` && this.$route.path !== `/${this.currentUser.twitter_id}/`
     },
-    // 書いてみるボタンを１回きりに制限したい場合。
-    // isNotYetSentCase() {
-    //   const isIncludedSentLetter = this.receivedLetters.some((receivedLetter) => {
-    //     return receivedLetter.sender.id === this.currentUser.id;
-    //   });
-    //   return !isIncludedSentLetter;
-    // }
   },
   methods: {
     async fetchUser() {
@@ -104,7 +99,9 @@ export default {
         })
     },
     openCreateLetterModal() {
-      this.isVisibleCreateLetterModal = true;
+      this.isAuthenticatedUser
+        ? this.isVisibleLoginGuidanceModal = true
+        : this.isVisibleCreateLetterModal = true;
     },
     handleCloseCreateLetterModal() {
       this.isVisibleCreateLetterModal = false;
