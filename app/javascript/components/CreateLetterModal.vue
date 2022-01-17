@@ -57,16 +57,16 @@
             <v-card-actions>
               <v-btn
                 type="submit"
-                x-large
+                large
                 color="blue"
-                class="white--text s-font text-center"
+                class="white--text pr-3 s-font"
               >
                 レターを送る
               </v-btn>
               <v-btn
                 large
                 @click="handleCloseModal"
-                class="s-font text-center"
+                class="s-font pr-3"
               >
                 閉じる
               </v-btn>
@@ -209,5 +209,4 @@ export default {
 .show-scrollbar::-webkit-scrollbar {
   display:none;
 }
-
 </style>

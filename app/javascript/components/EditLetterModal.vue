@@ -45,14 +45,15 @@
               <v-btn
                 type="submit"
                 elevation="4"
-                x-large
+                large
                 color="blue"
-                class="white--text"
+                class="white--text pr-3"
               >
                 更新する
               </v-btn>
               <v-btn
                 large
+                class="pr-3"
                 @click="handleCloseModal"
               >
                 閉じる
