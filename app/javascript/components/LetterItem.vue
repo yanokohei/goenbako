@@ -7,7 +7,7 @@
       flat
       class="my-3"
     >
-      <v-card-title class="pl-2 pa-1 mb-0 s-font"><p class="ma-0 pa-0 box15">{{ letter.title }}</p></v-card-title>
+      <v-card-title class="pl-2 pa-1 mb-0 s-font"><p class="ma-0 pa-0 text-cap">{{ letter.title }}</p></v-card-title>
       <v-card
         class="mx-2 mt-0 rounded-lg u-pre-wrap xs-font"
         outlined
@@ -38,7 +38,7 @@ export default {
         },
         {
           name: "current",
-          title: '現在の印象・どんな人？',
+          title: '現在の印象／どんな人？',
           text: this.letterItems.letter.current
         },
         {
@@ -66,7 +66,7 @@ export default {
 
 <style scoped>
 .s-font{
-  font-size: 0.85em;
+  font-size: 0.65em;
   font-weight: bold;
   line-height: 1;
   color: #2c281e;
@@ -81,7 +81,7 @@ export default {
 .u-pre-wrap {
   white-space: pre-wrap;
 }
-.box15 {
+.text-cap {
     margin: 1em 0;
     color: #63406d;
     background: #FCF6FF;

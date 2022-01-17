@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row justify="center">
-      <div class="font-bold xs-font mt-8 opacity-50 nowrap">
+      <div class="font-bold xs-font my-8 opacity-50 nowrap">
         まだレターがありません。
       </div>
     </v-row>

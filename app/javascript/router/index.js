@@ -50,5 +50,8 @@ Vue.use(
   },
   router
 );
-
+router.afterEach((to, from) => {
+  if (location.origin.includes('https://goenbako.com'))
+  gtag('config', 'UA-217060054-1', { 'page_path': to.path });
+})
 export default router

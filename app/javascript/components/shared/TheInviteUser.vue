@@ -3,11 +3,11 @@
     <v-row justify="end">
       <v-img
         src="/img/writing.png"
-        max-width="40px"
+        max-width="35px"
       />
     </v-row>
-    <div class="xs-font mt-4 mb-4">
-      \ ご縁箱の開設をリクエストしてみませんか? /
+    <div class="xs-font mt-4 mb-2">
+      \ ご縁箱の開設をお願いしてみませんか? /
     </div>
     <v-btn
       color="#FCF6FF"
@@ -58,7 +58,7 @@ export default {
   color: #2c281e;
 }
 .s-font{
-  font-size: 0.9em;
+  font-size: 0.7em;
   font-weight: bold;
   line-height: 1;
   color: #2c281e;

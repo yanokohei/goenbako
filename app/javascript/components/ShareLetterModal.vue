@@ -179,7 +179,7 @@ export default {
     letterTitles() {
       return [
         { message: '出会った当時の印象／エピソード', content: `${this.receivedLetter.letter.past}`, topic: "past" },
-        { message: '現在の印象・どんな人？', content: `${this.receivedLetter.letter.current}`, topic: "current" },
+        { message: '現在の印象／どんな人？', content: `${this.receivedLetter.letter.current}`, topic: "current" },
         { message: '聞いてみたいこと／これから話してみたいこと',  content: `${this.receivedLetter.letter.future}`, topic: "future" },
         { message: `${this.receivedLetter.receiver.name}さんに期待していること`, content: `${this.receivedLetter.letter.expect}`, topic: "expect" },
         { message: 'メッセージ', content: `${this.receivedLetter.letter.message}`, topic: "message" }
@@ -206,7 +206,7 @@ export default {
   color: #2c281e;
 }
 .s-font{
-  font-size: 0.8em;
+  font-size: 0.65em;
   font-weight: bold;
   line-height: 1;
   color: #2c281e;

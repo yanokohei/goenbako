@@ -4,12 +4,12 @@
     max-width="315"
     @click:outside="handleCloseModal"
   >
-    <v-card color="amber lighten-5" height="470" max-width="300" >
+    <v-card color="amber lighten-5" height="450" max-width="300" >
       <h3 class="ml-4">
         ユーザー検索
       </h3>
       <v-divider />
-      <v-card-text class="mt-8 mb-1">
+      <v-card-text class="mt-8 mb-0 pb-0">
         <v-text-field
           background-color="#FFFFF0"
           v-model="searchID"
@@ -28,31 +28,35 @@
             <v-icon>mdi-magnify</v-icon>検索
           </v-btn>
         </v-card-actions>
-        <transition name="fade">
-          <div class="xs-font mb-4 mt-4 text-center" v-if="this.missingUserSearch">
-            入力内容に誤りがあるか、<br>
-            まだご縁箱を開設していないユーザーのようです。
-          </div>
-        </transition>
-        <transition name="fade">
-          <TheInviteUser
-            v-if="theInviteUser"
-            :search-i-d="searchID"
-          />
-        </transition>
       </v-card-text>
-      <div v-if="this.beforeUserSearch">
-        <div class="mt-8 xs-font text-center">
-          あなたがファンレターを書きたい<br>
-          \ ユーザーを検索してみましょう！ /
-        </div>
-        <v-col align="center">
-        <v-img
-          src="/img/goenbako_smile.png"
-          max-width="220px"
-        />
-        </v-col>
-      </div>
+      <v-card color="amber lighten-5" outlined height="220" max-width="300" >
+        <v-card-text class="mb-1">
+          <transition name="fade">
+            <div class="xs-font mb-4 mt-4 text-center" v-if="this.missingUserSearch">
+              入力内容に誤りがあるか、<br>
+              まだご縁箱を開設していないユーザーのようです。
+            </div>
+          </transition>
+          <transition name="fade">
+            <TheInviteUser
+              v-if="theInviteUser"
+              :search-i-d="searchID"
+            />
+          </transition>
+          <div v-if="this.beforeUserSearch">
+            <div class="mt-3 s-font text-center">
+              あなたがファンレターを書きたい<br>
+              \ ユーザーを検索してみましょう！ /
+            </div>
+            <v-col align="center">
+            <v-img
+              src="/img/goenbako_smile.png"
+              max-width="220px"
+            />
+            </v-col>
+          </div>
+        </v-card-text>
+      </v-card>
       <v-row
         justify="center"
       >
@@ -140,7 +144,13 @@ export default {
 
 <style scoped>
 .xs-font{
-  font-size: 0.8em;
+  font-size: 0.55em;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #2c281e;
+}
+.s-font{
+  font-size: 0.75em;
   font-weight: bold;
   line-height: 1.5;
   color: #2c281e;

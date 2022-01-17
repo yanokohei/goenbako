@@ -3,6 +3,7 @@
     v-model="isVisibleCreateLetterModal"
     persistent
     max-width="500"
+    scrollable
   >
     <v-card color="amber lighten-5">
       <v-card-title>
@@ -10,9 +11,10 @@
         <span class="m-font">ファンレター作成</span>
       </v-card-title>
       <v-divider />
-      <p class="xs-font mx-4">※それぞれ100文字以内で自由にご記入ください。</p>
-      <div class="mx-4 pt-4">
+      <p class="xs-font mt-2 mb-6 mx-4">※それぞれ100文字以内で自由にご記入ください。</p>
+      <div class="mx-4">
         <v-form @submit.prevent="handleCreateLetter(letter)">
+        <v-card-text class="pa-0 show-scrollbar" style="height: 380px;">
           <div v-for="(letterTitle, index) in letterTitles()" :key="index">
             <div class="mt-1 s-font">
               <label
@@ -40,29 +42,31 @@
                   counter
                   :rules="rules"
                   rows="2"
+                  auto-grow
                   class="textarea mt-0 pt-0"
                 />
               </v-col>
             </div>
           </div>
+        </v-card-text>
           <!-- 登録ボタン -->
           <v-row
             justify="center"
-            class="my-4 pb-4"
+            class="my-0 pb-8"
           >
             <v-card-actions>
               <v-btn
                 type="submit"
-                elevation="4"
                 large
                 color="blue"
-                class="white--text s-font"
+                class="white--text pr-3 s-font"
               >
                 レターを送る
               </v-btn>
               <v-btn
-                small
+                large
                 @click="handleCloseModal"
+                class="s-font pr-3"
               >
                 閉じる
               </v-btn>
@@ -115,7 +119,7 @@ export default {
     letterTitles() {
       return [
         { message: '出会った当時の印象／エピソード', model_name: 'past' },
-        { message: '現在の印象・どんな人？', model_name: 'current' },
+        { message: '現在の印象／どんな人？', model_name: 'current' },
         { message: '聞いてみたいこと／これから話してみたいこと', model_name: 'future' },
         { message: `${this.user.name}さんに期待していること`, model_name: 'expect' },
         { message: 'メッセージ', model_name: 'message' }
@@ -125,6 +129,10 @@ export default {
       this.ShowTextarea.push(index)
     },
     handleCloseModal() {
+      this.clearTextArea()
+      this.ShowTextarea = []
+      this.isShowTextarea = false
+      this.isShowThisButton = true;
       this.$emit("close-modal");
     },
     handleCreateLetter() {
@@ -180,7 +188,7 @@ export default {
   color: #2c281e;
 }
 .s-font{
-  font-size: 0.8em;
+  font-size: 0.7em;
   font-weight: bold;
   line-height: 1;
   color: #2c281e;
@@ -192,24 +200,13 @@ export default {
   color: #2c281e;
 }
 .textarea{
-  font-size: 1.05em;
   line-height: 1;
   color: #2c281e;
 }
-/* .textarea-style{
-  line-height: 1.2;
-  font-size:1.2em;
-  width: 90%;
-  background-color:white;
-  letter-spacing: 3px;
-} */
-/* area {
-    float: left; margin: -14px 0 40px 0;
-    background: url(https://goenbako.com/dot.png);
-    font-size: 24px; color: #18326d; letter-spacing: 3px;
-    resize: none;
-    overflow-y: hidden;
-    letter-spacing: 3px;
-    height: 100vh;
-} */
+.show-scrollbar {
+  overflow-y: scroll !important;
+}
+.show-scrollbar::-webkit-scrollbar {
+  display:none;
+}
 </style>

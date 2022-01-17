@@ -10,7 +10,7 @@
       </v-list-item-avatar>
       <v-list-item-content>
         <v-card-title class="m-font mt-2">
-          {{ user.name }}
+          <p class="ma-0 pa-0">{{ user.name }}</p>
         </v-card-title>
         <v-card-subtitle class="pb-1">
           @{{ user.twitter_id }}
