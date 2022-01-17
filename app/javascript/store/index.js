@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import users from './users'
+import helpbox from './helpbox'
 import flash from './flash'
 import createPersistedState from 'vuex-persistedstate'
 import Cookies from 'js-cookie';
@@ -10,7 +11,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   modules: {
     users,
-    flash
+    flash,
+    helpbox
   },
 
   plugins: [

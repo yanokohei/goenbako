@@ -67,6 +67,7 @@ export default {
 
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
+    ...mapGetters({ needHelpbox: "helpbox/needHelpbox" }),
   },
   mounted() {
     this.$axios.get("users/me")
@@ -98,8 +99,9 @@ export default {
         })
     },
     isYetReceivedLetterOpenHelpbox() {
-      if  (this.receivedLetters.length === 0 ) {
+      if (this.receivedLetters.length === 0 && this.needHelpbox) {
         this.openHelpboxModal();
+        this.$store.commit('helpbox/onceHelpbox', false)
       }
     },
     openHelpboxModal() {
