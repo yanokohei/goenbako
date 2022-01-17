@@ -3,6 +3,7 @@
     v-model="isVisibleEditLetterModal"
     persistent
     max-width="500"
+    scrollable
   >
     <v-card color="amber lighten-5">
       <v-card-title>
@@ -10,32 +11,35 @@
         <span class="m-font">レターの更新</span>
       </v-card-title>
       <v-divider />
-      <p class="xs-font mx-4">※それぞれ100文字以内で自由にご記入ください。</p>
-      <div class="mx-4 pt-4">
+      <p class="xs-font mt-2 mb-4 mx-4">※それぞれ100文字以内で自由にご記入ください。</p>
+      <div class="mx-4">
         <v-form @submit.prevent="handleUpdateLetter(letter)">
-          <div v-for="(letterTitle, index) in letterTitles()" :key="index">
-            <div class="s-font pa-0">
-              <label
-                for="past"
-              >{{ letterTitle.item }}</label>
-                <v-col align="center">
-                  <v-textarea
-                    :id="`${letterTitle.model_name}`"
-                    v-model="letter[letterTitle.model_name]"
-                    :name="`letter[${letterTitle.model_name}]`"
-                    background-color="white"
-                    counter
-                    :rules="rules"
-                    rows="2"
-                    class="textarea mt-0 pt-0"
-                  />
-                  </v-col>
+          <v-card-text class="pa-0 show-scrollbar" style="height: 380px;">
+            <div v-for="(letterTitle, index) in letterTitles()" :key="index">
+              <div class="s-font pa-0">
+                <label
+                  for="past"
+                >{{ letterTitle.item }}</label>
+                  <v-col align="center">
+                    <v-textarea
+                      :id="`${letterTitle.model_name}`"
+                      v-model="letter[letterTitle.model_name]"
+                      :name="`letter[${letterTitle.model_name}]`"
+                      background-color="white"
+                      counter
+                      :rules="rules"
+                      rows="2"
+                      auto-grow
+                      class="textarea mt-0 pt-0"
+                    />
+                    </v-col>
+              </div>
             </div>
-          </div>
+          </v-card-text>
           <!-- 登録ボタン -->
           <v-row
             justify="center"
-            class="my-4 pb-4"
+            class="my-2 pb-8"
           >
             <v-card-actions>
               <v-btn
@@ -47,8 +51,6 @@
               >
                 更新する
               </v-btn>
-            </v-card-actions>
-            <v-card-actions>
               <v-btn
                 large
                 @click="handleCloseModal"
@@ -163,5 +165,11 @@ export default {
 .textarea{
   line-height: 1;
   color: #2c281e;
+}
+.show-scrollbar {
+  overflow-y: scroll !important;
+}
+.show-scrollbar::-webkit-scrollbar {
+  display:none;
 }
 </style>
