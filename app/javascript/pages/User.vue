@@ -23,6 +23,12 @@
       </v-btn>
     </v-row>
     <transition name="fade">
+      <TheLoginGuidanceModal
+        :is-visible-login-guidance-modal="isVisibleLoginGuidanceModal"
+        @close-modal="handleCloseLoginGuidanceModal"
+      />
+    </transition>
+    <transition name="fade">
       <CreateLetterModal
         :is-visible-create-letter-modal="isVisibleCreateLetterModal"
         :user="user"
@@ -44,7 +50,8 @@ import { mapGetters } from "vuex";
 import UserProfileCard from "../components/UserProfileCard";
 import CreateLetterModal from "../components/CreateLetterModal";
 import DoneSendLetter from "../components/DoneSendLetter";
-import LetterListTab from '../components/LetterListTab';
+import LetterListTab from "../components/LetterListTab";
+import TheLoginGuidanceModal from "../components/shared/TheLoginGuidanceModal";
 
 export default {
   name: "User",
@@ -53,6 +60,7 @@ export default {
     CreateLetterModal,
     DoneSendLetter,
     LetterListTab,
+    TheLoginGuidanceModal
   },
 
   data() {
@@ -99,12 +107,22 @@ export default {
         })
     },
     openCreateLetterModal() {
-      this.isAuthenticatedUser
-        ? this.isVisibleLoginGuidanceModal = true
-        : this.isVisibleCreateLetterModal = true;
+      if (this.isAuthenticatedUser) {
+        this.isVisibleCreateLetterModal = true
+      }
+      else {
+        this.isVisibleLoginGuidanceModal = true;
+        this.$store.dispatch("flash/setFlash", {
+          type: "info",
+          message: "ログインが必要です。"
+        })
+      }
     },
     handleCloseCreateLetterModal() {
       this.isVisibleCreateLetterModal = false;
+    },
+    handleCloseLoginGuidanceModal() {
+      this.isVisibleLoginGuidanceModal = false;
     }
   },
   watch: {

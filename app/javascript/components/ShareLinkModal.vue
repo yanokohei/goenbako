@@ -12,18 +12,19 @@
       <v-col class="text-center mt-8">
         <v-btn
           color="blue"
-          class="white--text"
-          x-large
+          class="white--text s-font"
+          large
           :href="twitterShare()"
         >
           <v-icon>mdi-twitter</v-icon>
           ツイートで共有する
         </v-btn>
       </v-col>
-      <v-col class="text-center mt-8">
+      <v-col class="text-center mt-6">
         <v-btn
-          color="grey lighten-1"
-          x-large
+          class="s-font"
+          color="#FFF0E2"
+          large
           @click.prevent="copyLink"
           @click="snackbar = true"
         >
@@ -111,6 +112,12 @@ export default {
 }
 .m-font{
   font-size: 1.0em;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #2c281e;
+}
+.s-font{
+  font-size: 0.8em;
   font-weight: bold;
   line-height: 1.5;
   color: #2c281e;
