@@ -100,7 +100,7 @@ export default {
     },
     twitterShare() {
       const url = `${location.origin}/${this.currentUser.twitter_id}`
-      return `https://twitter.com/share?text=${this.currentUser.name}さんのご縁箱です！%0aファンレターを書いてみよう！&url=${url}&hashtags=ご縁箱`;
+      return `https://twitter.com/share?text=${this.currentUser.name}さんがご縁箱を開設したよ！%0aみんなでファンレターを書いてみよう！&url=${url}&hashtags=ご縁箱`;
     },
   }
 };
