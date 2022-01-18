@@ -152,7 +152,7 @@ export default {
     },
     twitterShare() {
       const url = `https://goenbako.com/${this.currentUser.twitter_id}/letters/${this.receivedLetter.letter.id}/?id=${this.savedImageID}`
-      return `https://twitter.com/share?text=${this.receivedLetter.sender.name}さん から素敵なファンレターが届いたよ！%0a&hashtags=ご縁箱&hashtags=goenbako_letters%0a&url=${url}`;
+      return `https://twitter.com/intent/tweet?text=${this.receivedLetter.sender.name}さん から素敵なファンレターが届いたよ！%0a&hashtags=ご縁箱&hashtags=goenbako_letters%0a&url=${url}`;
     },
     async svgToPng(letterTitle) {
       await this.addLetterTopicToPng(letterTitle);

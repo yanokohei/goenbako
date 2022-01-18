@@ -10,7 +10,7 @@ module ApplicationHelper
         description: 'ご縁箱を2秒で開設したらMyご縁箱を共有してあなたのフォロワーからファンレターを受け取ってみましょう♪',
         type: 'website',
         url: 'https://goenbako.com',
-        image: 'https://goenbako.com/img/TOP_OGP.jpg',
+        image: 'https://goenbako.com/img/MAIN_OGP.jpg',
         locale: 'ja_JP'
       },
       twitter: {
