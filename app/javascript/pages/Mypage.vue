@@ -121,4 +121,13 @@ export default {
   line-height: 1.5;
   color: #2c281e;
 }
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>

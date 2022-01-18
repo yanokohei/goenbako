@@ -50,7 +50,7 @@
             </div>
             <v-col align="center">
             <v-img
-              src="/img/goenbako_smile.png"
+              src="/img/goenbako_main_illust.png"
               max-width="220px"
             />
             </v-col>

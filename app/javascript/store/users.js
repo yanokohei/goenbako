@@ -5,7 +5,8 @@ const state = () => ({
 })
 
 const getters = {
-  currentUser: state => state.currentUser
+  currentUser: state => state.currentUser,
+  isAuthenticatedUser: state => !!state.currentUser
 }
 
 const mutations = {

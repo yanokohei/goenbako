@@ -56,7 +56,7 @@
       <div>
         <v-col align="right" class="pa-0">
         <v-img
-          src="/img/goenbako_smile.png"
+          src="/img/goenbako_main_illust.png"
           max-width="130px"
           height="45"
         />

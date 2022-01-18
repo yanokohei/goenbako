@@ -23,6 +23,12 @@
       </v-btn>
     </v-row>
     <transition name="fade">
+      <TheLoginGuidanceModal
+        :is-visible-login-guidance-modal="isVisibleLoginGuidanceModal"
+        @close-modal="handleCloseLoginGuidanceModal"
+      />
+    </transition>
+    <transition name="fade">
       <CreateLetterModal
         :is-visible-create-letter-modal="isVisibleCreateLetterModal"
         :user="user"
@@ -44,7 +50,8 @@ import { mapGetters } from "vuex";
 import UserProfileCard from "../components/UserProfileCard";
 import CreateLetterModal from "../components/CreateLetterModal";
 import DoneSendLetter from "../components/DoneSendLetter";
-import LetterListTab from '../components/LetterListTab';
+import LetterListTab from "../components/LetterListTab";
+import TheLoginGuidanceModal from "../components/shared/TheLoginGuidanceModal";
 
 export default {
   name: "User",
@@ -53,6 +60,7 @@ export default {
     CreateLetterModal,
     DoneSendLetter,
     LetterListTab,
+    TheLoginGuidanceModal
   },
 
   data() {
@@ -61,6 +69,7 @@ export default {
       receivedLetters: [],
       sentLetters: [],
       isVisibleCreateLetterModal: false,
+      isVisibleLoginGuidanceModal: false
     };
   },
   mounted() {
@@ -70,19 +79,13 @@ export default {
   },
   computed: {
     ...mapGetters("users", ["currentUser"]),
+    ...mapGetters("users", ["isAuthenticatedUser"]),
     currentPath() {
       return this.$route.path
     },
     isOtherCurrentUser() {
-      return this.currentUser && this.$route.path !== `/${this.currentUser.twitter_id}` && this.$route.path !== `/${this.currentUser.twitter_id}/`
+      return this.$route.path !== `/${this.currentUser.twitter_id}` && this.$route.path !== `/${this.currentUser.twitter_id}/`
     },
-    // 書いてみるボタンを１回きりに制限したい場合。
-    // isNotYetSentCase() {
-    //   const isIncludedSentLetter = this.receivedLetters.some((receivedLetter) => {
-    //     return receivedLetter.sender.id === this.currentUser.id;
-    //   });
-    //   return !isIncludedSentLetter;
-    // }
   },
   methods: {
     async fetchUser() {
@@ -104,10 +107,22 @@ export default {
         })
     },
     openCreateLetterModal() {
-      this.isVisibleCreateLetterModal = true;
+      if (this.isAuthenticatedUser) {
+        this.isVisibleCreateLetterModal = true
+      }
+      else {
+        this.isVisibleLoginGuidanceModal = true;
+        this.$store.dispatch("flash/setFlash", {
+          type: "info",
+          message: "ログインが必要です。"
+        })
+      }
     },
     handleCloseCreateLetterModal() {
       this.isVisibleCreateLetterModal = false;
+    },
+    handleCloseLoginGuidanceModal() {
+      this.isVisibleLoginGuidanceModal = false;
     }
   },
   watch: {
