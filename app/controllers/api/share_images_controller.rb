@@ -1,15 +1,10 @@
 class Api::ShareImagesController < ApplicationController
   skip_before_action :verify_authenticity_token
+  include CarrierwaveBase64Uploader
 
   def create
     @share_image = ShareImage.new(share_image_params)
-    base64_url = @share_image.image_url['data:image/png;base64,'.length..-1]
-    decoded_data = Base64.decode64(base64_url)
-    filename = Time.zone.now.to_s + '.' + 'png'
-    File.open("#{Rails.root}/tmp/#{filename}", 'wb') do |file|
-      file.write(decoded_data)
-      @share_image.image_url = file
-    end
+    @share_image.image_url = base64_conversion(params[:share_image][:image_url])
     if @share_image.save
       render json: @share_image, status: :ok
     else
@@ -19,7 +14,7 @@ class Api::ShareImagesController < ApplicationController
 
   private
 
-    def share_image_params
-      params.require(:share_image).permit(:letter_id, :topic, :image_url)
-    end
+  def share_image_params
+    params.require(:share_image).permit(:letter_id, :topic, :image_url)
+  end
 end
