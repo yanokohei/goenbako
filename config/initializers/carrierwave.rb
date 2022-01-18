@@ -13,4 +13,8 @@ CarrierWave.configure do |config|
     region: 'ap-northeast-1',
     path_style: true
   }
+  if Rails.env.production?
+    config.root = Rails.root.join("tmp")
+    config.cache_dir = "#{Rails.root}/tmp/uploads"
+  end
 end
