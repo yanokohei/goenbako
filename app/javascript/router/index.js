@@ -27,7 +27,7 @@ Vue.use(Router)
       name: "User",
     },
     {
-      path: "/:twitter_id/letters/:letter_id",
+      path: "/letters/:letter_id",
       component: ShowLetter,
       name: "ShowLetter",
     },
