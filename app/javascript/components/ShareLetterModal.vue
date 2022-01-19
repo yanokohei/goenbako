@@ -143,9 +143,8 @@ export default {
       axios.post("/api/share_images", { share_image: this.shareImage })
       .then((res) => {
           const savedImage = res.data
-          console.log(res.data);
+          console.log(res.data.image_url.url);
           this.savedImageID = savedImage.id
-          console.log(this.savedImageID);
       })
       .catch((error) => {
         console.log(error);
