@@ -114,7 +114,7 @@ export default {
 .m-font{
   font-size: 1.0em;
   font-weight: bold;
-  line-height: 1.5;
+  line-height: 1.0;
   color: #2c281e;
 }
 .s-font{
