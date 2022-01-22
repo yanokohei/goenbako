@@ -100,19 +100,6 @@
 import axios from "axios";
 import { mapGetters } from "vuex"
 import SvgStyle from '../components/SvgStyle';
-      const createCanvasFromSvgAndConversionPngUrl = (svgElement, urlCallback) => {
-        const canvas = document.createElement("canvas");
-        canvas.width = 614;
-        canvas.height = 300;
-        const ctx = canvas.getContext("2d");
-        const image = new Image();
-        image.onload = () => {
-          ctx.drawImage(image, 0, 0, 614, 300);
-          urlCallback(canvas.toDataURL());
-        };
-        const svgData = new XMLSerializer().serializeToString(svgElement);
-        image.src = "data:image/svg+xml;charset=utf-8;base64," + btoa(unescape(encodeURIComponent(svgData)));
-      };
 export default {
   name: "ShareLetterModal",
   components: {
@@ -166,6 +153,23 @@ export default {
     },
     async svgToPng(letterTitle) {
       await this.addLetterTopicToPng(letterTitle);
+      const createCanvasFromSvgAndConversionPngUrl = (svgElement, urlCallback) => {
+        debugger
+        const canvas = document.createElement("canvas");
+        canvas.width = 614;
+        canvas.height = 300;
+        const ctx = canvas.getContext("2d");
+        const image = new Image();
+        image.onload = () => {
+          ctx.drawImage(image, 0, 0, 614, 300);
+          urlCallback(canvas.toDataURL());
+        };
+        const svgData = new XMLSerializer().serializeToString(svgElement);
+        image.src = "data:image/svg+xml;charset=utf-8;base64," + btoa(unescape(encodeURIComponent(svgData)));
+      };
+      createCanvasFromSvgAndConversionPngUrl(this.$refs.svgArea, data => {
+        document.getElementById('converted-image').src = data; // dev
+      });
       createCanvasFromSvgAndConversionPngUrl(this.$refs.svgArea, data => {
         document.getElementById('converted-image').src = data; // dev
         this.shareImage.image_url = data;
