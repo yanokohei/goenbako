@@ -167,7 +167,7 @@ export default {
         const svgData = new XMLSerializer().serializeToString(svgElement);
         image.src = "data:image/svg+xml;charset=utf-8;base64," + btoa(unescape(encodeURIComponent(svgData)));
       };
-      createCanvasFromSvgAndConversionPngUrl(this.$refs.svgArea, data => {
+      await createCanvasFromSvgAndConversionPngUrl(this.$refs.svgArea, data => {
         document.getElementById('converted-image').src = data; // dev
       });
       createCanvasFromSvgAndConversionPngUrl(this.$refs.svgArea, data => {
