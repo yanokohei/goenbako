@@ -100,6 +100,19 @@
 import axios from "axios";
 import { mapGetters } from "vuex"
 import SvgStyle from '../components/SvgStyle';
+      const createCanvasFromSvgAndConversionPngUrl = (svgElement, urlCallback) => {
+        const canvas = document.createElement("canvas");
+        canvas.width = 614;
+        canvas.height = 300;
+        const ctx = canvas.getContext("2d");
+        const image = new Image();
+        image.onload = () => {
+          ctx.drawImage(image, 0, 0, 614, 300);
+          urlCallback(canvas.toDataURL());
+        };
+        const svgData = new XMLSerializer().serializeToString(svgElement);
+        image.src = "data:image/svg+xml;charset=utf-8;base64," + btoa(unescape(encodeURIComponent(svgData)));
+      };
 export default {
   name: "ShareLetterModal",
   components: {
@@ -151,21 +164,8 @@ export default {
       const url = `https://goenbako.com/${this.currentUser.twitter_id}/letters/${this.receivedLetter.letter.id}/?id=${this.savedImageID}`
       return `https://twitter.com/intent/tweet?text=${this.receivedLetter.sender.name}さん から素敵なファンレターが届いたよ！%0a&hashtags=ご縁箱&hashtags=goenbako_letters%0a&url=${url}`;
     },
-    svgToPng(letterTitle) {
-      this.addLetterTopicToPng(letterTitle);
-      const createCanvasFromSvgAndConversionPngUrl = (svgElement, urlCallback) => {
-        const canvas = document.createElement("canvas");
-        canvas.width = 614;
-        canvas.height = 300;
-        const ctx = canvas.getContext("2d");
-        const image = new Image();
-        image.onload = () => {
-          ctx.drawImage(image, 0, 0, 614, 300);
-          urlCallback(canvas.toDataURL());
-        };
-        const svgData = new XMLSerializer().serializeToString(svgElement);
-        image.src = "data:image/svg+xml;charset=utf-8;base64," + btoa(unescape(encodeURIComponent(svgData)));
-      };
+    async svgToPng(letterTitle) {
+      await this.addLetterTopicToPng(letterTitle);
       createCanvasFromSvgAndConversionPngUrl(this.$refs.svgArea, data => {
         document.getElementById('converted-image').src = data; // dev
         this.shareImage.image_url = data;
