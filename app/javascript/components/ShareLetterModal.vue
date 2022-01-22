@@ -154,7 +154,6 @@ export default {
     async svgToPng(letterTitle) {
       await this.addLetterTopicToPng(letterTitle);
       const createCanvasFromSvgAndConversionPngUrl = (svgElement, urlCallback) => {
-        debugger
         const canvas = document.createElement("canvas");
         canvas.width = 614;
         canvas.height = 300;
