@@ -125,7 +125,7 @@ export default {
     handleCloseModal() {
       this.$emit("close-modal");
     },
-    addLetterTopicToSvg(letterTitle) {
+    async addLetterTopicToSvg(letterTitle) {
       this.title = letterTitle.message
       this.content = letterTitle.content
       if (letterTitle.topic === "expect") {
@@ -148,7 +148,7 @@ export default {
         location.href = `https://twitter.com/intent/tweet?text=${this.receivedLetter.sender.name}さん から素敵なファンレターが届いたよ！%0a°˖✧%23ご縁箱%20%23goenbako_letters✧˖°%0a&url=${url}`
       })
     },
-    shareTwitterAfterSvgToPngAndUpload(letterTitle) {
+    async shareTwitterAfterSvgToPngAndUpload(letterTitle) {
       const createCanvasFromSvgAndConversionPngUrl = (svgElement, urlCallback) => {
         const canvas = document.createElement("canvas");
         canvas.width = 614;
@@ -162,7 +162,7 @@ export default {
         const svgData = new XMLSerializer().serializeToString(svgElement);
         image.src = "data:image/svg+xml;charset=utf-8;base64," + btoa(unescape(encodeURIComponent(svgData)));
       };
-      this.addLetterTopicToSvg(letterTitle);
+      await this.addLetterTopicToSvg(letterTitle);
       createCanvasFromSvgAndConversionPngUrl(this.$refs.svgArea, data => {
         this.shareImage.image_url = data
         this.postImage(letterTitle)
