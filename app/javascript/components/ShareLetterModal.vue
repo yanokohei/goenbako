@@ -21,20 +21,10 @@
             color="blue"
             class="white--text"
             x-small
-            :href="twitterShare()"
+            @click="shareTwitterAfterSvgToPngAndUpload(letterTitle)"
           >
             <v-icon>mdi-twitter</v-icon>
             シェアする
-          </v-btn>
-        </v-card-actions>
-        <v-card-actions class="justify-center">
-          <v-btn
-            color="#FCFCFC"
-            x-small
-            @click="svgToPng(letterTitle)"
-          >
-            <v-icon>mdi-sync</v-icon>
-            変換する
           </v-btn>
         </v-card-actions>
       </v-col>
@@ -135,6 +125,13 @@ export default {
     handleCloseModal() {
       this.$emit("close-modal");
     },
+    addLetterTopicToSvg(letterTitle) {
+      this.title = letterTitle.message
+      this.content = letterTitle.content
+      if (letterTitle.topic === "expect") {
+        this.title = this.shortReceiverNameExpectCase()
+      }
+    },
     postImage(letterTitle) {
       this.shareImage.letter_id = this.receivedLetter.letter.id
       this.shareImage.topic = letterTitle.topic
@@ -151,11 +148,7 @@ export default {
         location.href = `https://twitter.com/intent/tweet?text=${this.receivedLetter.sender.name}さん から素敵なファンレターが届いたよ！%0a°˖✧%23ご縁箱%20%23goenbako_letters✧˖°%0a&url=${url}`
       })
     },
-    twitterShare() {
-      const url = `https://goenbako.com/letters/${this.receivedLetter.letter.id}?twitter_id=${this.receivedLetter.receiver.twitter_id}%26id=${this.savedImageID}`
-      return `https://twitter.com/intent/tweet?text=${this.receivedLetter.sender.name}さん から素敵なファンレターが届いたよ！%0a°˖✧%23ご縁箱%20%23goenbako_letters✧˖°%0a&url=${url}`;
-    },
-    async svgToPng(letterTitle) {
+    async shareTwitterAfterSvgToPngAndUpload(letterTitle) {
       const createCanvasFromSvgAndConversionPngUrl = (svgElement, urlCallback) => {
         const canvas = document.createElement("canvas");
         canvas.width = 614;
@@ -169,7 +162,6 @@ export default {
         const svgData = new XMLSerializer().serializeToString(svgElement);
         image.src = "data:image/svg+xml;charset=utf-8;base64," + btoa(unescape(encodeURIComponent(svgData)));
       };
-      const url = `https://goenbako.com/letters/${this.receivedLetter.letter.id}?twitter_id=${this.receivedLetter.receiver.twitter_id}%26id=${this.savedImageID}`
       await this.addLetterTopicToSvg(letterTitle);
       createCanvasFromSvgAndConversionPngUrl(this.$refs.svgArea, data => {
         this.shareImage.image_url = data
@@ -191,13 +183,6 @@ export default {
       const receiverName = this.receivedLetter.receiver.name
       return receiverName.length <= 12 ? this.title: (this.title.substr(0, 12)+"...さんに期待していること");
     },
-    addLetterTopicToSvg(letterTitle) {
-      this.title = letterTitle.message
-      this.content = letterTitle.content
-      if (letterTitle.topic === "expect") {
-        this.title = this.shortReceiverNameExpectCase()
-      }
-    }
   },
 };
 </script>
