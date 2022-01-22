@@ -169,7 +169,7 @@ export default {
       await createCanvasFromSvgAndConversionPngUrl(this.$refs.svgArea, data => {
         document.getElementById('converted-image').src = data; // dev
       });
-      createCanvasFromSvgAndConversionPngUrl(this.$refs.svgArea, data => {
+      await createCanvasFromSvgAndConversionPngUrl(this.$refs.svgArea, data => {
         document.getElementById('converted-image').src = data; // dev
         this.shareImage.image_url = data;
         console.log(this.shareImage.image_url); // dev
