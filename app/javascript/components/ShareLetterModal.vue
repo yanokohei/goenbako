@@ -31,10 +31,20 @@
           <v-btn
             color="#FCFCFC"
             x-small
+            @click="LoadSvgToPng(letterTitle)"
+          >
+            <v-icon>mdi-sync</v-icon>
+            変換準備
+          </v-btn>
+        </v-card-actions>
+        <v-card-actions class="justify-center">
+          <v-btn
+            color="#FCFCFC"
+            x-small
             @click="svgToPng(letterTitle)"
           >
             <v-icon>mdi-sync</v-icon>
-            変換する
+            変換
           </v-btn>
         </v-card-actions>
       </v-col>
@@ -100,6 +110,21 @@
 import axios from "axios";
 import { mapGetters } from "vuex"
 import SvgStyle from '../components/SvgStyle';
+
+const createCanvasFromSvgAndConversionPngUrl = (svgElement, urlCallback) => {
+  const canvas = document.createElement("canvas");
+  canvas.width = 614;
+  canvas.height = 300;
+  const ctx = canvas.getContext("2d");
+  const image = new Image();
+  image.onload = () => {
+    ctx.drawImage(image, 0, 0, 614, 300);
+    urlCallback(canvas.toDataURL());
+  };
+  const svgData = new XMLSerializer().serializeToString(svgElement);
+  image.src = "data:image/svg+xml;charset=utf-8;base64," + btoa(unescape(encodeURIComponent(svgData)));
+};
+
 export default {
   name: "ShareLetterModal",
   components: {
@@ -152,21 +177,18 @@ export default {
       const url = `https://goenbako.com/letters/${this.receivedLetter.letter.id}?twitter_id=${this.receivedLetter.receiver.twitter_id}%26id=${this.savedImageID}`
       return `https://twitter.com/intent/tweet?text=${this.receivedLetter.sender.name}さん から素敵なファンレターが届いたよ！%0a°˖✧%23ご縁箱%20%23goenbako_letters✧˖°%0a&url=${url}`;
     },
+    async LoadSvgToPng(letterTitle) {
+      await this.addLetterTopicToPng(letterTitle);
+
+      createCanvasFromSvgAndConversionPngUrl(this.$refs.svgArea, data => {
+        document.getElementById('converted-image').src = data; // dev
+        // this.shareImage.image_url = data;
+        // console.log(this.shareImage.image_url); // dev
+        // this.postImage(letterTitle);
+      });
+    },
     async svgToPng(letterTitle) {
       await this.addLetterTopicToPng(letterTitle);
-      const createCanvasFromSvgAndConversionPngUrl = (svgElement, urlCallback) => {
-        const canvas = document.createElement("canvas");
-        canvas.width = 614;
-        canvas.height = 300;
-        const ctx = canvas.getContext("2d");
-        const image = new Image();
-        image.onload = () => {
-          ctx.drawImage(image, 0, 0, 614, 300);
-          urlCallback(canvas.toDataURL());
-        };
-        const svgData = new XMLSerializer().serializeToString(svgElement);
-        image.src = "data:image/svg+xml;charset=utf-8;base64," + btoa(unescape(encodeURIComponent(svgData)));
-      };
       createCanvasFromSvgAndConversionPngUrl(this.$refs.svgArea, data => {
         document.getElementById('converted-image').src = data; // dev
         this.shareImage.image_url = data;
