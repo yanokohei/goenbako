@@ -162,6 +162,7 @@ export default {
         const svgData = new XMLSerializer().serializeToString(svgElement);
         image.src = "data:image/svg+xml;charset=utf-8;base64," + btoa(unescape(encodeURIComponent(svgData)));
       };
+      this.addLetterTopicToSvg(letterTitle)
       this.addLetterTopicToSvg(letterTitle).then(() =>
         createCanvasFromSvgAndConversionPngUrl(this.$refs.svgArea, data => {
           this.shareImage.image_url = data
