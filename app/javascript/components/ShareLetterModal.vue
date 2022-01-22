@@ -169,6 +169,7 @@ export default {
       await createCanvasFromSvgAndConversionPngUrl(this.$refs.svgArea, data => {
         document.getElementById('converted-image').src = data; // dev
       });
+      await this.addLetterTopicToPng(letterTitle);
       await createCanvasFromSvgAndConversionPngUrl(this.$refs.svgArea, data => {
         document.getElementById('converted-image').src = data; // dev
         this.shareImage.image_url = data;
