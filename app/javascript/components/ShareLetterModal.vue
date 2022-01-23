@@ -186,6 +186,7 @@ export default {
       });
     },
     async shareTwitterAfterSvgToPngAndUpload(letterTitle) {
+      await LoadSvgToPng(letterTitle)
       await this.addLetterTopicToSvg(letterTitle)
       createCanvasFromSvgAndConversionPngUrl(this.$refs.svgArea, data => {
         document.getElementById('converted-image').src = data; // dev
