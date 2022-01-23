@@ -6,9 +6,13 @@
   >
     <v-card color="amber lighten-5">
       <v-card-title>
-        <span class="my-2 m-font">Myご縁箱をシェアする</span>
+        <v-img max-width="23" src="/img/svg_parts.svg" />
+        <span class="my-2 ml-2 m-font nowrap">  Myご縁箱をシェアする</span>
       </v-card-title>
-      <v-divider />
+      <div align="center">
+        <v-img max-width="270" height="5" class="tranceparent" src="/img/en_line_top.svg" />
+      </div>
+      <v-img max-width="55" class="letter-position tranceparent" src="/img/triple_letter.svg" />
       <v-col class="text-center mt-8">
         <v-btn
           color="blue"
@@ -52,8 +56,9 @@
       </v-col>
       <v-row
         justify="center"
-        class="ma-8"
+        class="ma-8 py-3"
       >
+        <v-img max-width="270" height="6" class="tranceparent mb-1" src="/img/en_line_under.svg" />
         <v-card-actions>
           <v-btn
             large
@@ -122,5 +127,16 @@ export default {
   font-weight: bold;
   line-height: 1.5;
   color: #2c281e;
+}
+.tranceparent{
+  mix-blend-mode: multiply;
+}
+.letter-position{
+  position: absolute;
+  top: 250px;
+  left: 255px;
+}
+.nowrap{
+  white-space: nowrap
 }
 </style>
