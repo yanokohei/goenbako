@@ -9,13 +9,16 @@
         <span class="m-font">レターをシェアする</span>
         <v-icon>mdi-email-edit-outline</v-icon>
       </v-card-title>
-      <v-divider />
-      <!-- シェア項目1 -->
+      <div align="center">
+        <v-img max-width="270" height="5" class="tranceparent" src="/img/en_line_top.svg" />
+      </div>
+      <v-img max-width="45" class="letter-position tranceparent" src="/img/triple_letter.svg" />
     <div v-for="(letterTitle, index) in letterTitles()" :key="index">
-      <v-col class="text-center mt-4">
+      <v-col class="text-center mt-3">
         <div
           class="s-font"
         >{{ letterTitle.message }}</div>
+<!-- 【本番ではhidden】watchでモーダルを開いた際にクリックイベントを実行し画像を用意する -->
           <div hidden>
             <v-card-actions class="justify-center">
               <v-btn
@@ -29,10 +32,11 @@
               </v-btn>
             </v-card-actions>
           </div>
+<!-- ここまで -->
         <v-card-actions class="justify-center">
           <v-btn
             color="blue"
-            class="white--text"
+            class="white--text mt-1"
             x-small
             @click="shareTwitterAfterSvgToPngAndUpload(letterTitle)"
           >
@@ -45,18 +49,19 @@
       <!-- 閉じる -->
       <v-row
         justify="center"
-        class="ma-4"
+        class="ma-2 mb-2"
       >
+        <v-img max-width="270" height="5" class="tranceparent mb-1" src="/img/en_line_under.svg" />
         <v-card-actions>
           <v-btn
-            large
+            small
             @click="handleCloseModal"
           >
             閉じる
           </v-btn>
         </v-card-actions>
       </v-row>
-<!-- SVG要素を非表示のまま変換(本番ではhiddenにする) -->
+<!-- 【本番ではhidden】SVG要素を非表示のままCanvasに描画してbase64URLに変換 -->
       <div hidden>
         <img src="" id="converted-image">
       </div>
@@ -170,12 +175,8 @@ export default {
       if (letterTitle.topic === "expect") {
         this.title = this.shortReceiverNameExpectCase()
       }
-      this.$store.dispatch("flash/setFlash", {
-        type: "success",
-        message: "関数が実行されました。"
-      })
     },
-    postImage(letterTitle) {
+    postToRailsAndMoveTwitter(letterTitle) {
       this.shareImage.letter_id = this.receivedLetter.letter.id
       this.shareImage.topic = letterTitle.topic
       axios.post("/api/share_images", { share_image: this.shareImage })
@@ -200,7 +201,7 @@ export default {
       await this.addLetterTopicToSvg(letterTitle)
       createCanvasFromSvgAndConversionPngUrl(this.$refs.svgArea, data => {
         this.shareImage.image_url = data
-        this.postImage(letterTitle)
+        this.postToRailsAndMoveTwitter(letterTitle)
       })
     },
     letterTitles() {
@@ -237,5 +238,13 @@ export default {
   font-weight: bold;
   line-height: 1;
   color: #2c281e;
+}
+.tranceparent{
+  mix-blend-mode: multiply;
+}
+.letter-position{
+  position: absolute;
+  top: 95px;
+  left: 30px;
 }
 </style>
