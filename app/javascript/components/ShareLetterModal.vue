@@ -16,16 +16,19 @@
         <div
           class="s-font"
         >{{ letterTitle.message }}</div>
-        <v-card-actions class="justify-center">
-          <v-btn
-            color="#FCFCFC"
-            x-small
-            @click="LoadSvgToPng(letterTitle)"
-          >
-            <v-icon>mdi-sync</v-icon>
-            変換準備
-          </v-btn>
-        </v-card-actions>
+          <div hidden>
+            <v-card-actions class="justify-center">
+              <v-btn
+                color="#FCFCFC"
+                x-small
+                id="load"
+                @click="loadSvgToPng()"
+              >
+                <v-icon>mdi-sync</v-icon>
+                CanvasLoad
+              </v-btn>
+            </v-card-actions>
+          </div>
         <v-card-actions class="justify-center">
           <v-btn
             color="blue"
@@ -54,7 +57,7 @@
         </v-card-actions>
       </v-row>
 <!-- SVG要素を非表示のまま変換(本番ではhiddenにする) -->
-      <div>
+      <div hidden>
         <img src="" id="converted-image">
       </div>
       <div hidden>
@@ -148,6 +151,15 @@ export default {
       return senderName.length <= 15 ? senderName: (senderName.substr(0, 15)+"...");
     },
   },
+  watch: {
+    isVisibleShareLetterModal: function() {
+      if(this.isVisibleShareLetterModal == true) {
+        setTimeout(function(){
+          document.getElementById("load").click();
+        },500);
+      }
+    }
+  },
   methods: {
     handleCloseModal() {
       this.$emit("close-modal");
@@ -179,17 +191,14 @@ export default {
         location.href = `https://twitter.com/intent/tweet?text=${this.receivedLetter.sender.name}さん から素敵なファンレターが届いたよ！%0a°˖✧%23ご縁箱%20%23goenbako_letters✧˖°%0a&url=${url}`
       })
     },
-    async LoadSvgToPng(letterTitle) {
-      await this.addLetterTopicToSvg(letterTitle);
+    loadSvgToPng() {
       createCanvasFromSvgAndConversionPngUrl(this.$refs.svgArea, data => {
-        document.getElementById('converted-image').src = data; // dev
+        // document.getElementById('converted-image').src = data; // dev
       });
     },
     async shareTwitterAfterSvgToPngAndUpload(letterTitle) {
-      await this.LoadSvgToPng(letterTitle)
       await this.addLetterTopicToSvg(letterTitle)
       createCanvasFromSvgAndConversionPngUrl(this.$refs.svgArea, data => {
-        document.getElementById('converted-image').src = data; // dev
         this.shareImage.image_url = data
         this.postImage(letterTitle)
       })
