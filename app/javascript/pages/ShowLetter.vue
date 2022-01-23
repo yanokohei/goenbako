@@ -42,8 +42,14 @@
         />
       </v-row>
       <div class="text-center mt-12 pb-4 s-font nowrap">
-        {{ letterData.sender.name }} さんより<br>
-        ..... 届いたファンレターです .....
+        <v-card
+          color="transparent"
+          outlined
+          class="mx-4 px-4"
+        >
+          {{ letterData.sender.name }} さんより<br>
+          ..... 届いたファンレターです .....
+        </v-card>
       </div>
       <v-row justify="center">
         <v-card
@@ -156,7 +162,7 @@ export default {
 .s-font{
   font-size: 0.8em;
   font-weight: bold;
-  line-height: 1;
+  line-height: 1.5;
   color: #2c281e;
 }
 .receiver-box{
