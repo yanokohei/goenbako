@@ -101,7 +101,7 @@ export default {
     twitterShare() {
       const url = `${location.origin}/${this.currentUser.twitter_id}`
       return `https://twitter.com/intent/tweet?text=${this.currentUser.name}さんがご縁箱を開設したよ！
-      %0aさっそく遊びに行ってみよう♪&url=${url}%0a&hashtags=ご縁箱&hashtags=みんなのご縁箱`;
+      %0aさっそく遊びに行ってみよう♪&url=${url}%0a°˖✧&hashtags=ご縁箱&hashtags=みんなのご縁箱✧˖°`;
     },
   }
 };
@@ -114,7 +114,7 @@ export default {
 .m-font{
   font-size: 1.0em;
   font-weight: bold;
-  line-height: 1.5;
+  line-height: 1.0;
   color: #2c281e;
 }
 .s-font{

@@ -85,6 +85,7 @@
           color="deep-purple lighten-5"
           rounded
           small
+          :to="{ name: 'User', params: { twitter_id: letterData.receiver.twitter_id }}"
         >
           <v-icon left>
             mdi-account-arrow-left-outline
@@ -97,6 +98,7 @@
           color="#f1f1f1"
           rounded
           small
+          :to="{ name: 'User', params: { twitter_id: letterData.sender.twitter_id }}"
         >
           <v-icon left>
             mdi-account-arrow-left-outline
