@@ -1,8 +1,8 @@
 <template>
   <v-container v-if="loadData">
-    <v-row justify="center">
-      <h3 class="mt-4 pb-2">レター詳細ページ</h3>
-    </v-row>
+    <div align="center" class="mb-8">
+      <v-img max-width="315" src="/img/pimp_straight.jpg" />
+    </div>
       <v-row justify="center">
         <v-card
           flat
@@ -11,6 +11,7 @@
           width="330"
         >
           <v-card-title class="pt-6">
+            <h4 class="scale receiver-box r-box-position"><span class="box-design">RECEIVER</span></h4>
             <router-link :to="{ name: 'User', params: { twitter_id: letterData.receiver.twitter_id }}">
               <v-list-item-avatar class="pa-0" size="65">
                 <img :src="letterData.receiver.image">
@@ -40,9 +41,9 @@
           max-width="130px"
         />
       </v-row>
-      <div class="text-center mt-12 pb-4">
+      <div class="text-center mt-12 pb-4 s-font nowrap">
         {{ letterData.sender.name }} さんより<br>
-        ........ 届いたファンレターです ........
+        ..... 届いたファンレターです .....
       </div>
       <v-row justify="center">
         <v-card
@@ -52,7 +53,8 @@
           width="330"
           class="mt-4 mb-4"
         >
-          <v-card-title class="pt-6">
+          <v-card-title class="pt-6 pb-0">
+            <h4 class="scale sender-box s-box-position"><span class="box-design">SENDER</span></h4>
             <router-link :to="{ name: 'User', params: { twitter_id: letterData.sender.twitter_id }}">
               <v-list-item-avatar class="pa-0" size="65">
                 <img :src="letterData.sender.image">
@@ -80,31 +82,37 @@
           />
         </v-card>
       </v-row>
-      <v-row class="justify-center mt-4 pa-4">
-        <v-btn
-          color="deep-purple lighten-5"
-          rounded
-          small
-          :to="{ name: 'User', params: { twitter_id: letterData.receiver.twitter_id }}"
+      <v-row class="justify-center mb-12 pa-4">
+        <v-card
+          rounded="xl"
+          color="transparent"
+          outlined
+          class="mx-4 px-4"
         >
-          <v-icon left>
-            mdi-account-arrow-left-outline
-          </v-icon>
-          {{ letterData.receiver.name }}さんのご縁箱ページへ
-        </v-btn>
-      </v-row>
-      <v-row class="justify-center mb-8 pa-4">
-        <v-btn
-          color="#f1f1f1"
-          rounded
-          small
-          :to="{ name: 'User', params: { twitter_id: letterData.sender.twitter_id }}"
-        >
-          <v-icon left>
-            mdi-account-arrow-left-outline
-          </v-icon>
-          {{ letterData.sender.name }}さんのご縁箱ページへ
-        </v-btn>
+          <v-img max-width="315" src="/img/en_line_top.svg" />
+          <v-img max-width="45" class="position" src="/img/triple_letter.svg" />
+          <div align="center" class="nowrap mb-2">＼ ご縁箱ページを見る ／</div>
+          <!-- <div class="flex"> -->
+            <v-row class="mb-4">
+              <v-col align="center">
+                <router-link :to="{ name: 'User', params: { twitter_id: letterData.receiver.twitter_id }}">
+                  <v-list-item-avatar class="pa-0" size="65">
+                    <img :src="letterData.receiver.image">
+                  </v-list-item-avatar>
+                  <h4 class="receiver-box"><span class="box-design">RECEIVER</span></h4>
+                </router-link>
+              </v-col>
+              <v-col align="center">
+                <router-link :to="{ name: 'User', params: { twitter_id: letterData.sender.twitter_id }}">
+                  <v-list-item-avatar class="pa-0" size="65">
+                    <img :src="letterData.sender.image">
+                  </v-list-item-avatar>
+                  <h4 class="sender-box"><span class="box-design">SENDER</span></h4>
+                </router-link>
+              </v-col>
+            </v-row>
+          <v-img max-width="315" src="/img/en_line_under.svg" />
+        </v-card>
       </v-row>
   </v-container>
 </template>
@@ -145,5 +153,55 @@ export default {
 </script>
 
 <style scoped>
-
+.s-font{
+  font-size: 0.8em;
+  font-weight: bold;
+  line-height: 1;
+  color: #2c281e;
+}
+.receiver-box{
+  background:#fcfee9;
+  padding: 3px 0;
+  -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset,0 0 4px rgba(0, 0, 0, 0.2) ;
+  -moz-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset,0 0 4px rgba(0, 0, 0, 0.2) ;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset,0 0 4px rgba(0, 0, 0, 0.2) ;
+}
+.box-design{
+  letter-spacing: 0.15em;
+  display:block;
+  border-top:1px dashed #fff;
+  border-bottom:1px dashed #fff;
+  padding: 0px 10px;
+}
+.sender-box{
+  background:#feeafb;
+  padding: 3px 0;
+  -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset,0 0 4px rgba(0, 0, 0, 0.2) ;
+  -moz-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset,0 0 4px rgba(0, 0, 0, 0.2) ;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset,0 0 4px rgba(0, 0, 0, 0.2) ;
+}
+.s-box-position{
+  position: absolute;
+  top: -8px;
+  left: -4px;
+}
+.r-box-position{
+  position: absolute;
+  top: -8px;
+  left: -12px;
+}
+.scale{
+  transform: scale(0.65);
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nowrap{
+  white-space: nowrap
+}
+.align{
+  align-items: center
+}
 </style>
