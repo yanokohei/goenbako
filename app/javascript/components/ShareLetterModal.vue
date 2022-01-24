@@ -167,8 +167,7 @@ export default {
         },800);
       }
     },
-    dialog (val) {
-      if (!val) return
+    dialog () {
       setTimeout(() => (this.dialog = false), 8000)
     },
   },
