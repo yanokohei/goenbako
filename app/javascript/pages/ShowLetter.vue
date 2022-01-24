@@ -41,10 +41,11 @@
           max-width="130px"
         />
       </v-row>
-      <div class="text-center mt-12 pb-4 s-font nowrap">
+      <div class="mt-12 pb-4 s-font nowrap" align="center">
         <v-card
           color="transparent"
           outlined
+          max-width="300"
           class="mx-4 px-4"
         >
           {{ letterData.sender.name }} さんより<br>
