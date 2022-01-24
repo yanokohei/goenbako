@@ -6,7 +6,9 @@
         color="#f1f1f1"
         rounded="xl"
         max-width="320"
+        class="sent-letter-card"
       >
+<!-- 画像１枚の場合、SVGの表示が消える。要改善 -->
         <v-img
           src="/img/Dear.svg"
           max-width="45px"
@@ -17,12 +19,7 @@
           max-width="45px"
           class="dear-position"
         />
-        <v-card-title class="pt-4 pb-0">
-          <router-link :to="{ name: 'User', params: { twitter_id: sentLetter.receiver.twitter_id }}">
-            <v-list-item-avatar class="pa-0 mr-2 ml-2" size="60">
-              <img :src="sentLetter.receiver.image">
-            </v-list-item-avatar>
-          </router-link>
+        <v-card-title class="pt-4 pb-0 pl-12">
           <v-list-item-content class="pa-0">
             <v-list-item-title class="s-font">
               {{ sentLetter.receiver.name }}
@@ -38,7 +35,36 @@
               </v-btn>
             </v-list-item-subtitle>
           </v-list-item-content>
+          <v-img
+            src="/img/en_line_top.svg"
+            max-width="130px"
+            height="4px"
+            class="en-line-top-position"
+          />
         </v-card-title>
+        <div class="pa-0 flex-icon">
+          <router-link :to="{ name: 'User', params: { twitter_id: sentLetter.sender.twitter_id }}">
+            <v-list-item-avatar class="pa-0 pb-0 mr-8 ml-2" size="50">
+              <img :src="sentLetter.sender.image">
+            </v-list-item-avatar>
+          </router-link>
+            <v-img
+              class="tranceparent"
+              src="/img/to_right_yellow.svg"
+              max-width="60px"
+            />
+          <router-link :to="{ name: 'User', params: { twitter_id: sentLetter.receiver.twitter_id }}">
+            <v-list-item-avatar class="pa-0 pb-0 mr-2 ml-8" size="50">
+              <img :src="sentLetter.receiver.image">
+            </v-list-item-avatar>
+          </router-link>
+          <v-img
+            src="/img/en_line_under.svg"
+            max-width="130px"
+            height="4px"
+            class="en-line-under-position"
+          />
+        </div>
         <LetterItem
           class="pt-0"
           :letter-items="sentLetter"
@@ -46,7 +72,7 @@
         <v-row
           v-if="isCurrentMypage"
           justify="end"
-          class="ma-4 mt-0"
+          class="ma-4 mt-0 pb-1"
         >
           <v-btn
             color="orange lighten-1"
@@ -152,5 +178,44 @@ export default {
   position: absolute;
   top: -3px;
   left: -2px;
+}
+.from-font{
+  font-size: 0.6em;
+}
+.sender-area {
+  position: absolute;
+  top: 90px;
+  left: 20px;
+  border-radius:10px;
+  width: 100px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.en-line-top-position {
+  mix-blend-mode: multiply;
+  position: absolute;
+  top: 65px;
+  left: 15px;
+  opacity: 0.7;
+}
+.en-line-under-position {
+  mix-blend-mode: multiply;
+  position: absolute;
+  top: 135px;
+  left: 180px;
+  opacity: 0.7;
+}
+.sent-letter-card{
+  outline: 30px solid#FFFFF8
+}
+.flex-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tranceparent{
+  mix-blend-mode: multiply;
 }
 </style>
