@@ -198,14 +198,14 @@ export default {
   position: absolute;
   top: 65px;
   left: 15px;
-  opacity: 0.7;
+  opacity: 0.5;
 }
 .en-line-under-position {
   mix-blend-mode: multiply;
   position: absolute;
   top: 135px;
   left: 180px;
-  opacity: 0.7;
+  opacity: 0.5;
 }
 .sent-letter-card{
   outline: 30px solid#FFFFF8
