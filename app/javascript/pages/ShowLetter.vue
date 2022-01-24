@@ -42,8 +42,14 @@
         />
       </v-row>
       <div class="text-center mt-12 pb-4 s-font nowrap">
-        {{ letterData.sender.name }} さんより<br>
-        ..... 届いたファンレターです .....
+        <v-card
+          color="transparent"
+          outlined
+          class="mx-4 px-4"
+        >
+          {{ letterData.sender.name }} さんより<br>
+          ..... 届いたファンレターです .....
+        </v-card>
       </div>
       <v-row justify="center">
         <v-card
@@ -90,7 +96,7 @@
           class="mx-4 px-4"
         >
           <v-img max-width="315" src="/img/en_line_top.svg" />
-          <v-img max-width="45" class="position" src="/img/triple_letter.svg" />
+          <v-img max-width="45" class="tranceparent position" src="/img/triple_letter.svg" />
           <div align="center" class="nowrap mb-2">＼ ご縁箱ページを見る ／</div>
           <!-- <div class="flex"> -->
             <v-row class="mb-4">
@@ -156,7 +162,7 @@ export default {
 .s-font{
   font-size: 0.8em;
   font-weight: bold;
-  line-height: 1;
+  line-height: 1.5;
   color: #2c281e;
 }
 .receiver-box{
@@ -203,5 +209,8 @@ export default {
 }
 .align{
   align-items: center
+}
+.tranceparent{
+  mix-blend-mode: multiply;
 }
 </style>
