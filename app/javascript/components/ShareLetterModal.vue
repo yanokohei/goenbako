@@ -38,7 +38,7 @@
               x-small
               @click="shareTwitterAfterSvgToPngAndUpload(letterTitle); dialog = true"
             >
-              <v-icon>mdi-twitter</v-icon>
+              <v-icon size="18">mdi-twitter</v-icon>
               シェアする
             </v-btn>
           </v-card-actions>

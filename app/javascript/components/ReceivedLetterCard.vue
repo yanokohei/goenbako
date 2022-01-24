@@ -6,6 +6,7 @@
         color="#f1f1f1"
         rounded="xl"
         max-width="320"
+        class="received-letter-card"
       >
         <v-img
           src="/img/From.svg"
@@ -14,7 +15,7 @@
         />
         <v-card-title class="pt-4 pb-0">
           <router-link :to="{ name: 'User', params: { twitter_id: receivedLetter.sender.twitter_id }}">
-            <v-list-item-avatar class="pa-0 mr-2 ml-2" size="60">
+            <v-list-item-avatar class="pa-0 mr-2 ml-2" size="55">
               <img :src="receivedLetter.sender.image">
             </v-list-item-avatar>
           </router-link>
@@ -41,12 +42,11 @@
         <v-row
           v-if="isCurrentMypage"
           justify="end"
-          class="ma-4 mt-0"
+          class="ma-4 mt-0 pb-1"
         >
           <v-btn
             color="blue"
             class="white--text ma-1"
-
             small
             @click="openShareLetterModal"
           >
@@ -129,7 +129,6 @@ export default {
         .delete(`/api/letters/${receivedLetter.letter.id}`)
         .then((res) => this.$emit("delete-letter", res.data));
     },
-
   },
 };
 </script>
@@ -145,5 +144,8 @@ export default {
   position: absolute;
   top: -3px;
   left: -2px;
+}
+.received-letter-card{
+  outline: 30px solid#FFFFF8
 }
 </style>
