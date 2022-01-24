@@ -43,7 +43,7 @@ export default {
     inviteTweetReply() {
       if (this.currentUser) {
         const url = "https://goenbako.com"
-        return `https://twitter.com/intent/tweet?text=@${this.searchID}%0a${this.currentUser.name}さんがあなたにご縁箱をおすすめしています。%0aご縁箱を開設してファンレターを受け取ってみましょう！%0a&url=${url}%0a°˖✧&hashtags=ご縁箱,goenbako_letters✧˖°`;
+        return `https://twitter.com/intent/tweet?text=@${this.searchID}%0a${this.currentUser.name}さんがあなたにご縁箱をおすすめしています。%0aご縁箱を開設してファンレターを受け取ってみましょう！%0a°˖✧%23ご縁箱%20%23goenbako_letters✧˖°%0a&url=${url}`;
       }
     },
   }
