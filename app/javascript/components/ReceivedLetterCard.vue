@@ -6,6 +6,7 @@
         color="#f1f1f1"
         rounded="xl"
         max-width="320"
+        class="received-letter-card"
       >
         <v-img
           src="/img/From.svg"
@@ -46,7 +47,6 @@
           <v-btn
             color="blue"
             class="white--text ma-1"
-
             small
             @click="openShareLetterModal"
           >
@@ -129,7 +129,6 @@ export default {
         .delete(`/api/letters/${receivedLetter.letter.id}`)
         .then((res) => this.$emit("delete-letter", res.data));
     },
-
   },
 };
 </script>
@@ -145,5 +144,8 @@ export default {
   position: absolute;
   top: -3px;
   left: -2px;
+}
+.received-letter-card{
+  outline: 30px solid#FFFFF8
 }
 </style>
