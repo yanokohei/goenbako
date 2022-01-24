@@ -160,7 +160,7 @@ export default {
     },
     receiverShortName() {
       const receiverName = this.receivedLetter.receiver.name
-      return receiverName.length <= 10 ? receiverName: (receiverName.substr(0, 10)+"...");
+      return receiverName.length <= 15 ? receiverName: (receiverName.substr(0, 15)+"...");
     }
   },
   watch: {
@@ -182,9 +182,9 @@ export default {
     addLetterTopicToSvg(letterTitle) {
       this.title = letterTitle.message
       this.content = letterTitle.content
-      if (letterTitle.topic === "expect") {
-        this.title = this.shortReceiverNameExpectCase()
-      }
+      // if (letterTitle.topic === "expect") {
+      //   this.title = this.shortReceiverNameExpectCase()
+      // }
     },
     postToRailsAndMoveTwitter(letterTitle) {
       this.shareImage.letter_id = this.receivedLetter.letter.id
@@ -224,10 +224,6 @@ export default {
       ]
       .filter(existsLetterItem => existsLetterItem.content)
       .map(existsLetterItem => existsLetterItem)
-    },
-    shortReceiverNameExpectCase() {
-      const receiverName = this.receivedLetter.receiver.name
-      return receiverName.length <= 12 ? this.title: (this.title.substr(0, 12)+"...さんに期待していること");
     }
   },
 };
