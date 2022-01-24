@@ -42,7 +42,7 @@
         <v-row
           v-if="isCurrentMypage"
           justify="end"
-          class="ma-4 mt-0"
+          class="ma-4 mt-0 pb-1"
         >
           <v-btn
             color="blue"
