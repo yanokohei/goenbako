@@ -8,7 +8,7 @@
       </div>
     </v-row>
     <v-col class="mt-4" align="center">
-      <v-img max-width="400" height="160" class="tranceparent" src="/img/MAIN_OGP.jpg" />
+      <v-img max-width="320" height="200" class="tranceparent" src="/img/MAIN_TOP_IMAGE.jpg" />
     </v-col>
     <v-col v-if="!currentUser" align="center">
       <p class="indigo--text">
