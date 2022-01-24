@@ -13,40 +13,37 @@
         <v-img max-width="270" height="5" class="tranceparent" src="/img/en_line_top.svg" />
       </div>
       <v-img max-width="45" class="letter-position tranceparent" src="/img/triple_letter.svg" />
-    <div v-for="(letterTitle, index) in letterTitles()" :key="index">
-      <v-col class="text-center mt-3">
-        <div
-          class="s-font"
-        >{{ letterTitle.message }}</div>
-<!-- 【本番ではhidden】watchでモーダルを開いた際にクリックイベントを実行し画像を用意する -->
-          <div hidden>
-            <v-card-actions class="justify-center">
-              <v-btn
-                color="#FCFCFC"
-                x-small
-                id="load"
-                @click="loadSvgToPng()"
-              >
-                <v-icon>mdi-sync</v-icon>
-                CanvasLoad
-              </v-btn>
-            </v-card-actions>
-          </div>
-<!-- ここまで -->
-        <v-card-actions class="justify-center">
-          <v-btn
-            color="blue"
-            class="white--text mt-1"
-            x-small
-            @click="shareTwitterAfterSvgToPngAndUpload(letterTitle)"
-          >
-            <v-icon>mdi-twitter</v-icon>
-            シェアする
-          </v-btn>
-        </v-card-actions>
-      </v-col>
-    </div>
-      <!-- 閉じる -->
+      <div v-for="(letterTitle, index) in letterTitles()" :key="index">
+        <v-col class="text-center mt-3">
+          <div class="s-font">{{ letterTitle.message }}</div>
+  <!-- 【本番ではhidden】watchでモーダルを開いた際にクリックイベントを実行し画像を用意する -->
+            <div hidden>
+              <v-card-actions class="justify-center">
+                <v-btn
+                  color="#FCFCFC"
+                  x-small
+                  id="load"
+                  @click="loadSvgToPng()"
+                >
+                  <v-icon>mdi-sync</v-icon>
+                  CanvasLoad
+                </v-btn>
+              </v-card-actions>
+            </div>
+  <!-- ここまで -->
+          <v-card-actions class="justify-center">
+            <v-btn
+              color="blue"
+              class="white--text mt-1"
+              x-small
+              @click="shareTwitterAfterSvgToPngAndUpload(letterTitle); dialog = true"
+            >
+              <v-icon>mdi-twitter</v-icon>
+              シェアする
+            </v-btn>
+          </v-card-actions>
+        </v-col>
+      </div>
       <v-row
         justify="center"
         class="ma-2 mb-2"
@@ -101,12 +98,16 @@
         </svg>
       </div>
     </v-card>
+    <ShareLetterLoading
+      :dialog="dialog"
+    />
   </v-dialog>
 </template>
 <script>
 import axios from "axios";
 import { mapGetters } from "vuex"
 import SvgStyle from '../components/SvgStyle';
+import ShareLetterLoading from '../components/ShareLetterLoading';
 
 const createCanvasFromSvgAndConversionPngUrl = (svgElement, urlCallback) => {
   const canvas = document.createElement("canvas");
@@ -125,7 +126,8 @@ const createCanvasFromSvgAndConversionPngUrl = (svgElement, urlCallback) => {
 export default {
   name: "ShareLetterModal",
   components: {
-    SvgStyle
+    SvgStyle,
+    ShareLetterLoading
   },
   props: {
     isVisibleShareLetterModal: {
@@ -146,7 +148,8 @@ export default {
       },
       savedImageID: "",
       title: '',
-      content: ''
+      content: '',
+      dialog: false,
     }
   },
   computed: {
@@ -161,9 +164,13 @@ export default {
       if(this.isVisibleShareLetterModal == true) {
         setTimeout(function(){
           document.getElementById("load").click();
-        },500);
+        },800);
       }
-    }
+    },
+    dialog (val) {
+      if (!val) return
+      setTimeout(() => (this.dialog = false), 8000)
+    },
   },
   methods: {
     handleCloseModal() {
@@ -218,7 +225,7 @@ export default {
     shortReceiverNameExpectCase() {
       const receiverName = this.receivedLetter.receiver.name
       return receiverName.length <= 12 ? this.title: (this.title.substr(0, 12)+"...さんに期待していること");
-    },
+    }
   },
 };
 </script>
@@ -244,7 +251,7 @@ export default {
 }
 .letter-position{
   position: absolute;
-  top: 95px;
+  top: 115px;
   left: 30px;
 }
 </style>
