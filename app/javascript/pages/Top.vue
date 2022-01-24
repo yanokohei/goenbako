@@ -8,7 +8,7 @@
       </div>
     </v-row>
     <v-col class="mt-4" align="center">
-      <v-img max-width="400" height="160" src="/img/top_logo.png" />
+      <v-img max-width="400" height="160" class="tranceparent" src="/img/MAIN_OGP.jpg" />
     </v-col>
     <v-col v-if="!currentUser" align="center">
       <p class="indigo--text">
@@ -91,7 +91,7 @@
         <v-col align="center" class="m-font">
           どんな人が私にファンレターを？
         </v-col>
-        <v-img max-width="45" class="position" src="/img/triple_letter.svg" />
+        <v-img max-width="45" class="tranceparent position" src="/img/triple_letter.svg" />
         <v-col class="p-font" align="center">
           <p>あなたと今、ご縁がある人。</p>
           <p>これからご縁がありそうな人。</p>
@@ -240,5 +240,8 @@ export default {
   position: absolute;
   top: 45px;
   left: 15px;
+}
+.tranceparent{
+  mix-blend-mode: multiply;
 }
 </style>
