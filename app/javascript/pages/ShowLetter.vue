@@ -1,125 +1,170 @@
 <template>
   <v-container v-if="loadData">
-    <div align="center" class="mb-8">
-      <v-img max-width="315" src="/img/pimp_straight.jpg" />
+    <div
+      align="center"
+      class="mb-8"
+    >
+      <v-img
+        max-width="315"
+        src="/img/pimp_straight.jpg"
+      />
     </div>
-      <v-row justify="center">
-        <v-card
-          flat
-          color="#FCF6FF"
-          rounded="xl"
-          width="330"
+    <v-row justify="center">
+      <v-card
+        flat
+        color="#FCF6FF"
+        rounded="xl"
+        width="330"
+      >
+        <v-card-title class="pt-6">
+          <h4 class="scale receiver-box r-box-position">
+            <span class="box-design">RECEIVER</span>
+          </h4>
+          <router-link :to="{ name: 'User', params: { twitter_id: letterData.receiver.twitter_id }}">
+            <v-list-item-avatar
+              class="pa-0"
+              size="65"
+            >
+              <img :src="letterData.receiver.image">
+            </v-list-item-avatar>
+          </router-link>
+          <v-list-item-content class="pa-0">
+            <v-list-item-title class="s-font">
+              {{ letterData.receiver.name }}
+            </v-list-item-title>
+            <v-list-item-subtitle>
+              @{{ letterData.receiver.twitter_id }}
+              <v-btn
+                icon
+                color="blue"
+                :href="`https://twitter.com/${letterData.receiver.twitter_id}`"
+              >
+                <v-icon>mdi-twitter</v-icon>
+              </v-btn>
+            </v-list-item-subtitle>
+          </v-list-item-content>
+        </v-card-title>
+      </v-card>
+    </v-row>
+    <v-row justify="center">
+      <v-img
+        src="/img/thank_you.svg"
+        max-width="130px"
+      />
+    </v-row>
+    <div
+      class="mt-12 pb-4 s-font nowrap"
+      align="center"
+    >
+      <v-card
+        color="transparent"
+        outlined
+        max-width="300"
+        class="mx-4 px-4"
+      >
+        {{ letterData.sender.name }} さんより<br>
+        ..... 届いたファンレターです .....
+      </v-card>
+    </div>
+    <v-row justify="center">
+      <v-card
+        flat
+        color="#f1f1f1"
+        rounded="xl"
+        width="330"
+        class="mt-4 mb-4"
+      >
+        <v-card-title class="pt-6 pb-0">
+          <h4 class="scale sender-box s-box-position">
+            <span class="box-design">SENDER</span>
+          </h4>
+          <router-link :to="{ name: 'User', params: { twitter_id: letterData.sender.twitter_id }}">
+            <v-list-item-avatar
+              class="pa-0"
+              size="65"
+            >
+              <img :src="letterData.sender.image">
+            </v-list-item-avatar>
+          </router-link>
+          <v-list-item-content class="pa-0">
+            <v-list-item-title class="s-font">
+              {{ letterData.sender.name }}
+            </v-list-item-title>
+            <v-list-item-subtitle>
+              @{{ letterData.sender.twitter_id }}
+              <v-btn
+                icon
+                color="blue"
+                :href="`https://twitter.com/${letterData.sender.twitter_id}`"
+              >
+                <v-icon>mdi-twitter</v-icon>
+              </v-btn>
+            </v-list-item-subtitle>
+          </v-list-item-content>
+        </v-card-title>
+        <LetterItem
+          class="pt-0"
+          :letter-items="letterData"
+        />
+      </v-card>
+    </v-row>
+    <v-row class="justify-center mb-12 pa-4">
+      <v-card
+        rounded="xl"
+        color="transparent"
+        outlined
+        class="mx-4 px-4"
+      >
+        <v-img
+          max-width="315"
+          src="/img/en_line_top.svg"
+        />
+        <v-img
+          max-width="45"
+          class="tranceparent position"
+          src="/img/triple_letter.svg"
+        />
+        <div
+          align="center"
+          class="nowrap mb-2"
         >
-          <v-card-title class="pt-6">
-            <h4 class="scale receiver-box r-box-position"><span class="box-design">RECEIVER</span></h4>
+          ＼ ご縁箱ページを見る ／
+        </div>
+        <!-- <div class="flex"> -->
+        <v-row class="mb-4">
+          <v-col align="center">
             <router-link :to="{ name: 'User', params: { twitter_id: letterData.receiver.twitter_id }}">
-              <v-list-item-avatar class="pa-0" size="65">
+              <v-list-item-avatar
+                class="pa-0"
+                size="65"
+              >
                 <img :src="letterData.receiver.image">
               </v-list-item-avatar>
+              <h4 class="receiver-box">
+                <span class="box-design">RECEIVER</span>
+              </h4>
             </router-link>
-            <v-list-item-content class="pa-0">
-              <v-list-item-title class="s-font">
-                {{ letterData.receiver.name }}
-              </v-list-item-title>
-              <v-list-item-subtitle>
-                @{{ letterData.receiver.twitter_id }}
-                <v-btn
-                  icon
-                  color="blue"
-                  :href="`https://twitter.com/${letterData.receiver.twitter_id}`"
-                >
-                  <v-icon>mdi-twitter</v-icon>
-                </v-btn>
-              </v-list-item-subtitle>
-            </v-list-item-content>
-          </v-card-title>
-        </v-card>
-      </v-row>
-      <v-row justify="center">
-        <v-img
-          src="/img/thank_you.svg"
-          max-width="130px"
-        />
-      </v-row>
-      <div class="text-center mt-12 pb-4 s-font nowrap">
-        <v-card
-          color="transparent"
-          outlined
-          class="mx-4 px-4"
-        >
-          {{ letterData.sender.name }} さんより<br>
-          ..... 届いたファンレターです .....
-        </v-card>
-      </div>
-      <v-row justify="center">
-        <v-card
-          flat
-          color="#f1f1f1"
-          rounded="xl"
-          width="330"
-          class="mt-4 mb-4"
-        >
-          <v-card-title class="pt-6 pb-0">
-            <h4 class="scale sender-box s-box-position"><span class="box-design">SENDER</span></h4>
+          </v-col>
+          <v-col align="center">
             <router-link :to="{ name: 'User', params: { twitter_id: letterData.sender.twitter_id }}">
-              <v-list-item-avatar class="pa-0" size="65">
+              <v-list-item-avatar
+                class="pa-0"
+                size="65"
+              >
                 <img :src="letterData.sender.image">
               </v-list-item-avatar>
+              <h4 class="sender-box">
+                <span class="box-design">SENDER</span>
+              </h4>
             </router-link>
-            <v-list-item-content class="pa-0">
-              <v-list-item-title class="s-font">
-                {{ letterData.sender.name }}
-              </v-list-item-title>
-              <v-list-item-subtitle>
-                @{{ letterData.sender.twitter_id }}
-                <v-btn
-                  icon
-                  color="blue"
-                  :href="`https://twitter.com/${letterData.sender.twitter_id}`"
-                >
-                  <v-icon>mdi-twitter</v-icon>
-                </v-btn>
-              </v-list-item-subtitle>
-            </v-list-item-content>
-          </v-card-title>
-          <LetterItem
-            class="pt-0"
-            :letter-items="letterData"
-          />
-        </v-card>
-      </v-row>
-      <v-row class="justify-center mb-12 pa-4">
-        <v-card
-          rounded="xl"
-          color="transparent"
-          outlined
-          class="mx-4 px-4"
-        >
-          <v-img max-width="315" src="/img/en_line_top.svg" />
-          <v-img max-width="45" class="tranceparent position" src="/img/triple_letter.svg" />
-          <div align="center" class="nowrap mb-2">＼ ご縁箱ページを見る ／</div>
-          <!-- <div class="flex"> -->
-            <v-row class="mb-4">
-              <v-col align="center">
-                <router-link :to="{ name: 'User', params: { twitter_id: letterData.receiver.twitter_id }}">
-                  <v-list-item-avatar class="pa-0" size="65">
-                    <img :src="letterData.receiver.image">
-                  </v-list-item-avatar>
-                  <h4 class="receiver-box"><span class="box-design">RECEIVER</span></h4>
-                </router-link>
-              </v-col>
-              <v-col align="center">
-                <router-link :to="{ name: 'User', params: { twitter_id: letterData.sender.twitter_id }}">
-                  <v-list-item-avatar class="pa-0" size="65">
-                    <img :src="letterData.sender.image">
-                  </v-list-item-avatar>
-                  <h4 class="sender-box"><span class="box-design">SENDER</span></h4>
-                </router-link>
-              </v-col>
-            </v-row>
-          <v-img max-width="315" src="/img/en_line_under.svg" />
-        </v-card>
-      </v-row>
+          </v-col>
+        </v-row>
+        <v-img
+          max-width="315"
+          src="/img/en_line_under.svg"
+        />
+      </v-card>
+    </v-row>
   </v-container>
 </template>
 
@@ -140,11 +185,11 @@ export default {
       loadData: false
     };
   },
-  mounted() {
-    this.fetchLetter()
-  },
   computed: {
     ...mapGetters("users", ["currentUser"]),
+  },
+  mounted() {
+    this.fetchLetter()
   },
   methods: {
     async fetchLetter() {

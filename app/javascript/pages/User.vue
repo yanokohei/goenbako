@@ -49,7 +49,6 @@ import axios from "axios";
 import { mapGetters } from "vuex";
 import UserProfileCard from "../components/UserProfileCard";
 import CreateLetterModal from "../components/CreateLetterModal";
-import DoneSendLetter from "../components/DoneSendLetter";
 import LetterListTab from "../components/LetterListTab";
 import TheLoginGuidanceModal from "../components/shared/TheLoginGuidanceModal";
 
@@ -58,7 +57,6 @@ export default {
   components: {
     UserProfileCard,
     CreateLetterModal,
-    DoneSendLetter,
     LetterListTab,
     TheLoginGuidanceModal
   },
@@ -72,11 +70,6 @@ export default {
       isVisibleLoginGuidanceModal: false
     };
   },
-  mounted() {
-    this.fetchUser()
-    this.fetchReceivedLetters()
-    this.fetchSentLetters()
-  },
   computed: {
     ...mapGetters("users", ["currentUser"]),
     ...mapGetters("users", ["isAuthenticatedUser"]),
@@ -86,6 +79,18 @@ export default {
     isOtherCurrentUser() {
       return this.$route.path !== `/${this.currentUser.twitter_id}` && this.$route.path !== `/${this.currentUser.twitter_id}/`
     },
+  },
+  watch: {
+    currentPath: function() {
+      this.fetchUser()
+      this.fetchReceivedLetters()
+      this.fetchSentLetters()
+    }
+  },
+  mounted() {
+    this.fetchUser()
+    this.fetchReceivedLetters()
+    this.fetchSentLetters()
   },
   methods: {
     async fetchUser() {
@@ -123,13 +128,6 @@ export default {
     },
     handleCloseLoginGuidanceModal() {
       this.isVisibleLoginGuidanceModal = false;
-    }
-  },
-  watch: {
-    currentPath: function() {
-      this.fetchUser()
-      this.fetchReceivedLetters()
-      this.fetchSentLetters()
     }
   },
 };

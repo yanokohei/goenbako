@@ -2,8 +2,8 @@
   <v-dialog
     v-model="isVisibleTermsModal"
     max-width="800"
-    @click:outside="hundleCloseTermsModal"
     scrollable
+    @click:outside="hundleCloseTermsModal"
   >
     <v-card class="terms">
       <v-card-text style="height: 90%;">
@@ -120,9 +120,11 @@
           本サービス提供者は，必要と判断した場合には，ユーザーに通知することなくいつでも本規約を変更することができるものとします。なお，本規約の変更後，本サービスの利用を開始した場合には，ユーザーは変更後の規約に同意したものとみなします。
         </p>
       </v-card-text>
-        <v-card-actions justify="center">
-          <v-btn @click="hundleCloseTermsModal">閉じる</v-btn>
-        </v-card-actions>
+      <v-card-actions justify="center">
+        <v-btn @click="hundleCloseTermsModal">
+          閉じる
+        </v-btn>
+      </v-card-actions>
     </v-card>
   </v-dialog>
 </template>

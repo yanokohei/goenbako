@@ -8,20 +8,23 @@
         icons-and-text
       >
         <v-tabs-slider />
-          <v-tab
-            v-for="tabItem in tabItems"
-            :key="tabItem.tabId"
-          >
-            <span class="s-font nowrap" style="color: #3270B9;">
-              <v-icon size="25">{{ tabItem.icon }}</v-icon>
-              ({{ tabItem.countLetter }})
-            </span>
-            <div class="xs-font mt-1 nowrap" background-color="#fff6e4">
-              {{ tabItem.tabName }}
-            </div>
-          </v-tab>
-        </v-tabs>
-      <v-row justify="center" class="py-4">
+        <v-tab
+          v-for="tabItem in tabItems"
+          :key="tabItem.tabId"
+        >
+          <span class="s-font nowrap" style="color: #3270B9;">
+            <v-icon size="25">{{ tabItem.icon }}</v-icon>
+            ({{ tabItem.countLetter }})
+          </span>
+          <div class="xs-font mt-1 nowrap" background-color="#fff6e4">
+            {{ tabItem.tabName }}
+          </div>
+        </v-tab>
+      </v-tabs>
+      <v-row
+        justify="center"
+        class="py-4"
+      >
         <v-tabs-items v-model="moveTab">
           <v-tab-item
             v-for="tabItem in tabItems"
@@ -105,6 +108,6 @@ export default {
   line-height: 2;
 }
 .nowrap{
-  white-space: nowrap
+  white-space: nowrap;
 }
 </style>

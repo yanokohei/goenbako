@@ -14,7 +14,7 @@
         large
         @click="openShareLinkModal"
       >
-      <v-icon>mdi-twitter</v-icon>
+        <v-icon>mdi-twitter</v-icon>
         <span class="m-font white--text ml-2">Myご縁箱をシェアする</span>
       </v-btn>
     </v-row>

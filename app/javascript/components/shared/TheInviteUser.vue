@@ -3,10 +3,10 @@
     <v-row justify="end">
       <v-img
         src="/img/writing.png"
-        max-width="35px"
+        max-width="28px"
       />
     </v-row>
-    <div class="xs-font mt-4 mb-2">
+    <div class="xs-font mt-3 mb-2">
       \ ご縁箱の開設をお願いしてみませんか? /
     </div>
     <v-btn
@@ -14,10 +14,17 @@
       small
       :href="inviteTweetReply()"
     >
-      <v-icon color="blue">mdi-twitter</v-icon>
+      <v-icon color="blue">
+        mdi-twitter
+      </v-icon>
       リクエストしてみる
     </v-btn>
-    <p v-if="!currentUser" class="xs-font mt-2 mb-0">※ログインが必要です</p>
+    <p
+      v-if="!currentUser"
+      class="xs-font mt-2 mb-0"
+    >
+      ※ログインが必要です
+    </p>
   </v-col>
 </template>
 
@@ -43,7 +50,7 @@ export default {
     inviteTweetReply() {
       if (this.currentUser) {
         const url = "https://goenbako.com"
-        return `https://twitter.com/intent/tweet?text=@${this.searchID}%0a${this.currentUser.name}さんがあなたにご縁箱をおすすめしています。%0aご縁箱を開設してファンレターを受け取ってみましょう！%0a&url=${url}%0a°˖✧&hashtags=ご縁箱,goenbako_letters✧˖°`;
+        return `https://twitter.com/intent/tweet?text=@${this.searchID}%0a${this.currentUser.name}さんがあなたにご縁箱をおすすめしています。%0aご縁箱を開設してファンレターを受け取ってみましょう！%0a°˖✧%23ご縁箱%20%23goenbako_letters✧˖°%0a&url=${url}`;
       }
     },
   }

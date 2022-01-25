@@ -7,7 +7,7 @@
       >
         <SentLetterCard
           :user="user"
-          :sentLetter="sentLetter"
+          :sent-letter="sentLetter"
           @update-letter="handleUpdateLetter"
           @delete-letter="deleteLetter"
         />

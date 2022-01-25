@@ -23,12 +23,12 @@
       >
         <v-icon>mdi-help-box</v-icon>
       </v-btn>
-    <transition name="fade">
-      <TheHelpboxModal
-        :is-visible-helpbox-modal="isVisibleHelpboxModal"
-        @close-modal="handleCloseHelpboxModal"
-      />
-    </transition>
+      <transition name="fade">
+        <TheHelpboxModal
+          :is-visible-helpbox-modal="isVisibleHelpboxModal"
+          @close-modal="handleCloseHelpboxModal"
+        />
+      </transition>
     </v-app-bar>
   </header>
 </template>

@@ -2,7 +2,7 @@
   <v-dialog
     v-model="isVisibleEditLetterModal"
     persistent
-    max-width="500"
+    max-width="400"
     scrollable
   >
     <v-card color="amber lighten-5">
@@ -11,28 +11,36 @@
         <span class="m-font">レターの更新</span>
       </v-card-title>
       <v-divider />
-      <p class="xs-font mt-2 mb-4 mx-4">※それぞれ100文字以内で自由にご記入ください。</p>
+      <p class="xs-font mt-2 mb-4 mx-4">
+        ※それぞれ100文字以内で自由にご記入ください。
+      </p>
       <div class="mx-4">
         <v-form @submit.prevent="handleUpdateLetter(letter)">
-          <v-card-text class="pa-0 show-scrollbar" style="height: 380px;">
-            <div v-for="(letterTitle, index) in letterTitles()" :key="index">
+          <v-card-text
+            class="pa-0 show-scrollbar"
+            style="height: 380px;"
+          >
+            <div
+              v-for="(letterTitle, index) in letterTitles()"
+              :key="index"
+            >
               <div class="s-font pa-0">
                 <label
                   for="past"
                 >{{ letterTitle.item }}</label>
-                  <v-col align="center">
-                    <v-textarea
-                      :id="`${letterTitle.model_name}`"
-                      v-model="letter[letterTitle.model_name]"
-                      :name="`letter[${letterTitle.model_name}]`"
-                      background-color="white"
-                      counter
-                      :rules="rules"
-                      rows="2"
-                      auto-grow
-                      class="textarea mt-0 pt-0"
-                    />
-                    </v-col>
+                <v-col align="center">
+                  <v-textarea
+                    :id="`${letterTitle.model_name}`"
+                    v-model="letter[letterTitle.model_name]"
+                    :name="`letter[${letterTitle.model_name}]`"
+                    background-color="white"
+                    counter
+                    :rules="rules"
+                    rows="2"
+                    auto-grow
+                    class="textarea mt-0 pt-0"
+                  />
+                </v-col>
               </div>
             </div>
           </v-card-text>
@@ -91,11 +99,6 @@ export default {
       required: true,
     }
   },
-  computed: {
-    updateLetterItem() {
-      return this.updateLetter
-    }
-  },
   data() {
     return { // propsのオブジェクトをそのまま渡すと参照渡しとなり、propsと連動してしまい、モーダルの外の値が変わってしまう。
       letter: {
@@ -109,6 +112,11 @@ export default {
         message: this.updateLetter.message
       },
       rules: [v => v.length <= 100 || '100文字以内で入力してください。'],
+    }
+  },
+  computed: {
+    updateLetterItem() {
+      return this.updateLetter
     }
   },
   computed: {

@@ -2,57 +2,66 @@
   <v-dialog
     v-model="isVisibleCreateLetterModal"
     persistent
-    max-width="500"
+    max-width="400"
     scrollable
   >
-    <v-card color="amber lighten-5">
+    <v-card color="amber lighten-5" min-height="500">
       <v-card-title>
         <v-icon>mdi-email-edit-outline</v-icon>
         <span class="m-font">ファンレター作成</span>
       </v-card-title>
       <v-divider />
-      <p class="xs-font mt-2 mb-6 mx-4">※それぞれ100文字以内で自由にご記入ください。</p>
+      <p class="xs-font mt-2 mb-6 mx-4">
+        ※それぞれ100文字以内で自由にご記入ください。
+      </p>
       <div class="mx-4">
         <v-form @submit.prevent="handleCreateLetter(letter)">
-        <v-card-text class="pa-0 show-scrollbar" style="height: 380px;">
-          <div v-for="(letterTitle, index) in letterTitles()" :key="index">
-            <div class="mt-1 s-font">
-              <label
-                for="past"
-              >{{ letterTitle.message }}</label>
-              <v-card-actions class="justify-center"
-                v-if="!ShowTextarea.includes(index)"
-              >
-                <v-btn
-                  @click="addShowTextarea(index)"
-                  color="deep-purple lighten-5"
-                  x-small
+          <v-card-text
+            class="pa-0 show-scrollbar"
+            style="height: 340px;"
+          >
+            <div
+              v-for="(letterTitle, index) in letterTitles()"
+              :key="index"
+            >
+              <div class="mt-0 s-font">
+                <label
+                  for="past"
+                >{{ letterTitle.message }}</label>
+                <v-card-actions
+                  v-if="!ShowTextarea.includes(index)"
+                  class="justify-center"
                 >
-                  <v-icon>mdi-pencil</v-icon>
-                  書いてみる
-                </v-btn>
-              </v-card-actions>
-              <v-col align="center">
-                <v-textarea
-                  v-show="ShowTextarea.includes(index)"
-                  :id="`${letterTitle.model_name}`"
-                  v-model="letter[letterTitle.model_name]"
-                  :name="`create_letter[${letterTitle.model_name}]`"
-                  background-color="white"
-                  counter
-                  :rules="rules"
-                  rows="2"
-                  auto-grow
-                  class="textarea mt-0 pt-0"
-                />
-              </v-col>
+                  <v-btn
+                    color="deep-purple lighten-5"
+                    x-small
+                    @click="addShowTextarea(index)"
+                  >
+                    <v-icon>mdi-pencil</v-icon>
+                    書いてみる
+                  </v-btn>
+                </v-card-actions>
+                <v-col align="center">
+                  <v-textarea
+                    v-show="ShowTextarea.includes(index)"
+                    :id="`${letterTitle.model_name}`"
+                    v-model="letter[letterTitle.model_name]"
+                    :name="`create_letter[${letterTitle.model_name}]`"
+                    background-color="white"
+                    counter
+                    :rules="rules"
+                    rows="2"
+                    auto-grow
+                    class="textarea mt-0 pt-0"
+                  />
+                </v-col>
+              </div>
             </div>
-          </div>
-        </v-card-text>
+          </v-card-text>
           <!-- 登録ボタン -->
           <v-row
             justify="center"
-            class="my-0 pb-8"
+            class="my-0 pb-3"
           >
             <v-card-actions>
               <v-btn
@@ -65,8 +74,8 @@
               </v-btn>
               <v-btn
                 large
-                @click="handleCloseModal"
                 class="s-font pr-3"
+                @click="handleCloseModal"
               >
                 閉じる
               </v-btn>
@@ -175,12 +184,6 @@ export default {
 .modal {
   display: block;
 }
-/* .l-font{
-  font-size: 1.em;
-  font-weight: bold;
-  color: #2c281e;
-}
-*/
 .m-font{
   font-size: 1.1em;
   font-weight: bold;

@@ -1,11 +1,17 @@
 <template>
-  <v-row justify="center" class="mt-6">
+  <v-row
+    justify="center"
+    class="mt-6"
+  >
     <v-card
       color="transparent"
       min-width="300"
       max-width="320"
     >
-      <v-list-item-avatar size="60" class="avatar-position">
+      <v-list-item-avatar
+        size="60"
+        class="avatar-position"
+      >
         <img :src="user.image">
       </v-list-item-avatar>
       <v-list-item-content>

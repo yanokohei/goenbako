@@ -6,29 +6,41 @@
   >
     <v-card color="amber lighten-5">
       <v-card-title>
-        <v-img max-width="23" src="/img/svg_parts.svg" />
+        <v-img
+          max-width="21"
+          src="/img/icon_parts.svg"
+        />
         <span class="my-2 ml-2 m-font nowrap">  Myご縁箱をシェアする</span>
       </v-card-title>
       <div align="center">
-        <v-img max-width="270" height="5" class="tranceparent" src="/img/en_line_top.svg" />
+        <v-img
+          max-width="270"
+          height="5"
+          class="tranceparent"
+          src="/img/en_line_top.svg"
+        />
       </div>
-      <v-img max-width="55" class="letter-position tranceparent" src="/img/triple_letter.svg" />
-      <v-col class="text-center mt-8">
+      <v-img
+        max-width="55"
+        class="letter-position tranceparent"
+        src="/img/triple_letter.svg"
+      />
+      <v-col class="text-center mt-4">
         <v-btn
           color="blue"
           class="white--text s-font"
-          large
+          small
           :href="twitterShare()"
         >
           <v-icon>mdi-twitter</v-icon>
           ツイートで共有する
         </v-btn>
       </v-col>
-      <v-col class="text-center mt-6">
+      <v-col class="text-center mt-4">
         <v-btn
           class="s-font"
           color="#FFF0E2"
-          large
+          small
           @click.prevent="copyLink"
           @click="snackbar = true"
         >
@@ -56,12 +68,17 @@
       </v-col>
       <v-row
         justify="center"
-        class="ma-8 py-3"
+        class="ma-4 py-2"
       >
-        <v-img max-width="270" height="6" class="tranceparent mb-1" src="/img/en_line_under.svg" />
+        <v-img
+          max-width="270"
+          height="6"
+          class="tranceparent mb-1"
+          src="/img/en_line_under.svg"
+        />
         <v-card-actions>
           <v-btn
-            large
+            small
             @click="handleCloseModal"
           >
             閉じる
@@ -106,7 +123,7 @@ export default {
     twitterShare() {
       const url = `${location.origin}/${this.currentUser.twitter_id}`
       return `https://twitter.com/intent/tweet?text=${this.currentUser.name}さんがご縁箱を開設したよ！
-      %0aさっそく遊びに行ってみよう♪&url=${url}%0a°˖✧&hashtags=ご縁箱&hashtags=みんなのご縁箱✧˖°`;
+      %0aさっそく遊びに行ってみよう♪%0a°˖✧%23ご縁箱%20%23みんなのご縁箱✧˖°%0a&url=${url}`;
     },
   }
 };
@@ -133,7 +150,7 @@ export default {
 }
 .letter-position{
   position: absolute;
-  top: 250px;
+  top: 180px;
   left: 255px;
 }
 .nowrap{

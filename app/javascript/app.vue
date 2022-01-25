@@ -4,7 +4,10 @@
       <TheHeader />
       <v-main>
         <TheFlashMessage v-if="isFlash" />
-        <transition name="slide" mode="out-in">
+        <transition
+          name="slide"
+          mode="out-in"
+        >
           <router-view
             :key="$route.fullPath"
           />
@@ -14,8 +17,9 @@
       <v-bottom-navigation
         app
         color="primary"
+        height="60"
       >
-        <TheBottomNavigation/>
+        <TheBottomNavigation />
       </v-bottom-navigation>
       <!-- <TheFooter /> -->
     </v-app>
@@ -24,7 +28,6 @@
 
 <script>
 import TheHeader from "./components/shared/TheHeader";
-import TheFooter from "./components/shared/TheFooter";
 import TheFlashMessage from "./components/shared/TheFlashMessage";
 import TheBottomNavigation from "./components/shared/TheBottomNavigation";
 import { mapGetters } from "vuex"
@@ -32,7 +35,6 @@ import { mapGetters } from "vuex"
 export default {
   components: {
     TheHeader,
-    TheFooter,
     TheFlashMessage,
     TheBottomNavigation
   },
