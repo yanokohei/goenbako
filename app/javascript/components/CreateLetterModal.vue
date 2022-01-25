@@ -18,13 +18,13 @@
         <v-form @submit.prevent="handleCreateLetter(letter)">
           <v-card-text
             class="pa-0 show-scrollbar"
-            style="height: 380px;"
+            style="height: 340px;"
           >
             <div
               v-for="(letterTitle, index) in letterTitles()"
               :key="index"
             >
-              <div class="mt-1 s-font">
+              <div class="mt-0 s-font">
                 <label
                   for="past"
                 >{{ letterTitle.message }}</label>
@@ -61,7 +61,7 @@
           <!-- 登録ボタン -->
           <v-row
             justify="center"
-            class="my-0 pb-8"
+            class="my-0 pb-3"
           >
             <v-card-actions>
               <v-btn

@@ -31,14 +31,12 @@ import TheHeader from "./components/shared/TheHeader";
 import TheFlashMessage from "./components/shared/TheFlashMessage";
 import TheBottomNavigation from "./components/shared/TheBottomNavigation";
 import { mapGetters } from "vuex"
-// import TheFooter from "./components/shared/TheFooter";
 
 export default {
   components: {
     TheHeader,
     TheFlashMessage,
     TheBottomNavigation
-    // TheFooter,
   },
   computed: {
     ...mapGetters({
