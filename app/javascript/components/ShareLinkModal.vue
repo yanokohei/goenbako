@@ -6,7 +6,7 @@
   >
     <v-card color="amber lighten-5">
       <v-card-title>
-        <v-img max-width="21" src="/img/svg_parts.svg" />
+        <v-img max-width="21" src="/img/icon_parts.svg" />
         <span class="my-2 ml-2 m-font nowrap">  Myご縁箱をシェアする</span>
       </v-card-title>
       <div align="center">

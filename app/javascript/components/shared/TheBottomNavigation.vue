@@ -9,8 +9,8 @@
     >
       <span>Top</span>
         <v-img
-          src="/img/favicon.ico"
-          max-width="27px"
+          src="/img/icon_parts.svg"
+          max-width="17px"
         />
     </v-btn>
 
