@@ -6,7 +6,7 @@
   >
     <v-card
       color="amber lighten-5"
-      height="450"
+      height="410"
       max-width="300"
     >
       <h3 class="ml-4">
@@ -24,7 +24,7 @@
           placeholder="@を省略して入力してください"
           class="ma-0 mb-0 pb-0"
         />
-        <v-card-actions class="justify-center pt-0">
+        <v-card-actions class="justify-center py-1">
           <v-btn
             small
             @click="searchUser"
@@ -36,14 +36,14 @@
       <v-card
         color="amber lighten-5"
         outlined
-        height="220"
+        height="180"
         max-width="300"
       >
-        <v-card-text class="mb-1">
+        <v-card-text class="pb-0 mb-0">
           <transition name="fade">
             <div
               v-if="missingUserSearch"
-              class="xs-font mb-4 mt-4 text-center"
+              class="xs-font mb-4 mt-1 text-center"
             >
               入力内容に誤りがあるか、<br>
               まだご縁箱を開設していないユーザーのようです。
@@ -56,14 +56,14 @@
             />
           </transition>
           <div v-if="beforeUserSearch">
-            <div class="mt-3 s-font text-center">
+            <div class="mt-1 s-font text-center">
               あなたがファンレターを書きたい<br>
               \ ユーザーを検索してみましょう！ /
             </div>
-            <v-col align="center">
+            <v-col class="ma-0 pa-0" align="center">
               <v-img
                 src="/img/goenbako_main_illust.png"
-                max-width="220px"
+                max-width="200px"
               />
             </v-col>
           </div>

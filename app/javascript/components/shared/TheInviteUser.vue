@@ -3,10 +3,10 @@
     <v-row justify="end">
       <v-img
         src="/img/writing.png"
-        max-width="35px"
+        max-width="28px"
       />
     </v-row>
-    <div class="xs-font mt-4 mb-2">
+    <div class="xs-font mt-3 mb-2">
       \ ご縁箱の開設をお願いしてみませんか? /
     </div>
     <v-btn
