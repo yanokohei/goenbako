@@ -17,8 +17,7 @@
         outlined
         color="#FCFCFC"
         rounded="xl"
-      >
-        {{ letter.text }}
+      >{{ letter.text }}
       </v-card>
     </v-card>
   </v-container>
