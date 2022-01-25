@@ -1,16 +1,24 @@
 <template>
-  <v-row justify="center" class="mt-6">
+  <v-row
+    justify="center"
+    class="mt-6"
+  >
     <v-card
       color="transparent"
       min-width="300"
       max-width="320"
     >
-      <v-list-item-avatar size="60" class="avatar-position">
+      <v-list-item-avatar
+        size="60"
+        class="avatar-position"
+      >
         <img :src="currentUser.image">
       </v-list-item-avatar>
       <v-list-item-content>
         <v-card-title class="m-font mt-2">
-        <p class="ma-0 pa-0">{{ currentUser.name }}</p>
+          <p class="ma-0 pa-0">
+            {{ currentUser.name }}
+          </p>
         </v-card-title>
         <v-card-subtitle class="pb-1">
           @{{ currentUser.twitter_id }}
@@ -45,12 +53,6 @@ export default {
 </script>
 
 <style scoped>
-/* .l-font{
-  font-size: 2.0em;
-  font-weight: bold;
-  line-height: 1.5;
-  color: #2c281e;
-} */
 .m-font{
   font-size: 1.2em;
   font-weight: bold;

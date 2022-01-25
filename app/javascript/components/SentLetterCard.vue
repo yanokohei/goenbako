@@ -8,7 +8,7 @@
         max-width="320"
         class="sent-letter-card"
       >
-<!-- 画像１枚の場合、SVGの表示が消える。要改善 -->
+        <!-- 画像１枚の場合、SVGの表示が消える。要改善 -->
         <v-img
           src="/img/Dear.svg"
           max-width="45px"
@@ -44,17 +44,23 @@
         </v-card-title>
         <div class="pa-0 flex-icon">
           <router-link :to="{ name: 'User', params: { twitter_id: sentLetter.sender.twitter_id }}">
-            <v-list-item-avatar class="pa-0 pb-0 mr-8 ml-2" size="50">
+            <v-list-item-avatar
+              class="pa-0 pb-0 mr-8 ml-2"
+              size="50"
+            >
               <img :src="sentLetter.sender.image">
             </v-list-item-avatar>
           </router-link>
-            <v-img
-              class="tranceparent"
-              src="/img/to_right_yellow.svg"
-              max-width="60px"
-            />
+          <v-img
+            class="tranceparent"
+            src="/img/to_right_yellow.svg"
+            max-width="60px"
+          />
           <router-link :to="{ name: 'User', params: { twitter_id: sentLetter.receiver.twitter_id }}">
-            <v-list-item-avatar class="pa-0 pb-0 mr-2 ml-8" size="50">
+            <v-list-item-avatar
+              class="pa-0 pb-0 mr-2 ml-8"
+              size="50"
+            >
               <img :src="sentLetter.receiver.image">
             </v-list-item-avatar>
           </router-link>
@@ -99,7 +105,7 @@
         :is-visible-edit-letter-modal="isVisibleEditLetterModal"
         :user="user"
         :receiver="sentLetter.receiver"
-        :updateLetter="sentLetter.letter"
+        :update-letter="sentLetter.letter"
         @close-modal="handleCloseEditLetterModal"
         @update-letter="handleUpdateLetter"
       />
@@ -118,12 +124,6 @@ export default {
     LetterItem,
     EditLetterModal
   },
-  data() {
-    return {
-      isVisibleEditLetterModal: false,
-      letter_case: "sent_case"
-    }
-  },
   props: {
     user: {
       type: Object,
@@ -132,6 +132,12 @@ export default {
     sentLetter: {
       type: Object,
       required: true
+    }
+  },
+  data() {
+    return {
+      isVisibleEditLetterModal: false,
+      letter_case: "sent_case"
     }
   },
   computed: {

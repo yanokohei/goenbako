@@ -4,15 +4,19 @@
     max-width="315"
     @click:outside="handleCloseModal"
   >
-    <v-card color="amber lighten-5" height="450" max-width="300" >
+    <v-card
+      color="amber lighten-5"
+      height="450"
+      max-width="300"
+    >
       <h3 class="ml-4">
         ユーザー検索
       </h3>
       <v-divider />
       <v-card-text class="mt-8 mb-0 pb-0">
         <v-text-field
-          background-color="#FFFFF0"
           v-model="searchID"
+          background-color="#FFFFF0"
           label="TwitterID検索"
           persistent-hint
           outlined
@@ -29,10 +33,18 @@
           </v-btn>
         </v-card-actions>
       </v-card-text>
-      <v-card color="amber lighten-5" outlined height="220" max-width="300" >
+      <v-card
+        color="amber lighten-5"
+        outlined
+        height="220"
+        max-width="300"
+      >
         <v-card-text class="mb-1">
           <transition name="fade">
-            <div class="xs-font mb-4 mt-4 text-center" v-if="this.missingUserSearch">
+            <div
+              v-if="missingUserSearch"
+              class="xs-font mb-4 mt-4 text-center"
+            >
               入力内容に誤りがあるか、<br>
               まだご縁箱を開設していないユーザーのようです。
             </div>
@@ -43,16 +55,16 @@
               :search-i-d="searchID"
             />
           </transition>
-          <div v-if="this.beforeUserSearch">
+          <div v-if="beforeUserSearch">
             <div class="mt-3 s-font text-center">
               あなたがファンレターを書きたい<br>
               \ ユーザーを検索してみましょう！ /
             </div>
             <v-col align="center">
-            <v-img
-              src="/img/goenbako_main_illust.png"
-              max-width="220px"
-            />
+              <v-img
+                src="/img/goenbako_main_illust.png"
+                max-width="220px"
+              />
             </v-col>
           </div>
         </v-card-text>

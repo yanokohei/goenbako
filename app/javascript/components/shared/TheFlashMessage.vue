@@ -1,7 +1,13 @@
 <template>
   <v-fade-transition>
     <div class="flash">
-      <v-alert dense outlined :type="flash.type">{{ flash.message }}</v-alert>
+      <v-alert
+        dense
+        outlined
+        :type="flash.type"
+      >
+        {{ flash.message }}
+      </v-alert>
     </div>
   </v-fade-transition>
 </template>

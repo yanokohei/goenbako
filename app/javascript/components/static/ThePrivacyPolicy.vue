@@ -2,8 +2,8 @@
   <v-dialog
     v-model="isVisiblePrivacyPolicyModal"
     max-width="800"
-    @click:outside="hundleClosePrivacyPolicyModal"
     scrollable
+    @click:outside="hundleClosePrivacyPolicyModal"
   >
     <v-card class="privacy-policy">
       <v-card-text style="height: 90%;">
@@ -80,13 +80,16 @@
             color="blue"
             href="https://twitter.com/goenbako"
             style="text-transform: none"
-          ><v-icon>mdi-twitter</v-icon>(@goenbako)
+          >
+            <v-icon>mdi-twitter</v-icon>(@goenbako)
           </v-btn>
         </div>
       </v-card-text>
-        <v-card-actions justify="center">
-          <v-btn @click="hundleClosePrivacyPolicyModal">閉じる</v-btn>
-        </v-card-actions>
+      <v-card-actions justify="center">
+        <v-btn @click="hundleClosePrivacyPolicyModal">
+          閉じる
+        </v-btn>
+      </v-card-actions>
     </v-card>
   </v-dialog>
 </template>

@@ -4,71 +4,100 @@
     max-width="315"
     @click:outside="handleCloseModal"
   >
-    <v-card color="amber lighten-5" height="490" max-width="300" >
+    <v-card
+      color="amber lighten-5"
+      height="490"
+      max-width="300"
+    >
       <v-card-title class="pl-4 pa-1 nowrap">
-        <v-icon color="blue">mdi-help-box</v-icon>
+        <v-icon color="blue">
+          mdi-help-box
+        </v-icon>
         <span class="m-font"> ご縁箱の使い方
-          ({{stepCount}}/6)
+          ({{ stepCount }}/6)
         </span>
       </v-card-title>
       <v-divider />
-      <v-col align="center" class="pa-0 pt-3">
-        <v-card height="325" color="transparent" outlined>
-          <transition name="fade" mode="out-in">
+      <v-col
+        align="center"
+        class="pa-0 pt-3"
+      >
+        <v-card
+          height="325"
+          color="transparent"
+          outlined
+        >
+          <transition
+            name="fade"
+            mode="out-in"
+          >
             <v-img
-              eager
-              key="1"
               v-if="stepCount === 1"
+              key="1"
+              eager
               src="/img/rules/rule_1.jpg"
             />
             <v-img
-              eager
-              key="2"
               v-else-if="stepCount === 2"
+              key="2"
+              eager
               src="/img/rules/rule_2.jpg"
             />
             <v-img
-              eager
-              key="3"
               v-else-if="stepCount === 3"
+              key="3"
+              eager
               src="/img/rules/rule_3.jpg"
             />
             <v-img
-              eager
-              key="4"
               v-else-if="stepCount === 4"
+              key="4"
+              eager
               src="/img/rules/rule_4.jpg"
             />
             <v-img
-              eager
-              key="5"
               v-else-if="stepCount === 5"
+              key="5"
+              eager
               src="/img/rules/rule_5.jpg"
             />
             <v-img
-              key="0"
               v-else-if="stepCount === 6"
+              key="0"
               src="/img/rules/rule_6.jpg"
             />
           </transition>
         </v-card>
       </v-col>
       <div>
-        <v-col align="right" class="pa-0">
-        <v-img
-          src="/img/goenbako_main_illust.png"
-          max-width="130px"
-          height="45"
-        />
+        <v-col
+          align="right"
+          class="pa-0"
+        >
+          <v-img
+            src="/img/goenbako_main_illust.png"
+            max-width="130px"
+            height="45"
+          />
         </v-col>
-        <v-col v-if="stepCount===6" align="center" justify="center" class="pa-0">
+        <v-col
+          v-if="stepCount===6"
+          align="center"
+          justify="center"
+          class="pa-0"
+        >
           <v-btn
             @click="handleCloseModal"
           >
             閉じる
           </v-btn>
         </v-col>
-        <v-col v-else align="center" justify="center" class="pa-0">
+        <v-col
+          v-else
+          align="center"
+          justify="center"
+          class="pa-0"
+        >
           <v-btn
             color="red lighten-4"
             @click="nextStepCount"

@@ -14,10 +14,17 @@
       small
       :href="inviteTweetReply()"
     >
-      <v-icon color="blue">mdi-twitter</v-icon>
+      <v-icon color="blue">
+        mdi-twitter
+      </v-icon>
       リクエストしてみる
     </v-btn>
-    <p v-if="!currentUser" class="xs-font mt-2 mb-0">※ログインが必要です</p>
+    <p
+      v-if="!currentUser"
+      class="xs-font mt-2 mb-0"
+    >
+      ※ログインが必要です
+    </p>
   </v-col>
 </template>
 

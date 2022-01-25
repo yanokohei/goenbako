@@ -8,10 +8,10 @@
       :to="{ name: 'Top' }"
     >
       <span>Top</span>
-        <v-img
-          src="/img/icon_parts.svg"
-          max-width="17px"
-        />
+      <v-img
+        src="/img/icon_parts.svg"
+        max-width="17px"
+      />
     </v-btn>
 
     <v-btn
@@ -24,7 +24,7 @@
     </v-btn>
 
     <v-btn
-      :to="{ name: 'User', params: { twitter_id: this.random_id }}"
+      :to="{ name: 'User', params: { twitter_id: random_id }}"
     >
       <span>Random</span>
 
@@ -39,18 +39,19 @@
       <v-icon>mdi-account-search-outline</v-icon>
     </v-btn>
     <v-menu
+      v-if="currentUser"
       transition="slide-y-transition"
       bottom
-      v-if="currentUser"
-      top offset-y
+      top
+      offset-y
     >
-      <template v-slot:activator="{ on, attrs }">
+      <template #activator="{ on, attrs }">
         <v-btn
           text
           color="blue"
           v-bind="attrs"
-          v-on="on"
           x-small
+          v-on="on"
         >
           <span>Menu</span>
 
@@ -61,12 +62,12 @@
         <v-list-item
           to="/api/logout"
           data-method="delete"
-          @click="logoutUser"
           small
           text
+          @click="logoutUser"
         >
           <v-icon>mdi-logout</v-icon>
-            ログアウト
+          ログアウト
         </v-list-item>
       </v-list>
     </v-menu>
@@ -96,14 +97,19 @@ export default {
       isVisibleUserSearchModal: false,
     }
   },
-  mounted() {
-    this.fetchRandomUser()
-  },
   computed: {
     currentPath() {
       return this.$route.path
     },
     ...mapGetters({ currentUser: "users/currentUser" }),
+  },
+  watch: {
+    currentPath: function() {
+      this.fetchRandomUser()
+    }
+  },
+  mounted() {
+    this.fetchRandomUser()
   },
   methods: {
     logoutUser() {
@@ -123,11 +129,6 @@ export default {
     handleCloseUserSearchModal() {
       this.isVisibleUserSearchModal = false;
     },
-  },
-  watch: {
-    currentPath: function() {
-      this.fetchRandomUser()
-    }
   },
 }
 </script>

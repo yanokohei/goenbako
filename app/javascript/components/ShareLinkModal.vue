@@ -6,13 +6,25 @@
   >
     <v-card color="amber lighten-5">
       <v-card-title>
-        <v-img max-width="21" src="/img/icon_parts.svg" />
+        <v-img
+          max-width="21"
+          src="/img/icon_parts.svg"
+        />
         <span class="my-2 ml-2 m-font nowrap">  Myご縁箱をシェアする</span>
       </v-card-title>
       <div align="center">
-        <v-img max-width="270" height="5" class="tranceparent" src="/img/en_line_top.svg" />
+        <v-img
+          max-width="270"
+          height="5"
+          class="tranceparent"
+          src="/img/en_line_top.svg"
+        />
       </div>
-      <v-img max-width="55" class="letter-position tranceparent" src="/img/triple_letter.svg" />
+      <v-img
+        max-width="55"
+        class="letter-position tranceparent"
+        src="/img/triple_letter.svg"
+      />
       <v-col class="text-center mt-4">
         <v-btn
           color="blue"
@@ -58,7 +70,12 @@
         justify="center"
         class="ma-4 py-2"
       >
-        <v-img max-width="270" height="6" class="tranceparent mb-1" src="/img/en_line_under.svg" />
+        <v-img
+          max-width="270"
+          height="6"
+          class="tranceparent mb-1"
+          src="/img/en_line_under.svg"
+        />
         <v-card-actions>
           <v-btn
             small
