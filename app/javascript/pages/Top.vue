@@ -7,8 +7,8 @@
         あなたには『素敵なご縁』がある。<br>これまでも、これからも。
       </div>
     </v-row>
-    <v-col class="mt-4" align="center">
-      <v-img max-width="320" height="200" class="tranceparent" src="/img/MAIN_TOP_IMAGE.jpg" />
+    <v-col class="mt-0" align="center">
+      <v-img max-width="340" height="200" class="" src="/img/TOP_TITLE.jpg" />
     </v-col>
     <v-col v-if="!currentUser" align="center">
       <p class="indigo--text">
