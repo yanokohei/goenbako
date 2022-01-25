@@ -2,7 +2,7 @@
   <v-dialog
     v-model="isVisibleCreateLetterModal"
     persistent
-    max-width="500"
+    max-width="400"
     scrollable
   >
     <v-card color="amber lighten-5" min-height="500">
