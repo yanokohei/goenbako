@@ -8,9 +8,7 @@
       class="my-3"
     >
       <v-card-title class="pl-2 pa-1 mb-0 s-font">
-        <p class="ma-0 pa-0 text-cap">
-          {{ letter.title }}
-        </p>
+        <p class="ma-0 pa-0 text-cap">{{ letter.title }}</p>
       </v-card-title>
       <v-card
         class="mx-2 mt-0 rounded-lg u-pre-wrap xs-font"
