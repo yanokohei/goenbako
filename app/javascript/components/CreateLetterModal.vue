@@ -5,7 +5,7 @@
     max-width="500"
     scrollable
   >
-    <v-card color="amber lighten-5">
+    <v-card color="amber lighten-5" min-height="500">
       <v-card-title>
         <v-icon>mdi-email-edit-outline</v-icon>
         <span class="m-font">ファンレター作成</span>
