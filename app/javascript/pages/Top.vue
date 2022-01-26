@@ -70,6 +70,7 @@
     <v-col align="center">
       <v-card
         max-width="320"
+        min-height="350"
         color="transparent"
         outlined
       >
