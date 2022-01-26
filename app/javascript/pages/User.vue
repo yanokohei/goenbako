@@ -64,7 +64,7 @@ export default {
   data() {
     return {
       user: {},
-      notExistUserPage: "",
+      notExistUserPage: false,
       receivedLetters: [],
       sentLetters: [],
       isVisibleCreateLetterModal: false,
@@ -87,21 +87,21 @@ export default {
     }
   },
   mounted() {
-      this.fetchUserAndLetters()
+    this.fetchUserAndLetters()
   },
   methods: {
     async fetchUserAndLetters() {
       await this.fetchUser()
-      if (this.notExistUserPage !== "NotFound") {
+      if (!this.notExistUserPage) {
         this.fetchReceivedLetters()
         this.fetchSentLetters()
       }
     },
     fetchUser() {
-      axios.get(`/api/users/${this.$route.params.twitter_id}`)
+      return axios.get(`/api/users/${this.$route.params.twitter_id}`)
       .then((res) => {
         if (res.data === null) {
-          this.notExistUserPage = "notFound"
+          this.notExistUserPage = true
           this.$router.push({ name: "NotFound" })
         } else {
           this.user = res.data
