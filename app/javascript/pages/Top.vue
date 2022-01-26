@@ -70,7 +70,6 @@
     <v-col align="center">
       <v-card
         max-width="320"
-        min-height="350"
         color="transparent"
         outlined
       >
@@ -81,7 +80,7 @@
           <span class="s-font">ご縁箱の使い方
           </span>
         </v-card-title>
-        <v-card>
+        <v-card min-height="350">
           <v-carousel
             cycle
             max-width="300"
