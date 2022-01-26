@@ -1,5 +1,5 @@
 <template>
-  <v-col class="text-center invite-area mb-4">
+  <v-col class="text-center invite-area mb-4 pb-4">
     <v-row justify="end">
       <v-img
         src="/img/writing.png"
