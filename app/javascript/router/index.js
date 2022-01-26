@@ -6,6 +6,7 @@ import Top from "../pages/Top";
 import User from "../pages/User";
 import Mypage from "../pages/Mypage";
 import ShowLetter from "../pages/ShowLetter";
+import NotFound from "../pages/NotFound";
 
 Vue.use(Router)
 
@@ -31,6 +32,11 @@ Vue.use(Router)
       component: ShowLetter,
       name: "ShowLetter",
     },
+    {
+      path: "*",
+      name: "NotFound",
+      component: NotFound,
+    }
   ];
 
 const router = new Router({

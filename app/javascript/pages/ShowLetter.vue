@@ -195,8 +195,12 @@ export default {
     async fetchLetter() {
       await axios.get(`/api/letters/${this.$route.params.letter_id}`)
       .then((res) => {
-        this.letterData = res.data
-        this.loadData = true
+        if (res.data === null) {
+          this.$router.push({ name: "NotFound" })
+        } else {
+          this.letterData = res.data
+          this.loadData = true
+        }
       })
     }
   }

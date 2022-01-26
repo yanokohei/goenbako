@@ -1,6 +1,6 @@
 <template>
   <v-fade-transition>
-    <div class="flash">
+    <div class="flash nowrap">
       <v-alert
         dense
         outlined
@@ -47,5 +47,8 @@ export default {
 }
 .v-alert {
   font-size: 1.1em;
+}
+.nowrap{
+  white-space: nowrap
 }
 </style>

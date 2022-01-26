@@ -6,14 +6,14 @@
   >
     <v-card
       color="amber lighten-5"
-      height="410"
+      height="380"
       max-width="300"
     >
       <h3 class="ml-4">
         ユーザー検索
       </h3>
       <v-divider />
-      <v-card-text class="mt-8 mb-0 pb-0">
+      <v-card-text class="mt-4 mb-0 pb-0">
         <v-text-field
           v-model="searchID"
           background-color="#FFFFF0"
@@ -24,7 +24,7 @@
           placeholder="@を省略して入力してください"
           class="ma-0 mb-0 pb-0"
         />
-        <v-card-actions class="justify-center py-1">
+        <v-card-actions class="justify-center pt-0 pb-1">
           <v-btn
             small
             @click="searchUser"
@@ -36,14 +36,14 @@
       <v-card
         color="amber lighten-5"
         outlined
-        height="180"
+        height="160"
         max-width="300"
       >
         <v-card-text class="pb-0 mb-0">
           <transition name="fade">
             <div
               v-if="missingUserSearch"
-              class="xs-font mb-4 mt-1 text-center"
+              class="xs-font mb-2 mt-1 text-center"
             >
               入力内容に誤りがあるか、<br>
               まだご縁箱を開設していないユーザーのようです。
@@ -69,18 +69,14 @@
           </div>
         </v-card-text>
       </v-card>
-      <v-row
-        justify="center"
-      >
-        <v-card-actions>
-          <v-btn
-            large
-            @click="handleCloseModal"
-          >
-            閉じる
-          </v-btn>
-        </v-card-actions>
-      </v-row>
+      <div class="pa-0 mt-3" align="center">
+        <v-btn
+          small
+          @click="handleCloseModal"
+        >
+          閉じる
+        </v-btn>
+      </div>
     </v-card>
   </v-dialog>
 </template>
