@@ -64,6 +64,7 @@ export default {
   data() {
     return {
       user: {},
+      notExistUserPage: "",
       receivedLetters: [],
       sentLetters: [],
       isVisibleCreateLetterModal: false,
@@ -82,31 +83,39 @@ export default {
   },
   watch: {
     currentPath: function() {
-      this.fetchUser()
-      this.fetchReceivedLetters()
-      this.fetchSentLetters()
+      this.fetchUserAndLetters()
     }
   },
   mounted() {
-    this.fetchUser()
-    this.fetchReceivedLetters()
-    this.fetchSentLetters()
+      this.fetchUserAndLetters()
   },
   methods: {
-    async fetchUser() {
-      await axios.get(`/api/users/${this.$route.params.twitter_id}`)
+    async fetchUserAndLetters() {
+      await this.fetchUser()
+      if (this.notExistUserPage !== "NotFound") {
+        this.fetchReceivedLetters()
+        this.fetchSentLetters()
+      }
+    },
+    fetchUser() {
+      axios.get(`/api/users/${this.$route.params.twitter_id}`)
       .then((res) => {
-        this.user = res.data
+        if (res.data === null) {
+          this.notExistUserPage = "notFound"
+          this.$router.push({ name: "NotFound" })
+        } else {
+          this.user = res.data
+        }
       })
     },
-    async fetchReceivedLetters() {
-      await axios.get(`/api/users/${this.$route.params.twitter_id}/received_letters`)
+    fetchReceivedLetters() {
+      axios.get(`/api/users/${this.$route.params.twitter_id}/received_letters`)
         .then((res) => {
           this.receivedLetters = res.data
         })
     },
-    async fetchSentLetters() {
-      await axios.get(`/api/users/${this.$route.params.twitter_id}/sent_letters`)
+    fetchSentLetters() {
+      axios.get(`/api/users/${this.$route.params.twitter_id}/sent_letters`)
         .then((res) => {
           this.sentLetters = res.data
         })
