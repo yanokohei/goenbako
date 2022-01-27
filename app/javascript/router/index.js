@@ -36,7 +36,10 @@ Vue.use(Router)
       path: "*",
       name: "NotFound",
       component: NotFound,
-    }
+    },
+    { // ログアウト時に一時的にNotFoundに遷移するため配置。
+      path: "/api/:logout",
+    },
   ];
 
 const router = new Router({
