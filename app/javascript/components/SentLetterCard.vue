@@ -19,7 +19,8 @@
           max-width="45px"
           class="dear-position"
         />
-        <v-card-title class="pt-4 pb-0 pl-12">
+        <v-card-title class="pt-4 pb-0">
+          <v-list-item-avatar class="pa-0 ma-0" />
           <v-list-item-content class="pa-0">
             <v-list-item-title class="s-font">
               {{ sentLetter.receiver.name }}
@@ -37,7 +38,7 @@
           </v-list-item-content>
           <v-img
             src="/img/en_line_top.svg"
-            max-width="130px"
+            max-width="120px"
             height="4px"
             class="en-line-top-position"
           />
@@ -204,7 +205,7 @@ export default {
   mix-blend-mode: multiply;
   position: absolute;
   top: 135px;
-  left: 180px;
+  left: 165px;
   opacity: 0.5;
 }
 .sent-letter-card{
