@@ -272,9 +272,6 @@ export default {
     addLetterTopicToSvg(letterTitle) {
       this.title = letterTitle.message
       this.content = letterTitle.content
-      // if (letterTitle.topic === "expect") {
-      //   this.title = this.shortReceiverNameExpectCase()
-      // }
     },
     postToRailsAndMoveTwitter(letterTitle) {
       this.shareImage.letter_id = this.receivedLetter.letter.id
@@ -324,7 +321,7 @@ export default {
   display: block;
 }
 .m-font{
-  font-size: 1.0em;
+  font-size: 0.9em;
   font-weight: bold;
   line-height: 1;
   color: #2c281e;

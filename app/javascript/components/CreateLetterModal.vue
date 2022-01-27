@@ -185,7 +185,7 @@ export default {
   display: block;
 }
 .m-font{
-  font-size: 1.1em;
+  font-size: 0.9em;
   font-weight: bold;
   line-height: 1;
   color: #2c281e;

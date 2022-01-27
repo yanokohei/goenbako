@@ -66,7 +66,7 @@
           </router-link>
           <v-img
             src="/img/en_line_under.svg"
-            max-width="130px"
+            max-width="110px"
             height="4px"
             class="en-line-under-position"
           />
