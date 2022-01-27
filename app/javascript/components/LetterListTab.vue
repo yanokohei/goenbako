@@ -24,6 +24,7 @@
       <v-row
         justify="center"
         class="py-4"
+        style="width:100%;"
       >
         <v-tabs-items v-model="moveTab">
           <v-tab-item

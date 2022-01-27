@@ -38,7 +38,7 @@
           </v-list-item-content>
           <v-img
             src="/img/en_line_top.svg"
-            max-width="120px"
+            max-width="100px"
             height="4px"
             class="en-line-top-position"
           />
@@ -205,7 +205,7 @@ export default {
   mix-blend-mode: multiply;
   position: absolute;
   top: 135px;
-  left: 165px;
+  left: 160px;
   opacity: 0.5;
 }
 .sent-letter-card{
