@@ -22,7 +22,7 @@
       v-if="!currentUser"
       align="center"
     >
-      <p class="indigo--text">
+      <p class="indigo--text s-font">
         ご縁箱を開設して<br>＼ファンレターを交換してみよう／
       </p>
       <v-btn
@@ -129,7 +129,7 @@
           src="/img/triple_letter.svg"
         />
         <v-col
-          class="p-font"
+          class="p-font nowrap"
           align="center"
         >
           <p>あなたと今、ご縁がある人。</p>
@@ -282,7 +282,7 @@ export default {
   color: #2c281e;
 }
 .xs-font{
-  font-size: 0.6em;
+  font-size: 0.55em;
   font-weight: lighter;
   line-height: 1.5;
   color: #2c281e;
