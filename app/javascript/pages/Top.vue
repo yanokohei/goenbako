@@ -80,7 +80,8 @@
           <span class="s-font">ご縁箱の使い方
           </span>
         </v-card-title>
-        <v-card min-height="350">
+<!-- 本来のカルーセル -->
+        <v-card>
           <v-carousel
             cycle
             max-width="300"
@@ -98,6 +99,60 @@
                 height="100%"
                 eager
               >
+            </v-carousel-item>
+          </v-carousel>
+        </v-card>
+      </v-card>
+    </v-col>
+        <!-- <img src="/img/TOP_TITLE.jpg"> -->
+    <v-col align="center">
+      <v-card
+        max-width="320"
+        color="transparent"
+        outlined
+      >
+        <v-card-title class="pl-2 pa-1 pb-3 nowrap">
+          <v-icon color="blue">
+            mdi-help-box
+          </v-icon>
+          <span class="s-font">ご縁箱の使い方
+          </span>
+        </v-card-title>
+        <v-card class="carousel">
+          <v-carousel
+            interval="3000"
+            max-width="300"
+            height="100%"
+            hide-delimiters
+            show-arrows-on-hover
+            cycle
+          >
+            <v-carousel-item>
+              <v-card
+                width="100%"
+                height="100%"
+                color="#6495ed"
+              >
+                <img src="/img/rules/rule_0.jpg">
+              </v-card>
+            </v-carousel-item>
+            <v-carousel-item>
+              <v-card
+                  width="100%"
+                  height="100%"
+                  color="#6495ed"
+              >
+                <img src="/img/rules/rule_1.jpg">
+              </v-card>
+            </v-carousel-item>
+            <v-carousel-item>
+              <v-card
+                width="100%"
+                height="100%"
+                color="#6495ed"
+              >
+                <img src="/img/rules/rule_2.jpg">
+              </v-card>
             </v-carousel-item>
           </v-carousel>
         </v-card>
@@ -297,5 +352,11 @@ export default {
 }
 .tranceparent{
   mix-blend-mode: multiply;
+}
+.carousel {
+  max-width: 330px;
+}
+.carousel img {
+  width: 100%;
 }
 </style>
