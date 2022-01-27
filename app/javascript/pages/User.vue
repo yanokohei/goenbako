@@ -97,16 +97,14 @@ export default {
         this.fetchSentLetters()
       }
     },
-    fetchUser() {
-      return axios.get(`/api/users/${this.$route.params.twitter_id}`)
-      .then((res) => {
-        if (res.data === null) {
-          this.notExistUserPage = true
-          this.$router.push({ name: "NotFound" })
-        } else {
-          this.user = res.data
-        }
-      })
+    async fetchUser() {
+      const result = await axios.get(`/api/users/${this.$route.params.twitter_id}`)
+      if (result.data === null) {
+        this.notExistUserPage = true
+        this.$router.push({ name: "NotFound" })
+      } else {
+        this.user = result.data
+      }
     },
     fetchReceivedLetters() {
       axios.get(`/api/users/${this.$route.params.twitter_id}/received_letters`)
