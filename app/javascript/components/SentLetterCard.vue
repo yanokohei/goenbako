@@ -50,7 +50,7 @@
             </v-list-item-avatar>
           </router-link>
           <v-img
-            class="tranceparent"
+            class="tranceparent mx-3"
             src="/img/to_right_yellow.svg"
             max-width="60px"
           />
