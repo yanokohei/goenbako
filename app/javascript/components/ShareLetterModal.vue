@@ -74,6 +74,7 @@
           <v-btn
             small
             @click="handleCloseModal"
+            class="pr-1"
           >
             閉じる
           </v-btn>

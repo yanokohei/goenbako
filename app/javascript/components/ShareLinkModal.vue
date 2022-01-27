@@ -79,6 +79,7 @@
         <v-card-actions>
           <v-btn
             small
+            class="pr-3"
             @click="handleCloseModal"
           >
             閉じる
