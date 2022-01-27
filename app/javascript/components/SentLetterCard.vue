@@ -44,10 +44,7 @@
         </v-card-title>
         <div class="pa-0 flex-icon">
           <router-link :to="{ name: 'User', params: { twitter_id: sentLetter.sender.twitter_id }}">
-            <v-list-item-avatar
-              class="pa-0 pb-0 mr-8 ml-2"
-              size="50"
-            >
+            <v-list-item-avatar class="pa-0 pb-0 mr-2 ml-8" size="50">
               <img :src="sentLetter.sender.image">
             </v-list-item-avatar>
           </router-link>
@@ -57,10 +54,7 @@
             max-width="60px"
           />
           <router-link :to="{ name: 'User', params: { twitter_id: sentLetter.receiver.twitter_id }}">
-            <v-list-item-avatar
-              class="pa-0 pb-0 mr-2 ml-8"
-              size="50"
-            >
+            <v-list-item-avatar class="pa-0 pb-0 mr-8 ml-2" size="50">
               <img :src="sentLetter.receiver.image">
             </v-list-item-avatar>
           </router-link>

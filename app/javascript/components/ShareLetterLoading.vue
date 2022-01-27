@@ -11,37 +11,11 @@
       >
         <v-card-text>
           <div class="position">
-            <p
-              class="s-font nowrap"
-              align="center"
-            >
-              ツイート画面へ移動します...
-            </p>
-            <div
-              class="flex mb-4 mr-5"
-              align="center"
-            >
-              <v-img
-                max-width="70"
-                class="tranceparent"
-                src="/img/goenbako_reversible.jpg"
-              />
-              <p
-                class="s-font mt-6 pl-3 pr-4"
-                align="center"
-              >
-                <v-img
-                  width="30"
-                  height="5"
-                  src="/img/to_right.svg"
-                />
-              </p>
-              <v-icon
-                size="30"
-                color="blue"
-              >
-                mdi-twitter
-              </v-icon>
+            <p class="s-font nowrap" align="center">ツイート画面へ移動します...</p>
+            <div class="flex mb-4 mr-5" align="center">
+              <v-img max-width="70" class="tranceparent" src="/img/goenbako_reversible.jpg" />
+              <p class="s-font mt-6 pl-3 pr-4" align="center"><v-img width="30" height="5" src="/img/to_right.svg" /></p>
+              <v-icon size="30" color="blue">mdi-twitter</v-icon>
             </div>
             <v-progress-linear
               indeterminate
