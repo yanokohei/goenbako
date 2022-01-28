@@ -22,7 +22,7 @@
           outlined
           dense
           placeholder="@を省略して入力してください"
-          class="ma-0 mb-0 pb-0 xs-font"
+          class="ma-0 mb-0 pb-0"
         />
         <v-card-actions class="justify-center pt-0 pb-1">
           <v-btn
