@@ -7,7 +7,7 @@ module ApplicationHelper
       charset: 'UTF-8',
       og: {
         title: '°˖✧ご縁箱✧˖° Twitterユーザー同士で楽しめる! ファンレター公開サービス',
-        description: 'ご縁箱を2秒で開設したらMyご縁箱を共有してあなたのフォロワーからファンレターを受け取ってみましょう♪',
+        description: 'ご縁箱を秒速で開設したらMyご縁箱を共有してあなたのフォロワーからファンレターを受け取ってみましょう♪',
         type: 'website',
         url: 'https://goenbako.com',
         image: 'https://goenbako.com/img/MAIN_OGP.jpg',
