@@ -7,7 +7,7 @@
     <v-card
       color="amber lighten-5"
       height="490"
-      max-width="400"
+      max-width="300"
     >
       <v-card-title class="pl-4 pa-1 nowrap">
         <v-icon color="blue">
