@@ -24,7 +24,9 @@
     </v-btn>
 
     <v-btn
-      :to="{ name: 'User', params: { twitter_id: random_id }}"
+      id="random"
+      @click="hundleRandomButton"
+      :disabled="isRandomButton"
     >
       <span>Random</span>
 
@@ -95,6 +97,7 @@ export default {
     return{
       random_id: '',
       isVisibleUserSearchModal: false,
+      isRandomButton: false
     }
   },
   computed: {
@@ -112,6 +115,11 @@ export default {
     this.fetchRandomUser()
   },
   methods: {
+    hundleRandomButton() {
+      this.$router.push({ name: 'User', params: { twitter_id: this.random_id }});
+      this.isRandomButton = true
+      setTimeout(() => (this.isRandomButton = false), 700)
+    },
     logoutUser() {
       this.$store.commit('setCurrentUser', { user: null })
       Cookies.remove('vuex');
