@@ -203,7 +203,7 @@ export default {
       isVisiblePrivacyPolicyModal: false,
       rule_images: [
         {
-          src: "/img/rules/rule_0.jpg"
+          src: "/img/rules/rule__0.jpg"
         },
         {
           src: "/img/rules/rule_1.jpg"
