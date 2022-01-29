@@ -7,7 +7,7 @@
     <v-card
       color="amber lighten-5"
       height="380"
-      max-width="300"
+      max-width="400"
     >
       <h3 class="ml-4">
         ユーザー検索

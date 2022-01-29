@@ -5,7 +5,7 @@
   >
     <v-card
       color="transparent"
-      min-width="300"
+      min-width="280"
       max-width="320"
     >
       <v-list-item-avatar

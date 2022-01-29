@@ -6,7 +6,7 @@
         max-width="28px"
       />
     </v-row>
-    <div class="xs-font mt-3 mb-2">
+    <div class="xs-font mt-3 mb-2 nowrap">
       \ ご縁箱の開設をお願いしてみませんか? /
     </div>
     <v-btn
@@ -75,5 +75,8 @@ export default {
 }
 .modal {
   display: block;
+}
+.nowrap{
+  white-space: nowrap
 }
 </style>

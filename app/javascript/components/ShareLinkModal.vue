@@ -7,7 +7,7 @@
     <v-card color="amber lighten-5">
       <v-card-title>
         <v-img
-          max-width="21"
+          max-width="18"
           src="/img/icon_parts.svg"
         />
         <span class="my-2 ml-2 m-font nowrap">  Myご縁箱をシェアする</span>
@@ -79,6 +79,7 @@
         <v-card-actions>
           <v-btn
             small
+            class="pr-3"
             @click="handleCloseModal"
           >
             閉じる
@@ -134,7 +135,7 @@ export default {
   display: block;
 }
 .m-font{
-  font-size: 1.0em;
+  font-size: 0.9em;
   font-weight: bold;
   line-height: 1.0;
   color: #2c281e;
@@ -150,8 +151,8 @@ export default {
 }
 .letter-position{
   position: absolute;
-  top: 180px;
-  left: 255px;
+  top: 190px;
+  left: 215px;
 }
 .nowrap{
   white-space: nowrap

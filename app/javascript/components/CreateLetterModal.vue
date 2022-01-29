@@ -68,13 +68,13 @@
                 type="submit"
                 large
                 color="blue"
-                class="white--text pr-3 s-font"
+                class="white--text pr-4 s-font"
               >
                 レターを送る
               </v-btn>
               <v-btn
                 large
-                class="s-font pr-3"
+                class="s-font pr-4"
                 @click="handleCloseModal"
               >
                 閉じる
@@ -185,7 +185,7 @@ export default {
   display: block;
 }
 .m-font{
-  font-size: 1.1em;
+  font-size: 0.9em;
   font-weight: bold;
   line-height: 1;
   color: #2c281e;

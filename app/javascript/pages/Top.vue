@@ -22,7 +22,7 @@
       v-if="!currentUser"
       align="center"
     >
-      <p class="indigo--text">
+      <p class="indigo--text s-font">
         ご縁箱を開設して<br>＼ファンレターを交換してみよう／
       </p>
       <v-btn
@@ -70,6 +70,7 @@
     <v-col align="center">
       <v-card
         max-width="320"
+        height="400"
         color="transparent"
         outlined
       >
@@ -80,10 +81,9 @@
           <span class="s-font">ご縁箱の使い方
           </span>
         </v-card-title>
-        <v-card min-height="350">
+<!-- 本来のカルーセル -->
+        <v-card>
           <v-carousel
-            cycle
-            max-width="300"
             height="100%"
             hide-delimiters
             :continuous="false"
@@ -129,7 +129,7 @@
           src="/img/triple_letter.svg"
         />
         <v-col
-          class="p-font"
+          class="p-font nowrap"
           align="center"
         >
           <p>あなたと今、ご縁がある人。</p>
@@ -203,7 +203,7 @@ export default {
       isVisiblePrivacyPolicyModal: false,
       rule_images: [
         {
-          src: "/img/rules/rule_0.jpg"
+          src: "/img/rules/rule__0.jpg"
         },
         {
           src: "/img/rules/rule_1.jpg"
@@ -282,7 +282,7 @@ export default {
   color: #2c281e;
 }
 .xs-font{
-  font-size: 0.6em;
+  font-size: 0.55em;
   font-weight: lighter;
   line-height: 1.5;
   color: #2c281e;
@@ -297,5 +297,11 @@ export default {
 }
 .tranceparent{
   mix-blend-mode: multiply;
+}
+.carousel {
+  max-width: 330px;
+}
+.carousel img {
+  width: 100%;
 }
 </style>

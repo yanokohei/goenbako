@@ -15,10 +15,7 @@
         />
         <v-card-title class="pt-4 pb-0">
           <router-link :to="{ name: 'User', params: { twitter_id: receivedLetter.sender.twitter_id }}">
-            <v-list-item-avatar
-              class="pa-0 mr-2 ml-2"
-              size="55"
-            >
+            <v-list-item-avatar class="pa-0 mr-2 ml-2" size="55">
               <img :src="receivedLetter.sender.image">
             </v-list-item-avatar>
           </router-link>

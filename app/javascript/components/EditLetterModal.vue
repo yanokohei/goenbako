@@ -55,13 +55,13 @@
                 elevation="4"
                 large
                 color="blue"
-                class="white--text pr-3"
+                class="white--text pr-4"
               >
                 更新する
               </v-btn>
               <v-btn
                 large
-                class="pr-3"
+                class="pr-4"
                 @click="handleCloseModal"
               >
                 閉じる
@@ -154,7 +154,7 @@ export default {
   display: block;
 }
 .m-font{
-  font-size: 1.1em;
+  font-size: 0.9em;
   font-weight: bold;
   line-height: 1;
   color: #2c281e;
