@@ -252,6 +252,10 @@ export default {
     receiverShortName() {
       const receiverName = this.receivedLetter.receiver.name
       return receiverName.length <= 15 ? receiverName: (receiverName.substr(0, 15)+"...");
+    },
+    senderNameSaveReply() {
+      const senderName = this.receivedLetter.sender.name
+      return senderName.replace(/@/g, '@ ').replace(/＠/g, '＠ ')
     }
   },
   watch: {
@@ -287,7 +291,7 @@ export default {
         console.log(error);})
       .then(() => {
         const url = `https://goenbako.com/letters/${this.receivedLetter.letter.id}?twitter_id=${this.receivedLetter.receiver.twitter_id}%26id=${this.savedImageID}`
-        location.href = `https://twitter.com/intent/tweet?text=${this.receivedLetter.sender.name}さん から素敵なファンレターが届いたよ！%0a°˖✧%23ご縁箱%20%23goenbako_letters✧˖°%0a&url=${url}`
+        location.href = `https://twitter.com/intent/tweet?text=${this.senderNameSaveReply}さん から素敵なファンレターが届いたよ！%0a°˖✧%23ご縁箱%20%23goenbako_letters✧˖°%0a&url=${url}`
       })
     },
     loadSvgToPng() {

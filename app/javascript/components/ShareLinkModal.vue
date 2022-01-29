@@ -109,6 +109,10 @@ export default {
   },
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
+    userNameSaveReply() {
+      const currentUserName = this.currentUser.name
+      return currentUserName.replace(/@/g, '@ ').replace(/＠/g, '＠ ')
+    }
   },
   methods: {
     handleCloseModal() {
@@ -123,7 +127,7 @@ export default {
     },
     twitterShare() {
       const url = `${location.origin}/${this.currentUser.twitter_id}`
-      return `https://twitter.com/intent/tweet?text=${this.currentUser.name}さんがご縁箱を開設したよ！
+      return `https://twitter.com/intent/tweet?text=${this.userNameSaveReply}さんがご縁箱を開設したよ！
       %0aさっそく遊びに行ってみよう♪%0a°˖✧%23ご縁箱%20%23みんなのご縁箱✧˖°%0a&url=${url}`;
     },
   }
