@@ -17,7 +17,7 @@
           <v-btn
             icon
             color="blue"
-            :href="twitterUrl"
+            @click="moveTwitterUserPage()"
           >
             <v-icon>mdi-twitter</v-icon>
           </v-btn>
@@ -37,10 +37,12 @@ export default {
   name: "ProfileCard",
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
-    twitterUrl() {
-      return `https://twitter.com/${this.currentUser.twitter_id}`
-    }
   },
+  methods: {
+    moveTwitterUserPage() {
+      window.open(`https://twitter.com/${this.currentUser.twitter_id}`, '_blank')
+    }
+  }
 }
 </script>
 

@@ -30,7 +30,7 @@
           color="blue"
           class="white--text s-font"
           small
-          :href="twitterShare()"
+          @click="twitterShare()"
         >
           <v-icon>mdi-twitter</v-icon>
           ツイートで共有する
@@ -127,8 +127,8 @@ export default {
     },
     twitterShare() {
       const url = `${location.origin}/${this.currentUser.twitter_id}`
-      return `https://twitter.com/intent/tweet?text=${this.userNameSaveReply}さんがご縁箱を開設したよ！
-      %0aさっそく遊びに行ってみよう♪%0a°˖✧%23ご縁箱%20%23みんなのご縁箱✧˖°%0a&url=${url}`;
+      window.open(`https://twitter.com/intent/tweet?text=${this.userNameSaveReply}さんがご縁箱を開設したよ！
+      %0aさっそく遊びに行ってみよう♪%0a°˖✧%23ご縁箱%20%23みんなのご縁箱✧˖°%0a&url=${url}`, '_blank')
     },
   }
 };

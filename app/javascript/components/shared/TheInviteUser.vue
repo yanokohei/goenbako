@@ -12,7 +12,7 @@
     <v-btn
       color="#FCF6FF"
       small
-      :href="inviteTweetReply()"
+      @click="inviteTweetReply()"
     >
       <v-icon color="blue">
         mdi-twitter
@@ -54,7 +54,7 @@ export default {
     inviteTweetReply() {
       if (this.currentUser) {
         const url = "https://goenbako.com"
-        return `https://twitter.com/intent/tweet?text=@${this.searchID}%0a${this.userNameSaveReply}さんがあなたにご縁箱をおすすめしています。%0aご縁箱を開設してファンレターを受け取ってみましょう！%0a°˖✧%23ご縁箱%20%23goenbako_letters✧˖°%0a&url=${url}`;
+        window.open(`https://twitter.com/intent/tweet?text=@${this.searchID}%0a${this.userNameSaveReply}さんがあなたにご縁箱をおすすめしています。%0aご縁箱を開設してファンレターを受け取ってみましょう！%0a°˖✧%23ご縁箱%20%23goenbako_letters✧˖°%0a&url=${url}`, '_blank')
       }
     },
   }

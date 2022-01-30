@@ -23,7 +23,7 @@
           <v-btn
             icon
             color="blue"
-            :href="twitterUrl"
+            @click="moveTwitterUserPage()"
           >
             <v-icon>mdi-twitter</v-icon>
           </v-btn>
@@ -47,9 +47,9 @@ export default {
       required: true
     },
   },
-  computed: {
-    twitterUrl() {
-      return `https://twitter.com/${this.user.twitter_id}`
+  methods: {
+     moveTwitterUserPage() {
+      window.open(`https://twitter.com/${this.user.twitter_id}`, '_blank')
     }
   },
 }

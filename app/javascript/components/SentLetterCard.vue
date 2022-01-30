@@ -30,7 +30,7 @@
               <v-btn
                 icon
                 color="blue"
-                :href="`https://twitter.com/${sentLetter.receiver.twitter_id}`"
+                @click="moveTwitterUserPage()"
               >
                 <v-icon>mdi-twitter</v-icon>
               </v-btn>
@@ -163,6 +163,9 @@ export default {
     },
     handleUpdateLetter() {
       this.$emit("update-letter");
+    },
+    moveTwitterUserPage() {
+      window.open(`https://twitter.com/${this.sentLetter.receiver.twitter_id}`, '_blank')
     }
   },
 };
