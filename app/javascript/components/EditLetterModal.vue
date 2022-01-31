@@ -55,13 +55,13 @@
                 elevation="4"
                 large
                 color="blue"
-                class="white--text pr-4"
+                class="white--text pr-3"
               >
                 更新する
               </v-btn>
               <v-btn
                 large
-                class="pr-4"
+                class="pr-3"
                 @click="handleCloseModal"
               >
                 閉じる
