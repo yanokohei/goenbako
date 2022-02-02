@@ -16,7 +16,14 @@
     </div>
     <div align="center">
       <v-card max-width="330" class="left" color="transparent" outlined>
-        <p>レターを受け取った際にメールを受け取る</p>
+        <div class="xs-font option">
+          <p class="mt-4 ml-4">レターを受け取った際に<br>メールを受け取る</p>
+          <v-switch
+            v-model="nofitication"
+            @click="hundleNofiticationSwitch()"
+            class="xs-font switch"
+          />
+        </div>
       </v-card>
     </div>
     <v-row class="justify-center mb-5 pa-4">
@@ -43,14 +50,30 @@ export default {
   components: {
     ProfileCard,
   },
+  data () {
+    return {
+      nofitication: true,
+    }
+  },
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
   },
+  methods: {
+    hundleNofiticationSwitch() {
+      console.log(this.nofitication);
+    },
+  }
 };
 </script>
 
 <style scoped>
-.m-font{
+.xs-font {
+  font-size: 0.85em;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #2c281e;
+}
+.m-font {
   font-size: 1.0em;
   font-weight: bold;
   line-height: 1.5;
@@ -66,5 +89,12 @@ export default {
 }
 .left {
   text-align: left;
+}
+.switch {
+  max-width: 10%;
+}
+.option {
+  display: flex;
+  gap: 80px;
 }
 </style>
