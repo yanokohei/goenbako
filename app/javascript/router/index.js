@@ -5,6 +5,7 @@ import VueGtag from "vue-gtag";
 import Top from "../pages/Top";
 import User from "../pages/User";
 import Mypage from "../pages/Mypage";
+import Setting from "../pages/Setting";
 import ShowLetter from "../pages/ShowLetter";
 import NotFound from "../pages/NotFound";
 
@@ -20,7 +21,11 @@ Vue.use(Router)
       path: "/mypage",
       component: Mypage,
       name: "Mypage",
-      meta: { requiredLogin: true }
+    },
+    {
+      path: "/mypage/setting",
+      component: Setting,
+      name: "Setting",
     },
     {
       path: "/:twitter_id",
