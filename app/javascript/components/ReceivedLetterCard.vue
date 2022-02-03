@@ -28,7 +28,7 @@
               <v-btn
                 icon
                 color="blue"
-                :href="`https://twitter.com/${receivedLetter.sender.twitter_id}`"
+                @click="moveTwitterUserPage()"
               >
                 <v-icon>mdi-twitter</v-icon>
               </v-btn>
@@ -129,6 +129,9 @@ export default {
         .delete(`/api/letters/${receivedLetter.letter.id}`)
         .then((res) => this.$emit("delete-letter", res.data));
     },
+    moveTwitterUserPage() {
+      window.open(`https://twitter.com/${this.receivedLetter.sender.twitter_id}`, '_blank')
+    }
   },
 };
 </script>

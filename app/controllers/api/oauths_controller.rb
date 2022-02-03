@@ -4,7 +4,7 @@ class Api::OauthsController < ApplicationController
   end
 
   def callback
-    provider = params[:provider]
+    provider = auth_params[:provider]
     if auth_params[:denied].present?
       redirect_to root_path, notice: 'ログインをキャンセルしました。'
       return
@@ -25,7 +25,7 @@ class Api::OauthsController < ApplicationController
 
   private
 
-    def auth_params
-      params.permit(:code, :provider)
-    end
+  def auth_params
+    params.permit(:code, :provider, :denied)
+  end
 end
