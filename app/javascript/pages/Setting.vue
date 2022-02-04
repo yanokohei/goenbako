@@ -36,7 +36,7 @@
             <div class="xs-font option mb-4">
               <p class="mt-2 ml-4">レターを受け取った際に<br>メールを受け取る</p>
               <v-switch
-                v-model="user.email_nofitication"
+                v-model="user.email_notification"
                 class="xs-font switch"
               />
             </div>
@@ -73,7 +73,7 @@ export default {
     return {
       user: {
         email: "",
-        email_nofitication: true,
+        email_notification: true,
       },
     }
   },
@@ -83,7 +83,7 @@ export default {
   methods: {
     hundleUpdateUserSetting() {
       axios
-        .patch((`/api/users/${this.currentUser.id}`), { setting: this.user })
+        .patch((`/api/settings/${this.currentUser.id}`), { setting: this.user })
         .then((res) => this.$emit("update-letter", res.data));
         this.$store.dispatch("flash/setFlash", {
           type: "success",
