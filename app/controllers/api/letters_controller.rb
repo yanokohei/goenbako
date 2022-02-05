@@ -4,8 +4,12 @@ class Api::LettersController < ApplicationController
 
   def create
     @letter = current_user.letters.build(letter_params)
+    receiver = User.find_by(id: @letter.receiver_id)
     if @letter.save
       render json: @letter
+      unless receiver.email.blank?
+        UserMailer.new_letter(letter_params).deliver_later
+      end
     else
       render json: @letter.errors, status: :bad_request
     end
