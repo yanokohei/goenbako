@@ -84,11 +84,10 @@ export default {
     handleUpdateEmail() {
       axios
         .patch(("/api/settings"), { email: this.currentUser.email })
-        .then((res) => console.log(res.data));
-        this.$store.dispatch("flash/setFlash", {
+        .then(this.$store.dispatch("flash/setFlash", {
           type: "success",
           message: "設定を更新しました。"
-        })
+        }))
         .catch((error) => {
           this.$store.dispatch("flash/setFlash", {
             type: 'error',
@@ -100,11 +99,10 @@ export default {
       this.currentUser.email = ""
       axios
         .patch(("/api/settings"), { email: this.currentUser.email })
-        .then((res) => console.log(res.data));
-        this.$store.dispatch("flash/setFlash", {
+        .then(this.$store.dispatch("flash/setFlash", {
           type: "success",
           message: "メール通知を解除しました。"
-        })
+        }))
         .catch((error) => {
           this.$store.dispatch("flash/setFlash", {
             type: 'error',
