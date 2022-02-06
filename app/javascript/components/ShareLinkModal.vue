@@ -66,6 +66,16 @@
           </template>
         </v-snackbar>
       </v-col>
+      <v-col v-if="!currentUser.email" class="text-center mt-4">
+        <v-btn
+          :to="{ name: 'Setting' }"
+          small
+          collor="tranceparent"
+          outlined
+          >
+          <span class="s-font ml-2">メール通知設定はこちら</span>
+        </v-btn>
+      </v-col>
       <v-row
         justify="center"
         class="ma-4 py-2"
@@ -156,7 +166,7 @@ export default {
 .letter-position{
   position: absolute;
   top: 190px;
-  left: 215px;
+  left: 245px;
 }
 .nowrap{
   white-space: nowrap

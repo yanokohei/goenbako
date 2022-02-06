@@ -20,13 +20,13 @@
           ref="observer"
           v-slot="{ invalid }"
         >
-          <form @submit.prevent="hundleUpdateUserSetting(setting)">
+          <form @submit.prevent="handleUpdateUserSetting(setting)">
             <validation-provider
               v-slot="{ errors }"
               rules="email_required"
             >
               <v-text-field
-                v-model="user.email"
+                v-model="currentUser.email"
                 :error-messages="errors"
                 label="Email"
                 required
@@ -34,24 +34,28 @@
               />
             </validation-provider>
             <div class="xs-font option mb-4">
-              <p class="mt-2 ml-4">レターを受け取った際に<br>メールを受け取る</p>
-              <v-switch
-                v-model="user.email_nofitication"
-                class="xs-font switch"
-              />
+              <p class="ml-2">※レターを受け取った際にメールでお知らせします。</p>
             </div>
-            <v-row class="justify-center mb-5 pa-4">
+            <div class="justify-center mb-5 pa-4 btn-position">
               <v-btn
                 color="green"
                 class="white--text m-font"
                 rounded
-                large
+                small
                 :disabled="invalid"
+                @click="handleUpdateEmail"
               >
                 <v-icon>mdi-check</v-icon>
                 <span class="m-font white--text ml-2">設定を保存する</span>
               </v-btn>
-            </v-row>
+              <v-btn
+                rounded
+                small
+                @click="handleDeleteEmail"
+              >
+                解除する
+              </v-btn>
+            </div>
           </form>
         </validation-observer>
       </v-card>
@@ -71,24 +75,34 @@ export default {
   },
   data () {
     return {
-      user: {
-        email: "",
-        email_nofitication: true,
-      },
     }
   },
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
   },
   methods: {
-    hundleUpdateUserSetting() {
+    handleUpdateEmail() {
       axios
-        .patch((`/api/users/${this.currentUser.id}`), { setting: this.user })
-        .then((res) => this.$emit("update-letter", res.data));
-        this.$store.dispatch("flash/setFlash", {
+        .patch(("/api/settings"), { email: this.currentUser.email })
+        .then(this.$store.dispatch("flash/setFlash", {
           type: "success",
           message: "設定を更新しました。"
+        }))
+        .catch((error) => {
+          this.$store.dispatch("flash/setFlash", {
+            type: 'error',
+            message: '設定を更新できませんでした',
+          })
         })
+    },
+    handleDeleteEmail() {
+      this.currentUser.email = ""
+      axios
+        .patch(("/api/settings"), { email: this.currentUser.email })
+        .then(this.$store.dispatch("flash/setFlash", {
+          type: "success",
+          message: "メール通知を解除しました。"
+        }))
         .catch((error) => {
           this.$store.dispatch("flash/setFlash", {
             type: 'error',
@@ -102,7 +116,7 @@ export default {
 
 <style scoped>
 .xs-font {
-  font-size: 0.85em;
+  font-size: 0.75em;
   font-weight: bold;
   line-height: 1.5;
   color: #2c281e;
@@ -130,5 +144,10 @@ export default {
 .option {
   display: flex;
   gap: 80px;
+}
+.btn-position {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
 }
 </style>

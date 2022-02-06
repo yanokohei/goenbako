@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     end
     resources :letters
     resources :share_images, only: [:create]
+    resource :settings, only: [:update, :destroy]
   end
 
   get '/letters/:letter_id', to: 'letter_shares#show', constraints: { user_agent: /Twitterbot/ }
