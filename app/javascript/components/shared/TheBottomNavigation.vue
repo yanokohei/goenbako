@@ -62,6 +62,16 @@
       </template>
       <v-list class="s-font nowrap">
         <v-list-item
+          :to="{ name: 'Setting' }"
+          small
+          text
+        >
+          <v-icon>mdi-cog</v-icon>
+          <span class="pl-1">設定</span>
+        </v-list-item>
+      </v-list>
+      <v-list class="s-font nowrap">
+        <v-list-item
           to="/api/logout"
           data-method="delete"
           small
