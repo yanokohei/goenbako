@@ -77,11 +77,11 @@
           <v-btn
             rounded
             small
-            color="green"
+            color="blue"
             class="white--text m-font"
             @click="handleFetchTwitterData"
           >
-            更新する
+            再取得する
           </v-btn>
         </div>
       </v-card>
