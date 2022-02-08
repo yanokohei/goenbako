@@ -95,6 +95,7 @@ export default {
       if (!this.notExistUserPage) {
         this.fetchReceivedLetters()
         this.fetchSentLetters()
+        document.title = `${this.user.name}さんのページ - ご縁箱`
       }
     },
     async fetchUser() {

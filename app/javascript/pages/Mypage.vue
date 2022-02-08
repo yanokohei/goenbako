@@ -76,7 +76,8 @@ export default {
       this.$store.commit('users/setCurrentUser', res.data)
       this.fetchReceivedLetters(),
       this.fetchSentLetters()
-    })
+    }),
+    document.title = "マイページ - ご縁箱"
   },
   methods: {
     openShareLinkModal() {
