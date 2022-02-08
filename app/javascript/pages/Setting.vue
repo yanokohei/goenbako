@@ -1,5 +1,5 @@
 <template>
-  <v-container v-if="currentUser">
+  <v-container v-if="currentUser" class="mb-16">
     <v-row
       class="ma-8"
       justify="center"
@@ -60,6 +60,58 @@
         </validation-observer>
       </v-card>
     </div>
+    <div align="center">
+      <v-card max-width="650" class="left" color="transparent" outlined>
+        <h3 class="ml-4 mt-6">
+          ・プロフィール情報を更新する
+        </h3>
+        <v-divider />
+      </v-card>
+    </div>
+    <div align="center" class="mt-4">
+      <v-card max-width="310" class="left" color="transparent" outlined>
+        <div class="xs-font option mt-4 mb-4">
+          <p class="ml-2">・Twitterの最新のプロフィール情報を再取得します。</p>
+        </div>
+        <div class="justify-center mt-4 mb-4 btn-position">
+          <v-btn
+            rounded
+            small
+            color="blue"
+            class="white--text m-font"
+            @click="handleFetchTwitterData"
+          >
+            再取得する
+          </v-btn>
+        </div>
+      </v-card>
+    </div>
+    <div align="center">
+      <v-card max-width="650" class="left" color="transparent" outlined>
+        <h3 class="ml-4 mt-6">
+          ・その他
+        </h3>
+        <v-divider />
+      </v-card>
+    </div>
+    <div align="center" class="mt-4 mb-16">
+      <v-card max-width="310" class="left" color="transparent" outlined>
+        <div class="justify-center mt-8 mb-2 btn-position">
+          <v-btn
+            rounded
+            small
+            :disabled="!checkbox"
+            @click="deleteUser"
+          >
+            ご縁箱を退会する
+          </v-btn>
+        </div>
+        <div class="xs-font mb-4 check-area ml-4">
+          <v-checkbox class="checkbox" v-model="checkbox" />
+          <p>退会した場合、全ての情報が削除されます。</p>
+        </div>
+      </v-card>
+    </div>
   </v-container>
 </template>
 
@@ -75,6 +127,7 @@ export default {
   },
   data () {
     return {
+      checkbox: false
     }
   },
   computed: {
@@ -110,6 +163,33 @@ export default {
           })
         })
     },
+    handleFetchTwitterData() {
+      axios.patch(("/api/twitter_data"))
+      .then((res) => {
+        this.$store.dispatch("users/fetchTwitterData", res.data)
+      })
+      .then(this.$store.dispatch("flash/setFlash", {
+        type: "success",
+        message: "プロフィールを更新しました。"
+      }))
+      .catch((error) => {
+        this.$store.dispatch("flash/setFlash", {
+          type: 'error',
+          message: 'プロフィールを更新できませんでした',
+        })
+      })
+    },
+    deleteUser() {
+      axios.delete("/api/settings")
+      .then((res) => {
+        this.$store.dispatch("users/deleteCurrentUser")
+        this.$router.push({ name: "Top" })
+        this.$store.dispatch("flash/setFlash", {
+          type: "success",
+          message: "退会が完了しました。"
+        })
+      })
+    },
   }
 };
 </script>
@@ -138,12 +218,13 @@ export default {
 .left {
   text-align: left;
 }
-.switch {
-  max-width: 10%;
+.checkbox {
+  max-width: 3%;
+  margin: -5px;
 }
-.option {
+.check-area {
   display: flex;
-  gap: 80px;
+  gap: 30px;
 }
 .btn-position {
 	display: flex;

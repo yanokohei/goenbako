@@ -34,6 +34,7 @@ gem 'tailwindcss-rails'
 gem 'rails-i18n'
 gem 'carrierwave'
 gem 'fog-aws'
+gem 'twitter'
 
 group :development, :test do
   gem 'pry-rails'
