@@ -1,5 +1,5 @@
 <template>
-  <div align="center" class="mt-10">
+  <div align="center" class="mt-10 mb-16">
     <h1>404 NotFound</h1>
     <div class="mt-4 mb-8 m-font">
       <p>お探しのページが見つかりませんでした。</p>
@@ -44,6 +44,9 @@
 
 <script>
 export default {
+  mounted() {
+    document.title = "ページが見つかりません。 - ご縁箱"
+  },
 }
 </script>
 

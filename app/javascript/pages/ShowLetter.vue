@@ -200,6 +200,7 @@ export default {
         } else {
           this.letterData = res.data
           this.loadData = true
+          document.title = `${this.letterData.receiver.name}さんに届いたファンレターです♪ - ご縁箱`
         }
       })
     }
