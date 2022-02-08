@@ -21,6 +21,14 @@ const actions = {
         commit("setCurrentUser", res.data)
     });
   },
+  fetchTwitterData({ commit }, data) {
+    const { user } = data
+    commit("setCurrentUser", user)
+    return user
+  },
+  deleteCurrentUser({ commit }) {
+    commit("setCurrentUser", null)
+  },
 }
 
 export default {
