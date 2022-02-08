@@ -1,5 +1,4 @@
 class Api::SettingsController < ApplicationController
-  skip_before_action :verify_authenticity_token
 
   def update
     current_user.assign_attributes(user_params)

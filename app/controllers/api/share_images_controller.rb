@@ -1,5 +1,4 @@
 class Api::ShareImagesController < ApplicationController
-  skip_before_action :verify_authenticity_token
   include CarrierwaveBase64Uploader
 
   def create
