@@ -54,6 +54,18 @@ import TheLoginGuidanceModal from "../components/shared/TheLoginGuidanceModal";
 
 export default {
   name: "User",
+  metaInfo() {
+    return {
+      title: `${this.user.name}さんのご縁箱ページ`,
+      titleTemplate: '%s | °˖✧ご縁箱✧˖°',
+      meta: [
+        {
+          property: 'og:image',
+          content: 'https://goenbako.com/img/MYLINK_OGP.jpg',
+        },
+      ]
+    }
+  },
   components: {
     UserProfileCard,
     CreateLetterModal,
@@ -95,7 +107,7 @@ export default {
       if (!this.notExistUserPage) {
         this.fetchReceivedLetters()
         this.fetchSentLetters()
-        document.title = `${this.user.name}さんのページ - ご縁箱`
+        // this.metaInfo.title = `${this.user.name}さんのご縁箱ページ`
       }
     },
     async fetchUser() {
