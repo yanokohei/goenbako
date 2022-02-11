@@ -108,7 +108,7 @@
         />
       </v-card>
     </v-row>
-    <v-row class="justify-center mb-12 pa-4">
+    <v-row class="justify-center mb-16 pa-4">
       <v-card
         rounded="xl"
         color="transparent"
