@@ -133,6 +133,9 @@ export default {
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
   },
+  mounted() {
+    document.title = "設定ページ - ご縁箱"
+  },
   methods: {
     handleUpdateEmail() {
       axios

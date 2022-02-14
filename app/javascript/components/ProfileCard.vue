@@ -5,6 +5,26 @@
       min-width="280"
       max-width="320"
     >
+      <v-btn
+        v-if="this.$route.path === ('/mypage')"
+        x-small
+        class="button-position s-font"
+        :to="{ name: 'Setting' }"
+      >
+        <v-icon size="15">mdi-cog</v-icon>
+        <span class="ml-1">設定</span>
+      </v-btn>
+      <v-btn
+        v-if="this.$route.path === ('/mypage/setting')"
+        x-small
+        class="button-position s-font"
+        dark
+        color="deep-purple lighten-3"
+        :to="{ name: 'Mypage' }"
+      >
+        <v-icon size="15">mdi-home</v-icon>
+        <span class="ml-1">戻る</span>
+      </v-btn>
       <v-list-item-avatar size="60" class="avatar-position">
         <img :src="currentUser.image">
       </v-list-item-avatar>
@@ -71,5 +91,10 @@ export default {
 }
 .nowrap{
   white-space: nowrap
+}
+.button-position {
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
 </style>

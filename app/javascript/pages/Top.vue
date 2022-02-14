@@ -151,7 +151,7 @@
       outlined
       ma-2
     >
-      <v-card-actions class="justify-center mb-4">
+      <v-card-actions class="justify-center mb-8">
         <v-btn
           dense
           text
@@ -228,6 +228,9 @@ export default {
   },
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
+  },
+  mounted() {
+    document.title = "ご縁箱 - Twitterユーザー同士で楽しめる!ファンレター交換・共有サービス"
   },
   methods: {
     pushLogin() {

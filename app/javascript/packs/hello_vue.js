@@ -11,10 +11,12 @@ import router from '../router'
 import axios from '../plugins/axios'
 import store from '../store'
 import veeValidate from "../plugins/vee-validate"
+import VueMeta from "vue-meta"
 
 Vue.mixin(veeValidate)
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios
+Vue.use(VueMeta);
 
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
