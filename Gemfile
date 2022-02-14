@@ -30,7 +30,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'sorcery'
 gem 'config'
 gem 'meta-tags'
-gem 'rails-i18n'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'twitter'
