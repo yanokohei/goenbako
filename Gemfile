@@ -30,7 +30,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'sorcery'
 gem 'config'
 gem 'meta-tags'
-gem 'tailwindcss-rails'
 gem 'rails-i18n'
 gem 'carrierwave'
 gem 'fog-aws'
