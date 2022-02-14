@@ -105,10 +105,6 @@ GEM
     diff-lcs (1.4.4)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    dotenv (2.7.6)
-    dotenv-rails (2.7.6)
-      dotenv (= 2.7.6)
-      railties (>= 3.2)
     dry-configurable (0.13.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.6)
@@ -437,7 +433,6 @@ DEPENDENCIES
   capybara
   carrierwave
   config
-  dotenv-rails
   factory_bot_rails
   fog-aws
   jbuilder (~> 2.7)
