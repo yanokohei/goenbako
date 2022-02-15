@@ -138,7 +138,7 @@ export default {
     twitterShare() {
       const url = `${location.origin}/${this.currentUser.twitter_id}`
       window.open(`https://twitter.com/intent/tweet?text=${this.userNameSaveReply}さんのご縁箱ページです。
-      %0aみんなで遊びにいってみよう♪%0a°˖✧%23ご縁箱%20%23みんなのご縁箱✧˖°%0a&url=${url}`, '_blank')
+      %0aみんなでファンレターを書いてみよう♪%0a°˖✧%23ご縁箱%20%23みんなのご縁箱✧˖°%0a&url=${url}`, '_blank')
     },
   }
 };
