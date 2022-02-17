@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'home#index'
-  get 'mypage', to: 'home#index'
+  get 'me/home', to: 'home#index'
 
   namespace :api do
     post 'oauth/callback', to: 'oauths#callback'

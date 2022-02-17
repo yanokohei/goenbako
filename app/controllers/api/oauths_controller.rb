@@ -10,13 +10,13 @@ class Api::OauthsController < ApplicationController
       return
     end
     if @user = login_from(provider)
-      redirect_to mypage_path, notice: "#{provider.titleize}ログインしました。"
+      redirect_to me_home_path, notice: "#{provider.titleize}ログインしました。"
     else
       begin
         @user = create_from(provider)
         reset_session
         auto_login(@user)
-        redirect_to mypage_path, notice: "#{provider.titleize}ログインしました。"
+        redirect_to me_home_path, notice: "#{provider.titleize}ログインしました。"
       rescue StandardError
         redirect_to root_path, alert: "#{provider.titleize}ログインに失敗しました。"
       end
