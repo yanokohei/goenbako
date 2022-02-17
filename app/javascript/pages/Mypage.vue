@@ -73,7 +73,6 @@ export default {
     axios.get("/api/users/me")
     .then((res) => {
       this.user = res.data
-      console.log(this.user);
       this.$store.commit('users/setCurrentUser', res.data)
       this.fetchReceivedLetters(),
       this.fetchSentLetters()
