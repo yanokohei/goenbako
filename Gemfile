@@ -33,6 +33,7 @@ gem 'meta-tags'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'twitter'
+gem 'administrate'
 
 group :development, :test do
   gem 'pry-rails'
