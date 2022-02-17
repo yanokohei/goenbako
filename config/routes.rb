@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :share_images
+      resources :authentications
+      resources :letters
+      resources :users
+
+      root to: "users#index"
+    end
   root to: 'home#index'
   get 'me/home', to: 'home#index'
 
