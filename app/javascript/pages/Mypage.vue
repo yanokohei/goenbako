@@ -70,7 +70,7 @@ export default {
     ...mapGetters({ needHelpbox: "helpbox/needHelpbox" }),
   },
   mounted() {
-    this.$axios.get("users/me")
+    axios.get("/api/users/me")
     .then((res) => {
       this.user = res.data
       this.$store.commit('users/setCurrentUser', res.data)
