@@ -18,12 +18,12 @@ Vue.use(Router)
       name: "Top",
     },
     {
-      path: "/mypage",
+      path: "/me/home",
       component: Mypage,
       name: "Mypage",
     },
     {
-      path: "/mypage/setting",
+      path: "/me/home/setting",
       component: Setting,
       name: "Setting",
     },

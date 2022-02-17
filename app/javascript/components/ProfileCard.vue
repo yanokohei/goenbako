@@ -6,7 +6,7 @@
       max-width="320"
     >
       <v-btn
-        v-if="this.$route.path === ('/mypage')"
+        v-if="this.$route.path === ('/me/home')"
         x-small
         class="button-position s-font"
         :to="{ name: 'Setting' }"
@@ -15,7 +15,7 @@
         <span class="ml-1">設定</span>
       </v-btn>
       <v-btn
-        v-if="this.$route.path === ('/mypage/setting')"
+        v-if="this.$route.path === ('/me/home/setting')"
         x-small
         class="button-position s-font"
         dark

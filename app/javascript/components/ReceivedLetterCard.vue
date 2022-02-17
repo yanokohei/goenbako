@@ -106,7 +106,7 @@ export default {
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
     isCurrentMypage() {
-      return this.$route.path === '/mypage'
+      return this.$route.path === '/me/home'
     }
   },
   methods: {
