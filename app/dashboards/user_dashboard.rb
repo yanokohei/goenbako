@@ -60,11 +60,6 @@ class UserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    authentications
-    letters
-    sent_letters
-    receivers
-    received_letters
     twitter_id
     name
     image
