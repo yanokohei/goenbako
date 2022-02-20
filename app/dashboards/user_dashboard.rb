@@ -18,7 +18,7 @@ class UserDashboard < Administrate::BaseDashboard
     name: Field::String,
     image: Field::String,
     introduce: Field::Text,
-    role: Field::Number,
+    role: Field::Select.with_options(collection: %i[genaral admin]),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     email: Field::String,
@@ -64,7 +64,6 @@ class UserDashboard < Administrate::BaseDashboard
     name
     image
     introduce
-    role
     email
   ].freeze
 
