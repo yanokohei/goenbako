@@ -96,6 +96,15 @@
     </div>
     <div align="center" class="mt-4 mb-16">
       <v-card max-width="310" class="left" color="transparent" outlined>
+        <div class="justify-center mb-5 btn-position" v-if="currentUser.role === 'admin'">
+          <v-btn
+            outlined
+            color="green"
+            class="m-font"
+            href="/admin"
+            >管理者ページへ</v-btn
+          >
+        </div>
         <div class="justify-center mt-8 mb-2 btn-position">
           <v-btn
             rounded
