@@ -138,7 +138,7 @@ export default {
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
     isCurrentMypage() {
-      return this.$route.path === '/me/home'
+      return this.$route.path === '/me/home' || this.$route.path === `/${this.currentUser.twitter_id}`
     }
   },
   methods: {
