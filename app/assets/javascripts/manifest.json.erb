@@ -1,16 +1,14 @@
 <% icon_sizes = Rails.configuration.serviceworker.icon_sizes %>
 {
   "name": "°˖✧ご縁箱✧˖°",
-  "short_name": "ご縁箱",
+  "short_name": "°˖✧ご縁箱✧˖°",
   "start_url": "/",
   "icons": [
-  <% icon_sizes.map { |s| "#{s}x#{s}" }.each.with_index do |dim, i| %>
-    {
-      "src": "<%= image_path "serviceworker-rails/heart-#{dim}.png" %>",
-      "sizes": "<%= dim %>",
-      "type": "image/png"
-    }<%= i == (icon_sizes.length - 1) ? '' : ',' %>
-  <% end %>
+      {
+        "src": "apple-touch-icon.png",
+        "sizes": "180x180",
+        "type": "image/png"
+      },
   ],
   "theme_color": "#000000",
   "background_color": "#FFFFFF",
