@@ -391,6 +391,8 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    serviceworker-rails (0.6.0)
+      railties (>= 3.1)
     sexp_processor (4.15.3)
     simple_oauth (0.3.1)
     sorcery (0.16.1)
@@ -483,6 +485,7 @@ DEPENDENCIES
   rubocop-checkstyle_formatter
   rubocop-rails
   sass-rails (>= 6)
+  serviceworker-rails
   sorcery
   spring
   spring-watcher-listen (~> 2.0.0)
