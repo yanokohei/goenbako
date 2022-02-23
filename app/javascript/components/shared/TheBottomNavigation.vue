@@ -2,7 +2,7 @@
   <v-row
     align="center"
     justify="center"
-    class="mb-0"
+    class="mb-0 mt-0"
   >
     <v-btn
       v-if="!currentUser"
