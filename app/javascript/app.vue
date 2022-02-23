@@ -17,7 +17,7 @@
       <v-bottom-navigation
         app
         color="primary"
-        height="60"
+        height="75"
       >
         <TheBottomNavigation />
       </v-bottom-navigation>
