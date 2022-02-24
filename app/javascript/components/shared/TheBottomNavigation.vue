@@ -61,6 +61,16 @@
           <v-icon>mdi-menu</v-icon>
         </v-btn>
       </template>
+      <v-list class="s-font nowrap" v-if="currentUser.role === 'admin'">
+        <v-list-item
+          href="/admin"
+          small
+          text
+        >
+          <v-icon>mdi-account-star</v-icon>
+          <span class="pl-1">管理画面</span>
+        </v-list-item>
+      </v-list>
       <v-list class="s-font nowrap">
         <v-list-item
           :to="{ name: 'Setting' }"
