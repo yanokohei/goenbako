@@ -6,7 +6,7 @@ class Api::LettersController < ApplicationController
     receiver = User.find_by(id: @letter.receiver_id)
     if @letter.save
       render json: @letter
-      unless receiver.email.blank?
+      if receiver.email.present?
         UserMailer.new_letter(letter_params).deliver_later
       end
     else
@@ -49,11 +49,11 @@ class Api::LettersController < ApplicationController
 
   private
 
-  def set_letter
-    @letter = current_user.letters.find_by(id: params[:id]) || current_user.receivers.find_by(id: params[:id])
-  end
+    def set_letter
+      @letter = current_user.letters.find_by(id: params[:id]) || current_user.receivers.find_by(id: params[:id])
+    end
 
-  def letter_params
-    params.require(:letter).permit(:past, :current, :future, :expect, :message, :sender_id, :receiver_id)
-  end
+    def letter_params
+      params.require(:letter).permit(:past, :current, :future, :expect, :message, :sender_id, :receiver_id)
+    end
 end

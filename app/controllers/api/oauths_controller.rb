@@ -25,7 +25,7 @@ class Api::OauthsController < ApplicationController
 
   private
 
-  def auth_params
-    params.permit(:code, :provider, :denied)
-  end
+    def auth_params
+      params.permit(:code, :provider, :denied)
+    end
 end

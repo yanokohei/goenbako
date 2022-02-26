@@ -8,9 +8,9 @@ class Api::TwitterDataController < ApplicationController
     end
     data = client.user(current_user.twitter_id)
     current_user.update!(name: data[:name],
-                        twitter_id: data[:screen_name],
-                        image: data[:profile_image_url_https],
-                        introduce: data[:description])
+                         twitter_id: data[:screen_name],
+                         image: data[:profile_image_url_https],
+                         introduce: data[:description])
     render json: current_user, status: :ok
   end
 end

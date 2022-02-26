@@ -34,7 +34,7 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'twitter'
 gem 'administrate'
-gem "pundit"
+gem 'pundit'
 gem 'serviceworker-rails'
 
 group :development, :test do

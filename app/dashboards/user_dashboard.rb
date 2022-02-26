@@ -1,4 +1,4 @@
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class UserDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -18,10 +18,10 @@ class UserDashboard < Administrate::BaseDashboard
     name: Field::String,
     image: Field::String,
     introduce: Field::Text,
-    role: Field::Select.with_options(collection: %i[genaral admin]),
+    role: Field::Select.with_options(collection: [:genaral, :admin]),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    email: Field::String,
+    email: Field::String
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -29,43 +29,17 @@ class UserDashboard < Administrate::BaseDashboard
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
-  COLLECTION_ATTRIBUTES = %i[
-    id
-    twitter_id
-    name
-    introduce
-    email
-  ].freeze
+  COLLECTION_ATTRIBUTES = [:id, :twitter_id, :name, :introduce, :email].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = %i[
-    authentications
-    letters
-    sent_letters
-    receivers
-    received_letters
-    id
-    twitter_id
-    name
-    image
-    introduce
-    role
-    created_at
-    updated_at
-    email
-  ].freeze
+  SHOW_PAGE_ATTRIBUTES = [:authentications, :letters, :sent_letters, :receivers, :received_letters, :id, :twitter_id, :name, :image, :introduce,
+                          :role, :created_at, :updated_at, :email].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = %i[
-    twitter_id
-    name
-    image
-    introduce
-    email
-  ].freeze
+  FORM_ATTRIBUTES = [:twitter_id, :name, :image, :introduce, :email].freeze
 
   # COLLECTION_FILTERS
   # a hash that defines filters that can be used while searching via the search

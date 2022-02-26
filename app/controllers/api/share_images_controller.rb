@@ -13,7 +13,7 @@ class Api::ShareImagesController < ApplicationController
 
   private
 
-  def share_image_params
-    params.require(:share_image).permit(:letter_id, :topic, :image_url)
-  end
+    def share_image_params
+      params.require(:share_image).permit(:letter_id, :topic, :image_url)
+    end
 end
