@@ -6,7 +6,7 @@
 <h1>ご縁箱（ごえんばこ）</h1>
 
 <div align="center">
-  <img width="1000" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1191858/b4c030f2-3552-fe47-4e37-6d6400806216.jpeg" height=300px; />
+  <img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1191858/b4c030f2-3552-fe47-4e37-6d6400806216.jpeg" height=300px; />
 </div>
 
 <br>
