@@ -1,49 +1,135 @@
-# goenbako
+![badge](https://img.shields.io/badge/thank%20you-for%20visiting-brightgreen)
+<br>
+[![Rails](https://img.shields.io/badge/Rails-v6.0.4.1-%23a72332)](https://rubygems.org/gems/rails/versions/6.0.4.1)
+[![codecov](https://img.shields.io/badge/-Vue.js-4FC08D.svg?logo=vue.js&style=plastic")](https://www.npmjs.com/package/vue/v/2.6.14)
 
-## サービス概要
-Twitter連携したユーザー同士でテーマに沿ったファンレターを交換したり共有することが出来るサービスです。
+<h1>ご縁箱（ごえんばこ）</h1>
 
-相手とのご縁を振り返ったり、話題が生まれるようなテーマを通して
+<div align="center">
+  <img width="1000" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1191858/b4c030f2-3552-fe47-4e37-6d6400806216.jpeg" height=300px; />
+</div>
 
-ユーザー同士で楽しみながら縁を広げたり深めたい方向けのサービスになります。
+<br>
 
-## 登場人物
+## 概要
+#### Twitter認証したユーザー同士でファンレターを交換し、それらを公開することが出来るソーシャル・ネットワーキング・サービスです。
+#### Twitter上で楽しめるコミュニケーションツールとしても機能します。
 
-### エンドユーザー
-- Twitterユーザー
+<br>
 
-・ファンレターを書きたい人（相手とのご縁を語ったり、感謝の気持ちを伝えたい）
+<details>
+<summary>どんな問題を解決する？</summary>『 Twitterで今ある ご縁を大切にしたい 』
 
-・ファンレターを書いてもらいたい人（相手視点での自分の印象が知りたい、ほっこりしたい）
+『 フォロワーさんと感謝の気持ちを伝えたり、交流を深めたい！ 』
 
-・ファンレターを閲覧したい人（気になっているユーザの繫がりを見ることが出来る）
+『 あの人に話しかけてみたい！ 』
 
+けどきっかけがない..ちょっと億劫かも...
 
-## ユーザーが抱える課題
+こういった問題も楽しみながら解決することが出来ます。
 
-・繫がっているユーザーとの縁が深まるきっかけが少ない
+</details>
 
-・お互いに「仲良くなりたい」・「繋がってみたい」と思っていても、自分がどう認識されているかわからずに
- ツイートを様子見し合う関係のままになってしまう。
+<br>
 
-## 解決方法
+<details>
+<summary>ご縁箱を使うとどうなる？</summary>実際に使ってみて...
 
-Twitter認証機能でマイページを作成してリンクを共有。認証した人同士でレターを書いて公開。
+・まだ話したことがなかったフォロワーさんと話すきっかけになった
 
-受け取ったファンレターを話題にしたり、相手にも書いてみるなど。
+・自分の率直な気持ちをレターを送って伝えることで喜んでもらえた
 
-Twitter共有機能などで楽しみながら縁を深める。
+・ご飯の約束ができた
+</details>
 
-## プロダクト
+<br>
 
-Twitterユーザー同士でテーマに沿ったファンレターを書いて共有することが出来るプラットフォーム
+## サービスURL
+### **https://goenbako.com**
 
+<br>
 
-## マーケット
+**▼ 開発者のご縁箱ページ**
+#### https://goenbako.com/outputky
 
-ユーザー同士のご縁を広げたり、交流を深めたい全てのTwitterユーザー。
+<br>
 
-## 画面遷移図
-https://www.figma.com/file/aspjl8enPL89nlwO1gUDVz/%E3%81%94%E7%B8%81%E7%AE%B1-MVP%E7%89%88?node-id=0%3A1
+## 使い方
+1. Twitterでご縁箱ページをシェアする（シェアしなくても書くことで繋がっていくことも可）
+2. ご縁箱ページを開設した知人にファンレターを書く・受け取る （投稿型）
+3. レターの話題を選んでツイートシェア機能で共有する（※任意）
+
+<br>
+
+## 機能紹介
+![image](https://user-images.githubusercontent.com/78721963/155685673-158df3bc-4f66-4e53-a89a-8c92f5a9579d.png)
+
+### メインページ
+
+| トップページ | ご縁箱ページ | レター詳細ページ |
+| :---: | :---: | :---: |
+| <img width="100%" src="https://user-images.githubusercontent.com/78721963/155514886-d3bc1c7b-e400-40b1-bf39-e34d05144b72.png"> | <img width="750" src="https://user-images.githubusercontent.com/78721963/155518897-7e1d7003-8659-4106-8e3b-2db9668fec76.gif"> | <img width="730" src="https://user-images.githubusercontent.com/78721963/155519820-5c63e14e-fb12-451b-960e-eda264137fd7.gif"> |
+| Twitter認証、使い方 | プロフィールとレターの公開。 | Twitterからの遷移限定の詳細ページ。 |
+
+<br>
+
+### メイン機能
+
+| レターを書く | ご縁箱の共有 | レターの共有 |
+| :---: | :---: | :---: |
+| <img width="750" src="https://user-images.githubusercontent.com/78721963/155521812-eee2f94f-34ae-4220-8d25-4b33b64a930f.gif"> | <img width="750" src="https://user-images.githubusercontent.com/78721963/155523586-221ba855-b1e0-4d4c-8907-26dd0379aba1.png"> | <img width="730" src="https://user-images.githubusercontent.com/78721963/155607165-b03eb08d-29eb-4334-9c3a-6d743537d5c4.gif"> |
+| ５つの話題を自由に選んで書くことが出来る | 自分のご縁箱ページを シェア | 受け取ったレターを選んでシェア |
+
+<br>
+
+<details>
+<summary>レターの話題について補足</summary>テーマが『ファンレター』だけとすると抽象的で書きづらくなる問題があったため、関係性問わず誰でも負担少なく書けるようテーマを厳選しています。
+
+![image](https://user-images.githubusercontent.com/78721963/153138815-fa2152c2-7eba-4fcf-8b53-ca9b2918bb0e.png)
+
+</details>
+
+<br>
+
+### その他の機能
+
+| ランダム訪問 | ユーザー検索 | 設定画面 |
+| :---: | :---: | :---: |
+| <img width="760" src="https://user-images.githubusercontent.com/78721963/153412733-60cf4bce-845d-4e88-862f-a17af925ecd6.gif"> | <img width="750" src="https://user-images.githubusercontent.com/78721963/155651314-5292d82a-3618-42af-a2ca-18b1903c5713.png"> | <img width="750" src="https://user-images.githubusercontent.com/78721963/155473003-da991f0a-6156-4a6c-8fd2-a129f3ebf36c.png"> |
+| ご縁箱ページをランダムに訪問出来る | TwitterIDで検索。失敗時に開設リクエスト案内(任意) | メール通知設定、Twitterアカ情報再取得 |
+
+<br>
+
+## 使用技術
+
+#### バックエンド
+- Ruby (2.7.4)
+- Rails (6.0.4.1)
+- Twitter API
+<br>
+
+#### フロントエンド
+- JavaScript
+- Vue.js (2.6.14)
+- HTML
+- CSS
+<br>
+
+### インフラ
+- heroku
+- Amazon S3
+- ActionMailer
+<br>
+
 ## ER図
-https://drive.google.com/file/d/1il-73bQelbCmrZdfzkh8_zuFsn6ec-46/view?usp=sharing
+![](https://user-images.githubusercontent.com/78721963/155410590-2db0827a-ff9b-4aa0-a717-3f3b7720ac1b.png)
+
+## その他
+<br>
+
+<img src="https://img.shields.io/badge/-Qiita-55C500.svg?logo=&style=flat-square">[【個人開発】Twitterで映える！ファンレターを交換・シェアして楽しめるサービス『ご縁箱』をリリースしました✧˖°。](https://qiita.com/o83184206/items/dcab2743fea236f0aa67)
+
+#### 2022/2/24 現在
+- #### 総PV数・・・22,000回を突破
+- #### UU数・・・・750人を突破
+- #### 会員数 ・・・130人を突破
