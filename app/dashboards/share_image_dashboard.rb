@@ -11,7 +11,7 @@ class ShareImageDashboard < Administrate::BaseDashboard
     letter: Field::BelongsTo,
     id: Field::Number,
     topic: Field::String,
-    image_url: Field::Text,
+    image: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -21,16 +21,16 @@ class ShareImageDashboard < Administrate::BaseDashboard
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
-  COLLECTION_ATTRIBUTES = [:id, :topic, :image_url].freeze
+  COLLECTION_ATTRIBUTES = [:id, :topic, :image].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = [:letter, :id, :topic, :image_url, :created_at, :updated_at].freeze
+  SHOW_PAGE_ATTRIBUTES = [:letter, :id, :topic, :image, :created_at, :updated_at].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = [:letter, :topic, :image_url].freeze
+  FORM_ATTRIBUTES = [:letter, :topic, :image].freeze
 
   # COLLECTION_FILTERS
   # a hash that defines filters that can be used while searching via the search
