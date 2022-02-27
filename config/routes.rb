@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   namespace :admin do
-      resources :share_images
-      resources :authentications
-      resources :letters
-      resources :users
+    resources :share_images
+    resources :authentications
+    resources :letters
+    resources :users
 
-      root to: "users#index"
-    end
+    root to: 'users#index'
+  end
   root to: 'home#index'
   get 'me/home', to: 'home#index'
 
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     resources :letters
     resources :share_images, only: [:create]
     resource :settings, only: [:update, :destroy]
-    resource :twitter_data, only: %i[update]
+    resource :twitter_data, only: [:update]
   end
 
   get '/letters/:letter_id', to: 'letter_shares#show', constraints: { user_agent: /Twitterbot/ }

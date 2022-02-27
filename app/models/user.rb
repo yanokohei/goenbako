@@ -4,9 +4,9 @@ class User < ApplicationRecord
 
   has_many :authentications, dependent: :destroy
   has_many :letters, foreign_key: :sender_id, dependent: :destroy
-  has_many :sent_letters, through: :letters, source: :receiver # lettersテーブルを経由してreveive_id列を参照する
+  has_many :sent_letters, through: :letters, source: :receiver
   has_many :receivers, class_name: 'Letter', foreign_key: :receiver_id, dependent: :destroy
-  has_many :received_letters, through: :receivers, source: :sender # receiversテーブルを経由してsender_idを参照する
+  has_many :received_letters, through: :receivers, source: :sender
 
   accepts_nested_attributes_for :authentications
 

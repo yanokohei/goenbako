@@ -1,4 +1,4 @@
 class ShareImage < ApplicationRecord
-  mount_uploader :image_url, ShareImageUploader
+  mount_uploader :image, ShareImageUploader
   belongs_to :letter
 end

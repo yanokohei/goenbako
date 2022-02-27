@@ -69,7 +69,7 @@
 | トップページ | ご縁箱ページ | レター詳細ページ |
 | :---: | :---: | :---: |
 | <img width="100%" src="https://user-images.githubusercontent.com/78721963/155514886-d3bc1c7b-e400-40b1-bf39-e34d05144b72.png"> | <img width="750" src="https://user-images.githubusercontent.com/78721963/155518897-7e1d7003-8659-4106-8e3b-2db9668fec76.gif"> | <img width="730" src="https://user-images.githubusercontent.com/78721963/155519820-5c63e14e-fb12-451b-960e-eda264137fd7.gif"> |
-| Twitter認証、使い方 | プロフィールとレターの公開。 | Twitterからの遷移限定の詳細ページ。 |
+| Twitter認証、使い方 | プロフィールとレターの公開（誰でも閲覧可） | Twitterからの遷移限定の詳細ページ（誰でも閲覧可） |
 
 <br>
 
@@ -78,7 +78,7 @@
 | レターを書く | ご縁箱の共有 | レターの共有 |
 | :---: | :---: | :---: |
 | <img width="750" src="https://user-images.githubusercontent.com/78721963/155521812-eee2f94f-34ae-4220-8d25-4b33b64a930f.gif"> | <img width="750" src="https://user-images.githubusercontent.com/78721963/155523586-221ba855-b1e0-4d4c-8907-26dd0379aba1.png"> | <img width="730" src="https://user-images.githubusercontent.com/78721963/155607165-b03eb08d-29eb-4334-9c3a-6d743537d5c4.gif"> |
-| ５つの話題を自由に選んで書くことが出来る | 自分のご縁箱ページを シェア | 受け取ったレターを選んでシェア |
+| ５つの話題を自由に選んで書くことが出来る | 自分のご縁箱ページをシェア | 受け取ったレターを選んでシェア |
 
 <br>
 
@@ -96,7 +96,7 @@
 | ランダム訪問 | ユーザー検索 | 設定画面 |
 | :---: | :---: | :---: |
 | <img width="760" src="https://user-images.githubusercontent.com/78721963/153412733-60cf4bce-845d-4e88-862f-a17af925ecd6.gif"> | <img width="750" src="https://user-images.githubusercontent.com/78721963/155651314-5292d82a-3618-42af-a2ca-18b1903c5713.png"> | <img width="750" src="https://user-images.githubusercontent.com/78721963/155473003-da991f0a-6156-4a6c-8fd2-a129f3ebf36c.png"> |
-| ご縁箱ページをランダムに訪問出来る | TwitterIDで検索。失敗時に開設リクエスト案内(任意) | メール通知設定、Twitterアカ情報再取得 |
+| ご縁箱ページをランダムに訪問出来る（誰でも閲覧可） | TwitterIDで検索。失敗時に開設リクエスト案内(任意) | メール通知設定、Twitterアカ情報再取得 |
 
 <br>
 

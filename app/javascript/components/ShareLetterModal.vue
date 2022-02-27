@@ -235,7 +235,7 @@ export default {
       shareImage: {
         letter_id: "",
         topic: "",
-        image_url: '',
+        image: '',
       },
       savedImageID: "",
       title: '',
@@ -284,7 +284,7 @@ export default {
       axios.post("/api/share_images", { share_image: this.shareImage })
       .then((res) => {
         const savedImage = res.data
-        console.log(res.data.image_url.url);
+        console.log(res.data.image.url);
         this.savedImageID = savedImage.id
       })
       .catch((error) => {
@@ -302,7 +302,7 @@ export default {
     async shareTwitterAfterSvgToPngAndUpload(letterTitle) {
       await this.addLetterTopicToSvg(letterTitle)
       createCanvasFromSvgAndConversionPngUrl(this.$refs.svgArea, data => {
-        this.shareImage.image_url = data
+        this.shareImage.image = data
         this.postToRailsAndMoveTwitter(letterTitle)
       })
     },
