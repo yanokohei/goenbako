@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_04_122716) do
+ActiveRecord::Schema.define(version: 2022_02_27_071119) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2022_02_04_122716) do
   create_table "share_images", force: :cascade do |t|
     t.bigint "letter_id", null: false
     t.string "topic", null: false
-    t.text "image_url", null: false
+    t.text "image", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["letter_id"], name: "index_share_images_on_letter_id"
