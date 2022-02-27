@@ -22,8 +22,8 @@ module CarrierwaveBase64Uploader
     end
 
     def split_base64(uri_str)
-      if uri_str.match(/data:(.*?);(.*?),(.*)$/)
-        { type: Regexp.last_match(1), encoding: Regexp.last_match(2), data: Regexp.last_match(3), extension: Regexp.last_match(1).split('/')[1] }
-      end
+      return unless uri_str.match(/data:(.*?);(.*?),(.*)$/)
+
+      { type: Regexp.last_match(1), encoding: Regexp.last_match(2), data: Regexp.last_match(3), extension: Regexp.last_match(1).split('/')[1] }
     end
 end
