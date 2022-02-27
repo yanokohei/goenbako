@@ -122,7 +122,7 @@
 <br>
 
 ## ER図
-![](https://user-images.githubusercontent.com/78721963/155410590-2db0827a-ff9b-4aa0-a717-3f3b7720ac1b.png)
+![](https://user-images.githubusercontent.com/78721963/155874501-20816bb6-9f96-48db-8cbd-c2f3498fcf1d.png)
 
 ## その他
 <br>
