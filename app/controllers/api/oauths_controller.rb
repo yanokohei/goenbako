@@ -1,7 +1,7 @@
 module Api
   class OauthsController < ApplicationController
     def oauth
-      login_at(params[:provider])
+      login_at(auth_params[:provider])
     end
 
     def callback
@@ -10,7 +10,7 @@ module Api
         redirect_to root_path, notice: 'ログインをキャンセルしました。'
         return
       end
-      if @user = login_from(provider)
+      if (@user = login_from(provider))
         redirect_to me_home_path, notice: "#{provider.titleize}ログインしました。"
       else
         begin
