@@ -68,7 +68,7 @@
 
 | トップページ | ご縁箱ページ | レター詳細ページ |
 | :---: | :---: | :---: |
-| <img width="100%" src="https://user-images.githubusercontent.com/78721963/155514886-d3bc1c7b-e400-40b1-bf39-e34d05144b72.png"> | <img width="750" src="https://user-images.githubusercontent.com/78721963/155518897-7e1d7003-8659-4106-8e3b-2db9668fec76.gif"> | <img width="730" src="https://user-images.githubusercontent.com/78721963/155519820-5c63e14e-fb12-451b-960e-eda264137fd7.gif"> |
+| <img width="100%" src="https://user-images.githubusercontent.com/78721963/155514886-d3bc1c7b-e400-40b1-bf39-e34d05144b72.png"> | <img width="750" src="https://user-images.githubusercontent.com/78721963/155518897-7e1d7003-8659-4106-8e3b-2db9668fec76.gif"> | <img width="730" src="https://user-images.githubusercontent.com/78721963/155947303-7459bb9e-2b94-43b7-ab60-940440a84ba1.gif"> |
 | Twitter認証、使い方 | プロフィールとレターの公開（誰でも閲覧可） | Twitterからの遷移限定の詳細ページ（誰でも閲覧可） |
 
 <br>
