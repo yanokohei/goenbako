@@ -1,6 +1,6 @@
 module Api
   class TwitterDataController < ApplicationController
-    before_action :require_login
+    before_action :require_login, only: :update
 
     def update
       client = Twitter::REST::Client.new do |config|
