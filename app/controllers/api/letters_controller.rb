@@ -3,15 +3,15 @@ module Api
     before_action :set_letter, only: [:update, :destroy]
 
     def create
-      @letter = current_user.letters.build(letter_params)
-      receiver = User.find_by(id: @letter.receiver_id)
-      if @letter.save
-        render json: @letter
+      letter = current_user.letters.build(letter_params)
+      receiver = User.find_by(id: letter.receiver_id)
+      if letter.save
+        render json: letter
         if receiver.email.present?
           UserMailer.new_letter(letter_params).deliver_later
         end
       else
-        render json: @letter.errors, status: :bad_request
+        render json: letter.errors, status: :bad_request
       end
     end
 
