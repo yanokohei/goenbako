@@ -3,10 +3,8 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
 
   has_many :authentications, dependent: :destroy
-  has_many :letters, foreign_key: :sender_id, dependent: :destroy
-  has_many :sent_letters, through: :letters, source: :receiver
-  has_many :receivers, class_name: 'Letter', foreign_key: :receiver_id, dependent: :destroy
-  has_many :received_letters, through: :receivers, source: :sender
+  has_many :letters, foreign_key: :sender_id, dependent: :destroy, inverse_of: 'sender'
+  has_many :receivers, class_name: 'Letter', foreign_key: :receiver_id, dependent: :destroy, inverse_of: 'receiver'
 
   accepts_nested_attributes_for :authentications
 

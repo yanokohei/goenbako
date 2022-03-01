@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :share_images
-    resources :authentications
     resources :letters
     resources :users
 
