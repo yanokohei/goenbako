@@ -1,6 +1,6 @@
 module Api
   class UsersController < ApplicationController
-  before_action :require_login, only: :destroy
+    before_action :require_login, only: :destroy
 
     def sent_letters
       user = User.find_by!(twitter_id: params[:twitter_id])

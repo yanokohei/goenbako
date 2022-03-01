@@ -1,6 +1,6 @@
 module Api
   class UserSessionsController < ApplicationController
-  before_action :require_login, only: :destroy
+    before_action :require_login, only: :destroy
 
     def destroy
       logout

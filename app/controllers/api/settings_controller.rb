@@ -1,6 +1,6 @@
 module Api
   class SettingsController < ApplicationController
-  before_action :require_login, only: %i[update destroy]
+    before_action :require_login, only: [:update, :destroy]
 
     def update
       current_user.assign_attributes(user_params)
