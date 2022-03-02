@@ -156,8 +156,8 @@ eslint ・・・ リントチェック
 ### インフラ
 - heroku
 - Amazon S3
-- ActionMailer
-- Twitter API
+- PostgreSQL
+
 <br>
 
 ## ER図
