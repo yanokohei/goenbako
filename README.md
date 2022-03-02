@@ -136,9 +136,9 @@ administrate ・・・ 管理画面
 
 vue-router ・・・ SPA構築のルーティング
 
-vuex　・・・ 状態管理 ログイン、フラッシュ、初心者のためのヘルプボックス表示に使用
+vuex　・・・・・・ 状態管理 ログイン、フラッシュ、初心者のためのヘルプボックス表示に使用
 
-vuex-persistedstate （ログインユーザの状態をcookieに保持する
+vuex-persistedstate ・・・ ログインユーザの状態をcookieに保持する
 
 js-cookie ・・・ cookieに保存したstateを操作する際に使用
 
