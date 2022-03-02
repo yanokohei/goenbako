@@ -108,17 +108,17 @@
 <br>
 
 <details>
-<summary>Gem</summary>sorcery (Twitterの認証周り)
+<summary>Gem</summary>sorcery ・・・ Twitterの認証周り
 
-carrierwave (受け取ったレターのアップロードのために使用)
+carrierwave ・・・ 受け取ったレターのアップロードのために使用
 
-meta-tags (複数のmetaタグ設定を最適化に使用)
+meta-tags ・・・ 複数のmetaタグ設定を最適化に使用
 
-twitter (Twitterプロフを再取得する機能実装に使用)
+twitter ・・・ Twitterプロフを再取得する機能実装に使用
 
-rubocop （Railsのコード最適化）
+rubocop ・・・ Railsのコード最適化
 
-administrate （管理画面）
+administrate ・・・ 管理画面
 
 </details>
 
@@ -132,23 +132,23 @@ administrate （管理画面）
 <br>
 
 <details>
-<summary>ライブラリ</summary>vuetify （CSSフレームワーク・Vue.jsを使う決め手となった）
+<summary>ライブラリ</summary>vuetify ・・・　CSSフレームワーク・Vue.jsを使う決め手となった
 
-vue-router （SPA構築のルーティング）
+vue-router ・・・ SPA構築のルーティング
 
-vuex　（状態管理 ログイン、フラッシュ、初心者のためのヘルプボックス表示に使用）
+vuex　・・・ 状態管理 ログイン、フラッシュ、初心者のためのヘルプボックス表示に使用
 
-vuex-persistedstate （ログインユーザの状態をcookieに保持する）
+vuex-persistedstate （ログインユーザの状態をcookieに保持する
 
-js-cookie （cookieに保存したstateを操作する際に使用）
+js-cookie ・・・ cookieに保存したstateを操作する際に使用
 
-axios （リクエストを投げてサーバとデータの取得や送信のやり取りを行う）
+axios ・・・ リクエストを投げてサーバとデータの取得や送信のやり取りを行う
+  
+vee-validate ・・・ E-mailの入力フォームに使用
 
-vee-validate （E-mailの入力フォームに使用）
+vue-gtag ・・・ Googleアナリティクスの設定
 
-vue-gtag （Googleアナリティクスの設定）
-
-eslint （リントチェック）
+eslint ・・・ リントチェック
 </details>
 
 <br>
