@@ -2,6 +2,7 @@
   "name": "goenbako",
   "private": true,
   "dependencies": {
+    "@mdi/js": "^6.5.95",
     "@mdi/font": "^6.2.95",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
@@ -23,7 +24,6 @@
   },
   "version": "0.1.0",
   "devDependencies": {
-    "@mdi/js": "^6.5.95",
     "eslint": "^8.0.1",
     "eslint-plugin-vue": "^7.19.1",
     "webpack-dev-server": "^3.11.0"
