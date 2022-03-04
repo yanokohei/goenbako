@@ -21,7 +21,7 @@
     >
       <span>Home</span>
 
-      <v-icon>mdi-home</v-icon>
+      <v-icon>{{ svgPath.mdiHome }}</v-icon>
     </v-btn>
 
     <v-btn
@@ -31,7 +31,7 @@
     >
       <span>Random</span>
 
-      <v-icon>mdi-paw</v-icon>
+      <v-icon>{{ svgPath.mdiPaw }}</v-icon>
     </v-btn>
 
     <v-btn
@@ -39,7 +39,7 @@
     >
       <span>Search</span>
 
-      <v-icon>mdi-account-search-outline</v-icon>
+      <v-icon>{{ svgPath.mdiAccountSearchOutline }}</v-icon>
     </v-btn>
     <v-menu
       v-if="currentUser"
@@ -58,7 +58,7 @@
         >
           <span>Menu</span>
 
-          <v-icon>mdi-menu</v-icon>
+          <v-icon>{{ svgPath.mdiMenu }}</v-icon>
         </v-btn>
       </template>
       <v-list class="s-font nowrap" v-if="currentUser.role === 'admin'">
@@ -67,7 +67,7 @@
           small
           text
         >
-          <v-icon>mdi-account-star</v-icon>
+          <v-icon>{{ svgPath.mdiAccountStar }}</v-icon>
           <span class="pl-1">管理画面</span>
         </v-list-item>
       </v-list>
@@ -77,7 +77,7 @@
           small
           text
         >
-          <v-icon>mdi-cog</v-icon>
+          <v-icon>{{ svgPath.mdiCog }}</v-icon>
           <span class="pl-1">設定</span>
         </v-list-item>
       </v-list>
@@ -89,7 +89,7 @@
           text
           @click="logoutUser"
         >
-          <v-icon>mdi-logout</v-icon>
+          <v-icon>{{ svgPath.mdiLogout }}</v-icon>
           ログアウト
         </v-list-item>
       </v-list>
@@ -108,6 +108,7 @@ import Cookies from 'js-cookie';
 import axios from "axios";
 import TheUserSearchModal from "./TheUserSearchModal";
 import { mapGetters } from "vuex"
+import { mdiHome, mdiPaw, mdiAccountSearchOutline, mdiMenu, mdiAccountStar, mdiCog, mdiLogout } from '@mdi/js'
 
 export default {
   name: "TheBottomNavigation",
@@ -116,6 +117,15 @@ export default {
   },
   data() {
     return{
+      svgPath: {
+        mdiHome,
+        mdiPaw,
+        mdiAccountSearchOutline,
+        mdiMenu,
+        mdiAccountStar,
+        mdiCog,
+        mdiLogout
+      },
       random_id: '',
       isVisibleUserSearchModal: false,
       isRandomButton: false

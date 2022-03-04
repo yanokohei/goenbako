@@ -14,7 +14,7 @@
         large
         @click="openShareLinkModal"
       >
-        <v-icon>mdi-twitter</v-icon>
+        <v-icon>{{ svgPath.mdiTwitter }}</v-icon>
         <span class="m-font white--text ml-2">Myご縁箱をシェアする</span>
       </v-btn>
     </v-row>
@@ -46,6 +46,7 @@ import ProfileCard from "../components/ProfileCard";
 import ShareLinkModal from "../components/ShareLinkModal";
 import LetterListTab from "../components/LetterListTab";
 import TheHelpboxModal from "../components/shared/TheHelpboxModal";
+import { mdiTwitter } from '@mdi/js'
 
 export default {
   name: "Mypage",
@@ -57,6 +58,9 @@ export default {
   },
   data() {
     return {
+      svgPath: {
+        mdiTwitter,
+      },
       user: {},
       receivedLetters: [],
       sentLetters: [],

@@ -7,7 +7,7 @@
   >
     <v-card color="amber lighten-5" min-height="500">
       <v-card-title>
-        <v-icon>mdi-email-edit-outline</v-icon>
+        <v-icon>{{ svgPath.mdiEmailEditOutline }}</v-icon>
         <span class="m-font">ファンレター作成</span>
       </v-card-title>
       <v-divider />
@@ -37,7 +37,7 @@
                     x-small
                     @click="addShowTextarea(index)"
                   >
-                    <v-icon>mdi-pencil</v-icon>
+                    <v-icon>{{ svgPath.mdiPencil }}</v-icon>
                     書いてみる
                   </v-btn>
                 </v-card-actions>
@@ -90,6 +90,7 @@
 <script>
 import axios from "axios";
 import { mapGetters } from "vuex";
+import { mdiEmailEditOutline, mdiPencil } from '@mdi/js'
 
 export default {
   name: "CreateLetterModal",
@@ -105,6 +106,10 @@ export default {
   },
   data() {
     return {
+      svgPath: {
+        mdiEmailEditOutline,
+        mdiPencil
+      },
       letter: {
         sender_id: "",
         receiver_id: "",

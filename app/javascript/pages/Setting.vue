@@ -45,7 +45,7 @@
                 :disabled="invalid"
                 @click="handleUpdateEmail"
               >
-                <v-icon>mdi-check</v-icon>
+                <v-icon>{{ svgPath.mdiCheck }}</v-icon>
                 <span class="m-font white--text ml-2">設定を保存する</span>
               </v-btn>
               <v-btn
@@ -119,6 +119,7 @@
 import axios from "axios";
 import { mapGetters } from "vuex";
 import ProfileCard from "../components/ProfileCard";
+import { mdiCheck } from '@mdi/js'
 
 export default {
   name: "Setting",
@@ -127,6 +128,9 @@ export default {
   },
   data () {
     return {
+      svgPath: {
+        mdiCheck
+      },
       checkbox: false
     }
   },

@@ -32,7 +32,7 @@
           small
           @click="twitterShare()"
         >
-          <v-icon>mdi-twitter</v-icon>
+          <v-icon>{{ svgPath.mdiTwitter }}</v-icon>
           ツイートで共有する
         </v-btn>
       </v-col>
@@ -44,7 +44,7 @@
           @click.prevent="copyLink"
           @click="snackbar = true"
         >
-          <v-icon>mdi-content-copy</v-icon>
+          <v-icon>{{ svgPath.mdiContentCopy }}</v-icon>
           URLをコピーする
         </v-btn>
         <v-snackbar
@@ -61,7 +61,7 @@
               v-bind="attrs"
               @click="snackbar = false"
             >
-              <v-icon>mdi-close</v-icon>
+              <v-icon>{{ svgPath.mdiClose }}</v-icon>
             </v-btn>
           </template>
         </v-snackbar>
@@ -103,6 +103,7 @@
 <script>
 import axios from "axios";
 import { mapGetters } from "vuex"
+import { mdiTwitter, mdiContentCopy, mdiClose } from '@mdi/js'
 
 export default {
   name: "ShareLinkModal",
@@ -114,6 +115,11 @@ export default {
   },
   data() {
     return {
+      svgPath: {
+        mdiTwitter,
+        mdiContentCopy,
+        mdiClose
+      },
       snackbar: false,
     };
   },

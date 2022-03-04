@@ -21,7 +21,7 @@
         x-small
         @click="openHelpboxModal"
       >
-        <v-icon>mdi-help-box</v-icon>
+        <v-icon>{{ svgPath.mdiHelpBox }}</v-icon>
       </v-btn>
       <transition name="fade">
         <TheHelpboxModal
@@ -36,6 +36,7 @@
 <script>
 import { mapGetters } from "vuex"
 import TheHelpboxModal from "./TheHelpboxModal";
+import { mdiHelpBox } from '@mdi/js'
 
 export default {
   name: "TheHeader",
@@ -44,6 +45,9 @@ export default {
   },
   data() {
     return{
+      svgPath: {
+        mdiHelpBox
+      },
       isVisibleHelpboxModal: false,
     }
   },

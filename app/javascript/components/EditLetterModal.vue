@@ -7,7 +7,7 @@
   >
     <v-card color="amber lighten-5">
       <v-card-title>
-        <v-icon>mdi-email-edit-outline</v-icon>
+        <v-icon>{{ svgPath.mdiEmailEditOutline }}</v-icon>
         <span class="m-font">レターの更新</span>
       </v-card-title>
       <v-divider />
@@ -77,6 +77,7 @@
 <script>
 import axios from "axios";
 import { mapGetters } from "vuex";
+import { mdiEmailEditOutline } from '@mdi/js'
 
 export default {
   name: "EditLetterModal",
@@ -110,6 +111,9 @@ export default {
         future: this.updateLetter.future,
         expect: this.updateLetter.expect,
         message: this.updateLetter.message
+      },
+      svgPath: {
+        mdiEmailEditOutline
       },
       rules: [v => v.length <= 100 || '100文字以内で入力してください。'],
     }

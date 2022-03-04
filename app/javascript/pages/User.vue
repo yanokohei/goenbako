@@ -17,7 +17,7 @@
         @click="openCreateLetterModal"
       >
         <v-icon left>
-          mdi-plus
+          {{ svgPath.mdiPlus }}
         </v-icon>
         ファンレターを書く
       </v-btn>
@@ -51,6 +51,7 @@ import UserProfileCard from "../components/UserProfileCard";
 import CreateLetterModal from "../components/CreateLetterModal";
 import LetterListTab from "../components/LetterListTab";
 import TheLoginGuidanceModal from "../components/shared/TheLoginGuidanceModal";
+import { mdiPlus } from '@mdi/js'
 
 export default {
   name: "User",
@@ -75,6 +76,9 @@ export default {
 
   data() {
     return {
+      svgPath: {
+        mdiPlus
+      },
       user: {},
       notExistUserPage: false,
       receivedLetters: [],

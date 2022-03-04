@@ -45,7 +45,7 @@
             style="text-transform: none"
             href="/api/oauth/twitter"
           >
-            <v-icon>mdi-twitter</v-icon>
+            <v-icon>{{ svgPath.mdiTwitter }}</v-icon>
             Twitter認証してすぐに始める
           </v-btn>
         </v-col>
@@ -66,6 +66,7 @@
 </template>
 
 <script>
+import { mdiTwitter } from '@mdi/js'
 
 export default {
   name: "TheLoginGuidanceModal",
@@ -77,7 +78,9 @@ export default {
   },
   data() {
     return {
-
+      svgPath: {
+        mdiTwitter
+      },
     };
   },
   methods: {

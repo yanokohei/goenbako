@@ -11,7 +11,7 @@
         class="button-position s-font"
         :to="{ name: 'Setting' }"
       >
-        <v-icon size="15">mdi-cog</v-icon>
+        <v-icon size="15">{{ svgPath.mdiCog }}</v-icon>
         <span class="ml-1">設定</span>
       </v-btn>
       <v-btn
@@ -22,7 +22,7 @@
         color="deep-purple lighten-3"
         :to="{ name: 'Mypage' }"
       >
-        <v-icon size="15">mdi-home</v-icon>
+        <v-icon size="15">{{ svgPath.mdiHome }}</v-icon>
         <span class="ml-1">戻る</span>
       </v-btn>
       <v-list-item-avatar size="60" class="avatar-position">
@@ -39,7 +39,7 @@
             color="blue"
             @click="moveTwitterUserPage()"
           >
-            <v-icon>mdi-twitter</v-icon>
+            <v-icon>{{ svgPath.mdiTwitter }}</v-icon>
           </v-btn>
         </v-card-subtitle>
         <v-card-text class="xs-font px-4 pb-3">
@@ -52,9 +52,19 @@
 
 <script>
 import { mapGetters } from "vuex"
+import { mdiCog, mdiHome, mdiTwitter } from '@mdi/js'
 
 export default {
   name: "ProfileCard",
+  data() {
+    return {
+      svgPath: {
+        mdiCog,
+        mdiTwitter,
+        mdiHome
+      },
+    }
+  },
   computed: {
     ...mapGetters({ currentUser: "users/currentUser" }),
   },

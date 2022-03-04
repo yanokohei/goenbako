@@ -15,7 +15,7 @@
             <div class="flex mb-4 mr-5" align="center">
               <v-img max-width="70" class="tranceparent" src="/img/goenbako_reversible.jpg" />
               <p class="s-font mt-6 pl-3 pr-3" align="center"><v-img width="30" height="5" src="/img/to_right.svg" /></p>
-              <v-icon size="30" color="blue">mdi-twitter</v-icon>
+              <v-icon size="30" color="blue">{{ svgPath.mdiTwitter }}</v-icon>
             </div>
             <v-progress-linear
               indeterminate
@@ -29,6 +29,8 @@
   </div>
 </template>
 <script>
+import { mdiTwitter } from '@mdi/js'
+
   export default {
   props: {
     dialog: {
@@ -36,6 +38,13 @@
       required: true,
     }
   },
+  data() {
+    return {
+      svgPath: {
+        mdiTwitter
+      },
+    }
+  }
 }
 </script>
 <style scoped>

@@ -7,7 +7,7 @@
     <v-card color="amber lighten-5">
       <v-card-title>
         <span class="m-font">レターをシェアする</span>
-        <v-icon>mdi-email-edit-outline</v-icon>
+        <v-icon>{{ svgPath.mdiEmailEditOutline}}</v-icon>
       </v-card-title>
       <div align="center">
         <v-img
@@ -39,7 +39,7 @@
                 x-small
                 @click="loadSvgToPng()"
               >
-                <v-icon>mdi-sync</v-icon>
+                <v-icon>{{ svgPath.mdiSync }}</v-icon>
                 CanvasLoad
               </v-btn>
             </v-card-actions>
@@ -53,7 +53,7 @@
               @click="shareTwitterAfterSvgToPngAndUpload(letterTitle); dialog = true"
             >
               <v-icon size="18">
-                mdi-twitter
+                {{ svgPath.mdiTwitter }}
               </v-icon>
               シェアする
             </v-btn>
@@ -200,6 +200,7 @@ import axios from "axios";
 import { mapGetters } from "vuex"
 import SvgStyle from '../components/SvgStyle';
 import ShareLetterLoading from '../components/ShareLetterLoading';
+import { mdiEmailEditOutline, mdiSync, mdiTwitter } from '@mdi/js'
 
 const createCanvasFromSvgAndConversionPngUrl = (svgElement, urlCallback) => {
   const canvas = document.createElement("canvas");
@@ -233,6 +234,11 @@ export default {
   },
   data() {
     return {
+      svgPath: {
+        mdiEmailEditOutline,
+        mdiSync,
+        mdiTwitter
+      },
       shareImage: {
         letter_id: "",
         topic: "",
