@@ -22,6 +22,6 @@ class User < ApplicationRecord
     end
 
     def modify_user_name
-      name.gsub!(/\||%|<|>/, "_")
+      name.gsub!(/\||%|<|>/, "｜")
     end
 end
