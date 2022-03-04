@@ -7,7 +7,7 @@
     <v-card color="amber lighten-5">
       <v-card-title>
         <span class="m-font">レターをシェアする</span>
-        <v-icon>{{ svgPath.mdiEmailEditOutline}}</v-icon>
+        <v-icon>{{ svgPath.mdiEmailEditOutline }}</v-icon>
       </v-card-title>
       <div align="center">
         <v-img

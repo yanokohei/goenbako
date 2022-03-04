@@ -124,7 +124,6 @@ export default {
       ShowTextarea: [],
       rules: [v => v.length <= 100 || '100文字以内で入力してください。'],
     }
-
   },
   computed: {
     ...mapGetters("users", ["currentUser"]),
