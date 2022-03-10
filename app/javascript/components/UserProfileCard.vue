@@ -25,7 +25,7 @@
             color="blue"
             @click="moveTwitterUserPage()"
           >
-            <v-icon>mdi-twitter</v-icon>
+            <v-icon>{{ svgPath.mdiTwitter }}</v-icon>
           </v-btn>
         </v-card-subtitle>
         <v-card-text class="xs-font px-4 pb-3">
@@ -38,6 +38,7 @@
 
 <script>
 import { mapGetters } from "vuex"
+import { mdiTwitter } from '@mdi/js'
 
 export default {
   name: "UserProfileCard",
@@ -47,8 +48,15 @@ export default {
       required: true
     },
   },
+  data() {
+    return {
+      svgPath: {
+        mdiTwitter
+      }
+    }
+  },
   methods: {
-     moveTwitterUserPage() {
+    moveTwitterUserPage() {
       window.open(`https://twitter.com/${this.user.twitter_id}`, '_blank')
     }
   },

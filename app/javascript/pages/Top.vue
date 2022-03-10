@@ -33,7 +33,7 @@
         style="text-transform: none"
         href="/api/oauth/twitter"
       >
-        <v-icon>mdi-twitter</v-icon>
+        <v-icon>{{ svgPath.mdiTwitter }}</v-icon>
         <span class="m-font white--text ml-2">Twitter認証して始める</span>
       </v-btn>
       <p class="xs-font mt-2">
@@ -57,7 +57,7 @@
         style="text-transform: none"
         :to="{ name: 'Mypage' }"
       >
-        <v-icon>mdi-home</v-icon>
+        <v-icon>{{ svgPath.mdiHome }}</v-icon>
         <span class="m-font ml-2">マイページに戻る</span>
       </v-btn>
     </v-col>
@@ -76,7 +76,7 @@
       >
         <v-card-title class="pl-2 pa-1 pb-3 nowrap">
           <v-icon color="blue">
-            mdi-help-box
+            {{ svgPath.mdiHelpBox }}
           </v-icon>
           <span class="s-font">ご縁箱の使い方
           </span>
@@ -171,7 +171,7 @@
           color="blue"
           href="https://twitter.com/goenbako"
         >
-          <v-icon>mdi-twitter</v-icon>
+          <v-icon>{{ svgPath.mdiTwitter }}</v-icon>
         </v-btn>
       </v-card-actions>
     </v-card>
@@ -190,6 +190,7 @@
 import { mapGetters } from "vuex"
 import TheTerms from "../components/static/TheTerms";
 import ThePrivacyPolicy from "../components/static/ThePrivacyPolicy";
+import { mdiHome, mdiTwitter, mdiHelpBox } from '@mdi/js'
 
 export default {
   name: "Top",
@@ -199,11 +200,16 @@ export default {
   },
   data() {
     return {
+      svgPath: {
+        mdiHome,
+        mdiHelpBox,
+        mdiTwitter,
+      },
       isVisibleTermsModal: false,
       isVisiblePrivacyPolicyModal: false,
       rule_images: [
         {
-          src: "/img/rules/rule__0.jpg"
+          src: "/img/rules/rule_0.jpg"
         },
         {
           src: "/img/rules/rule_1.jpg"

@@ -15,7 +15,7 @@
       @click="inviteTweetReply()"
     >
       <v-icon color="blue">
-        mdi-twitter
+        {{ svgPath.mdiTwitter }}
       </v-icon>
       リクエストしてみる
     </v-btn>
@@ -30,6 +30,7 @@
 
 <script>
 import { mapGetters } from "vuex"
+import { mdiTwitter } from '@mdi/js'
 
 export default {
   name: "ShareLinkModal",
@@ -40,6 +41,9 @@ export default {
   },
   data() {
     return {
+      svgPath: {
+        mdiTwitter
+      },
       snackbar: false,
     };
   },

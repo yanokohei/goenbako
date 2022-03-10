@@ -32,7 +32,7 @@
                 color="blue"
                 @click="moveTwitterUserPage()"
               >
-                <v-icon>mdi-twitter</v-icon>
+                <v-icon>{{ svgPath.mdiTwitter }}</v-icon>
               </v-btn>
             </v-list-item-subtitle>
           </v-list-item-content>
@@ -81,7 +81,7 @@
             small
             @click="openEditLetterModal"
           >
-            <v-icon>mdi-pencil</v-icon>
+            <v-icon>{{ svgPath.mdiPencil }}</v-icon>
             編集
           </v-btn>
           <v-btn
@@ -90,7 +90,7 @@
             small
             @click="hundleDeleteLetter(sentLetter)"
           >
-            <v-icon> mdi-delete </v-icon>
+            <v-icon>{{ svgPath.mdiDelete }}</v-icon>
           </v-btn>
         </v-row>
       </v-card>
@@ -113,6 +113,7 @@ import axios from "axios";
 import { mapGetters } from "vuex";
 import LetterItem from '../components/LetterItem';
 import EditLetterModal from "../components/EditLetterModal";
+import { mdiTwitter, mdiPencil, mdiDelete } from '@mdi/js'
 
 export default {
   components: {
@@ -131,6 +132,11 @@ export default {
   },
   data() {
     return {
+      svgPath: {
+        mdiTwitter,
+        mdiPencil,
+        mdiDelete
+      },
       isVisibleEditLetterModal: false,
       letter_case: "sent_case"
     }

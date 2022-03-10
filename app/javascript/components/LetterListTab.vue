@@ -48,6 +48,8 @@
 <script>
 import ReceivedLetterList from './ReceivedLetterList';
 import SentLetterList from './SentLetterList';
+import { mdiEmailOpenMultipleOutline, mdiEmailEditOutline } from '@mdi/js'
+
 
 export default {
   name: "LetterListTab",
@@ -71,6 +73,10 @@ export default {
   },
   data() {
     return {
+      svgPath: {
+        mdiEmailOpenMultipleOutline,
+        mdiEmailEditOutline
+      },
       moveTab: "",
     }
   },
@@ -84,8 +90,8 @@ export default {
 
     tabItems() {
       return [
-        { tabId: 0, tabName: '受け取ったレター', content: 'ReceivedLetterList', countLetter: this.countReceivedLetter, icon: 'mdi-email-open-multiple-outline' },
-        { tabId: 1, tabName: '送ったレター', content: 'SentLetterList', countLetter: this.countSentLetter, icon: 'mdi-email-edit-outline' }
+        { tabId: 0, tabName: '受け取ったレター', content: 'ReceivedLetterList', countLetter: this.countReceivedLetter, icon: this.svgPath.mdiEmailOpenMultipleOutline },
+        { tabId: 1, tabName: '送ったレター', content: 'SentLetterList', countLetter: this.countSentLetter, icon: this.svgPath.mdiEmailEditOutline }
       ]
     }
   },

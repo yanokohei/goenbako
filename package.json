@@ -2,6 +2,7 @@
   "name": "goenbako",
   "private": true,
   "dependencies": {
+    "@mdi/js": "^6.5.95",
     "@mdi/font": "^6.2.95",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",

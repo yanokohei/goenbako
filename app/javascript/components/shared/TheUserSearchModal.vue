@@ -29,7 +29,7 @@
             small
             @click="searchUser"
           >
-            <v-icon>mdi-magnify</v-icon>検索
+            <v-icon>{{ svgPath.mdiMagnify }}</v-icon>検索
           </v-btn>
         </v-card-actions>
       </v-card-text>
@@ -85,6 +85,7 @@
 import axios from "axios";
 import { mapGetters } from "vuex"
 import TheInviteUser from "./TheInviteUser";
+import { mdiMagnify } from '@mdi/js'
 
 export default {
   name: "TheUserSearchModal",
@@ -99,6 +100,9 @@ export default {
   },
   data() {
     return {
+      svgPath: {
+        mdiMagnify
+      },
       searchID: "",
       result: "",
       beforeUserSearch: true,

@@ -81,7 +81,7 @@
             href="https://twitter.com/goenbako"
             style="text-transform: none"
           >
-            <v-icon>mdi-twitter</v-icon>(@goenbako)
+            <v-icon>{{ svgPath.mdiTwitter }}</v-icon>(@goenbako)
           </v-btn>
         </div>
       </v-card-text>
@@ -95,6 +95,8 @@
 </template>
 
 <script>
+import { mdiTwitter } from '@mdi/js'
+
 export default {
   props: {
     isVisiblePrivacyPolicyModal: {
@@ -102,6 +104,13 @@ export default {
       required: true,
       default: false,
     },
+  },
+  data() {
+    return {
+      svgPath: {
+        mdiTwitter
+      }
+    }
   },
   methods: {
     hundleClosePrivacyPolicyModal() {

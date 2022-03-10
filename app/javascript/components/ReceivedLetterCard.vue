@@ -30,7 +30,7 @@
                 color="blue"
                 @click="moveTwitterUserPage()"
               >
-                <v-icon>mdi-twitter</v-icon>
+                <v-icon>{{ svgPath.mdiTwitter }}</v-icon>
               </v-btn>
             </v-list-item-subtitle>
           </v-list-item-content>
@@ -50,7 +50,7 @@
             small
             @click="openShareLetterModal"
           >
-            <v-icon>mdi-twitter</v-icon>
+            <v-icon>{{ svgPath.mdiTwitter }}</v-icon>
             シェア
           </v-btn>
           <v-btn
@@ -60,7 +60,7 @@
             small
             @click="hundleDeleteLetter(receivedLetter)"
           >
-            <v-icon> mdi-delete </v-icon>
+            <v-icon>{{ svgPath.mdiDelete }}</v-icon>
           </v-btn>
         </v-row>
       </v-card>
@@ -81,6 +81,7 @@ import axios from "axios";
 import { mapGetters } from "vuex"
 import LetterItem from '../components/LetterItem';
 import ShareLetterModal from "./ShareLetterModal";
+import { mdiTwitter, mdiDelete } from '@mdi/js'
 
 export default {
   name: "LetterListReceived",
@@ -100,6 +101,10 @@ export default {
   },
   data() {
     return {
+      svgPath: {
+        mdiTwitter,
+        mdiDelete
+      },
       isVisibleShareLetterModal: false,
     };
   },

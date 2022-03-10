@@ -4,13 +4,14 @@
       color="deep-purple lighten-5"
       @click="handleShowTextarea"
     >
-      <v-icon>mdi-pencil</v-icon>
+      <v-icon>{{ svgPath.mdiPencil }}</v-icon>
       書いてみる
     </v-btn>
   </v-card-actions>
 </template>
 
 <script>
+import { mdiPencil } from '@mdi/js'
 
 export default {
   name: "ShowTextareaButton",
@@ -23,6 +24,13 @@ export default {
       type: Boolean,
       required: true,
     },
+  },
+  data() {
+    return {
+      svgPath: {
+        mdiPencil
+      }
+    }
   },
   methods: {
     handleShowTextarea() {

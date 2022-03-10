@@ -39,7 +39,7 @@
                 color="blue"
                 :href="`https://twitter.com/${letterData.receiver.twitter_id}`"
               >
-                <v-icon>mdi-twitter</v-icon>
+                <v-icon>{{ svgPath.mdiTwitter }}</v-icon>
               </v-btn>
             </v-list-item-subtitle>
           </v-list-item-content>
@@ -97,7 +97,7 @@
                 color="blue"
                 :href="`https://twitter.com/${letterData.sender.twitter_id}`"
               >
-                <v-icon>mdi-twitter</v-icon>
+                <v-icon>{{ svgPath.mdiTwitter }}</v-icon>
               </v-btn>
             </v-list-item-subtitle>
           </v-list-item-content>
@@ -172,6 +172,7 @@
 import axios from "axios";
 import { mapGetters } from "vuex"
 import LetterItem from '../components/LetterItem';
+import { mdiTwitter } from '@mdi/js'
 
 export default {
   name: "ShowLetter",
@@ -180,6 +181,9 @@ export default {
   },
   data() {
     return {
+      svgPath: {
+        mdiTwitter
+      },
       user: {},
       letterData: [],
       loadData: false

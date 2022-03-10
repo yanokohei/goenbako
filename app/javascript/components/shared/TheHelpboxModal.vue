@@ -11,7 +11,7 @@
     >
       <v-card-title class="pl-4 pa-1 nowrap">
         <v-icon color="blue">
-          mdi-help-box
+          {{ svgPath.mdiHelpBox }}
         </v-icon>
         <span class="m-font"> ご縁箱の使い方
           ({{ stepCount }}/6)
@@ -111,6 +111,7 @@
 </template>
 
 <script>
+import { mdiHelpBox } from '@mdi/js'
 
 export default {
   name: "TheHelpboxModal",
@@ -122,6 +123,9 @@ export default {
   },
   data() {
     return {
+      svgPath: {
+        mdiHelpBox
+      },
       stepCount: 1
     };
   },

@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  before_save :modify_avatar_url
+  before_save :modify_avatar_url, :modify_user_name
   authenticates_with_sorcery!
 
   has_many :authentications, dependent: :destroy
@@ -19,5 +19,9 @@ class User < ApplicationRecord
 
     def modify_avatar_url
       image&.sub!(/_normal(.jpg|.jpeg|.gif|.png)/i) { Regexp.last_match[1] }
+    end
+
+    def modify_user_name
+      name.gsub!(/\||%|<|>/, "｜")
     end
 end
