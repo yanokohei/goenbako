@@ -149,7 +149,7 @@ export default {
     hundleRandomButton() {
       this.$router.push({ name: 'User', params: { twitter_id: this.random_id }});
       this.isRandomButton = true
-      setTimeout(() => (this.isRandomButton = false), 700)
+      setTimeout(() => (this.isRandomButton = false), 300)
     },
     logoutUser() {
       this.$store.commit('setCurrentUser', { user: null })
