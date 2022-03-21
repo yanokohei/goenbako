@@ -100,6 +100,7 @@
         >
           <v-btn
             color="red lighten-4"
+            name="card-next-button"
             @click="nextStepCount"
           >
             NEXT

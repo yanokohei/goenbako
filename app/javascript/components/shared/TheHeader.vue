@@ -19,6 +19,7 @@
         text
         color="blue"
         x-small
+        name="help-box"
         @click="openHelpboxModal"
       >
         <v-icon>{{ svgPath.mdiHelpBox }}</v-icon>
