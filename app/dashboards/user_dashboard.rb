@@ -10,8 +10,6 @@ class UserDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     authentications: Field::HasMany,
     letters: Field::HasMany,
-    sent_letters: Field::HasMany,
-    receivers: Field::HasMany,
     received_letters: Field::HasMany,
     id: Field::Number,
     twitter_id: Field::String,
@@ -33,7 +31,7 @@ class UserDashboard < Administrate::BaseDashboard
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = [:authentications, :letters, :sent_letters, :receivers, :received_letters, :id, :twitter_id, :name, :image, :introduce,
+  SHOW_PAGE_ATTRIBUTES = [:authentications, :letters, :received_letters, :id, :twitter_id, :name, :image, :introduce,
                           :role, :created_at, :updated_at, :email].freeze
 
   # FORM_ATTRIBUTES
