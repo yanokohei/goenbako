@@ -36,6 +36,7 @@ gem 'twitter'
 gem 'administrate'
 gem 'pundit'
 gem 'serviceworker-rails'
+gem 'jb'
 
 group :development, :test do
   gem 'pry-byebug', '3.9.0'
