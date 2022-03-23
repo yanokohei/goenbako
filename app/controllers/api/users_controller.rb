@@ -4,28 +4,15 @@ module Api
 
     def sent_letters
       user = User.find_by!(twitter_id: params[:twitter_id])
-      sent_letters = user.letters.order(created_at: :desc)
-      sent_letters = sent_letters.map do |letter|
-        {
-          letter: letter,
-          sender: letter.sender,
-          receiver: letter.receiver
-        }
-      end
-      render json: sent_letters
+      @sent_letters = user.letters.order(created_at: :desc)
+      render 'jb/sent_letters.json.jb'
+
     end
 
     def received_letters
       user = User.find_by!(twitter_id: params[:twitter_id])
-      received_letters = user.receivers.order(created_at: :desc)
-      received_letters = received_letters.map do |letter|
-        {
-          letter: letter,
-          sender: letter.sender,
-          receiver: letter.receiver
-        }
-      end
-      render json: received_letters
+      @received_letters = user.received_letters.order(created_at: :desc)
+      render 'jb/received_letters.json.jb'
     end
 
     def show

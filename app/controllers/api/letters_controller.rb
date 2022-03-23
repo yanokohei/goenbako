@@ -41,7 +41,7 @@ module Api
       letter = if params[:sent_case]
                  current_user.letters.find(params[:id])
                else
-                 current_user.receivers.find(params[:id])
+                 current_user.received_letters.find(params[:id])
                end
       letter.destroy!
       render json: letter
@@ -50,7 +50,7 @@ module Api
     private
 
       def set_letter
-        @letter = current_user.letters.find_by(id: params[:id]) || current_user.receivers.find_by(id: params[:id])
+        @letter = current_user.letters.find_by(id: params[:id]) || current_user.received_letters.find_by(id: params[:id])
       end
 
       def letter_params

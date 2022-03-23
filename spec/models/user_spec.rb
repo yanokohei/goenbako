@@ -18,8 +18,8 @@ RSpec.describe User, type: :model do
       is_expected.to have_many(:letters).dependent(:destroy)
     end
 
-    it 'has_many :receivers, destroy' do
-      is_expected.to have_many(:receivers).dependent(:destroy)
+    it 'has_many :received_letters, destroy' do
+      is_expected.to have_many(:received_letters).dependent(:destroy)
     end
   end
 

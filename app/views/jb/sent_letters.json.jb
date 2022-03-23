@@ -1,0 +1,7 @@
+@sent_letters.map do |letter|
+  {
+    letter: letter,
+    sender: letter.sender,
+    receiver: letter.receiver
+  }
+end
