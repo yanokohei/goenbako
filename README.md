@@ -66,7 +66,8 @@
 ## 機能紹介
 ![image](https://user-images.githubusercontent.com/78721963/155685673-158df3bc-4f66-4e53-a89a-8c92f5a9579d.png)
 
-**▼ 以下のリンクから実際のTwitterでの使われ方を閲覧することが出来ます**
+**▼ 以下のリンクから実際のTwitterでの使われ方を閲覧することが出来ます**  
+
 °˖✧[#goenbako_letters](https://twitter.com/search?q=%23goenbako_letters&src=typed_query&f=live) 、 [#みんなのご縁箱](https://twitter.com/search?q=%23%E3%81%BF%E3%82%93%E3%81%AA%E3%81%AE%E3%81%94%E7%B8%81%E7%AE%B1&src=typed_query&f=live)✧˖°
 
 ### メインページ
