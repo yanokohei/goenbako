@@ -174,8 +174,8 @@ eslint ・・・ リントチェック
 
 <img src="https://img.shields.io/badge/-Qiita-55C500.svg?logo=&style=flat-square">[【個人開発】Twitterで映える！ファンレターを交換・シェアして楽しめるサービス『ご縁箱』をリリースしました✧˖°。](https://qiita.com/o83184206/items/dcab2743fea236f0aa67)
 
-**画面遷移図**  
-https://www.figma.com/file/aspjl8enPL89nlwO1gUDVz/%E3%81%94%E7%B8%81%E7%AE%B1-MVP%E7%89%88?node-id=0%3A1
+#### [画面遷移図](https://www.figma.com/file/aspjl8enPL89nlwO1gUDVz/%E3%81%94%E7%B8%81%E7%AE%B1-MVP%E7%89%88?node-id=0%3A1
+)
 
 #### 2022/3/22 現在
 - #### 総PV数・・・25,000回を突破
