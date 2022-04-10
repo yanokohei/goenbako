@@ -114,17 +114,23 @@
 <br>
 
 <details>
-<summary>Gem</summary>sorcery ・・・ Twitterの認証周り
+<summary>Gem</summary>sorcery ・・・ Twitterの認証に使用
 
-carrierwave ・・・ 受け取ったレターのアップロードのために使用
+config  ・・・ Twitter認証後のコールバックURLの環境毎の定数管理に使用
+  
+carrierwave ・・・ 受け取ったレターのアップロードするために使用
+  
+fog-aws ・・・ 受け取ったレターの画像をS3にアップロードするために使用
 
 meta-tags ・・・ 複数のmetaタグ設定を最適化に使用
 
 twitter ・・・ Twitterプロフを再取得する機能実装に使用
 
-rubocop ・・・ Railsのコード最適化
+rubocop ・・・ Railsのコード最適化に使用
 
-administrate ・・・ 管理画面
+administrate ・・・ 管理画面の構築に使用
+  
+jb 　    　　・・・ JSONのシリアライズに使用
 
 </details>
 
@@ -138,23 +144,23 @@ administrate ・・・ 管理画面
 <br>
 
 <details>
-<summary>ライブラリ</summary>vuetify ・・・　CSSフレームワーク・Vue.jsを使う決め手となった
+<summary>ライブラリ</summary>vuetify ・・・　CSSフレームワーク。ご縁箱のUI/UX向上に適したコンポーネントがドキュメントに多数あり使用
 
-vue-router ・・・ SPA構築のルーティング
+vue-router ・・・ SPA構築でルーティングを制御するために使用
 
 vuex　・・・・・・ 状態管理 ログイン、フラッシュ、初心者のためのヘルプボックス表示に使用
 
-vuex-persistedstate ・・・ ログインユーザの状態をcookieに保持する
+vuex-persistedstate ・・・ ログインユーザーのstateをcookieに保持するために使用
 
 js-cookie ・・・ cookieに保存したstateを操作する際に使用
 
-axios ・・・ リクエストを投げてサーバとデータの取得や送信のやり取りを行う
+axios ・・・ リクエストを投げてサーバとデータの取得や送信のやり取りを行うために使用
 
 vee-validate ・・・ E-mailの入力フォームに使用
 
-vue-gtag ・・・ Googleアナリティクスの設定
+vue-gtag ・・・ Googleアナリティクスの設定に使用
 
-eslint ・・・ リントチェック
+eslint ・・・ リントチェックに使用
 </details>
 
 <br>
@@ -176,7 +182,6 @@ eslint ・・・ リントチェック
 
 #### [画面遷移図](https://www.figma.com/file/aspjl8enPL89nlwO1gUDVz/%E3%81%94%E7%B8%81%E7%AE%B1-MVP%E7%89%88?node-id=0%3A1)
 
-#### 2022/3/22 現在
-- #### 総PV数・・・25,000回を突破
-- #### UU数・・・・900人を突破
-- #### 会員数 ・・・130人を突破
+#### 2022/4/10 現在
+- #### 総PV数・・・26,500回を突破
+- #### UU数・・・・1050人を突破
