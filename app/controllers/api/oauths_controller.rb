@@ -29,6 +29,7 @@ module Api
 
       def fetch_user_data_from(provider)
         user_from_provider = build_from(provider)
+        user = User.find_or_initialize_by(twitter_id: user_from_provider.twitter_id)
         user = user_from_provider if user.new_record?
         user.build_authentication(uid: @user_hash[:uid],
                                   provider: provider,
