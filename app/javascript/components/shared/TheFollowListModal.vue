@@ -2,6 +2,7 @@
   <v-dialog
     v-model="isVisibleFollowListModal"
     persistent
+    scrollable
     max-width="400"
     @click:outside="handleCloseModal"
   >
@@ -16,23 +17,20 @@
         style="height: 380px"
       >
         <div v-for="(friend, index) in followingMembers" :key="index">
-          <v-card flat color="#f1f1f1" rounded="xl" class="my-1">
+          <v-card flat color="transparent" rounded="xl" class="my-1">
             <v-card-title class="mt-0 pt-0 pb-2">
-              <router-link
-                :to="{
-                  name: 'User',
-                  params: { twitter_id: friend.twitter_id },
-                }"
+              <v-list-item-avatar
+                class="pa-0 mr-2 ml-1"
+                size="45"
+                @click="moveFriendPage(friend.twitter_id)"
               >
-                <v-list-item-avatar class="pa-0 mr-2 ml-1" size="45">
-                  <img
-                    :src="
-                      'https://pbs.twimg.com' +
-                      friend.image.path.replace('_normal', '')
-                    "
-                  />
-                </v-list-item-avatar>
-              </router-link>
+                <img
+                  :src="
+                    'https://pbs.twimg.com' +
+                    friend.image.path.replace('_normal', '')
+                  "
+                />
+              </v-list-item-avatar>
               <v-list-item-content class="pa-0">
                 <v-list-item-title class="s-font">
                   {{ friend.name }}
@@ -45,7 +43,7 @@
           </v-card>
         </div>
       </v-card-text>
-      <div class="pa-0 mt-3" align="center">
+      <div class="pa-0 mt-3 pb-4" align="center">
         <v-btn small @click="handleCloseModal"> 閉じる </v-btn>
       </div>
     </v-card>
@@ -87,6 +85,10 @@ export default {
   methods: {
     handleCloseModal() {
       this.$emit("close-follow-list-modal");
+    },
+    moveFriendPage(twitter_id) {
+      this.$router.push({ name: "User", params: { twitter_id: twitter_id } });
+      this.handleCloseModal();
     },
   },
 };
