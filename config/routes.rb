@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     delete 'logout', to: 'user_sessions#destroy'
     get 'random', to: 'visits#random'
     get 'search', to: 'searches#user_search'
+    get 'twitter_follow_list', to: 'twitter_follow_list#index'
     resources :users, param: :twitter_id, only: [:index, :edit, :update, :show, :destroy] do
       collection do
         get 'me'

@@ -1,0 +1,7 @@
+@following_members.map! do |member|
+  {
+    name: member.name,
+    twitter_id: member.screen_name,
+    image: member.profile_image_url,
+  }
+end

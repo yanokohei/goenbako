@@ -2,11 +2,11 @@ class User < ApplicationRecord
   before_save :modify_avatar_url, :modify_user_name
   authenticates_with_sorcery!
 
-  has_many :authentications, dependent: :destroy
+  has_one :authentication, dependent: :destroy
   has_many :letters, foreign_key: :sender_id, dependent: :destroy, inverse_of: 'sender'
   has_many :received_letters, class_name: 'Letter', foreign_key: :receiver_id, dependent: :destroy, inverse_of: 'receiver'
 
-  accepts_nested_attributes_for :authentications
+  accepts_nested_attributes_for :authentication
 
   enum role: { general: 1, admin: 10 }
 
