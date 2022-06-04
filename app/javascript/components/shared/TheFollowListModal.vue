@@ -1,31 +1,50 @@
 <template>
   <v-dialog
     v-model="isVisibleFollowListModal"
-    max-width="315"
+    persistent
+    max-width="400"
     @click:outside="handleCloseModal"
   >
-    <v-card color="amber lighten-5" height="380" max-width="400">
-      <h3 class="ml-4">フォローリスト</h3>
+    <v-card color="amber lighten-5" min-height="500">
+      <v-card-title>
+        <v-icon>{{ svgPath.mdiAccountMultiple }}</v-icon>
+        <span class="m-font">フォローリスト</span>
+      </v-card-title>
       <v-divider />
-      <v-btn small @click="fetchFollowList()"> 取得 </v-btn>
-      <!-- <v-card-text class="mt-4 mb-0 pb-0">
-        <v-text-field
-          v-model="searchID"
-          background-color="#FFFFF0"
-          label="TwitterID検索"
-          persistent-hint
-          outlined
-          dense
-          placeholder="@を省略して入力してください"
-          class="ma-0 mb-0 pb-0"
-        />
-        <v-card-actions class="justify-center pt-0 pb-1">
-          <v-btn small @click="searchUser">
-            <v-icon>{{ svgPath.mdiMagnify }}</v-icon
-            >検索
-          </v-btn>
-        </v-card-actions>
-      </v-card-text> -->
+      <v-card-text
+        class="pa-0 show-scrollbar following-list-wrap"
+        style="height: 380px"
+      >
+        <div v-for="(friend, index) in followingMembers" :key="index">
+          <v-card flat color="#f1f1f1" rounded="xl" class="my-1">
+            <v-card-title class="mt-0 pt-0 pb-2">
+              <router-link
+                :to="{
+                  name: 'User',
+                  params: { twitter_id: friend.twitter_id },
+                }"
+              >
+                <v-list-item-avatar class="pa-0 mr-2 ml-1" size="45">
+                  <img
+                    :src="
+                      'https://pbs.twimg.com' +
+                      friend.image.path.replace('_normal', '')
+                    "
+                  />
+                </v-list-item-avatar>
+              </router-link>
+              <v-list-item-content class="pa-0">
+                <v-list-item-title class="s-font">
+                  {{ friend.name }}
+                </v-list-item-title>
+                <v-list-item-subtitle>
+                  @{{ friend.twitter_id }}
+                </v-list-item-subtitle>
+              </v-list-item-content>
+            </v-card-title>
+          </v-card>
+        </div>
+      </v-card-text>
       <div class="pa-0 mt-3" align="center">
         <v-btn small @click="handleCloseModal"> 閉じる </v-btn>
       </div>
@@ -36,7 +55,7 @@
 <script>
 import axios from "axios";
 import { mapGetters } from "vuex";
-import { mdiMagnify } from "@mdi/js";
+import { mdiMagnify, mdiTwitter, mdiAccountMultiple } from "@mdi/js";
 
 export default {
   name: "TheFollowListModal",
@@ -46,11 +65,17 @@ export default {
       type: Boolean,
       required: true,
     },
+    followingMembers: {
+      type: Array,
+      required: true,
+    },
   },
   data() {
     return {
       svgPath: {
         mdiMagnify,
+        mdiTwitter,
+        mdiAccountMultiple,
       },
       searchID: "",
       result: "",
@@ -62,12 +87,6 @@ export default {
   methods: {
     handleCloseModal() {
       this.$emit("close-follow-list-modal");
-    },
-    fetchFollowList() {
-      axios
-        .get("/api/twitter_follow_list")
-        .then((res) => console.log(res.data))
-        .catch((error) => console.log(error));
     },
   },
 };
@@ -100,5 +119,10 @@ export default {
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 2s;
+}
+.following-list-wrap {
+  margin: 0 auto;
+  width: 95%;
+  display: block;
 }
 </style>
