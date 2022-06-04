@@ -128,58 +128,6 @@ export default {
       isVisibleFollowListModal: false,
       isRandomButton: false,
       followingMembers: [],
-      dammy: [
-        {
-          name: "YANO1",
-          twitter_id: "yano_1",
-          image: "https://goenbako.com/img/MAIN_OGP.jpg",
-        },
-        {
-          name: "YANO12",
-          twitter_id: "yano_12",
-          image: "https://goenbako.com/img/MAIN_OGP.jpg",
-        },
-        {
-          name: "YANO13",
-          twitter_id: "yano_13",
-          image: "https://goenbako.com/img/MAIN_OGP.jpg",
-        },
-        {
-          name: "YANO14",
-          twitter_id: "yano_14",
-          image: "https://goenbako.com/img/MAIN_OGP.jpg",
-        },
-        {
-          name: "YANO15",
-          twitter_id: "yano_15",
-          image: "https://goenbako.com/img/MAIN_OGP.jpg",
-        },
-        {
-          name: "YANO16",
-          twitter_id: "yano_16",
-          image: "https://goenbako.com/img/MAIN_OGP.jpg",
-        },
-        {
-          name: "YANO17",
-          twitter_id: "yano_17",
-          image: "https://goenbako.com/img/MAIN_OGP.jpg",
-        },
-        {
-          name: "YANO18",
-          twitter_id: "yano_18",
-          image: "https://goenbako.com/img/MAIN_OGP.jpg",
-        },
-        {
-          name: "YANO19",
-          twitter_id: "yano_19",
-          image: "https://goenbako.com/img/MAIN_OGP.jpg",
-        },
-        {
-          name: "YANO20",
-          twitter_id: "yano_20",
-          image: "https://goenbako.com/img/MAIN_OGP.jpg",
-        },
-      ],
     };
   },
   computed: {
