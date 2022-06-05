@@ -16,6 +16,9 @@
         class="pa-0 show-scrollbar following-list-wrap"
         style="height: 380px"
       >
+        <div v-if="membersZero" class="s-font mt-4">
+          フォローしているご縁箱ユーザーが見つかりませんでした。
+        </div>
         <div v-for="(friend, index) in followingMembers" :key="index">
           <v-card flat color="transparent" rounded="xl" class="my-1">
             <v-card-title class="mt-0 pt-0 pb-2">
@@ -46,6 +49,7 @@
       <div class="pa-0 mt-3 pb-4" align="center">
         <v-btn small @click="handleCloseModal"> 閉じる </v-btn>
       </div>
+      <TheLoading :loading-state="loadingState" v-if="!loadingState" />
     </v-card>
   </v-dialog>
 </template>
@@ -54,10 +58,13 @@
 import axios from "axios";
 import { mapGetters } from "vuex";
 import { mdiMagnify, mdiTwitter, mdiAccountMultiple } from "@mdi/js";
+import TheLoading from "./TheLoading";
 
 export default {
   name: "TheFollowListModal",
-  components: {},
+  components: {
+    TheLoading,
+  },
   props: {
     isVisibleFollowListModal: {
       type: Boolean,
@@ -65,6 +72,14 @@ export default {
     },
     followingMembers: {
       type: Array,
+      required: true,
+    },
+    loadingState: {
+      type: String,
+      required: true,
+    },
+    membersZero: {
+      type: Boolean,
       required: true,
     },
   },
@@ -85,10 +100,6 @@ export default {
   methods: {
     handleCloseModal() {
       this.$emit("close-follow-list-modal");
-    },
-    moveFriendPage(twitter_id) {
-      this.$router.push({ name: "User", params: { twitter_id: twitter_id } });
-      this.handleCloseModal();
     },
   },
 };
