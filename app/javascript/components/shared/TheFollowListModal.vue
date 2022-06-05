@@ -122,6 +122,10 @@ export default {
     handleCloseModal() {
       this.$emit("close-follow-list-modal");
     },
+    moveFriendPage(twitter_id) {
+      this.$router.push({ name: "User", params: { twitter_id: twitter_id } });
+      this.handleCloseModal();
+    },
   },
 };
 </script>
