@@ -83,6 +83,8 @@
         :following-members="followingMembers"
         :is-visible-follow-list-modal="isVisibleFollowListModal"
         @close-follow-list-modal="handleCloseFollowListModal"
+        :loading-state="loadingState"
+        :members-zero="membersZero"
       />
     </transition>
   </v-row>
@@ -128,6 +130,8 @@ export default {
       isVisibleFollowListModal: false,
       isRandomButton: false,
       followingMembers: [],
+      loadingState: "",
+      membersZero: false,
     };
   },
   computed: {
@@ -182,16 +186,25 @@ export default {
     },
     fetchFollowList() {
       if (this.fetchedFollowingMembers) {
+        this.loadingState = "finished";
         this.followingMembers = this.fetchedFollowingMembers;
         return;
       }
       axios
         .get("/api/twitter_follow_list")
         .then((res) => {
-          this.followingMembers = res.data;
-          this.$store.commit("following_members/setFollowingMembers", res.data);
+          res.data.length == 0
+            ? (this.membersZero = true)
+            : (this.followingMembers = res.data);
+          this.$store.commit(
+            "following_members/setFollowingMembers",
+            this.followingMembers
+          );
         })
-        .catch((error) => console.log(error));
+        .catch((error) =>
+          alert("フォロー数の取得上限を超えている可能性があります。")
+        )
+        .finally(() => (this.loadingState = "finished"));
     },
   },
 };
