@@ -3,7 +3,7 @@ module Api
     before_action :require_login, only: :update
 
     def index
-      followings = twitter_client.friends(current_user.twitter_id)
+      followings = twitter_client.friends(current_user.twitter_id).take(500)
       users = User.pluck(:twitter_id)
       current_user.letters
       @following_members = followings.select {|following| users.include?(following.screen_name)}
