@@ -9,15 +9,30 @@
     <v-card color="amber lighten-5" min-height="500">
       <v-card-title>
         <v-icon>{{ svgPath.mdiAccountMultiple }}</v-icon>
-        <span class="m-font">フォローリスト</span>
+        <span class="my-2 ml-2 m-font nowrap"> フォローリスト</span>
       </v-card-title>
-      <v-divider />
+      <div align="center">
+        <v-img
+          max-width="380"
+          height="5"
+          class="tranceparent"
+          src="/img/en_line_top.svg"
+        />
+      </div>
       <v-card-text
         class="pa-0 show-scrollbar following-list-wrap"
         style="height: 380px"
       >
+        <div v-if="membersZero" class="s-font mt-4">
+          フォローしているご縁箱ユーザーが見つかりませんでした。
+        </div>
         <div v-for="(friend, index) in followingMembers" :key="index">
-          <v-card flat color="transparent" rounded="xl" class="my-1">
+          <v-card
+            flat
+            color="transparent"
+            rounded="xl"
+            class="my-1 friend-wrap"
+          >
             <v-card-title class="mt-0 pt-0 pb-2">
               <v-list-item-avatar
                 class="pa-0 mr-2 ml-1"
@@ -40,12 +55,22 @@
                 </v-list-item-subtitle>
               </v-list-item-content>
             </v-card-title>
+            <div class="friend-divider mx-auto"><v-divider /></div>
           </v-card>
         </div>
       </v-card-text>
-      <div class="pa-0 mt-3 pb-4" align="center">
-        <v-btn small @click="handleCloseModal"> 閉じる </v-btn>
+      <div align="center" class="py-2">
+        <v-img
+          max-width="310"
+          height="5"
+          class="tranceparent mb-1"
+          src="/img/en_line_under.svg"
+        />
+        <div class="pa-0 mt-3 pb-4" align="center">
+          <v-btn small @click="handleCloseModal"> 閉じる </v-btn>
+        </div>
       </div>
+      <TheLoading :loading-state="loadingState" v-if="!loadingState" />
     </v-card>
   </v-dialog>
 </template>
@@ -54,10 +79,13 @@
 import axios from "axios";
 import { mapGetters } from "vuex";
 import { mdiMagnify, mdiTwitter, mdiAccountMultiple } from "@mdi/js";
+import TheLoading from "./TheLoading";
 
 export default {
   name: "TheFollowListModal",
-  components: {},
+  components: {
+    TheLoading,
+  },
   props: {
     isVisibleFollowListModal: {
       type: Boolean,
@@ -65,6 +93,14 @@ export default {
     },
     followingMembers: {
       type: Array,
+      required: true,
+    },
+    loadingState: {
+      type: String,
+      required: true,
+    },
+    membersZero: {
+      type: Boolean,
       required: true,
     },
   },
@@ -107,6 +143,12 @@ export default {
   line-height: 1.5;
   color: #2c281e;
 }
+.m-font {
+  font-size: 0.9em;
+  font-weight: bold;
+  line-height: 1;
+  color: #2c281e;
+}
 .modal {
   display: block;
 }
@@ -126,5 +168,11 @@ export default {
   margin: 0 auto;
   width: 95%;
   display: block;
+}
+.friend-divider {
+  width: 90%;
+}
+.tranceparent {
+  mix-blend-mode: multiply;
 }
 </style>
