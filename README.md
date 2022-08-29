@@ -74,7 +74,7 @@
 
 | トップページ | ご縁箱ページ | レター詳細ページ |
 | :---: | :---: | :---: |
-| <img width="100%" src="https://user-images.githubusercontent.com/78721963/155514886-d3bc1c7b-e400-40b1-bf39-e34d05144b72.png"> | <img width="750" src="https://user-images.githubusercontent.com/78721963/155518897-7e1d7003-8659-4106-8e3b-2db9668fec76.gif"> | <img width="730" src="https://user-images.githubusercontent.com/78721963/155947303-7459bb9e-2b94-43b7-ab60-940440a84ba1.gif"> |
+| <img width="400" src="https://user-images.githubusercontent.com/78721963/155514886-d3bc1c7b-e400-40b1-bf39-e34d05144b72.png"> | <img width="250" src="https://user-images.githubusercontent.com/78721963/155518897-7e1d7003-8659-4106-8e3b-2db9668fec76.gif"> | <img width="250" src="https://user-images.githubusercontent.com/78721963/155947303-7459bb9e-2b94-43b7-ab60-940440a84ba1.gif"> |
 | Twitter認証、使い方 | プロフィールとレターの公開（誰でも閲覧可） | Twitterからの遷移限定の詳細ページ（誰でも閲覧可） |
 
 <br>
@@ -83,7 +83,7 @@
 
 | レターを書く | ご縁箱の共有 | レターの共有 |
 | :---: | :---: | :---: |
-| <img width="750" src="https://user-images.githubusercontent.com/78721963/155521812-eee2f94f-34ae-4220-8d25-4b33b64a930f.gif"> | <img width="750" src="https://user-images.githubusercontent.com/78721963/155523586-221ba855-b1e0-4d4c-8907-26dd0379aba1.png"> | <img width="730" src="https://user-images.githubusercontent.com/78721963/155607165-b03eb08d-29eb-4334-9c3a-6d743537d5c4.gif"> |
+| <img width="300" src="https://user-images.githubusercontent.com/78721963/155521812-eee2f94f-34ae-4220-8d25-4b33b64a930f.gif"> | <img width="400" src="https://user-images.githubusercontent.com/78721963/155523586-221ba855-b1e0-4d4c-8907-26dd0379aba1.png"> | <img width="300" src="https://user-images.githubusercontent.com/78721963/155607165-b03eb08d-29eb-4334-9c3a-6d743537d5c4.gif"> |
 | ５つの話題を自由に選んで書くことが出来る | 自分のご縁箱ページをシェア | 受け取ったレターを選んでシェア |
 
 <br>
@@ -101,7 +101,7 @@
 
 | ランダム訪問 | ユーザー検索 | 設定画面 |
 | :---: | :---: | :---: |
-| <img width="760" src="https://user-images.githubusercontent.com/78721963/153412733-60cf4bce-845d-4e88-862f-a17af925ecd6.gif"> | <img width="750" src="https://user-images.githubusercontent.com/78721963/155651314-5292d82a-3618-42af-a2ca-18b1903c5713.png"> | <img width="750" src="https://user-images.githubusercontent.com/78721963/155473003-da991f0a-6156-4a6c-8fd2-a129f3ebf36c.png"> |
+| <img width="300" src="https://user-images.githubusercontent.com/78721963/153412733-60cf4bce-845d-4e88-862f-a17af925ecd6.gif"> | <img width="400" src="https://user-images.githubusercontent.com/78721963/155651314-5292d82a-3618-42af-a2ca-18b1903c5713.png"> | <img width="400" src="https://user-images.githubusercontent.com/78721963/155473003-da991f0a-6156-4a6c-8fd2-a129f3ebf36c.png"> |
 | ご縁箱ページをランダムに訪問出来る（誰でも閲覧可） | TwitterIDで検索。失敗時に開設リクエスト案内(任意) | メール通知設定、Twitterアカウント情報の再取得 |
 
 <br>
@@ -185,3 +185,16 @@ eslint ・・・ リントチェックに使用
 #### 2022/4/10 現在
 - #### 総PV数・・・26,500回を突破
 - #### UU数・・・・1050人を突破
+
+## BATTLE OF RUNTEQ
+プログラミングスクールRUNTEQ内にて、予選審査を勝ち抜いたRUNTEQ受講生・修了生がポートフォリオ（自身で開発したサービス）を発表して競い合うイベント『BATTLE OF RUNTEQ』で
+最優秀賞・オーディエンス賞を受賞(リアルタイム観戦者数: 約200名)
+
+#### 動画URL
+https://youtu.be/5aKI900iGVo
+
+(31:00~) スライド資料を用いた5分間のプレゼン及び審査員による質疑応答<br>
+(1:29:15~)より審査結果発表、サービスの評価コメントをいただいております。
+
+#### 公式ページ
+https://battleof.runteq.jp/
